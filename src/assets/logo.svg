@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="752.51575pt"
+   height="256pt"
+   viewBox="0 0 752.51575 256"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.92.3 (unknown)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/chapo/Tek3/cpp/CPP_babel_2018/src/assets/logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <link
+     type="text/css"
+     id="dark-mode"
+     rel="stylesheet"
+     href="" />
+  <style
+     type="text/css"
+     id="dark-mode-custom-style" />
+  <svg:metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </svg:metadata>
+  <svg:defs
+     id="defs14" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview12"
+     showgrid="false"
+     inkscape:zoom="1.0429825"
+     inkscape:cx="560.76841"
+     inkscape:cy="64.804983"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <svg:path
+     d="m 496.51574,0 h 256 v 256 h -256 z"
+     id="path4"
+     style="fill:none"
+     inkscape:connector-curvature="0" />
+  <svg:path
+     style="fill:#f04c00;fill-opacity:1;stroke-width:1.33333337"
+     d="M 903.08398 13.365234 C 887.52393 13.172119 871.91211 16.96875 858.38086 24.8125 C 825.83419 19.1725 791.42086 24.532708 762.38086 40.359375 C 729.96753 57.772708 704.51349 87.67987 692.66016 122.5332 C 684.51349 146.11987 682.62133 171.76065 686.86133 196.33398 C 676.43466 214.66732 672.82021 236.73406 677.04688 257.41406 C 681.51354 280.2274 695.57987 300.90661 715.0332 313.61328 C 741.96654 331.71995 778.96815 332.74586 807.02148 316.50586 C 838.26148 321.87919 871.20794 317.22745 899.47461 302.80078 C 932.32794 286.29411 958.52651 257.09362 971.33984 222.62695 C 980.61984 198.00029 982.95435 170.90633 978.54102 144.98633 C 989.19435 126.33299 992.64628 103.78745 988.09961 82.800781 C 983.59294 61.360781 970.62083 41.880313 952.6875 29.320312 C 938.28708 18.929062 920.71872 13.584098 903.08398 13.365234 z M 786.33203 82.660156 L 874.00977 82.660156 C 895.33015 82.660156 905.39062 92.709197 905.39062 116.23633 L 905.39062 225.53906 C 905.39062 249.06619 895.33015 259.11328 874.00977 259.11328 L 783.69727 259.11328 C 767.16792 259.11328 759.74219 250.78106 759.74219 238.52734 C 759.74219 226.27363 767.16792 217.94141 783.69727 217.94141 L 850.29297 217.94141 L 850.29297 189.75781 L 799.0293 189.75781 C 782.50004 189.75781 775.07227 181.42559 775.07227 169.17188 C 775.07227 156.91816 782.50004 148.58594 799.0293 148.58594 L 850.29297 148.58594 L 850.29297 123.83203 L 786.33203 123.83203 C 769.80271 123.83203 762.37695 115.49981 762.37695 103.24609 C 762.37695 90.99238 769.80271 82.660156 786.33203 82.660156 z "
+     transform="scale(0.75)"
+     id="path6" />
+  <svg:g
+     aria-label="E"
+     transform="matrix(-4.491655,0,0,4.5951427,1038.2999,-348.68157)"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f04c00;fill-opacity:1;stroke:none"
+     id="flowRoot971" />
+  <svg:flowRoot
+     xml:space="preserve"
+     id="flowRoot827"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f04c00;fill-opacity:1;stroke:none"
+     transform="matrix(0.74999998,0,0,0.74999998,-316.17626,-26.055579)"><svg:flowRegion
+       id="flowRegion829"
+       style="fill:#f04c00;fill-opacity:1"><svg:rect
+         id="rect831"
+         width="762.71185"
+         height="311.86441"
+         x="399.32202"
+         y="76.248589"
+         style="fill:#f04c00;fill-opacity:1" /></svg:flowRegion><svg:flowPara
+       id="flowPara833"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:226.66667175px;font-family:Nexa;-inkscape-font-specification:Nexa;fill:#f04c00;fill-opacity:1">Epyks</svg:flowPara></svg:flowRoot></svg:svg>
