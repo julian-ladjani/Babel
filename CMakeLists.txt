@@ -3,12 +3,8 @@ project(CPP_babel_2018)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(CMAKE_CXX_STANDARD 11)
 
-if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    conan_basic_setup()
-else()
-    message(WARNING "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
-endif()
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 set(COMMON
         src/common/User.cpp
@@ -37,5 +33,5 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5Widgets CONFIG REQUIRED)
+find_package(Qt5Widgets REQUIRED)
 target_link_libraries(babel_client Qt5::Widgets)

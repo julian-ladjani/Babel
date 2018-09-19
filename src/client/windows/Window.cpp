@@ -8,7 +8,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
-#include "QApplication"
+#include <QtWidgets/QApplication>
 #include "Window.hpp"
 
 babel::client::MainWindow::MainWindow()
