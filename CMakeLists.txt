@@ -4,6 +4,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(CMAKE_CXX_STANDARD 11)
 
 set(COMMON
+        src/common/User.cpp
+        src/common/User.hpp
+        src/common/ConnectionInfos.hpp
+        src/common/ConnectionInfos.cpp
         )
 
 set(CLIENT
