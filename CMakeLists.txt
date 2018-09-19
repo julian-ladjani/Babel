@@ -3,6 +3,13 @@ project(CPP_babel_2018)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(CMAKE_CXX_STANDARD 11)
 
+if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+else()
+    message(WARNING "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
+endif()
+
 set(COMMON
         src/common/User.cpp
         src/common/User.hpp
@@ -15,7 +22,7 @@ set(CLIENT
         src/client/windows/Window.hpp
         src/client/ClientInfos.hpp
         src/client/ClientInfos.cpp
-        )
+        src/common/AudioManager.cpp src/common/AudioManager.hpp)
 
 set(SERVER
         )
