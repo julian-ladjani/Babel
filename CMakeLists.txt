@@ -13,6 +13,8 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
+        src/client/ClientInfos.hpp
+        src/client/ClientInfos.cpp
         )
 
 set(SERVER
