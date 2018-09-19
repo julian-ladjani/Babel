@@ -14,7 +14,6 @@ BUILD_DIR_REL	=	cmake-build-release
 
 CMAKE		=	cmake
 MKDIR		=	mkdir
-CONAN		=	conan
 RM		=	rm -rf
 
 all: $(SERVER) $(CLIENT)
@@ -26,7 +25,6 @@ client: $(CLIENT)
 cmake-gen:
 	$(MKDIR) $(BUILD_DIR)
 	cd $(BUILD_DIR) && \
-	$(CONAN) install .. --build=missing && \
 	$(CMAKE) -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) $(SRC_DIR)
 
 $(BUILD_DIR_DBG):
