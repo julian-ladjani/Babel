@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5)
 project(CPP_babel_2018)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(CMAKE_CXX_STANDARD 11)
@@ -13,6 +13,8 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
+	src/client/Components/Button.cpp
+        src/client/Components/Button.hpp
         src/client/ClientInfos.hpp
         src/client/ClientInfos.cpp
         src/common/AudioManager.cpp src/common/AudioManager.hpp)

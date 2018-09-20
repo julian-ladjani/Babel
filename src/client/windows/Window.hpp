@@ -9,6 +9,9 @@
 #define CPP_BABEL_2018_WINDOW_HPP
 
 #include <QtWidgets/QMainWindow>
+#include "../Components/Button.hpp"
+#include <QtWidgets/QGridLayout>
+
 
 namespace babel {
 	namespace client {

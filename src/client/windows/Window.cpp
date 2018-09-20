@@ -4,11 +4,9 @@
 // File description:
 // Window.cpp
 //
-
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QApplication>
+#include "QApplication"
 #include "Window.hpp"
 
 babel::client::MainWindow::MainWindow()
@@ -27,7 +25,9 @@ babel::client::MainWindow::MainWindow()
 	label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	QHBoxLayout *layout = new QHBoxLayout;
 	layout->addWidget(label);
-
+	Button *button = new Button("src/assets/call.png");
+	button->setEnabled(true);
+	layout->addWidget(button);
 	setLayout(layout);
 	show();
 }
