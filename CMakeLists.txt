@@ -43,7 +43,7 @@ find_package(Qt5Network REQUIRED)
 
 target_link_libraries(babel_client Qt5::Widgets Qt5::Network pthread portaudio)
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    target_link_libraries(jack asound)
+    target_link_libraries(babel_client jack asound)
 endif()
 
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf "[Paths]\nPrefix = ")
