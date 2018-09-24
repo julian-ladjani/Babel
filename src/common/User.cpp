@@ -8,7 +8,7 @@
 #include "User.hpp"
 
 babel::common::User::User(std::string login, int id, bool connected) :
-	_login(login), _id(id), _connected(connected), _connectionInfos()
+	_login(login), _id(id), _connected(connected), _connectionInfo()
 {}
 
 const std::string &babel::common::User::getLogin() const
@@ -41,14 +41,14 @@ void babel::common::User::setConnected(bool connected)
 	_connected = connected;
 }
 
-const babel::common::ConnectionInfos &
-babel::common::User::getConnectionInfos() const
+const babel::common::ConnectionInfo &
+babel::common::User::getConnectionInfo() const
 {
-	return _connectionInfos;
+	return _connectionInfo;
 }
 
-void babel::common::User::setConnectionInfos(
-	const babel::common::ConnectionInfos &connectionInfos)
+void babel::common::User::setConnectionInfo(
+	const babel::common::ConnectionInfo &connectionInfos)
 {
-	_connectionInfos = connectionInfos;
+	_connectionInfo = connectionInfos;
 }

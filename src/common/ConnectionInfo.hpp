@@ -12,9 +12,9 @@
 
 namespace babel {
 	namespace common {
-		class ConnectionInfos {
+		class ConnectionInfo {
 		public:
-			explicit ConnectionInfos(unsigned short port = 0,
+			explicit ConnectionInfo(unsigned short port = 0,
 						 std::array<unsigned char, 4> ip
 						 = {0, 0, 0, 0});
 			unsigned short getPort() const;
