@@ -11,8 +11,8 @@ conan_basic_setup(KEEP_RPATHS)
 set(COMMON
         src/common/User.cpp
         src/common/User.hpp
-        src/common/ConnectionInfos.hpp
-        src/common/ConnectionInfos.cpp
+        src/common/ConnectionInfo.hpp
+        src/common/ConnectionInfo.cpp
         )
 
 set(CLIENT
@@ -20,8 +20,8 @@ set(CLIENT
         src/client/windows/Window.hpp
 		src/client/Components/Button.cpp
         src/client/Components/Button.hpp
-        src/client/ClientInfos.hpp
-        src/client/ClientInfos.cpp
+        src/client/ClientInfo.hpp
+        src/client/ClientInfo.cpp
 		src/client/sound/AudioManager.cpp
 		src/client/sound/AudioManager.hpp)
 
@@ -39,7 +39,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5Widgets REQUIRED)
-target_link_libraries(babel_client Qt5::Widgets portaudio)
+find_package(Qt5Network REQUIRED)
+target_link_libraries(babel_client Qt5::Widgets Qt5::Network portaudio)
 
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf "[Paths]\nPrefix = ")
 file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf ${CONAN_QT_ROOT})

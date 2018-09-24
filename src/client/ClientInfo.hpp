@@ -14,14 +14,14 @@
 
 namespace babel {
 	namespace client {
-		class ClientInfos {
+		class ClientInfo {
 		public:
-			ClientInfos();
-			const common::User &getClientInfos() const;
-			void setClientInfos(const common::User &clientInfos);
-			const common::ConnectionInfos &getServerInfos() const;
-			void setServerInfos(
-				const common::ConnectionInfos &serverInfos);
+			ClientInfo();
+			const common::User &getClientInfo() const;
+			void setClientInfo(const common::User &clientInfo);
+			const common::ConnectionInfo &getServerInfo() const;
+			void setServerInfo(
+				const common::ConnectionInfo &serverInfo);
 			const std::vector<common::User> &getContacts() const;
 			void setContacts(
 				const std::vector<common::User> &contacts);
@@ -29,8 +29,8 @@ namespace babel {
 			void removeContact(common::User user);
 
 		private:
-			common::User _clientInfos;
-			common::ConnectionInfos _serverInfos;
+			common::User _clientInfo;
+			common::ConnectionInfo _serverInfo;
 			std::vector<common::User> _contacts;
 		};
 	}
