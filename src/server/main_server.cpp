@@ -1,7 +1,8 @@
-#include <iostream>
+#include <src/server/Server.hpp>
 
 int main(int argc, char *argv[])
 {
-	std::cout << "Bonjour, je suis un server !" << std::endl;
+	babel::server::Server server;
+	server.start();
 	return 0;
 }
