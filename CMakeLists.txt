@@ -41,7 +41,10 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
 
-target_link_libraries(babel_client Qt5::Widgets Qt5::Network pthread portaudio jack asound)
+target_link_libraries(babel_client Qt5::Widgets Qt5::Network pthread portaudio)
+if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    target_link_libraries(jack asound)
+endif()
 
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf "[Paths]\nPrefix = ")
 file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf ${CONAN_QT_ROOT})
