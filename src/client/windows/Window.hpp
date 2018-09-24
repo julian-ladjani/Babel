@@ -8,10 +8,10 @@
 #ifndef CPP_BABEL_2018_WINDOW_HPP
 #define CPP_BABEL_2018_WINDOW_HPP
 
-#include <QtWidgets/QMainWindow>
+#include <QtWidgets>
+#include <QMainWindow>
 #include "../Components/Button.hpp"
-#include <QtWidgets/QGridLayout>
-
+#include <QGridLayout>
 
 namespace babel {
 	namespace client {

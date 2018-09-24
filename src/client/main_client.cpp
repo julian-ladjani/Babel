@@ -1,7 +1,9 @@
 #include <iostream>
-#include <src/client/windows/Window.hpp>
-#include <QtGui/QPalette>
-#include <QtWidgets/QApplication>
+#include <QtGui>
+#include <QtWidgets>
+#include <QPalette>
+#include <QApplication>
+#include "./windows/Window.hpp"
 
 int main(int argc, char *argv[])
 {

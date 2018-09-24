@@ -8,7 +8,7 @@
 #ifndef CPP_BABEL_2018_AUDIOMANAGER_HPP
 #define CPP_BABEL_2018_AUDIOMANAGER_HPP
 
-//#include <portaudio.h>
+#include <portaudio.h>
 
 namespace babel
 {

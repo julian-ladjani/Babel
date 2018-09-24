@@ -1,17 +1,12 @@
 cmake_minimum_required(VERSION 3.5)
 project(CPP_babel_2018)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
+set(RUNTIME_OUTPUT_DIRECTORY build)
 set(CMAKE_CXX_STANDARD 11)
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 conan_basic_setup(KEEP_RPATHS)
-
-if (APPLE)
-    set(CMAKE_INSTALL_RPATH "@executable_path/../lib")
-else()
-    set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
-endif()
 
 set(COMMON
         src/common/User.cpp
