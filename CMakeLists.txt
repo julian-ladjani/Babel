@@ -19,12 +19,12 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
-	    src/client/Components/Button.cpp
+		src/client/Components/Button.cpp
         src/client/Components/Button.hpp
         src/client/ClientInfo.hpp
         src/client/ClientInfo.cpp
-        src/common/AudioManager.cpp
-        src/common/AudioManager.hpp)
+		src/client/sound/AudioManager.cpp
+		src/client/sound/AudioManager.hpp)
 
 set(SERVER
         src/server/Server.cpp
@@ -40,7 +40,8 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
-target_link_libraries(babel_client Qt5::Widgets Qt5::Network portaudio pthread)
+
+target_link_libraries(babel_client Qt5::Widgets Qt5::Network portaudio)
 
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf "[Paths]\nPrefix = ")
 file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf ${CONAN_QT_ROOT})
