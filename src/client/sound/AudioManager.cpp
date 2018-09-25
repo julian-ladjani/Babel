@@ -10,7 +10,7 @@
 babel::client::AudioManager::AudioManager() :
 	_recording(false), _playing(false), _streaming(false),
 	_playingSound(false), _volume(50), _channel(1),
-	_sampleRate(44100), _stream(nullptr)
+	_sampleRate(48000), _stream(nullptr)
 {
 	PaError paErr = Pa_Initialize();
 	if (paErr != paNoError)
@@ -32,7 +32,8 @@ babel::client::AudioManager::~AudioManager()
 std::vector<unsigned short> babel::client::AudioManager::getRecord() const
 {
 	while(Pa_GetStreamReadAvailable(_stream) < 0);
-	std::vector<unsigned short> record(Pa_GetStreamReadAvailable(_stream));
+	std::vector<unsigned short> record(
+		(unsigned long)Pa_GetStreamReadAvailable(_stream));
 	PaError paErr = Pa_ReadStream(_stream, record.data(), record.size());
 	if (paErr != paNoError)
 		throwPortAudioError(paErr);
@@ -46,7 +47,7 @@ void babel::client::AudioManager::playRecord(
 		return;
 	while (Pa_GetStreamWriteAvailable(_stream) < record.size());
 	PaError paErr = Pa_WriteStream(_stream, record.data(),
-		record.size());
+				       record.size());
 	if (paErr != paNoError)
 		throwPortAudioError(paErr);
 }
@@ -85,49 +86,49 @@ void babel::client::AudioManager::stopRecording()
 	_recording = false;
 }
 
-unsigned int babel::client::AudioManager::getVolume() const
+uint32_t babel::client::AudioManager::getVolume() const
 {
 	return _volume;
 }
 
-void babel::client::AudioManager::setVolume(unsigned int volume)
+void babel::client::AudioManager::setVolume(uint32_t volume)
 {
 	_volume = volume;
 }
 
-unsigned int babel::client::AudioManager::getChannel() const
+uint32_t babel::client::AudioManager::getChannel() const
 {
 	return _channel;
 }
 
-void babel::client::AudioManager::setChannel(unsigned int channel)
+void babel::client::AudioManager::setChannel(uint32_t channel)
 {
 	_channel = channel;
 }
 
-unsigned int babel::client::AudioManager::getBufferSize() const
+uint32_t babel::client::AudioManager::getBufferSize() const
 {
 	return _bufferSize;
 }
 
-void babel::client::AudioManager::setBufferSize(unsigned int bufferSize)
+void babel::client::AudioManager::setBufferSize(uint32_t bufferSize)
 {
 	_bufferSize = bufferSize;
 }
 
-unsigned int babel::client::AudioManager::getSampleRate() const
+uint32_t babel::client::AudioManager::getSampleRate() const
 {
 	return _sampleRate;
 }
 
-void babel::client::AudioManager::setSampleRate(unsigned int sampleRate)
+void babel::client::AudioManager::setSampleRate(uint32_t sampleRate)
 {
 	_sampleRate = sampleRate;
 }
 
 void babel::client::AudioManager::throwPortAudioError(PaError paErr) const
 {
-	std::string message(std::string("Error PortAudio: ")
-		+ Pa_GetErrorText(paErr) + "\n");
+	std::string message(std::string("PortAudio Error: ")
+			    + Pa_GetErrorText(paErr) + "\n");
 	throw std::logic_error(message);
 }

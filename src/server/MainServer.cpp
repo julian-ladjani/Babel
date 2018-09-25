@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018 - MainServer.cpp
-// File description:
-// Created by Gregory EPLE
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** MainServer.cpp
+*/
 
 #include <src/server/Server.hpp>
 

@@ -1,16 +1,16 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// MainClient.hpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** MainClient.cpp
+*/
 
 #include <iostream>
 #include <QtGui>
 #include <QtWidgets>
 #include <QPalette>
 #include <QApplication>
-#include "./windows/Window.hpp"
+#include <src/client/windows/Window.hpp>
 
 #include <src/client/sound/AudioManager.hpp>
 #include <src/client/sound/AudioEncoder.hpp>
@@ -18,7 +18,7 @@
 int main(int argc, char *argv[])
 {
 /*	babel::client::AudioManager audio;
-//	babel::client::AudioEncoder encoder(audio.getSampleRate(), audio.getChannel());
+	babel::client::AudioEncoder encoder(audio.getSampleRate(), audio.getChannel());
 	audio.startStream();
 	audio.startRecording();
 	for (;;) {

@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018 - ClientInfos.cpp
-// File description:
-// Created by Gregory EPLE
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** ClientInfo.cpp
+*/
 
 #include "ClientInfo.hpp"
 
