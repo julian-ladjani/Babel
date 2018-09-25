@@ -10,6 +10,12 @@
 babel::server::Server::Server() : _clients()
 {}
 
+int babel::server::Server::start()
+{
+	std::cout << "Bonjour, je suis un server !" << std::endl;
+	return 0;
+}
+
 void babel::server::Server::addClient(common::User user)
 {
 	_clients.push_back(user);

@@ -9,7 +9,7 @@
 #define CPP_BABEL_2018_USER_HPP
 
 #include <string>
-#include "ConnectionInfos.hpp"
+#include "ConnectionInfo.hpp"
 
 namespace babel {
 	namespace common {
@@ -23,15 +23,15 @@ namespace babel {
 			void setId(int id);
 			bool isConnected() const;
 			void setConnected(bool connected);
-			const ConnectionInfos &getConnectionInfos() const;
-			void setConnectionInfos(
-				const ConnectionInfos &connectionInfos);
+			const ConnectionInfo &getConnectionInfo() const;
+			void setConnectionInfo(
+				const ConnectionInfo &connectionInfo);
 
 		private:
 			std::string _login;
 			int _id;
 			bool _connected;
-			ConnectionInfos _connectionInfos;
+			ConnectionInfo _connectionInfo;
 		};
 	}
 }

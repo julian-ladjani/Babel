@@ -14,8 +14,8 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <unistd.h>
-
-
+#include <QtWidgets>
+#include <QMainWindow>
 namespace babel {
 	namespace client {
 		class MainWindow : public QWidget
