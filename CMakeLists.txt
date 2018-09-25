@@ -4,9 +4,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(RUNTIME_OUTPUT_DIRECTORY build)
 set(CMAKE_CXX_STANDARD 11)
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 include(build/conanbuildinfo.cmake)
 include(build/conan_paths.cmake)
 conan_basic_setup(KEEP_RPATHS)
+
 
 set(COMMON
         src/common/User.cpp
@@ -47,7 +51,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
 
-target_link_libraries(babel_client Qt5::Widgets Qt5::Network pthread portaudio)
+target_link_libraries(babel_client Qt5::Widgets Qt5::Network Threads::Threads portaudio)
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     target_link_libraries(babel_client jack asound)
 endif()
