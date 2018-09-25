@@ -30,9 +30,9 @@ set(SERVER
         src/server/Server.cpp
         src/server/Server.hpp)
 
-add_executable(babel_client src/client/main_client.cpp ${CLIENT} ${COMMON})
+add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 
-add_executable(babel_server src/server/main_server.cpp ${SERVER} ${COMMON})
+add_executable(babel_server src/server/MainServer.cpp ${SERVER} ${COMMON})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)

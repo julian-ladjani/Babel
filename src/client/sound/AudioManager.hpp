@@ -11,6 +11,7 @@
 #include <portaudio.h>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 namespace babel
 {
@@ -20,7 +21,9 @@ namespace babel
 		public:
 			AudioManager();
 			virtual ~AudioManager();
-			void playSound();
+			std::vector<unsigned short> getRecord() const;
+			void playRecord(
+				std::vector<unsigned short> record) const;
 			void startStream();
 			void stopStream();
 			void startRecording();
@@ -28,7 +31,13 @@ namespace babel
 			void startPlaying();
 			void stopPlaying();
 			unsigned int getVolume() const;
-			void setVolume(unsigned int _volume);
+			void setVolume(unsigned int volume);
+			unsigned int getChannel() const;
+			void setChannel(unsigned int channel);
+			unsigned int getBufferSize() const;
+			void setBufferSize(unsigned int bufferSize);
+			unsigned int getSampleRate() const;
+			void setSampleRate(unsigned int sampleRate);
 
 		private:
 			bool _recording;
@@ -36,8 +45,11 @@ namespace babel
 			bool _playing;
 			bool _playingSound;
 			unsigned int _volume;
-			PaStream *_stream = nullptr;
-			void throwPortAudioError(PaError paErr);
+			unsigned int _channel;
+			unsigned int _bufferSize;
+			unsigned int _sampleRate;
+			PaStream *_stream;
+			void throwPortAudioError(PaError paErr) const;
 		};
 	}
 }
