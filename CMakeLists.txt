@@ -19,9 +19,7 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
-        src/client/windows/Dialog.cpp
-        src/client/windows/Dialog.hpp
-	src/client/Components/Button.cpp
+	    src/client/Components/Button.cpp
         src/client/Components/Button.hpp
         src/client/Components/CButton.cpp
         src/client/Components/CButton.hpp

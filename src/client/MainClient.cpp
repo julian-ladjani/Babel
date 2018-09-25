@@ -16,7 +16,7 @@
 
 int main(int argc, char *argv[])
 {
-/*	babel::client::AudioManager audio;
+	/*babel::client::AudioManager audio;
 	audio.startStream();
 	audio.startRecording();
 	while (1) {
