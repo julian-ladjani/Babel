@@ -24,7 +24,9 @@ set(CLIENT
         src/client/ClientInfo.hpp
         src/client/ClientInfo.cpp
 		src/client/sound/AudioManager.cpp
-		src/client/sound/AudioManager.hpp)
+		src/client/sound/AudioManager.hpp
+		src/client/sound/AudioEncoder.hpp
+		src/client/sound/AudioEncoder.cpp)
 
 set(SERVER
         src/server/Server.cpp
@@ -41,7 +43,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
 
-target_link_libraries(babel_client Qt5::Widgets Qt5::Network pthread portaudio)
+target_link_libraries(babel_client Qt5::Widgets Qt5::Network pthread portaudio opus)
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     target_link_libraries(babel_client jack asound)
 endif()

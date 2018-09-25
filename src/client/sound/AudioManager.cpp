@@ -10,7 +10,7 @@
 babel::client::AudioManager::AudioManager() :
 	_recording(false), _playing(false), _streaming(false),
 	_playingSound(false), _volume(50), _channel(2),
-	_bufferSize(1024), _sampleRate(25000), _stream(nullptr)
+	_bufferSize(2048), _sampleRate(25000), _stream(nullptr)
 {
 	PaError paErr = Pa_Initialize();
 	if (paErr != paNoError)
@@ -32,7 +32,6 @@ babel::client::AudioManager::~AudioManager()
 std::vector<unsigned short> babel::client::AudioManager::getRecord() const
 {
 	std::vector<unsigned short> record(_bufferSize * _channel);
-	while (Pa_GetStreamReadAvailable(_stream) < _bufferSize);
 	PaError paErr = Pa_ReadStream(_stream, record.data(),
 				      _bufferSize);
 	if (paErr != paNoError)
