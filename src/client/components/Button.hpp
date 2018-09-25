@@ -7,6 +7,7 @@
 
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QFontDatabase>
 #include "QApplication"
 #include <QRegion>
 #include <QRect>
@@ -42,7 +43,6 @@ const QString STYLEDEFBUTTON = "QPushButton { background-color: #f04c00;"
 		"outline: 0;}"
 		"QPushButton:pressed {"
 		"background-color: #f54c00}";
-
 class Button : public QPushButton
 {
 	public:

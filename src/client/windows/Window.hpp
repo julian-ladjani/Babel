@@ -11,6 +11,8 @@
 #include <QtWidgets/QMainWindow>
 #include "../components/CButton.hpp"
 #include "../components/Input.hpp"
+#include <QObject>
+#include <QtCore>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <unistd.h>
