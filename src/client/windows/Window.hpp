@@ -8,19 +8,23 @@
 #ifndef CPP_BABEL_2018_WINDOW_HPP
 #define CPP_BABEL_2018_WINDOW_HPP
 
+#include <QtWidgets/QMainWindow>
+#include "../components/CButton.hpp"
+#include "../components/Input.hpp"
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
+#include <unistd.h>
 #include <QtWidgets>
 #include <QMainWindow>
-#include "../Components/Button.hpp"
-#include <QGridLayout>
-
 namespace babel {
 	namespace client {
 		class MainWindow : public QWidget
 		{
 		public:
 			MainWindow();
-
 		private:
+			void Home(QVBoxLayout *layout);
+			void Submit(QVBoxLayout *layout);
 		};
 
 	}
