@@ -9,8 +9,8 @@
 #define CPP_BABEL_2018_WINDOW_HPP
 
 #include <QtWidgets/QMainWindow>
-#include "../Components/CButton.hpp"
-#include "../Components/Input.hpp"
+#include "../components/CButton.hpp"
+#include "../components/Input.hpp"
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <unistd.h>

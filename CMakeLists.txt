@@ -23,18 +23,20 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
-	    src/client/Components/Button.cpp
-        src/client/Components/Button.hpp
-        src/client/Components/CButton.cpp
-        src/client/Components/CButton.hpp
-        src/client/Components/Input.cpp
-        src/client/Components/Input.hpp
-        src/client/Components/Size.cpp
-        src/client/Components/Size.hpp
+	    src/client/components/Button.cpp
+        src/client/components/Button.hpp
+        src/client/components/CButton.cpp
+        src/client/components/CButton.hpp
+        src/client/components/Input.cpp
+        src/client/components/Input.hpp
+        src/client/components/Size.cpp
+        src/client/components/Size.hpp
         src/client/ClientInfo.hpp
         src/client/ClientInfo.cpp
 		src/client/sound/AudioManager.cpp
-		src/client/sound/AudioManager.hpp)
+		src/client/sound/AudioManager.hpp
+		src/client/sound/AudioEncoder.hpp
+		src/client/sound/AudioEncoder.cpp)
 
 set(SERVER
         src/server/Server.cpp
@@ -51,7 +53,8 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
 
-target_link_libraries(babel_client Qt5::Widgets Qt5::Network Threads::Threads portaudio)
+target_link_libraries(babel_client Qt5::Widgets Qt5::Network Threads::Threads portaudio opus)
+
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     target_link_libraries(babel_client jack asound)
 endif()
