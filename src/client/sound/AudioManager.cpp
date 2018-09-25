@@ -9,8 +9,8 @@
 
 babel::client::AudioManager::AudioManager() :
 	_recording(false), _playing(false), _streaming(false),
-	_playingSound(false), _volume(50), _channel(2),
-	_bufferSize(4096), _sampleRate(44100), _stream(nullptr)
+	_playingSound(false), _volume(50), _channel(1),
+	_sampleRate(44100), _stream(nullptr)
 {
 	PaError paErr = Pa_Initialize();
 	if (paErr != paNoError)
@@ -31,9 +31,9 @@ babel::client::AudioManager::~AudioManager()
 
 std::vector<unsigned short> babel::client::AudioManager::getRecord() const
 {
-	std::vector<unsigned short> record(_bufferSize * _channel);
-	while (Pa_GetStreamReadAvailable(_stream) < _bufferSize);
-	PaError paErr = Pa_ReadStream(_stream, record.data(), _bufferSize);
+	while(Pa_GetStreamReadAvailable(_stream) < 0);
+	std::vector<unsigned short> record(Pa_GetStreamReadAvailable(_stream));
+	PaError paErr = Pa_ReadStream(_stream, record.data(), record.size());
 	if (paErr != paNoError)
 		throwPortAudioError(paErr);
 	return record;
@@ -42,10 +42,11 @@ std::vector<unsigned short> babel::client::AudioManager::getRecord() const
 void babel::client::AudioManager::playRecord(
 	std::vector<unsigned short> record) const
 {
-	while (Pa_GetStreamWriteAvailable(_stream) <= _bufferSize);
-	printf("%ld\n", (Pa_GetStreamWriteAvailable(_stream)));
+	if (record.size() < 0)
+		return;
+	while (Pa_GetStreamWriteAvailable(_stream) < record.size());
 	PaError paErr = Pa_WriteStream(_stream, record.data(),
-		_bufferSize);
+		record.size());
 	if (paErr != paNoError)
 		throwPortAudioError(paErr);
 }
