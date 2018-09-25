@@ -9,8 +9,11 @@
 #define CPP_BABEL_2018_WINDOW_HPP
 
 #include <QtWidgets/QMainWindow>
-#include "../Components/Button.hpp"
+#include "../Components/CButton.hpp"
+#include "../Components/Input.hpp"
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
+#include <unistd.h>
 
 
 namespace babel {
@@ -19,8 +22,9 @@ namespace babel {
 		{
 		public:
 			MainWindow();
-
 		private:
+			void Home(QVBoxLayout *layout);
+			void Submit(QVBoxLayout *layout);
 		};
 
 	}

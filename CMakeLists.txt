@@ -13,8 +13,16 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
+        src/client/windows/Dialog.cpp
+        src/client/windows/Dialog.hpp
 	src/client/Components/Button.cpp
         src/client/Components/Button.hpp
+        src/client/Components/CButton.cpp
+        src/client/Components/CButton.hpp
+        src/client/Components/Input.cpp
+        src/client/Components/Input.hpp
+        src/client/Components/Size.cpp
+        src/client/Components/Size.hpp
         src/client/ClientInfos.hpp
         src/client/ClientInfos.cpp
         src/common/AudioManager.cpp src/common/AudioManager.hpp)
