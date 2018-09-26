@@ -8,9 +8,9 @@
 #ifndef CPP_BABEL_2018_AUDIOENCODER_HPP
 #define CPP_BABEL_2018_AUDIOENCODER_HPP
 
-#include <stdexcept>
 #include <opus/opus.h>
 #include <vector>
+#include <src/common/exception/Exception.hpp>
 
 namespace babel {
 	namespace client {

@@ -132,7 +132,5 @@ void babel::client::AudioManager::setSampleRate(uint32_t sampleRate)
 
 void babel::client::AudioManager::throwPortAudioError(PaError paErr) const
 {
-	std::string message(std::string("PortAudio Error: ")
-			    + Pa_GetErrorText(paErr) + "\n");
-	throw std::logic_error(message);
+	throw babel::common::Exception("PortAudio Error", Pa_GetErrorText(paErr));
 }

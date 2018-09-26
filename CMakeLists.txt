@@ -19,7 +19,9 @@ set(COMMON
         src/common/ConnectionInfo.hpp
         src/common/ConnectionInfo.cpp
         src/common/network/ITcpSocket.h
-        src/common/network/IUdpSocket.h)
+        src/common/network/IUdpSocket.h
+		src/common/exception/Exception.hpp
+		src/common/exception/Exception.cpp)
 
 set(CLIENT
         src/client/windows/Window.cpp

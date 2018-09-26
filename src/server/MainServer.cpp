@@ -6,10 +6,16 @@
 */
 
 #include <src/server/Server.hpp>
+#include <src/common/exception/Exception.hpp>
 
 int main(int argc, char *argv[])
 {
-	babel::server::Server server;
-	server.start();
+	try {
+		babel::server::Server server;
+		server.start();
+	} catch (babel::common::Exception &e) {
+		std::cout << e.what() << std::endl;
+		return 84;
+	}
 	return 0;
 }

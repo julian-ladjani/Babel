@@ -9,9 +9,9 @@
 #define CPP_BABEL_2018_AUDIOMANAGER_HPP
 
 #include <portaudio.h>
-#include <stdexcept>
 #include <string>
 #include <vector>
+#include <src/common/exception/Exception.hpp>
 
 namespace babel
 {

@@ -5,6 +5,7 @@
 ** AudioEncoder.cpp
 */
 
+#include <src/common/exception/Exception.hpp>
 #include "AudioEncoder.hpp"
 
 babel::client::AudioEncoder::AudioEncoder(uint32_t sampleRate,
@@ -59,7 +60,5 @@ babel::client::AudioEncoder::encode(std::vector<unsigned short> sample) const
 
 void babel::client::AudioEncoder::throwOpusError(int opusErr) const
 {
-	std::string message(std::string("Opus Error: ")
-			    + opus_strerror(opusErr) + "\n");
-	throw std::logic_error(message);
+	throw babel::common::Exception("Opus Error", opus_strerror(opusErr));
 }
