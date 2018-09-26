@@ -22,8 +22,7 @@ int main(int argc, char *argv[])
 	audio.startStream();
 	audio.startRecording();
 	for (;;) {
-//		audio.playRecord(encoder.decode(encoder.encode(audio.getRecord())));
-		audio.playRecord(audio.getRecord());
+		audio.playRecord(encoder.decode(encoder.encode(audio.getRecord())));
 	}*/
 
 	QApplication a(argc, argv);
