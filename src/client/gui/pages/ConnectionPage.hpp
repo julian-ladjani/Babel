@@ -27,12 +27,12 @@ namespace babel {
 		{
 		public:
 			ConnectionPage();
-			void submit(QVBoxLayout *layout);
+			void submit();
 			void home(QVBoxLayout *layout);
-			std::function<void()> lol();
+			std::function<void()> serverPropertiesSwitcher();
 
 		private:
-			QVBoxLayout *_layout;
+			QGridLayout *_layout;
 			Input *_ip;
 			Input *_port;
 			std::vector<QWidget *> _input;

@@ -17,8 +17,3 @@ babel::client::MainWindow::MainWindow() : _cnxPage(new ConnectionPage)
 	_pages.addWidget(_cnxPage.get());
 	setCentralWidget(&_pages);
 }
-
-void babel::client::MainWindow::show()
-{
-	QWidget::show();
-}

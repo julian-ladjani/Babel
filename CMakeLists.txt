@@ -67,6 +67,6 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     target_link_libraries(babel_client jack asound)
 endif()
 
-#if bug lol
+#if bug serverPropertiesSwitcher
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf "[Paths]\nPrefix = ")
 file(APPEND ${CMAKE_CURRENT_BINARY_DIR}/bin/qt.conf ${CONAN_QT_ROOT})

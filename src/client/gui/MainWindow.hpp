@@ -21,7 +21,6 @@ namespace babel {
 		{
 		public:
 			MainWindow();
-			void show();
 		private:
 			std::unique_ptr<IBabelPage> _cnxPage;
 			QStackedWidget _pages;
