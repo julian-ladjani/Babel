@@ -54,7 +54,10 @@ void babel::client::MainWindow::Submit(QVBoxLayout *layout)
 	Button *button2 = new Button("Option", STYLEDEFA, Size(125,40));
 	button2->setFunction(lol());
 	QPixmap pixmap_img("src/assets/img/logo.png");
-	pixmap_img = pixmap_img.scaled(350, pixmap_img.height() * 350 / pixmap_img.width(), Qt::IgnoreAspectRatio);
+	if (pixmap_img.height() != 0)
+		pixmap_img = pixmap_img.scaled(
+			350, pixmap_img.height() * 350 / pixmap_img.width(),
+			Qt::IgnoreAspectRatio);
 	label->setPixmap(pixmap_img);
 	label->setAlignment(Qt::AlignHCenter);
 	label->setStyleSheet("padding-bottom: 80px;");

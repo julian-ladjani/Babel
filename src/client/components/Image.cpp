@@ -10,6 +10,8 @@
 babel::client::Image::Image(const QString text, int size)
 {
     QPixmap pixmap_img(text);
+    if (pixmap_img.height() == 0 || pixmap_img.width() == 0)
+	    return ;
     pixmap_img = pixmap_img.scaled(
 	    size, pixmap_img.height() * size / pixmap_img.width(),
 	    Qt::IgnoreAspectRatio);

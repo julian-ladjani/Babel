@@ -3,7 +3,7 @@ project(CPP_babel_2018)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(RUNTIME_OUTPUT_DIRECTORY build)
 set(CMAKE_CXX_STANDARD 11)
-add_definitions("-fPIC")
+add_definitions("-fPIC -g")
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
@@ -26,7 +26,7 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
-	    src/client/components/Button.cpp
+        src/client/components/Button.cpp
         src/client/components/Button.hpp
         src/client/components/CButton.cpp
         src/client/components/CButton.hpp
