@@ -43,7 +43,6 @@ std::function<void()> babel::client::MainWindow::lol()
 }
 void babel::client::MainWindow::Submit(QVBoxLayout *layout)
 {
-	QLabel  *label  = new QLabel;
 	Input *User = new Input(500, "Username");
 	Input *Pass = new Input(500, "Password");
 	std::cout << "lol\n";
@@ -53,15 +52,10 @@ void babel::client::MainWindow::Submit(QVBoxLayout *layout)
 	Button *button = new Button("Enter", STYLEDEFBUTTON, Size(200,50));
 	Button *button2 = new Button("Option", STYLEDEFA, Size(125,40));
 	button2->setFunction(lol());
-	QPixmap pixmap_img("src/assets/img/logo.png");
-	if (pixmap_img.height() != 0)
-		pixmap_img = pixmap_img.scaled(
-			350, pixmap_img.height() * 350 / pixmap_img.width(),
-			Qt::IgnoreAspectRatio);
-	label->setPixmap(pixmap_img);
-	label->setAlignment(Qt::AlignHCenter);
-	label->setStyleSheet("padding-bottom: 80px;");
-	layout->addWidget(label);
+	Image *logo = new Image("src/assets/img/logo.png", 350);
+	logo->setAlignment(Qt::AlignHCenter);
+	logo->setStyleSheet("padding-bottom: 80px;");
+	layout->addWidget(logo);
 	layout->addWidget(User);
 	layout->addWidget(Pass);
 	layout->addWidget(_input[0], 0, Qt::AlignHCenter);
