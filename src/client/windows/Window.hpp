@@ -11,6 +11,7 @@
 #include <QtWidgets/QMainWindow>
 #include "../components/CButton.hpp"
 #include "../components/Input.hpp"
+#include "../components/Image.hpp"
 #include <QObject>
 #include <QtCore>
 #include <QtWidgets/QGridLayout>
@@ -24,9 +25,15 @@ namespace babel {
 		{
 		public:
 			MainWindow();
-		private:
-			void Home(QVBoxLayout *layout);
 			void Submit(QVBoxLayout *layout);
+			void Home(QVBoxLayout *layout);
+			std::function<void()> lol();
+
+		private:
+			QVBoxLayout *_layout;
+			Input *_ip;
+			Input *_port;
+			std::vector<QWidget *> _input;
 		};
 
 	}

@@ -7,25 +7,19 @@
 #include "Window.hpp"
 
 
-babel::client::MainWindow::MainWindow()
+babel::client::MainWindow::MainWindow() : _layout(new QVBoxLayout())
 {
 	resize(1280, 720);
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 	setWindowTitle(QApplication::translate(
 		"Epyks", "Epyks, Grand et impuissant !"));
 	setStyleSheet("background-color:#3d3d3d");
-	QLabel  *label  = new QLabel;
-	QPixmap pixmap_img("src/assets/img/logo.png");
-	pixmap_img = pixmap_img.scaled(
-		400, pixmap_img.height() * 400 / pixmap_img.width(),
-		Qt::IgnoreAspectRatio);
-	label->setPixmap(pixmap_img);
-	QVBoxLayout *layout = new QVBoxLayout;
-	layout->addWidget(label);
-	layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-	setLayout(layout);
-	delete label;
-	Submit(layout);
+	Image  *image  = new Image("src/assets/img/logo.png", 400);
+	_layout->addWidget(image);
+	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+	setLayout(_layout);
+	delete image;
+	Submit(_layout);
 }
 
 void babel::client::MainWindow::Home(QVBoxLayout *layout)
@@ -40,15 +34,25 @@ void babel::client::MainWindow::Home(QVBoxLayout *layout)
 	layout->addWidget(grlayout);
 }
 
+std::function<void()> babel::client::MainWindow::lol()
+{
+    return([this](){
+	_input[0]->setVisible(!_input[0]->isVisible());
+	_input[1]->setVisible(!_input[1]->isVisible());
+    });
+}
 void babel::client::MainWindow::Submit(QVBoxLayout *layout)
 {
 	QLabel  *label  = new QLabel;
 	Input *User = new Input(500, "Username");
 	Input *Pass = new Input(500, "Password");
-	Input *IP = new Input(200, "Adress IP");
-	Input *Port = new Input(200, "Port");
-	Button *button2 = new Button("More", STYLEDEFBUTTON, Size(125,40));
+	std::cout << "lol\n";
+    	_input.push_back(new Input(200, "Adress IP"));
+    	_input.push_back(new Input(200, "Port"));
+	std::cout << "lol\n";
 	Button *button = new Button("Enter", STYLEDEFBUTTON, Size(200,50));
+	Button *button2 = new Button("Option", STYLEDEFA, Size(125,40));
+	button2->setFunction(lol());
 	QPixmap pixmap_img("src/assets/img/logo.png");
 	pixmap_img = pixmap_img.scaled(350, pixmap_img.height() * 350 / pixmap_img.width(), Qt::IgnoreAspectRatio);
 	label->setPixmap(pixmap_img);
@@ -57,9 +61,8 @@ void babel::client::MainWindow::Submit(QVBoxLayout *layout)
 	layout->addWidget(label);
 	layout->addWidget(User);
 	layout->addWidget(Pass);
-	QObject::connect(button, SIGNAL (clicked()), button, SLOT (&Home()));
-	layout->addWidget(IP, 0, Qt::AlignHCenter);
-	layout->addWidget(Port, 0, Qt::AlignHCenter);
-	layout->addWidget(button2, 0, Qt::AlignHCenter);
+	layout->addWidget(_input[0], 0, Qt::AlignHCenter);
+	layout->addWidget(_input[1], 0, Qt::AlignHCenter);
 	layout->addWidget(button, 0, Qt::AlignHCenter);
+	layout->addWidget(button2, 0, Qt::AlignHCenter);
 }
