@@ -18,8 +18,8 @@ set(COMMON
         src/common/User.hpp
         src/common/network/ConnectionInfo.hpp
         src/common/network/ConnectionInfo.cpp
-        src/common/network/ITcpSocket.h
-        src/common/network/IUdpSocket.h
+        src/common/network/ATcpSocket.hpp
+        src/common/network/ATcpSocket.cpp
 	src/common/exception/Exception.hpp
 	src/common/exception/Exception.cpp)
 
