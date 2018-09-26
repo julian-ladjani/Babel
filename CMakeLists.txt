@@ -20,13 +20,13 @@ set(COMMON
         src/common/ConnectionInfo.cpp
         src/common/network/ITcpSocket.h
         src/common/network/IUdpSocket.h
-		src/common/exception/Exception.hpp
-		src/common/exception/Exception.cpp)
+	src/common/exception/Exception.hpp
+	src/common/exception/Exception.cpp)
 
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
-	    src/client/components/Button.cpp
+	src/client/components/Button.cpp
         src/client/components/Button.hpp
         src/client/components/CButton.cpp
         src/client/components/CButton.hpp
@@ -34,12 +34,14 @@ set(CLIENT
         src/client/components/Input.hpp
         src/client/components/Size.cpp
         src/client/components/Size.hpp
+	src/client/components/Image.cpp
+	src/client/components/Image.hpp
         src/client/ClientInfo.hpp
         src/client/ClientInfo.cpp
-		src/client/sound/AudioManager.cpp
-		src/client/sound/AudioManager.hpp
-		src/client/sound/AudioEncoder.hpp
-		src/client/sound/AudioEncoder.cpp)
+	src/client/sound/AudioManager.cpp
+	src/client/sound/AudioManager.hpp
+	src/client/sound/AudioEncoder.hpp
+	src/client/sound/AudioEncoder.cpp)
 
 set(SERVER
         src/server/Server.cpp
