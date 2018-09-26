@@ -10,6 +10,7 @@
 
 #include <opus/opus.h>
 #include <vector>
+#include <string>
 #include <src/common/exception/Exception.hpp>
 
 namespace babel {

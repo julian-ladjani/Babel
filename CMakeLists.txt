@@ -16,8 +16,8 @@ include_directories(${CMAKE_INCLUDE_PATH})
 set(COMMON
         src/common/User.cpp
         src/common/User.hpp
-        src/common/ConnectionInfo.hpp
-        src/common/ConnectionInfo.cpp
+        src/common/network/ConnectionInfo.hpp
+        src/common/network/ConnectionInfo.cpp
         src/common/network/ITcpSocket.h
         src/common/network/IUdpSocket.h
 	src/common/exception/Exception.hpp
@@ -26,7 +26,7 @@ set(COMMON
 set(CLIENT
         src/client/windows/Window.cpp
         src/client/windows/Window.hpp
-	src/client/components/Button.cpp
+	    src/client/components/Button.cpp
         src/client/components/Button.hpp
         src/client/components/CButton.cpp
         src/client/components/CButton.hpp
