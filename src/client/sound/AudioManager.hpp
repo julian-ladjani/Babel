@@ -28,10 +28,6 @@ namespace babel
 			void stopStream();
 			void startRecording();
 			void stopRecording();
-			void startPlaying();
-			void stopPlaying();
-			uint32_t getVolume() const;
-			void setVolume(uint32_t volume);
 			uint32_t getChannel() const;
 			void setChannel(uint32_t channel);
 			uint32_t getBufferSize() const;
@@ -43,12 +39,12 @@ namespace babel
 			bool _recording;
 			bool _streaming;
 			bool _playing;
-			bool _playingSound;
-			uint32_t _volume;
 			uint32_t _channel;
 			uint32_t _bufferSize;
 			uint32_t _sampleRate;
 			PaStream *_stream;
+			void changeVolume(
+				std::vector<unsigned short> &record) const;
 			void throwPortAudioError(PaError paErr) const;
 		};
 	}

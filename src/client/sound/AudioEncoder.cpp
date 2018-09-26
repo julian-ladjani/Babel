@@ -38,6 +38,8 @@ babel::client::AudioEncoder::decode(std::vector<unsigned short> encoded) const
 				(int)encoded.size(),
 				(opus_int16 *)decoded.data(),
 				(int)encoded.size(), 0);
+	if (bytes < 0)
+		throwOpusError(OPUS_INVALID_PACKET);
 	return decoded;
 }
 
@@ -50,6 +52,8 @@ babel::client::AudioEncoder::encode(std::vector<unsigned short> sample) const
 				(int)sample.size(),
 				(unsigned char *)(encoded.data()),
 				(int)encoded.size());
+	if (bytes < 0)
+		throwOpusError(OPUS_INVALID_PACKET);
 	return encoded;
 }
 
