@@ -8,7 +8,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QFontDatabase>
-#include "QApplication"
+#include <QApplication>
 #include <QRegion>
 #include <QRect>
 #include <iostream>

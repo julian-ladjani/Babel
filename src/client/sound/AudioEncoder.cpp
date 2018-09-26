@@ -1,24 +1,25 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018 - AudioEncoder.cpp
-// File description:
-// Created by Gregory EPLE
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** AudioEncoder.cpp
+*/
 
+#include <src/common/exception/Exception.hpp>
 #include "AudioEncoder.hpp"
 
-babel::client::AudioEncoder::AudioEncoder(unsigned int sampleRate,
-					  unsigned int channel) :
+babel::client::AudioEncoder::AudioEncoder(uint32_t sampleRate,
+					  uint32_t channel) :
 	_encoder(nullptr), _decoder(nullptr)
 {
 	int opusErr;
 	_encoder = opus_encoder_create(
-		sampleRate, channel, OPUS_APPLICATION_AUDIO, &opusErr);
+		sampleRate, channel, OPUS_APPLICATION_VOIP, &opusErr);
 	if (opusErr != OPUS_OK)
-		throw std::logic_error("Opus Error: Cannot create encoder");
+		throwOpusError(opusErr);
 	_decoder = opus_decoder_create(sampleRate, channel, &opusErr);
 	if (opusErr != OPUS_OK)
-		throw std::logic_error("Opus Error: Cannot create decoder");
+		throwOpusError(opusErr);
 }
 
 babel::client::AudioEncoder::~AudioEncoder()
@@ -30,7 +31,7 @@ babel::client::AudioEncoder::~AudioEncoder()
 }
 
 std::vector<unsigned short>
-babel::client::AudioEncoder::decode(std::vector<unsigned short> encoded)
+babel::client::AudioEncoder::decode(std::vector<unsigned short> encoded) const
 {
 	std::vector<unsigned short> decoded(encoded.size());
 	int bytes = opus_decode(_decoder,
@@ -38,11 +39,13 @@ babel::client::AudioEncoder::decode(std::vector<unsigned short> encoded)
 				(int)encoded.size(),
 				(opus_int16 *)decoded.data(),
 				(int)encoded.size(), 0);
+	if (bytes < 0)
+		throwOpusError(OPUS_INVALID_PACKET);
 	return decoded;
 }
 
 std::vector<unsigned short>
-babel::client::AudioEncoder::encode(std::vector<unsigned short> sample)
+babel::client::AudioEncoder::encode(std::vector<unsigned short> sample) const
 {
 	std::vector<unsigned short> encoded(sample.size());
 	int bytes = opus_encode(_encoder,
@@ -50,5 +53,12 @@ babel::client::AudioEncoder::encode(std::vector<unsigned short> sample)
 				(int)sample.size(),
 				(unsigned char *)(encoded.data()),
 				(int)encoded.size());
+	if (bytes < 0)
+		throwOpusError(OPUS_INVALID_PACKET);
 	return encoded;
+}
+
+void babel::client::AudioEncoder::throwOpusError(int opusErr) const
+{
+	throw babel::common::Exception("Opus Error", opus_strerror(opusErr));
 }

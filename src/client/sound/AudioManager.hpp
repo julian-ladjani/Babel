@@ -9,9 +9,9 @@
 #define CPP_BABEL_2018_AUDIOMANAGER_HPP
 
 #include <portaudio.h>
-#include <stdexcept>
 #include <string>
 #include <vector>
+#include <src/common/exception/Exception.hpp>
 
 namespace babel
 {
@@ -21,33 +21,29 @@ namespace babel
 		public:
 			AudioManager();
 			virtual ~AudioManager();
-			std::vector<unsigned short> getRecord() const;
+			std::vector<unsigned short> getRecord();
 			void playRecord(
-				std::vector<unsigned short> record) const;
+				std::vector<unsigned short> record);
+			void restartStream();
 			void startStream();
 			void stopStream();
 			void startRecording();
 			void stopRecording();
-			void startPlaying();
-			void stopPlaying();
-			unsigned int getVolume() const;
-			void setVolume(unsigned int volume);
-			unsigned int getChannel() const;
-			void setChannel(unsigned int channel);
-			unsigned int getBufferSize() const;
-			void setBufferSize(unsigned int bufferSize);
-			unsigned int getSampleRate() const;
-			void setSampleRate(unsigned int sampleRate);
+			void closeStream();
+			uint32_t getChannel() const;
+			void setChannel(uint32_t channel);
+			uint32_t getBufferSize() const;
+			void setBufferSize(uint32_t bufferSize);
+			uint32_t getSampleRate() const;
+			void setSampleRate(uint32_t sampleRate);
 
 		private:
 			bool _recording;
 			bool _streaming;
 			bool _playing;
-			bool _playingSound;
-			unsigned int _volume;
-			unsigned int _channel;
-			unsigned int _bufferSize;
-			unsigned int _sampleRate;
+			uint32_t _channel;
+			uint32_t _bufferSize;
+			uint32_t _sampleRate;
 			PaStream *_stream;
 			void throwPortAudioError(PaError paErr) const;
 		};

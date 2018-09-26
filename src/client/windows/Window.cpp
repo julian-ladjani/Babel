@@ -1,11 +1,11 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// Window.cpp
-//
-#include "Window.hpp"
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** Window.cpp
+*/
 
+#include "Window.hpp"
 
 babel::client::MainWindow::MainWindow() : _layout(new QVBoxLayout())
 {

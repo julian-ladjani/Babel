@@ -1,24 +1,25 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// Window.hpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** Window.hpp
+*/
 
 #ifndef CPP_BABEL_2018_WINDOW_HPP
 #define CPP_BABEL_2018_WINDOW_HPP
 
-#include <QtWidgets/QMainWindow>
-#include "../components/CButton.hpp"
-#include "../components/Input.hpp"
-#include "../components/Image.hpp"
 #include <QObject>
 #include <QtCore>
+#include <QMainWindow>
+#include <QtWidgets>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QMainWindow>
 #include <unistd.h>
-#include <QtWidgets>
-#include <QMainWindow>
+#include <src/client/components/CButton.hpp>
+#include <src/client/components/Input.hpp>
+#include <src/client/components/Image.hpp>
+
 namespace babel {
 	namespace client {
 		class MainWindow : public QWidget

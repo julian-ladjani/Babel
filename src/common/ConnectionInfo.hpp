@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018 - ConnectionInfos.hpp
-// File description:
-// Created by Gregory EPLE
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** AudioEncoder.hpp
+*/
 
 #ifndef CPP_BABEL_2018_CONNECTIONINFOS_HPP
 #define CPP_BABEL_2018_CONNECTIONINFOS_HPP

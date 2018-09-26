@@ -5,11 +5,10 @@
 ** CButton.hpp
 */
 
-#include "Button.hpp"
-
 #ifndef CBUTTON_HPP_
 #define CBUTTON_HPP_
 
+#include "Button.hpp"
 
 namespace babel {
 	namespace client {

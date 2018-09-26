@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018 - ConnectionInfos.cpp
-// File description:
-// Created by Gregory EPLE
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** ConnectionInfo.cpp
+*/
 
 #include "ConnectionInfo.hpp"
 
