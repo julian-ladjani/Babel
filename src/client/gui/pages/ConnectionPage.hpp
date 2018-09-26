@@ -11,23 +11,24 @@
 #include <QObject>
 #include <QtCore>
 #include <QMainWindow>
-#include <QtWidgets>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
 #include <unistd.h>
-#include <src/client/components/CButton.hpp>
-#include <src/client/components/Input.hpp>
-#include <src/client/components/Image.hpp>
+
+#include "src/client/gui/components/CButton.hpp"
+#include "src/client/gui/components/Input.hpp"
+#include "src/client/gui/components/Image.hpp"
+#include "IBabelPage.hpp"
 
 namespace babel {
 	namespace client {
-		class MainWindow : public QWidget
+		class ConnectionPage : public IBabelPage
 		{
 		public:
-			MainWindow();
-			void Submit(QVBoxLayout *layout);
-			void Home(QVBoxLayout *layout);
+			ConnectionPage();
+			void submit(QVBoxLayout *layout);
+			void home(QVBoxLayout *layout);
 			std::function<void()> lol();
 
 		private:

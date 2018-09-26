@@ -24,24 +24,24 @@ set(COMMON
 	src/common/exception/Exception.cpp)
 
 set(CLIENT
-        src/client/windows/Window.cpp
-        src/client/windows/Window.hpp
-        src/client/components/Button.cpp
-        src/client/components/Button.hpp
-        src/client/components/CButton.cpp
-        src/client/components/CButton.hpp
-        src/client/components/Input.cpp
-        src/client/components/Input.hpp
-        src/client/components/Size.cpp
-        src/client/components/Size.hpp
-	src/client/components/Image.cpp
-	src/client/components/Image.hpp
+	src/client/gui/pages/ConnectionPage.cpp
+	src/client/gui/pages/ConnectionPage.hpp
+	src/client/gui/components/Button.cpp
+	src/client/gui/components/Button.hpp
+	src/client/gui/components/CButton.cpp
+	src/client/gui/components/CButton.hpp
+	src/client/gui/components/Input.cpp
+	src/client/gui/components/Input.hpp
+	src/client/gui/components/Size.cpp
+	src/client/gui/components/Size.hpp
+	src/client/gui/components/Image.cpp
+	src/client/gui/components/Image.hpp
         src/client/ClientInfo.hpp
         src/client/ClientInfo.cpp
 	src/client/sound/AudioManager.cpp
 	src/client/sound/AudioManager.hpp
 	src/client/sound/AudioEncoder.hpp
-	src/client/sound/AudioEncoder.cpp)
+	src/client/sound/AudioEncoder.cpp src/client/Babel.cpp src/client/Babel.hpp src/client/gui/MainWindow.cpp src/client/gui/MainWindow.hpp src/client/gui/pages/IBabelPage.hpp)
 
 set(SERVER
         src/server/Server.cpp

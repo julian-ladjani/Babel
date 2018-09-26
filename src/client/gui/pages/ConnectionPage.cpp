@@ -5,24 +5,20 @@
 ** Window.cpp
 */
 
-#include "Window.hpp"
+#include "ConnectionPage.hpp"
 
-babel::client::MainWindow::MainWindow() : _layout(new QVBoxLayout())
+babel::client::ConnectionPage::ConnectionPage() : _layout(new QVBoxLayout())
 {
-	resize(1280, 720);
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
-	setWindowTitle(QApplication::translate(
-		"Epyks", "Epyks, Grand et impuissant !"));
-	setStyleSheet("background-color:#3d3d3d");
 	Image  *image  = new Image("src/assets/img/logo.png", 400);
 	_layout->addWidget(image);
 	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	setLayout(_layout);
 	delete image;
-	Submit(_layout);
+	submit(_layout);
 }
 
-void babel::client::MainWindow::Home(QVBoxLayout *layout)
+void babel::client::ConnectionPage::home(QVBoxLayout *layout)
 {
 	QHBoxLayout *layout2 = new QHBoxLayout;
 	QGroupBox *grlayout = new QGroupBox;
@@ -34,14 +30,14 @@ void babel::client::MainWindow::Home(QVBoxLayout *layout)
 	layout->addWidget(grlayout);
 }
 
-std::function<void()> babel::client::MainWindow::lol()
+std::function<void()> babel::client::ConnectionPage::lol()
 {
     return([this](){
 	_input[0]->setVisible(!_input[0]->isVisible());
 	_input[1]->setVisible(!_input[1]->isVisible());
     });
 }
-void babel::client::MainWindow::Submit(QVBoxLayout *layout)
+void babel::client::ConnectionPage::submit(QVBoxLayout *layout)
 {
 	Input *User = new Input(500, "Username");
 	Input *Pass = new Input(500, "Password");
