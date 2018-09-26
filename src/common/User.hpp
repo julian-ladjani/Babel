@@ -9,7 +9,7 @@
 #define CPP_BABEL_2018_USER_HPP
 
 #include <string>
-#include "ConnectionInfo.hpp"
+#include "src/common/network/ConnectionInfo.hpp"
 
 namespace babel {
 	namespace common {

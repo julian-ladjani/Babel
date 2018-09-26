@@ -31,11 +31,13 @@ babel::client::AudioManager::~AudioManager()
 std::vector<unsigned short> babel::client::AudioManager::getRecord() const
 {
 	PaError paErr;
+	long streamReadAvailable = Pa_GetStreamReadAvailable(_stream);
 	std::vector<unsigned short> record(_bufferSize);
-	if (Pa_GetStreamReadAvailable(_stream) < _bufferSize)
+	printf("%ld\n", streamReadAvailable);
+	if (streamReadAvailable < _bufferSize)
 		paErr = Pa_ReadStream(
 			_stream, record.data(),
-			(unsigned long)Pa_GetStreamReadAvailable(_stream));
+			(unsigned long) streamReadAvailable);
 	else
 		paErr = Pa_ReadStream(_stream, record.data(), _bufferSize);
 	if (paErr != paNoError)
@@ -49,7 +51,7 @@ void babel::client::AudioManager::playRecord(
 	PaError paErr;
 	while (Pa_GetStreamWriteAvailable(_stream) < record.size());
 	paErr = Pa_WriteStream(_stream, record.data(),
-			       record.size());
+		record.size());
 	if (paErr != paNoError)
 		throwPortAudioError(paErr);
 }
@@ -121,6 +123,6 @@ void babel::client::AudioManager::setSampleRate(uint32_t sampleRate)
 void babel::client::AudioManager::throwPortAudioError(PaError paErr) const
 {
 	std::string message(std::string("PortAudio Error: ")
-			    + Pa_GetErrorText(paErr) + "\n");
+		+ Pa_GetErrorText(paErr) + "\n");
 	throw std::logic_error(message);
 }

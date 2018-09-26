@@ -11,6 +11,7 @@
 #include <stdexcept>
 #include <opus/opus.h>
 #include <vector>
+#include <string>
 
 namespace babel {
 	namespace client {
