@@ -9,9 +9,9 @@
 #define CPP_BABEL_2018_AUDIOMANAGER_HPP
 
 #include <portaudio.h>
-#include <stdexcept>
 #include <string>
 #include <vector>
+#include <src/common/exception/Exception.hpp>
 
 namespace babel
 {
@@ -21,13 +21,15 @@ namespace babel
 		public:
 			AudioManager();
 			virtual ~AudioManager();
-			std::vector<unsigned short> getRecord() const;
+			std::vector<unsigned short> getRecord();
 			void playRecord(
-				std::vector<unsigned short> record) const;
+				std::vector<unsigned short> record);
+			void restartStream();
 			void startStream();
 			void stopStream();
 			void startRecording();
 			void stopRecording();
+			void closeStream();
 			uint32_t getChannel() const;
 			void setChannel(uint32_t channel);
 			uint32_t getBufferSize() const;
@@ -43,8 +45,6 @@ namespace babel
 			uint32_t _bufferSize;
 			uint32_t _sampleRate;
 			PaStream *_stream;
-			void changeVolume(
-				std::vector<unsigned short> &record) const;
 			void throwPortAudioError(PaError paErr) const;
 		};
 	}

@@ -19,21 +19,17 @@ babel::client::AudioManager::AudioManager() :
 babel::client::AudioManager::~AudioManager()
 {
 	PaError paErr;
-	if (_recording)
-		stopRecording();
-	if (_streaming)
-		stopStream();
+	closeStream();
 	paErr = Pa_Terminate();
 	if (paErr != paNoError)
 		throwPortAudioError(paErr);
 }
 
-std::vector<unsigned short> babel::client::AudioManager::getRecord() const
+std::vector<unsigned short> babel::client::AudioManager::getRecord()
 {
 	PaError paErr;
 	long streamReadAvailable = Pa_GetStreamReadAvailable(_stream);
 	std::vector<unsigned short> record(_bufferSize);
-	printf("%ld\n", streamReadAvailable);
 	if (streamReadAvailable < _bufferSize)
 		paErr = Pa_ReadStream(
 			_stream, record.data(),
@@ -41,19 +37,26 @@ std::vector<unsigned short> babel::client::AudioManager::getRecord() const
 	else
 		paErr = Pa_ReadStream(_stream, record.data(), _bufferSize);
 	if (paErr != paNoError)
-		throwPortAudioError(paErr);
+		restartStream();
 	return record;
 }
 
 void babel::client::AudioManager::playRecord(
-	std::vector<unsigned short> record) const
+	std::vector<unsigned short> record)
 {
 	PaError paErr;
 	while (Pa_GetStreamWriteAvailable(_stream) < record.size());
 	paErr = Pa_WriteStream(_stream, record.data(),
 		record.size());
 	if (paErr != paNoError)
-		throwPortAudioError(paErr);
+		restartStream();
+}
+
+void babel::client::AudioManager::restartStream()
+{
+	closeStream();
+	startStream();
+	startRecording();
 }
 
 void babel::client::AudioManager::startStream()
@@ -90,6 +93,14 @@ void babel::client::AudioManager::stopRecording()
 	_recording = false;
 }
 
+void babel::client::AudioManager::closeStream()
+{
+	if (_recording)
+		stopRecording();
+	if (_streaming)
+		stopStream();
+}
+
 uint32_t babel::client::AudioManager::getChannel() const
 {
 	return _channel;
@@ -122,7 +133,5 @@ void babel::client::AudioManager::setSampleRate(uint32_t sampleRate)
 
 void babel::client::AudioManager::throwPortAudioError(PaError paErr) const
 {
-	std::string message(std::string("PortAudio Error: ")
-		+ Pa_GetErrorText(paErr) + "\n");
-	throw std::logic_error(message);
+	throw babel::common::Exception("PortAudio Error", Pa_GetErrorText(paErr));
 }

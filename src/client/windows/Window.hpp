@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <src/client/components/CButton.hpp>
 #include <src/client/components/Input.hpp>
+#include <src/client/components/Image.hpp>
 
 namespace babel {
 	namespace client {
@@ -25,9 +26,15 @@ namespace babel {
 		{
 		public:
 			MainWindow();
-		private:
-			void Home(QVBoxLayout *layout);
 			void Submit(QVBoxLayout *layout);
+			void Home(QVBoxLayout *layout);
+			std::function<void()> lol();
+
+		private:
+			QVBoxLayout *_layout;
+			Input *_ip;
+			Input *_port;
+			std::vector<QWidget *> _input;
 		};
 
 	}
