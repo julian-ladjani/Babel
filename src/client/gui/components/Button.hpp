@@ -75,7 +75,6 @@ class Button : public QPushButton
 		std::function<void()> _event;
 	private:
 };
-
 	}
 }
 

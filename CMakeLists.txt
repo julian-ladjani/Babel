@@ -7,6 +7,9 @@ add_definitions("-fPIC -g")
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
+set(CMAKE_INCLUDE_CURRENT_DIR TRUE)
+set(CMAKE_AUTOMOC TRUE)
+set(CMAKE_AUTOUIC TRUE)
 
 include(build/conanbuildinfo.cmake)
 include(build/conan_paths.cmake)
@@ -61,10 +64,6 @@ set(SERVER
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 
 add_executable(babel_server src/server/MainServer.cpp ${SERVER} ${COMMON})
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 find_package(Qt5Network CONFIG REQUIRED)

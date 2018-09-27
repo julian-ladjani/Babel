@@ -15,6 +15,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
 #include <unistd.h>
+#include <memory>
 
 #include "src/client/gui/components/CButton.hpp"
 #include "src/client/gui/components/Input.hpp"
@@ -25,12 +26,15 @@ namespace babel {
 	namespace client {
 		class ConnectionPage : public ABabelPage
 		{
+		Q_OBJECT
 		public:
-			ConnectionPage(ClientInfo &_infos);
+			explicit ConnectionPage(ClientInfo &_infos);
 
 			void arrangeWidgets();
 			std::function<void()> serverPropertiesSwitcher();
 
+			virtual ~ConnectionPage();
+			void handleButton();
 		private:
 			enum BtnType {
 				CONNECTION,

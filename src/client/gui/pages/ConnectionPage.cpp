@@ -5,7 +5,6 @@
 ** Window.cpp
 */
 
-#include <memory>
 #include "ConnectionPage.hpp"
 
 babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
@@ -26,20 +25,22 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	_logo = std::make_unique<Image>("src/assets/img/logo.png", 350);
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-
 	setLayout(_layout);
 	arrangeWidgets();
+	connect(_buttons.at(CONNECTION).get(), &Button::clicked,
+		this, &ConnectionPage::handleButton);
 }
 
 std::function<void()> babel::client::ConnectionPage::serverPropertiesSwitcher()
 {
     return ([this](){
-	_inputs.at(IP_ADDRESS)->setVisible(
-		!_inputs.at(IP_ADDRESS)->isVisible());
-	_inputs.at(PORT)->setVisible(
-		!_inputs.at(PORT)->isVisible());
+	_inputs.at(IP_ADDRESS)->setVisible
+		(!_inputs.at(IP_ADDRESS)->isVisible());
+	_inputs.at(PORT)->setVisible
+		(!_inputs.at(PORT)->isVisible());
     });
 }
+
 void babel::client::ConnectionPage::arrangeWidgets()
 {
 	_buttons.at(OPTIONS)->setFunction(serverPropertiesSwitcher());
@@ -54,6 +55,16 @@ void babel::client::ConnectionPage::arrangeWidgets()
 	_layout->addWidget(_buttons.at(1).get(), 6, 0, 1, 2, Qt::AlignHCenter);
 	_inputs.at(IP_ADDRESS)->setVisible(false);
 	_inputs.at(PORT)->setVisible(false);
+}
+
+void babel::client::ConnectionPage::handleButton()
+{
+	printf("COUILLE\n");
+}
+
+babel::client::ConnectionPage::~ConnectionPage()
+{
+
 }
 
 /*void babel::client::ConnectionPage::home(QVBoxLayout *layout)
