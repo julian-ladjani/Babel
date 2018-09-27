@@ -10,11 +10,10 @@
 #include <QtWidgets>
 #include <QPalette>
 #include <QApplication>
-#include <src/client/windows/Window.hpp>
 #include <src/common/exception/Exception.hpp>
-
 #include <src/client/sound/AudioManager.hpp>
 #include <src/client/sound/AudioEncoder.hpp>
+#include <src/client/gui/MainWindow.hpp>
 
 int main(int argc, char *argv[])
 {
