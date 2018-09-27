@@ -27,7 +27,7 @@ namespace babel {
 		public:
 			MainWindow();
 		private:
-			void tryToConnect();
+			void changePage(std::string pageName);
 			PageManager _pages;
 			ClientInfo _infos;
 		};

@@ -36,7 +36,7 @@ namespace babel {
 			virtual ~ConnectionPage() {};
 			void handleButton();
 		Q_SIGNALS:
-			void askForConnection();
+			void changePage(std::string pageName);
 		private:
 			enum BtnType {
 				CONNECTION,
@@ -48,7 +48,6 @@ namespace babel {
 				IP_ADDRESS,
 				PORT
 			};
-			QGridLayout *_layout;
 			std::array<std::unique_ptr<Button>, 2> _buttons;
 			std::array<std::unique_ptr<Input>, 4> _inputs;
 			std::unique_ptr<Image> _logo;

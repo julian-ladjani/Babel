@@ -9,6 +9,9 @@
 #define CPP_BABEL_2018_MAINPAGE_HPP
 
 #include <src/client/ClientInfo.hpp>
+#include <QtNetwork/QHostAddress>
+#include <QtNetwork/QUdpSocket>
+#include <QtNetwork/QNetworkDatagram>
 #include "ABabelPage.hpp"
 
 namespace babel {
@@ -17,6 +20,12 @@ namespace babel {
 		{
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
+			void initSocket();
+			void readPendingDatagrams();
+		private:
+			QUdpSocket _udpSocket;
+
+			void sendDatagrams();
 		};
 
 	}

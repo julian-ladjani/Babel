@@ -18,14 +18,12 @@ babel::client::MainWindow::MainWindow()
 	_pages.addWidget(new MainPage(_infos), "main");
 	setCentralWidget(&_pages);
 	connect((ConnectionPage *)_pages.getPage("connection"),
-		&ConnectionPage::askForConnection, this, &MainWindow::tryToConnect);
+		&ConnectionPage::changePage, this, &MainWindow::changePage);
 }
 
-void babel::client::MainWindow::tryToConnect()
+void babel::client::MainWindow::changePage(std::string pageName)
 {
-	if (rand() % 5 < 3)
-		printf("On va dire que ça existe pas !\n");
-	else {
-		_pages.setCurrentPage("main");
-	}
+	std::cout << _infos.getClientInfo().getLogin() << std::endl;
+	std::cout << pageName << std::endl;
+	_pages.setCurrentPage(pageName);
 }

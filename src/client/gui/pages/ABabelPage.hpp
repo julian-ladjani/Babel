@@ -11,6 +11,7 @@
 #include <QWidget>
 #include <QObject>
 #include <src/client/ClientInfo.hpp>
+#include <QtWidgets/QGridLayout>
 
 namespace babel {
 	namespace client {
@@ -18,10 +19,17 @@ namespace babel {
 		Q_OBJECT
 		public:
 			ABabelPage (ClientInfo &_infos) :
-				QWidget(), _infos(_infos) {};
+				QWidget(), _infos(_infos),
+				_layout(new QGridLayout())
+			{
+				_layout->setAlignment(Qt::AlignHCenter
+						      | Qt::AlignVCenter);
+				setLayout(_layout);
+			};
 			virtual ~ABabelPage() {}
 		protected:
 			ClientInfo &_infos;
+			QGridLayout *_layout;
 		};
 	}
 }

@@ -17,7 +17,7 @@ namespace babel {
 		class ClientInfo {
 		public:
 			ClientInfo();
-			const common::User &getClientInfo() const;
+			common::User &getClientInfo();
 			void setClientInfo(const common::User &clientInfo);
 			const common::ConnectionInfo &getServerInfo() const;
 			void setServerInfo(
