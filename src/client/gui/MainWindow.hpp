@@ -12,6 +12,7 @@
 #include <QtWidgets/QApplication>
 #include <src/client/ClientInfo.hpp>
 #include <QtWidgets/QStackedWidget>
+#include <QObject>
 #include <memory>
 #include <src/client/gui/pages/ABabelPage.hpp>
 #include <src/client/gui/pages/PageManager.hpp>
@@ -22,8 +23,10 @@ namespace babel {
 	namespace client {
 		class MainWindow : public QMainWindow
 		{
+		Q_OBJECT
 		public:
 			MainWindow();
+			void yoloTest();
 		private:
 			PageManager _pages;
 			ClientInfo _infos;

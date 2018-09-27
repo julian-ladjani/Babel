@@ -59,12 +59,7 @@ void babel::client::ConnectionPage::arrangeWidgets()
 
 void babel::client::ConnectionPage::handleButton()
 {
-	printf("COUILLE\n");
-}
-
-babel::client::ConnectionPage::~ConnectionPage()
-{
-
+	emit askForConnection();
 }
 
 /*void babel::client::ConnectionPage::home(QVBoxLayout *layout)

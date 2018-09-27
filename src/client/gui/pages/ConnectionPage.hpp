@@ -33,8 +33,10 @@ namespace babel {
 			void arrangeWidgets();
 			std::function<void()> serverPropertiesSwitcher();
 
-			virtual ~ConnectionPage();
+			virtual ~ConnectionPage() {};
 			void handleButton();
+		Q_SIGNALS:
+			void askForConnection();
 		private:
 			enum BtnType {
 				CONNECTION,

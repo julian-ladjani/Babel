@@ -16,4 +16,12 @@ babel::client::MainWindow::MainWindow()
 	_pages.addWidget(new ConnectionPage(_infos), "connection");
 	_pages.addWidget(new MainPage(_infos), "main");
 	setCentralWidget(&_pages);
+	connect((ConnectionPage *)_pages.getPage("connection"),
+		&ConnectionPage::askForConnection,
+		this, &MainWindow::yoloTest);
+}
+
+void babel::client::MainWindow::yoloTest()
+{
+	printf("Julian le gros pd !\n");
 }
