@@ -4,3 +4,11 @@
 // File description:
 // MainPage.cpp
 //
+
+#include "MainPage.hpp"
+
+babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos)
+	: ABabelPage(_infos)
+{
+
+}

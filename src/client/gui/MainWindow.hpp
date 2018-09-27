@@ -14,6 +14,9 @@
 #include <QtWidgets/QStackedWidget>
 #include <memory>
 #include <src/client/gui/pages/ABabelPage.hpp>
+#include <src/client/gui/pages/PageManager.hpp>
+#include "src/client/gui/pages/ConnectionPage.hpp"
+#include "src/client/gui/pages/MainPage.hpp"
 
 namespace babel {
 	namespace client {
@@ -22,8 +25,7 @@ namespace babel {
 		public:
 			MainWindow();
 		private:
-			std::unique_ptr<ABabelPage> _cnxPage;
-			QStackedWidget _pages;
+			PageManager _pages;
 			ClientInfo _infos;
 		};
 

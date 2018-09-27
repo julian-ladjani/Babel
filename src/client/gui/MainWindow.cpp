@@ -6,14 +6,14 @@
 //
 
 #include "MainWindow.hpp"
-#include "src/client/gui/pages/ConnectionPage.hpp"
 
-babel::client::MainWindow::MainWindow() : _cnxPage(new ConnectionPage(_infos))
+babel::client::MainWindow::MainWindow()
 {
 	resize(1280, 720);
 	setWindowTitle(QApplication::translate(
 		"Epyks", "Epyks, Grand et impuissant !"));
 	setStyleSheet("background-color:#3d3d3d");
-	_pages.addWidget(_cnxPage.get());
+	_pages.addWidget(new ConnectionPage(_infos), "connection");
+	_pages.addWidget(new MainPage(_infos), "main");
 	setCentralWidget(&_pages);
 }
