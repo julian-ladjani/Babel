@@ -15,7 +15,10 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
 #include <unistd.h>
-#include <src/client/components/WidgetManager.hpp>
+
+#include "src/client/gui/components/CButton.hpp"
+#include "src/client/gui/components/Input.hpp"
+#include "src/client/gui/components/Image.hpp"
 #include "ABabelPage.hpp"
 
 namespace babel {
@@ -24,15 +27,16 @@ namespace babel {
 		{
 		public:
 			ConnectionPage(ClientInfo &_infos);
-			void submit(QVBoxLayout *layout);
+
+			void submit();
 			void home(QVBoxLayout *layout);
 			std::function<void()> serverPropertiesSwitcher();
-		    	std::function<void()> connection();
-
 
 		private:
-			QVBoxLayout *_layout;
-			WidgetManager	_connection;
+			QGridLayout *_layout;
+			Input *_ip;
+			Input *_port;
+			std::vector<QWidget *> _input;
 		};
 
 	}

@@ -43,6 +43,8 @@ void babel::client::ConnectionPage::submit()
 	Input *Pass = new Input(500, "Password");
     	_input.push_back(new Input(235, "IP Adress"));
     	_input.push_back(new Input(235, "Port"));
+	_input[0]->setVisible(false);
+	_input[1]->setVisible(false);
 	Button *button = new Button("Connection", STYLEDEFBUTTON, Size(500,30));
 	Button *button2 = new Button("Server options", STYLEDEFA, Size(500,30));
 	button2->setFunction(serverPropertiesSwitcher());

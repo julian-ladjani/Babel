@@ -17,11 +17,10 @@ namespace babel {
 		class PageManager : public QStackedWidget {
 		public:
 			int addWidget(ABabelPage *w, std::string name);
-		private:
-			std::map<std::string, ABabelPage*>
-			_names;
-
+			void setCurrentPage(std::string name);
 			ABabelPage *getPage(std::string name);
+		private:
+			std::map<std::string, ABabelPage*> _names;
 		};
 	}
 }

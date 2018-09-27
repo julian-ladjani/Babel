@@ -12,10 +12,8 @@
 #include <string>
 #include <QtWidgets/QWidget>
 #include <iostream>
-#include <src/client/components/CButton.hpp>
-#include <src/client/components/Input.hpp>
-#include <src/client/components/Image.hpp>
 #include <QtWidgets/QBoxLayout>
+#include "Button.hpp"
 
 namespace babel {
     namespace client {
@@ -26,9 +24,7 @@ namespace babel {
 	    ~WidgetManager();
 
 	    const std::map<std::string, QWidget *> &get_list() const;
-
 	    void set_list(const std::map<std::string, QWidget *> &_list);
-
 	    void addWidget(QWidget *widget, std::string name);
 
 	    QWidget *getWidget(std::string);

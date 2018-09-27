@@ -18,3 +18,8 @@ babel::client::ABabelPage *babel::client::PageManager::getPage(std::string name)
 {
 	return _names.at(name);
 }
+
+void babel::client::PageManager::setCurrentPage(std::string name)
+{
+	QStackedWidget::setCurrentWidget(getPage(name));
+}
