@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		audio.startRecording();
 		for (;;) {
 			audio.playRecord(encoder.decode(encoder.encode(audio.getRecord())));
-		} */
+		}*/
 
 		QApplication a(argc, argv);
 		babel::client::MainWindow w;

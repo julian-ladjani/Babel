@@ -28,15 +28,24 @@ namespace babel {
 		public:
 			ConnectionPage(ClientInfo &_infos);
 
-			void submit();
-			void home(QVBoxLayout *layout);
+			void arrangeWidgets();
 			std::function<void()> serverPropertiesSwitcher();
 
 		private:
+			enum BtnType {
+				CONNECTION,
+				OPTIONS
+			};
+			enum InputType {
+				LOGIN,
+				PASSWORD,
+				IP_ADDRESS,
+				PORT
+			};
 			QGridLayout *_layout;
-			Input *_ip;
-			Input *_port;
-			std::vector<QWidget *> _input;
+			std::array<std::unique_ptr<Button>, 2> _buttons;
+			std::array<std::unique_ptr<Input>, 4> _inputs;
+			std::unique_ptr<Image> _logo;
 		};
 
 	}

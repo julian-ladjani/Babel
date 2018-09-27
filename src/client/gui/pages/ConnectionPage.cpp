@@ -5,18 +5,53 @@
 ** Window.cpp
 */
 
+#include <memory>
 #include "ConnectionPage.hpp"
 
 babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	: _layout(new QGridLayout()), ABabelPage(_infos)
 {
+	_buttons[CONNECTION] = std::make_unique<Button>(
+		"Connection", STYLEDEFBUTTON, Size(500,30));
+	_buttons[OPTIONS] = std::make_unique<Button>(
+		"Options", STYLEDEFA, Size(500,30));
+	_inputs[LOGIN] = std::make_unique<Input>(500, "Username");
+	_inputs[PASSWORD] = std::make_unique<Input>(500, "Password");
+	_inputs[IP_ADDRESS] = std::make_unique<Input>(235, "IP Adress");
+	_inputs[PORT] = std::make_unique<Input>(235, "Port");
+	_logo = std::make_unique<Image>("src/assets/img/logo.png", 350);
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	setLayout(_layout);
-	submit();
+	arrangeWidgets();
 }
 
-void babel::client::ConnectionPage::home(QVBoxLayout *layout)
+std::function<void()> babel::client::ConnectionPage::serverPropertiesSwitcher()
+{
+    return ([this](){
+	_inputs.at(IP_ADDRESS)->setVisible(
+		!_inputs.at(IP_ADDRESS)->isVisible());
+	_inputs.at(PORT)->setVisible(
+		!_inputs.at(PORT)->isVisible());
+    });
+}
+void babel::client::ConnectionPage::arrangeWidgets()
+{
+	_buttons.at(OPTIONS)->setFunction(serverPropertiesSwitcher());
+	_logo->setAlignment(Qt::AlignHCenter);
+	_logo->setStyleSheet("padding-bottom: 80px;");
+	_layout->addWidget(_logo.get(), 0, 0, 3, 2);
+	_layout->addWidget(_inputs.at(LOGIN).get(), 2, 0, 1, 2);
+	_layout->addWidget(_inputs.at(PASSWORD).get(), 3, 0, 1, 2);
+	_layout->addWidget(_inputs.at(IP_ADDRESS).get(), 4, 0, 1, 1);
+	_layout->addWidget(_inputs.at(PORT).get(), 4, 1, 1, 1);
+	_layout->addWidget(_buttons.at(0).get(), 5, 0, 1, 2, Qt::AlignHCenter);
+	_layout->addWidget(_buttons.at(1).get(), 6, 0, 1, 2, Qt::AlignHCenter);
+	_inputs.at(IP_ADDRESS)->setVisible(false);
+	_inputs.at(PORT)->setVisible(false);
+}
+
+/*void babel::client::ConnectionPage::home(QVBoxLayout *layout)
 {
 	QHBoxLayout *layout2 = new QHBoxLayout;
 	QGroupBox *grlayout = new QGroupBox;
@@ -28,34 +63,4 @@ void babel::client::ConnectionPage::home(QVBoxLayout *layout)
 	layout2->addWidget(button);
 	grlayout->setLayout(layout2);
 	layout->addWidget(grlayout);
-}
-
-std::function<void()> babel::client::ConnectionPage::serverPropertiesSwitcher()
-{
-    return([this](){
-	_input[0]->setVisible(!_input[0]->isVisible());
-	_input[1]->setVisible(!_input[1]->isVisible());
-    });
-}
-void babel::client::ConnectionPage::submit()
-{
-	Input *User = new Input(500, "Username");
-	Input *Pass = new Input(500, "Password");
-    	_input.push_back(new Input(235, "IP Adress"));
-    	_input.push_back(new Input(235, "Port"));
-	_input[0]->setVisible(false);
-	_input[1]->setVisible(false);
-	Button *button = new Button("Connection", STYLEDEFBUTTON, Size(500,30));
-	Button *button2 = new Button("Server options", STYLEDEFA, Size(500,30));
-	button2->setFunction(serverPropertiesSwitcher());
-	Image *logo = new Image("src/assets/img/logo.png", 350);
-	logo->setAlignment(Qt::AlignHCenter);
-	logo->setStyleSheet("padding-bottom: 80px;");
-	_layout->addWidget(logo, 0, 0, 3, 2);
-	_layout->addWidget(User, 2, 0, 1, 2);
-	_layout->addWidget(Pass, 3, 0, 1, 2);
-	_layout->addWidget(_input[0], 4, 0, 1, 1);
-	_layout->addWidget(_input[1], 4, 1, 1, 1);
-	_layout->addWidget(button, 5, 0, 1, 2, Qt::AlignHCenter);
-	_layout->addWidget(button2, 6, 0, 1, 2, Qt::AlignHCenter);
-}
+}*/
