@@ -34,32 +34,39 @@ void babel::client::MainWindow::Home(QVBoxLayout *layout)
 	layout->addWidget(grlayout);
 }
 
-std::function<void()> babel::client::MainWindow::lol()
+std::function<void()> babel::client::MainWindow::showOption()
 {
-    return([this](){
-	_input[0]->setVisible(!_input[0]->isVisible());
-	_input[1]->setVisible(!_input[1]->isVisible());
-    });
+    return[this](){
+	_connection.getWidget("4IP")->setVisible(!_connection.getWidget("4IP")->isVisible());
+	_connection.getWidget("5Port")->setVisible(!_connection.getWidget("5Port")->isVisible());
+    };
 }
+
+std::function<void()> babel::client::MainWindow::connection()
+{
+    return [this]() {
+	QMessageBox msgBox;
+	msgBox.setIcon(QMessageBox::Warning);
+	msgBox.setWindowTitle("Epyks");
+	msgBox.setText("Username or Passworld Invalid");
+	msgBox.exec();
+	//_connection.setVisible(false);
+    };
+}
+
 void babel::client::MainWindow::Submit(QVBoxLayout *layout)
 {
-	Input *User = new Input(500, "Username");
-	Input *Pass = new Input(500, "Password");
-	std::cout << "lol\n";
-    	_input.push_back(new Input(200, "Adress IP"));
-    	_input.push_back(new Input(200, "Port"));
-	std::cout << "lol\n";
-	Button *button = new Button("Enter", STYLEDEFBUTTON, Size(200,50));
-	Button *button2 = new Button("Option", STYLEDEFA, Size(125,40));
-	button2->setFunction(lol());
-	Image *logo = new Image("src/assets/img/logo.png", 350);
-	logo->setAlignment(Qt::AlignHCenter);
-	logo->setStyleSheet("padding-bottom: 80px;");
-	layout->addWidget(logo);
-	layout->addWidget(User);
-	layout->addWidget(Pass);
-	layout->addWidget(_input[0], 0, Qt::AlignHCenter);
-	layout->addWidget(_input[1], 0, Qt::AlignHCenter);
-	layout->addWidget(button, 0, Qt::AlignHCenter);
-	layout->addWidget(button2, 0, Qt::AlignHCenter);
+    	_connection.addWidget(new Image("src/assets/img/logo.png", 350), "1Logo");
+    	_connection.addWidget(new Input(500, "Username"), "2User");
+    	_connection.addWidget(new Input(500, "Password"), "3Pass");
+    	_connection.addWidget(new Input(200, "Address IP"), "4IP");
+    	_connection.getWidget("4IP")->setVisible(false);
+    	_connection.addWidget(new Input(200, "Port"), "5Port");
+    	_connection.getWidget("5Port")->setVisible(false);
+    	_connection.addWidget(new Button("Connetion", STYLEDEFBUTTON, Size(200,50)), "Connection");
+    	_connection.addWidget(new Button("Option", STYLEDEFA, Size(125,40)), "Option");
+	_connection.getButton("Option")->setFunction(showOption());
+	_connection.getButton("Connection")->setFunction(connection());
+    	setStyleSheet("padding-bottom: 80px;");
+	_connection.addInLayout(layout, Qt::AlignHCenter);
 }

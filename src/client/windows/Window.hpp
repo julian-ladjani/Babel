@@ -16,9 +16,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
 #include <unistd.h>
-#include <src/client/components/CButton.hpp>
-#include <src/client/components/Input.hpp>
-#include <src/client/components/Image.hpp>
+#include <src/client/components/WidgetManager.hpp>
 
 namespace babel {
 	namespace client {
@@ -28,13 +26,13 @@ namespace babel {
 			MainWindow();
 			void Submit(QVBoxLayout *layout);
 			void Home(QVBoxLayout *layout);
-			std::function<void()> lol();
+			std::function<void()> showOption();
+		    	std::function<void()> connection();
+
 
 		private:
 			QVBoxLayout *_layout;
-			Input *_ip;
-			Input *_port;
-			std::vector<QWidget *> _input;
+			WidgetManager	_connection;
 		};
 
 	}
