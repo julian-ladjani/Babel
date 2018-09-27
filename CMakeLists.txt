@@ -36,6 +36,9 @@ set(CLIENT
 	src/client/gui/components/Size.hpp
 	src/client/gui/components/Image.cpp
 	src/client/gui/components/Image.hpp
+	src/client/gui/components/WidgetManager.cpp
+	src/client/gui/components/WidgetManager.hpp
+>>>>>>> 55e0021f59d2b16894f3d8b33101d281806764f6
         src/client/ClientInfo.hpp
         src/client/ClientInfo.cpp
 	src/client/sound/AudioManager.cpp

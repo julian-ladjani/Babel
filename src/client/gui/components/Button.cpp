@@ -40,26 +40,21 @@ void babel::client::Button::setFunction(std::function<void()> event)
 
 void babel::client::Button::hoverEnter(QHoverEvent *)
 {
-    std::cout << _ishover <<"\n";
     _ishover = true;
 }
 
 void babel::client::Button::hoverLeave(QHoverEvent *)
 {
     _ishover = false;
-    std::cout << _ishover <<"\n";
 }
 
 void babel::client::Button::hoverMove(QHoverEvent *)
 {
-    std::cout << _ishover <<"\n";
 }
 
 void babel::client::Button::hoverClick(QHoverEvent *)
 {
-		std::cout << "LIL1\n";
 	if (_ishover == true && _event != nullptr){
-		std::cout << "LIL\n";
 		_event();
 	}
 }
