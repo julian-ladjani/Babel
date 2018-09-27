@@ -26,8 +26,8 @@ namespace babel {
 		Q_OBJECT
 		public:
 			MainWindow();
-			void yoloTest();
 		private:
+			void tryToConnect();
 			PageManager _pages;
 			ClientInfo _infos;
 		};

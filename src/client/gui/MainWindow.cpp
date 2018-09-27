@@ -10,6 +10,7 @@
 babel::client::MainWindow::MainWindow()
 {
 	resize(1280, 720);
+	srand(static_cast<unsigned int>(time(nullptr)));
 	setWindowTitle(QApplication::translate(
 		"Epyks", "Epyks, Grand et impuissant !"));
 	setStyleSheet("background-color:#3d3d3d");
@@ -17,11 +18,14 @@ babel::client::MainWindow::MainWindow()
 	_pages.addWidget(new MainPage(_infos), "main");
 	setCentralWidget(&_pages);
 	connect((ConnectionPage *)_pages.getPage("connection"),
-		&ConnectionPage::askForConnection,
-		this, &MainWindow::yoloTest);
+		&ConnectionPage::askForConnection, this, &MainWindow::tryToConnect);
 }
 
-void babel::client::MainWindow::yoloTest()
+void babel::client::MainWindow::tryToConnect()
 {
-	printf("Julian le gros pd !\n");
+	if (rand() % 5 < 3)
+		printf("On va dire que ça existe pas !\n");
+	else {
+		_pages.setCurrentPage("main");
+	}
 }
