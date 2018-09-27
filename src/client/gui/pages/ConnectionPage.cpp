@@ -17,11 +17,16 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 		"Options", STYLEDEFA, Size(500,30));
 	_inputs[LOGIN] = std::make_unique<Input>(500, "Username");
 	_inputs[PASSWORD] = std::make_unique<Input>(500, "Password");
+	_inputs.at(PASSWORD)->setEchoMode(QLineEdit::Password);
+	_inputs.at(PASSWORD)->setInputMethodHints(
+		Qt::ImhHiddenText | Qt::ImhNoPredictiveText |
+		Qt::ImhNoAutoUppercase);
 	_inputs[IP_ADDRESS] = std::make_unique<Input>(235, "IP Adress");
 	_inputs[PORT] = std::make_unique<Input>(235, "Port");
 	_logo = std::make_unique<Image>("src/assets/img/logo.png", 350);
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+
 	setLayout(_layout);
 	arrangeWidgets();
 }
