@@ -17,9 +17,6 @@ namespace babel {
 	public:
 	    Image(const QString text, int size);
 	    ~Image();
-
-	protected:
-	private:
 	};
     }
 }

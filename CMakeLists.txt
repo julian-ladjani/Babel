@@ -41,7 +41,7 @@ set(CLIENT
 	src/client/sound/AudioManager.cpp
 	src/client/sound/AudioManager.hpp
 	src/client/sound/AudioEncoder.hpp
-	src/client/sound/AudioEncoder.cpp src/client/Babel.cpp src/client/Babel.hpp src/client/gui/MainWindow.cpp src/client/gui/MainWindow.hpp src/client/gui/pages/IBabelPage.hpp)
+	src/client/sound/AudioEncoder.cpp src/client/Babel.cpp src/client/Babel.hpp src/client/gui/MainWindow.cpp src/client/gui/MainWindow.hpp src/client/gui/pages/ABabelPage.hpp src/client/gui/pages/MainPage.cpp src/client/gui/pages/MainPage.hpp src/client/gui/pages/PageManager.cpp src/client/gui/pages/PageManager.hpp)
 
 set(SERVER
         src/server/Server.cpp

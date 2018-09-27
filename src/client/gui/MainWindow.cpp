@@ -8,7 +8,7 @@
 #include "MainWindow.hpp"
 #include "src/client/gui/pages/ConnectionPage.hpp"
 
-babel::client::MainWindow::MainWindow() : _cnxPage(new ConnectionPage)
+babel::client::MainWindow::MainWindow() : _cnxPage(new ConnectionPage(_infos))
 {
 	resize(1280, 720);
 	setWindowTitle(QApplication::translate(

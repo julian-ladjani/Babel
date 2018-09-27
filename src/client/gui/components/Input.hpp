@@ -12,15 +12,13 @@
 
 namespace babel {
 	namespace client {
-class Input : public QLineEdit
-{
-	public:
-		Input(int size, QString placeholder);
-		~Input();
+		class Input : public QLineEdit
+		{
+			public:
+			Input(int size, QString placeholder);
+			~Input();
+		};
+	}
+}
 
-	protected:
-	private:
-};
-}
-}
 #endif /* !INPUT_HPP_ */

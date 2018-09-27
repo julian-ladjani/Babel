@@ -7,7 +7,8 @@
 
 #include "ConnectionPage.hpp"
 
-babel::client::ConnectionPage::ConnectionPage() : _layout(new QGridLayout())
+babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
+	: _layout(new QGridLayout()), ABabelPage(_infos)
 {
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);

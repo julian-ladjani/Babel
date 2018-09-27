@@ -12,16 +12,12 @@
 
 namespace babel {
 	namespace client {
-
-class CButton : public Button
-{
-	public:
-		CButton(const QString &text, const QString style, int size = 70);
-		~CButton();
-
-	protected:
-	private:
-};
+		class CButton : public Button
+		{
+		public:
+			CButton(const QString &text, const QString style, int size = 70);
+			~CButton();
+		};
 
 	}
 }

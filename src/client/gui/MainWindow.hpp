@@ -13,7 +13,7 @@
 #include <src/client/ClientInfo.hpp>
 #include <QtWidgets/QStackedWidget>
 #include <memory>
-#include <src/client/gui/pages/IBabelPage.hpp>
+#include <src/client/gui/pages/ABabelPage.hpp>
 
 namespace babel {
 	namespace client {
@@ -22,7 +22,7 @@ namespace babel {
 		public:
 			MainWindow();
 		private:
-			std::unique_ptr<IBabelPage> _cnxPage;
+			std::unique_ptr<ABabelPage> _cnxPage;
 			QStackedWidget _pages;
 			ClientInfo _infos;
 		};

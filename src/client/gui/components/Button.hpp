@@ -57,6 +57,7 @@ const QString STYLEDEFA = "QPushButton { background-color: #3d3d3d;"
 		"outline: 0;}"
 		"QPushButton:pressed {"
 		"color: #d5d5d5}";
+
 class Button : public QPushButton
 {
 	public:

@@ -19,14 +19,15 @@
 #include "src/client/gui/components/CButton.hpp"
 #include "src/client/gui/components/Input.hpp"
 #include "src/client/gui/components/Image.hpp"
-#include "IBabelPage.hpp"
+#include "ABabelPage.hpp"
 
 namespace babel {
 	namespace client {
-		class ConnectionPage : public IBabelPage
+		class ConnectionPage : public ABabelPage
 		{
 		public:
-			ConnectionPage();
+			ConnectionPage(ClientInfo &_infos);
+
 			void submit();
 			void home(QVBoxLayout *layout);
 			std::function<void()> serverPropertiesSwitcher();
