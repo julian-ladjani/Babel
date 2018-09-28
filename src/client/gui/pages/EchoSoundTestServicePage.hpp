@@ -27,10 +27,18 @@ namespace babel {
 			void initSocket();
 			void readData();
 		private:
+			enum BtnType {
+				SEND,
+			};
+			enum IptType {
+				IP_ADDRESS,
+				PORT
+			};
+			std::array<std::unique_ptr<Button>, 1> _buttons;
+			std::array<std::unique_ptr<Input>, 2> _inputs;
 			QUdpSocket _udpSocket;
-			Button *_sender;
+			common::ConnectionInfo cinfos;
 			void sendData();
-		protected:
 			void connections() override;
 		};
 

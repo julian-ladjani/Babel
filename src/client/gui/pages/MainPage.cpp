@@ -21,9 +21,7 @@ void babel::client::MainPage::initSocket()
 	_sender = new Button("SEND", STYLEDEFBUTTON, Size(500, 30));
 	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
-	_udpSocket.bind(address, 7777);
-	qDebug() << _udpSocket.localAddress().toString() << ":"
-		 << _udpSocket.localPort();
+	_udpSocket.bind(address);
 	_layout->addWidget(_sender, 0, 0, 3, 2);
 	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	setLayout(_layout);

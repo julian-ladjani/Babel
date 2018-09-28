@@ -10,30 +10,33 @@
 babel::client::EchoSoundTestServicePage::EchoSoundTestServicePage
 	(babel::client::ClientInfo &_infos) :
 	_udpSocket(this),
-	_sender(new Button("SEND", STYLEDEFBUTTON, Size(500, 30))),
-	ABabelPage(_infos)
+	_buttons{std::make_unique<Button>("SEND", STYLEDEFBUTTON, Size(500, 30))},
+	_inputs{std::make_unique<Input>(240, "Ip Address"),
+	        std::make_unique<Input>(240, "Port")}, ABabelPage(_infos)
 {
+	_layout->addWidget(_inputs.at(IP_ADDRESS).get(), 0, 0, 1, 1);
+	_layout->addWidget(_inputs.at(PORT).get(), 0, 1, 1, 1);
+	_layout->addWidget(_buttons.at(SEND).get(), 1, 0, 1, 2);
+	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	initSocket();
 	connections();
 }
 
 void babel::client::EchoSoundTestServicePage::initSocket()
 {
-	_sender = new Button("SEND", STYLEDEFBUTTON, Size(500, 30));
 	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
-	_udpSocket.bind(address, 7777);
+	_udpSocket.bind(address);
+	printf("couille\n");
 	qDebug() << _udpSocket.localAddress().toString() << ":"
 		 << _udpSocket.localPort();
-	_layout->addWidget(_sender, 0, 0, 3, 2);
-	_layout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-	setLayout(_layout);
 }
 
 void babel::client::EchoSoundTestServicePage::connections()
 {
 	connect(&_udpSocket, &QUdpSocket::readyRead, this, &EchoSoundTestServicePage::readData);
-	connect(_sender, &Button::clicked, this, &EchoSoundTestServicePage::sendData);
+	connect(_buttons.at(SEND).get(), &Button::clicked, this,
+		&EchoSoundTestServicePage::sendData);
 }
 
 void babel::client::EchoSoundTestServicePage::readData()
@@ -47,5 +50,7 @@ void babel::client::EchoSoundTestServicePage::readData()
 void babel::client::EchoSoundTestServicePage::sendData()
 {
 	_udpSocket.writeDatagram
-		(QByteArray("coucou"), QHostAddress::LocalHost, 7777);
+		(QByteArray("coucou"),
+		 QHostAddress(_inputs.at(IP_ADDRESS)->text()),
+		 (quint16)(_inputs.at(PORT)->text().toInt()));
 }
