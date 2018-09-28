@@ -7,10 +7,8 @@
 
 #include "Button.hpp"
 
-babel::client::Button::Button(const QString &text, const QString style, Size size) : _ishover(false), _event(nullptr)
+babel::client::Button::Button(const QString &text, const QString style, Size size)
 {
-	setMouseTracking(true);
-    	setAttribute(Qt::WA_Hover);
 	std::ifstream infile;
 	std::string utf8_text = text.toUtf8().constData();
 	infile.open(utf8_text, std::ios::in);
@@ -31,55 +29,4 @@ babel::client::Button::Button(const QString &text, const QString style, Size siz
 
 babel::client::Button::~Button()
 {
-}
-
-void babel::client::Button::setFunction(std::function<void()> event)
-{
-	_event = event;
-}
-
-void babel::client::Button::hoverEnter(QHoverEvent *)
-{
-    _ishover = true;
-}
-
-void babel::client::Button::hoverLeave(QHoverEvent *)
-{
-    _ishover = false;
-}
-
-void babel::client::Button::hoverMove(QHoverEvent *)
-{
-}
-
-void babel::client::Button::hoverClick(QHoverEvent *)
-{
-	if (_ishover == true && _event != nullptr){
-		_event();
-	}
-}
-
-bool babel::client::Button::event(QEvent *event)
-{
-    switch(event->type())
-    {
-    case QEvent::HoverEnter:
-        hoverEnter(static_cast<QHoverEvent*>(event));
-        return true;
-        break;
-    case QEvent::HoverLeave:
-        hoverLeave(static_cast<QHoverEvent*>(event));
-        return true;
-        break;
-    case QEvent::HoverMove:
-        hoverMove(static_cast<QHoverEvent*>(event));
-        return true;
-        break;
-    case QEvent::MouseButtonPress:
-	hoverClick(static_cast<QHoverEvent*>(event));
-	break;
-    default:
-        break;
-    }
-    return QWidget::event(event);
 }

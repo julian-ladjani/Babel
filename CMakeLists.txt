@@ -46,8 +46,6 @@ set(CLIENT
 	src/client/gui/pages/PageManager.hpp
 	src/client/gui/pages/ConnectionPage.cpp
 	src/client/gui/pages/ConnectionPage.hpp
-	src/client/gui/components/WidgetManager.cpp
-	src/client/gui/components/WidgetManager.hpp
 	src/client/sound/AudioManager.cpp
 	src/client/sound/AudioManager.hpp
 	src/client/sound/AudioEncoder.hpp
