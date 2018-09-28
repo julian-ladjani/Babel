@@ -2,12 +2,13 @@
 // EPITECH PROJECT, 2018
 // CPP_babel_2018
 // File description:
-// MainPage.cpp
+// EchoSoundTestServicePage.cpp
 //
 
-#include "MainPage.hpp"
+#include "EchoSoundTestServicePage.hpp"
 
-babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
+babel::client::EchoSoundTestServicePage::EchoSoundTestServicePage
+	(babel::client::ClientInfo &_infos) :
 	_udpSocket(this),
 	_sender(new Button("SEND", STYLEDEFBUTTON, Size(500, 30))),
 	ABabelPage(_infos)
@@ -16,7 +17,7 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	connections();
 }
 
-void babel::client::MainPage::initSocket()
+void babel::client::EchoSoundTestServicePage::initSocket()
 {
 	_sender = new Button("SEND", STYLEDEFBUTTON, Size(500, 30));
 	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
@@ -29,13 +30,13 @@ void babel::client::MainPage::initSocket()
 	setLayout(_layout);
 }
 
-void babel::client::MainPage::connections()
+void babel::client::EchoSoundTestServicePage::connections()
 {
-	connect(&_udpSocket, &QUdpSocket::readyRead, this, &MainPage::readData);
-	connect(_sender, &Button::clicked, this, &MainPage::sendData);
+	connect(&_udpSocket, &QUdpSocket::readyRead, this, &EchoSoundTestServicePage::readData);
+	connect(_sender, &Button::clicked, this, &EchoSoundTestServicePage::sendData);
 }
 
-void babel::client::MainPage::readData()
+void babel::client::EchoSoundTestServicePage::readData()
 {
 	while (_udpSocket.hasPendingDatagrams()) {
 		QNetworkDatagram datagram = _udpSocket.receiveDatagram();
@@ -43,7 +44,7 @@ void babel::client::MainPage::readData()
 	}
 }
 
-void babel::client::MainPage::sendData()
+void babel::client::EchoSoundTestServicePage::sendData()
 {
 	_udpSocket.writeDatagram
 		(QByteArray("coucou"), QHostAddress::LocalHost, 7777);

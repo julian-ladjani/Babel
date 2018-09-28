@@ -42,7 +42,8 @@ namespace babel {
 		private:
 			enum BtnType {
 				CONNECTION,
-				OPTIONS
+				OPTIONS,
+				TEST
 			};
 			enum InputType {
 				LOGIN,
@@ -50,9 +51,11 @@ namespace babel {
 				IP_ADDRESS,
 				PORT
 			};
-			std::array<std::unique_ptr<Button>, 2> _buttons;
+			std::array<std::unique_ptr<Button>, 3> _buttons;
 			std::array<std::unique_ptr<Input>, 4> _inputs;
 			std::unique_ptr<Image> _logo;
+
+			void changeToTestPage();
 		};
 
 	}

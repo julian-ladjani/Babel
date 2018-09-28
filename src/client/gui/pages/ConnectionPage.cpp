@@ -14,6 +14,9 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 		"Logout", STYLEDEFBUTTON, Size(500,30));
 	_buttons[OPTIONS] = std::make_unique<Button>(
 		"Options", STYLEDEFA, Size(500,30));
+	_buttons[TEST] = std::make_unique<Button>(
+		"Bouton de test tu sais pas se qui va se passer OMG",
+		STYLEDEFBUTTON, Size(500,30));
 	_inputs[LOGIN] = std::make_unique<Input>(500, "Username");
 	_inputs[PASSWORD] = std::make_unique<Input>(500, "Password");
 	_inputs.at(LOGIN)->setEchoMode(QLineEdit::Password);
@@ -33,6 +36,13 @@ void babel::client::ConnectionPage::connections()
 		this, &ConnectionPage::serverPropertiesSwitcher);
 	connect(_buttons.at(CONNECTION).get(), &Button::clicked,
 		this, &ConnectionPage::handleButton);
+	connect(_buttons.at(TEST).get(), &Button::clicked,
+		this, &ConnectionPage::changeToTestPage);
+}
+
+void babel::client::ConnectionPage::changeToTestPage()
+{
+	emit changePage("echo_sound_test_service");
 }
 
 void babel::client::ConnectionPage::serverPropertiesSwitcher()
@@ -54,6 +64,7 @@ void babel::client::ConnectionPage::arrangeWidgets()
 	_layout->addWidget(_inputs.at(PORT).get(), 4, 1, 1, 1);
 	_layout->addWidget(_buttons.at(0).get(), 5, 0, 1, 2, Qt::AlignHCenter);
 	_layout->addWidget(_buttons.at(1).get(), 6, 0, 1, 2, Qt::AlignHCenter);
+	_layout->addWidget(_buttons.at(2).get(), 7, 0, 1, 2, Qt::AlignHCenter);
 	_inputs.at(IP_ADDRESS)->setVisible(false);
 	_inputs.at(PORT)->setVisible(false);
 }

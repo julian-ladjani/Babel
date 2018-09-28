@@ -5,8 +5,6 @@
 // MainWindow.cpp
 //
 
-#include <QtNetwork/QHostInfo>
-#include <QtNetwork/QNetworkInterface>
 #include "MainWindow.hpp"
 
 babel::client::MainWindow::MainWindow()
@@ -19,6 +17,8 @@ babel::client::MainWindow::MainWindow()
 	initClientInfos();
 	_pages.addWidget(new ConnectionPage(_infos), "connection");
 	_pages.addWidget(new MainPage(_infos), "main");
+	_pages.addWidget(new EchoSoundTestServicePage(_infos),
+			 "echo_sound_test_service");
 	setCentralWidget(&_pages);
 	connect((ConnectionPage *)_pages.getPage("connection"),
 		&ConnectionPage::changePage, this, &MainWindow::changePage);

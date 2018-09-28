@@ -17,7 +17,10 @@
 #include <src/client/gui/pages/ABabelPage.hpp>
 #include <src/client/gui/pages/PageManager.hpp>
 #include "src/client/gui/pages/ConnectionPage.hpp"
+#include "src/client/gui/pages/EchoSoundTestServicePage.hpp"
 #include "src/client/gui/pages/MainPage.hpp"
+#include <QtNetwork/QHostInfo>
+#include <QtNetwork/QNetworkInterface>
 
 namespace babel {
 	namespace client {
