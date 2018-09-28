@@ -37,6 +37,8 @@ namespace babel {
 			void handleButton();
 		Q_SIGNALS:
 			void changePage(std::string pageName);
+		protected:
+			void connections() override;
 		private:
 			enum BtnType {
 				CONNECTION,

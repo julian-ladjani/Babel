@@ -8,10 +8,14 @@
 #ifndef CPP_BABEL_2018_MAINPAGE_HPP
 #define CPP_BABEL_2018_MAINPAGE_HPP
 
+#include <src/client/gui/components/Button.hpp>
 #include <src/client/ClientInfo.hpp>
+#include <QtNetwork/QNetworkInterface>
+#include <QtNetwork/QHostInfo>
+#include <QtNetwork/QNetworkDatagram>
 #include <QtNetwork/QHostAddress>
 #include <QtNetwork/QUdpSocket>
-#include <QtNetwork/QNetworkDatagram>
+#include "ConnectionPage.hpp"
 #include "ABabelPage.hpp"
 
 namespace babel {
@@ -21,11 +25,13 @@ namespace babel {
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
 			void initSocket();
-			void readPendingDatagrams();
+			void readData();
 		private:
 			QUdpSocket _udpSocket;
-
-			void sendDatagrams();
+			Button *_sender;
+			void sendData();
+		protected:
+			void connections() override;
 		};
 
 	}

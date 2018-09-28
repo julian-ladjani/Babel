@@ -15,16 +15,14 @@ namespace babel {
 		class ConnectionInfo {
 		public:
 			explicit ConnectionInfo(unsigned short port = 0,
-						 std::array<unsigned char, 4> ip
-						 = {0, 0, 0, 0});
+						std::string ip = "0.0.0.0");
 			unsigned short getPort() const;
 			void setPort(unsigned short port);
-			const std::array<unsigned char, 4> &getIp() const;
-			void setIp(const std::array<unsigned char, 4> &ip);
-
+			const std::string &getIp() const;
+			void setIp(const std::string &Ip);
 		private:
 			unsigned short _port;
-			std::array<unsigned char, 4> _ip;
+			std::string _ip;
 		};
 	}
 }

@@ -55,7 +55,7 @@ set(CLIENT
 	src/client/ClientInfo.hpp
 	src/client/ClientInfo.cpp
 	src/client/Babel.cpp
-	src/client/Babel.hpp)
+	src/client/Babel.hpp src/client/gui/pages/ABabelPage.cpp)
 
 set(SERVER
         src/server/Server.cpp

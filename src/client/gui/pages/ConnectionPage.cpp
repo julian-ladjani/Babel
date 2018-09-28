@@ -23,8 +23,12 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	_inputs[IP_ADDRESS] = std::make_unique<Input>(235, "IP Adress");
 	_inputs[PORT] = std::make_unique<Input>(235, "Port");
 	_logo = std::make_unique<Image>("src/assets/img/logo.png", 350);
-	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 	arrangeWidgets();
+	connections();
+}
+
+void babel::client::ConnectionPage::connections()
+{
 	connect(_buttons.at(CONNECTION).get(), &Button::clicked,
 		this, &ConnectionPage::handleButton);
 }

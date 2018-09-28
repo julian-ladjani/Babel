@@ -18,16 +18,10 @@ namespace babel {
 		class ABabelPage : public QWidget {
 		Q_OBJECT
 		public:
-			ABabelPage (ClientInfo &_infos) :
-				QWidget(), _infos(_infos),
-				_layout(new QGridLayout())
-			{
-				_layout->setAlignment(Qt::AlignHCenter
-						      | Qt::AlignVCenter);
-				setLayout(_layout);
-			};
-			virtual ~ABabelPage() {}
+			ABabelPage(ClientInfo &_infos);
+			~ABabelPage() override {}
 		protected:
+			virtual void connections() = 0;
 			ClientInfo &_infos;
 			QGridLayout *_layout;
 		};

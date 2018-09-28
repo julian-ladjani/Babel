@@ -8,7 +8,7 @@
 #include "ConnectionInfo.hpp"
 
 babel::common::ConnectionInfo::ConnectionInfo(
-	unsigned short port, std::array<unsigned char, 4> ip) :
+	unsigned short port, std::string ip) :
 	_port(port), _ip(ip)
 {
 }
@@ -23,14 +23,12 @@ void babel::common::ConnectionInfo::setPort(unsigned short port)
 	_port = port;
 }
 
-const std::array<unsigned char, 4> &
-babel::common::ConnectionInfo::getIp() const
+const std::string &babel::common::ConnectionInfo::getIp() const
 {
 	return _ip;
 }
 
-void
-babel::common::ConnectionInfo::setIp(const std::array<unsigned char, 4> &ip)
+void babel::common::ConnectionInfo::setIp(const std::string &Ip)
 {
-	_ip = ip;
+	ConnectionInfo::_ip = Ip;
 }

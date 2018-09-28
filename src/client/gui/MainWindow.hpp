@@ -30,6 +30,8 @@ namespace babel {
 			void changePage(std::string pageName);
 			PageManager _pages;
 			ClientInfo _infos;
+
+			void initClientInfos();
 		};
 
 	}
