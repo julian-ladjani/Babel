@@ -32,10 +32,11 @@ namespace babel {
 			};
 			enum IptType {
 				IP_ADDRESS,
-				PORT
+				PORT,
+				MSG
 			};
 			std::array<std::unique_ptr<Button>, 1> _buttons;
-			std::array<std::unique_ptr<Input>, 2> _inputs;
+			std::array<std::unique_ptr<Input>, 3> _inputs;
 			QUdpSocket _udpSocket;
 			common::ConnectionInfo cinfos;
 			void sendData();
