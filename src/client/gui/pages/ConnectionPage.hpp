@@ -31,7 +31,7 @@ namespace babel {
 			explicit ConnectionPage(ClientInfo &_infos);
 
 			void arrangeWidgets();
-			std::function<void()> serverPropertiesSwitcher();
+			void serverPropertiesSwitcher();
 
 			virtual ~ConnectionPage() {};
 			void handleButton();

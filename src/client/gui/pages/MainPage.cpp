@@ -21,7 +21,7 @@ void babel::client::MainPage::initSocket()
 	_sender = new Button("SEND", STYLEDEFBUTTON, Size(500, 30));
 	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
-	_udpSocket.bind(address);
+	_udpSocket.bind(address, 7777);
 	qDebug() << _udpSocket.localAddress().toString() << ":"
 		 << _udpSocket.localPort();
 	_layout->addWidget(_sender, 0, 0, 3, 2);
@@ -46,5 +46,5 @@ void babel::client::MainPage::readData()
 void babel::client::MainPage::sendData()
 {
 	_udpSocket.writeDatagram
-		(QByteArray("coucou"), QHostAddress::LocalHost, 7755);
+		(QByteArray("coucou"), QHostAddress::LocalHost, 6666);
 }

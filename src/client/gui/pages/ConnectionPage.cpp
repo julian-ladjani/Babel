@@ -29,23 +29,22 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 
 void babel::client::ConnectionPage::connections()
 {
+	connect(_buttons.at(OPTIONS).get(), &Button::clicked,
+		this, &ConnectionPage::serverPropertiesSwitcher);
 	connect(_buttons.at(CONNECTION).get(), &Button::clicked,
 		this, &ConnectionPage::handleButton);
 }
 
-std::function<void()> babel::client::ConnectionPage::serverPropertiesSwitcher()
+void babel::client::ConnectionPage::serverPropertiesSwitcher()
 {
-    return ([this](){
 	_inputs.at(IP_ADDRESS)->setVisible
 		(!_inputs.at(IP_ADDRESS)->isVisible());
 	_inputs.at(PORT)->setVisible
 		(!_inputs.at(PORT)->isVisible());
-    });
 }
 
 void babel::client::ConnectionPage::arrangeWidgets()
 {
-	_buttons.at(OPTIONS)->setFunction(serverPropertiesSwitcher());
 	_logo->setAlignment(Qt::AlignHCenter);
 	_logo->setStyleSheet("padding-bottom: 80px;");
 	_layout->addWidget(_logo.get(), 0, 0, 3, 2);
@@ -63,21 +62,5 @@ void babel::client::ConnectionPage::handleButton()
 {
 	_infos.getClientInfo().setLogin
 		(_inputs.at(LOGIN)->text().toUtf8().constData());
-	_infos.getClientInfo().setLogin
-		(_inputs.at(LOGIN)->text().toUtf8().constData());
 	emit changePage("main");
 }
-
-/*void babel::client::ConnectionPage::home(QVBoxLayout *layout)
-{
-	QHBoxLayout *layout2 = new QHBoxLayout;
-	QGroupBox *grlayout = new QGroupBox;
-	Button *button = new Button("src/assets/img/add.png",
-					STYLEDEFBUTTON, Size(100, 100));
-	Button *button2 = new Button("src/assets/img/hangup.png",
-					STYLEGREENBUTTON, Size(100, 100));
-	layout2->addWidget(button2);
-	layout2->addWidget(button);
-	grlayout->setLayout(layout2);
-	layout->addWidget(grlayout);
-}*/
