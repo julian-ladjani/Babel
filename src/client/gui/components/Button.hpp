@@ -63,16 +63,8 @@ class Button : public QPushButton
 	public:
 		Button(const QString &text, const QString style, Size size);
 		~Button();
-		void setFunction(std::function<void()> event);
-		void hoverEnter(QHoverEvent *event);
-	    	void hoverLeave(QHoverEvent *event);
-    		void hoverMove(QHoverEvent *event);
-    		void hoverClick(QHoverEvent *event);
-    		bool event(QEvent *event);
 
 	protected:
-		bool _ishover;
-		std::function<void()> _event;
 	private:
 };
 	}

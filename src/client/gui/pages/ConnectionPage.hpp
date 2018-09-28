@@ -8,18 +8,8 @@
 #ifndef CPP_BABEL_2018_WINDOW_HPP
 #define CPP_BABEL_2018_WINDOW_HPP
 
-#include <QObject>
-#include <QtCore>
-#include <QMainWindow>
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
-#include <QtWidgets/QMainWindow>
 #include <unistd.h>
 #include <memory>
-
-#include "src/client/gui/components/CButton.hpp"
-#include "src/client/gui/components/Input.hpp"
-#include "src/client/gui/components/Image.hpp"
 #include "ABabelPage.hpp"
 
 namespace babel {

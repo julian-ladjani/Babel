@@ -29,6 +29,9 @@ namespace babel {
 		private:
 			QUdpSocket _udpSocket;
 			Button *_sender;
+		    	std::array<std::unique_ptr<Button>, 2> _buttons;
+		    	std::array<std::unique_ptr<Input>, 4> _inputs;
+		    	std::unique_ptr<Image> _logo;
 			void sendData();
 		protected:
 			void connections() override;

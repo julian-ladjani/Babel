@@ -45,7 +45,6 @@ std::function<void()> babel::client::ConnectionPage::serverPropertiesSwitcher()
 
 void babel::client::ConnectionPage::arrangeWidgets()
 {
-	_buttons.at(OPTIONS)->setFunction(serverPropertiesSwitcher());
 	_logo->setAlignment(Qt::AlignHCenter);
 	_logo->setStyleSheet("padding-bottom: 80px;");
 	_layout->addWidget(_logo.get(), 0, 0, 3, 2);
@@ -67,17 +66,3 @@ void babel::client::ConnectionPage::handleButton()
 		(_inputs.at(LOGIN)->text().toUtf8().constData());
 	emit changePage("main");
 }
-
-/*void babel::client::ConnectionPage::home(QVBoxLayout *layout)
-{
-	QHBoxLayout *layout2 = new QHBoxLayout;
-	QGroupBox *grlayout = new QGroupBox;
-	Button *button = new Button("src/assets/img/add.png",
-					STYLEDEFBUTTON, Size(100, 100));
-	Button *button2 = new Button("src/assets/img/hangup.png",
-					STYLEGREENBUTTON, Size(100, 100));
-	layout2->addWidget(button2);
-	layout2->addWidget(button);
-	grlayout->setLayout(layout2);
-	layout->addWidget(grlayout);
-}*/
