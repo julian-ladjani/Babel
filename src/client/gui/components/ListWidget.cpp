@@ -26,9 +26,19 @@ void babel::client::ListWidget::AddPersonne() {
         QListWidgetItem *itm = new QListWidgetItem;
         itm->setText("Benoit 16");
         itm->setIcon(QIcon("src/assets/img/off.png"));
-        itm->setSizeHint(QSize(50, 50));
         addItem(itm);
         itm->setTextAlignment(Qt::AlignCenter);
 
     }
+}
+
+void babel::client::ListWidget::keyPressEvent(QKeyEvent *event){
+    if(event->key() == Qt::Key_Delete)
+        removePersonne();
+
+}
+
+void babel::client::ListWidget::removePersonne() {
+    if (currentItem() && dragDropMode() == QAbstractItemView::DropOnly)
+        delete currentItem();
 }

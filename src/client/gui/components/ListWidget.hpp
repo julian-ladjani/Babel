@@ -9,6 +9,7 @@
 #define LISTWIDGET_HPP_
 
 #include <QtWidgets/QListWidget>
+#include <QKeyEvent>
 
 namespace babel {
     namespace client {
@@ -19,6 +20,8 @@ namespace babel {
 	    ~ListWidget();
 
 	    void AddPersonne();
+	    void keyPressEvent(QKeyEvent *event);
+	    void removePersonne();
 
 	protected:
 	private:
