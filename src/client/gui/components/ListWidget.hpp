@@ -10,16 +10,15 @@
 
 #include <QtWidgets/QListWidget>
 #include <QKeyEvent>
+#include <src/common/User.hpp>
 
 namespace babel {
     namespace client {
 	class ListWidget : public QListWidget {
 	public:
 	    ListWidget(DragDropMode mode);
-
 	    ~ListWidget();
-
-	    void AddPersonne();
+	    void AddPersonne(std::vector<common::User> contacts);
 	    void keyPressEvent(QKeyEvent *event);
 	    void removePersonne();
 

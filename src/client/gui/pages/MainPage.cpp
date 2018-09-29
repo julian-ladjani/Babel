@@ -20,6 +20,10 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
     	_list[FAVORITE] =  std::make_unique<ListWidget>(QAbstractItemView::DropOnly);
 	_label[SERVER] = std::make_unique<Label>("Server List");
     	_list[SERVER] =  std::make_unique<ListWidget>(QAbstractItemView::DragOnly);
+    	_infos.addContact(common::User("Lucas DE PRES", 0, true));
+    	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
+ 	_infos.addContact(common::User("Julian Italien", 2, false));
+	_infos.addContact(common::User("Yanick Sucre", 3, false));
 	initSocket();
 	connections();
 }
@@ -41,10 +45,10 @@ void babel::client::MainPage::initSocket()
     	vbox->addWidget(_label[FAVORITE].get());
     	vbox->addWidget(_list[FAVORITE].get());
     	vbox->addWidget(_label[SERVER].get());
-    	_list[SERVER]->AddPersonne();
+    	_list[SERVER]->AddPersonne(_infos.getContacts());
     	vbox->addWidget(_list[SERVER].get());
     	_container[CONTACT]->setLayout(vbox);
-	_layout->addWidget(_container[CONTACT].get(), 0, 0, 1, 1);
+    	_layout->addWidget(_container[CONTACT].get(), 0, 0, 1, 1);
 	_layout->addWidget(_container[MAIN].get(), 0, 1, 1, 2);
 	setLayout(_layout);
 }
