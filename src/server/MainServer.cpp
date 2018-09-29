@@ -7,9 +7,30 @@
 
 #include <src/server/Server.hpp>
 #include <src/common/exception/Exception.hpp>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <sstream>
+#include <iterator>
+#include <iostream>
+#include "src/common/network/DataPacket.hpp"
 
 int main(int argc, char *argv[])
 {
+	babel::common::DataPacket dataPacket;
+	babel::common::DataPacket newDataPacket;
+	std::string serialized;
+	dataPacket.addArg("lol");
+	dataPacket.setCommandId
+		(babel::common::DataPacket::CommandName::LOGIN);
+	dataPacket.addArg("lol");
+	dataPacket.addArg("lil");
+	serialized = dataPacket.serialize();
+	std::cout << serialized << std::endl;
+	newDataPacket = babel::common::DataPacket::deserialize(serialized);
+	serialized = newDataPacket.serialize();
+	std::cout << serialized << std::endl;
+
 	try {
 		babel::server::Server server;
 		server.start();
