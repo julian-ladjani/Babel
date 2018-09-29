@@ -5,6 +5,7 @@
 ** ListWidget.cpp
 */
 
+#include <iostream>
 #include "ListWidget.hpp"
 
 babel::client::ListWidget::ListWidget(DragDropMode mode)
@@ -21,14 +22,16 @@ babel::client::ListWidget::~ListWidget()
 
 }
 
-void babel::client::ListWidget::AddPersonne() {
-    for (int i=0; i!=20; i++){
+void babel::client::ListWidget::AddPersonne(std::vector<common::User> contacts) {
+    for (int i=0; i < contacts.size(); i++){
         QListWidgetItem *itm = new QListWidgetItem;
-        itm->setText("Benoit 16");
-        itm->setIcon(QIcon("src/assets/img/off.png"));
+        itm->setText(QString::fromStdString(contacts[i].getLogin()));
+        if (contacts[i].isConnected())
+            itm->setIcon(QIcon("src/assets/img/off.png"));
+        else
+            itm->setIcon(QIcon("src/assets/img/on.png"));
         addItem(itm);
         itm->setTextAlignment(Qt::AlignCenter);
-
     }
 }
 
