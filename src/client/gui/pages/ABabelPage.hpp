@@ -8,20 +8,29 @@
 #ifndef CPP_BABEL_2018_IBABELPAGE_HPP
 #define CPP_BABEL_2018_IBABELPAGE_HPP
 
-#include <QWidget>
 #include <QObject>
+#include <QtCore>
+#include <QMainWindow>
+#include <QWidget>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QMainWindow>
 #include <src/client/ClientInfo.hpp>
+#include "src/client/gui/components/CButton.hpp"
+#include "src/client/gui/components/Input.hpp"
+#include "src/client/gui/components/Image.hpp"
 
 namespace babel {
 	namespace client {
 		class ABabelPage : public QWidget {
 		Q_OBJECT
 		public:
-			ABabelPage (ClientInfo &_infos) :
-				QWidget(), _infos(_infos) {};
-			virtual ~ABabelPage() {}
+			ABabelPage(ClientInfo &_infos);
+			~ABabelPage() override {}
 		protected:
+			virtual void connections() = 0;
 			ClientInfo &_infos;
+			QGridLayout *_layout;
 		};
 	}
 }

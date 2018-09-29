@@ -11,7 +11,7 @@ babel::client::ClientInfo::ClientInfo() :
 	_clientInfo(), _serverInfo(), _contacts()
 {}
 
-const babel::common::User &babel::client::ClientInfo::getClientInfo() const
+babel::common::User &babel::client::ClientInfo::getClientInfo()
 {
 	return _clientInfo;
 }

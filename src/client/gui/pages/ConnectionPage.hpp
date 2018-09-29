@@ -8,18 +8,8 @@
 #ifndef CPP_BABEL_2018_WINDOW_HPP
 #define CPP_BABEL_2018_WINDOW_HPP
 
-#include <QObject>
-#include <QtCore>
-#include <QMainWindow>
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
-#include <QtWidgets/QMainWindow>
 #include <unistd.h>
 #include <memory>
-
-#include "src/client/gui/components/CButton.hpp"
-#include "src/client/gui/components/Input.hpp"
-#include "src/client/gui/components/Image.hpp"
 #include "ABabelPage.hpp"
 
 namespace babel {
@@ -31,14 +21,19 @@ namespace babel {
 			explicit ConnectionPage(ClientInfo &_infos);
 
 			void arrangeWidgets();
-			std::function<void()> serverPropertiesSwitcher();
+			void serverPropertiesSwitcher();
 
-			virtual ~ConnectionPage();
+			virtual ~ConnectionPage() {};
 			void handleButton();
+		Q_SIGNALS:
+			void changePage(std::string pageName);
+		protected:
+			void connections() override;
 		private:
 			enum BtnType {
 				CONNECTION,
-				OPTIONS
+				OPTIONS,
+				TEST
 			};
 			enum InputType {
 				LOGIN,
@@ -46,10 +41,11 @@ namespace babel {
 				IP_ADDRESS,
 				PORT
 			};
-			QGridLayout *_layout;
-			std::array<std::unique_ptr<Button>, 2> _buttons;
+			std::array<std::unique_ptr<Button>, 3> _buttons;
 			std::array<std::unique_ptr<Input>, 4> _inputs;
 			std::unique_ptr<Image> _logo;
+
+			void changeToTestPage();
 		};
 
 	}

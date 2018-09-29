@@ -10,6 +10,9 @@
 
 #include <QPixmap>
 #include <QtWidgets/QLabel>
+#include <fstream>
+#include <src/common/exception/Exception.hpp>
+
 
 namespace babel {
     namespace client {

@@ -12,21 +12,29 @@
 #include <QtWidgets/QApplication>
 #include <src/client/ClientInfo.hpp>
 #include <QtWidgets/QStackedWidget>
+#include <QObject>
 #include <memory>
 #include <src/client/gui/pages/ABabelPage.hpp>
 #include <src/client/gui/pages/PageManager.hpp>
 #include "src/client/gui/pages/ConnectionPage.hpp"
+#include "src/client/gui/pages/EchoSoundTestServicePage.hpp"
 #include "src/client/gui/pages/MainPage.hpp"
+#include <QtNetwork/QHostInfo>
+#include <QtNetwork/QNetworkInterface>
 
 namespace babel {
 	namespace client {
 		class MainWindow : public QMainWindow
 		{
+		Q_OBJECT
 		public:
 			MainWindow();
 		private:
+			void changePage(std::string pageName);
 			PageManager _pages;
 			ClientInfo _infos;
+
+			void initClientInfos();
 		};
 
 	}
