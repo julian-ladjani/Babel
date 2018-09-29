@@ -14,14 +14,14 @@ namespace babel {
 	namespace common {
 		class ConnectionInfo {
 		public:
-			explicit ConnectionInfo(unsigned short port = 0,
+			explicit ConnectionInfo(uint16_t port = 0,
 						std::string ip = "0.0.0.0");
-			unsigned short getPort() const;
-			void setPort(unsigned short port);
+			uint16_t getPort() const;
+			void setPort(uint16_t port);
 			const std::string &getIp() const;
 			void setIp(const std::string &Ip);
 		private:
-			unsigned short _port;
+			uint16_t _port;
 			std::string _ip;
 		};
 	}

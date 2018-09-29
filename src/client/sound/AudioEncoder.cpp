@@ -30,10 +30,10 @@ babel::client::AudioEncoder::~AudioEncoder()
 		opus_decoder_destroy(_decoder);
 }
 
-std::vector<unsigned short>
-babel::client::AudioEncoder::decode(std::vector<unsigned short> encoded) const
+std::vector<uint16_t>
+babel::client::AudioEncoder::decode(std::vector<uint16_t> encoded) const
 {
-	std::vector<unsigned short> decoded(encoded.size());
+	std::vector<uint16_t> decoded(encoded.size());
 	int bytes = opus_decode(_decoder,
 				(unsigned char *)encoded.data(),
 				(int)encoded.size(),
@@ -44,10 +44,10 @@ babel::client::AudioEncoder::decode(std::vector<unsigned short> encoded) const
 	return decoded;
 }
 
-std::vector<unsigned short>
-babel::client::AudioEncoder::encode(std::vector<unsigned short> sample) const
+std::vector<uint16_t>
+babel::client::AudioEncoder::encode(std::vector<uint16_t> sample) const
 {
-	std::vector<unsigned short> encoded(sample.size());
+	std::vector<uint16_t> encoded(sample.size());
 	int bytes = opus_encode(_encoder,
 				(opus_int16 const *)sample.data(),
 				(int)sample.size(),

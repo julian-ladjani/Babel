@@ -20,10 +20,10 @@ namespace babel {
 			AudioEncoder(uint32_t sampleRate,
 				     uint32_t channel);
 			virtual ~AudioEncoder();
-			std::vector<unsigned short> decode(
-				std::vector<unsigned short> encoded) const;
-			std::vector<unsigned short> encode(
-				std::vector<unsigned short> sample) const;
+			std::vector<uint16_t> decode(
+				std::vector<uint16_t> encoded) const;
+			std::vector<uint16_t> encode(
+				std::vector<uint16_t> sample) const;
 
 		private:
 			OpusEncoder *_encoder;
