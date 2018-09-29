@@ -53,7 +53,14 @@ set(CLIENT
 	src/client/ClientInfo.hpp
 	src/client/ClientInfo.cpp
 	src/client/Babel.cpp
-	src/client/Babel.hpp src/client/gui/pages/ABabelPage.cpp src/client/gui/pages/EchoSoundTestServicePage.cpp src/client/gui/pages/EchoSoundTestServicePage.hpp)
+	src/client/Babel.hpp
+		src/client/gui/pages/ABabelPage.cpp
+		src/client/gui/pages/EchoSoundTestServicePage.cpp
+		src/client/gui/pages/EchoSoundTestServicePage.hpp
+		src/client/gui/components/Label.cpp
+		src/client/gui/components/Label.hpp
+		src/client/gui/components/ListWidget.cpp
+		src/client/gui/components/ListWidget.hpp)
 
 set(SERVER
         src/server/Server.cpp
