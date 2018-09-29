@@ -19,6 +19,7 @@
 #include <QtNetwork/QUdpSocket>
 #include "ConnectionPage.hpp"
 #include "ABabelPage.hpp"
+#include <QtWidgets/QSplitter>
 
 namespace babel {
 	namespace client {

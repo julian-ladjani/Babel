@@ -11,15 +11,15 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	_udpSocket(this),
 	_sender(new Button("SEND", STYLEDEFBUTTON, Size(500, 30))),
 	_logo(new Image("src/assets/img/sky.png", 600)),
+	_label{std::make_unique<Label>("Favorite"),
+	       std::make_unique<Label>("Server List"),
+	       std::make_unique<Label>("Lucas DEPRET")},
+	_list{std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
+	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)},
+	_container{std::make_unique<QGroupBox>(),
+	        std::make_unique<QGroupBox>()},
 	ABabelPage(_infos)
 {
-    	_container[MAIN] = std::make_unique<QGroupBox>();
-    	_container[CONTACT] = std::make_unique<QGroupBox>();
-    	_label[NAME] = std::make_unique<Label>("Lucas DEPRET");
-    	_label[FAVORITE] = std::make_unique<Label>("Favorite");
-    	_list[FAVORITE] =  std::make_unique<ListWidget>(QAbstractItemView::DropOnly);
-	_label[SERVER] = std::make_unique<Label>("Server List");
-    	_list[SERVER] =  std::make_unique<ListWidget>(QAbstractItemView::DragOnly);
     	_infos.addContact(common::User("Lucas DE PRES", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
  	_infos.addContact(common::User("Julian Italien", 2, false));
@@ -35,9 +35,11 @@ void babel::client::MainPage::initSocket()
 	_udpSocket.bind(address);
 	qDebug() << _udpSocket.localAddress().toString() << ":"
 		 << _udpSocket.localPort();
-	_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     	QVBoxLayout *vbox = new QVBoxLayout;
     	QVBoxLayout *vbox2 = new QVBoxLayout;
+    	QSplitter *splitter = new QSplitter();
+    	_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    	splitter->setOrientation(Qt::Horizontal);
     	vbox2->addWidget(_logo.get());
 	vbox2->addWidget(_sender);
     	_container[MAIN]->setLayout(vbox2);
@@ -48,8 +50,10 @@ void babel::client::MainPage::initSocket()
     	_list[SERVER]->AddPersonne(_infos.getContacts());
     	vbox->addWidget(_list[SERVER].get());
     	_container[CONTACT]->setLayout(vbox);
-    	_layout->addWidget(_container[CONTACT].get(), 0, 0, 1, 1);
-	_layout->addWidget(_container[MAIN].get(), 0, 1, 1, 2);
+    	splitter->addWidget(_container[CONTACT].get());
+	splitter->addWidget(_container[MAIN].get());
+	_layout->addWidget(splitter, 0,0);
+	_layout->setRowStretch(0,1);
 	setLayout(_layout);
 }
 

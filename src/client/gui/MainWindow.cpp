@@ -22,6 +22,7 @@ babel::client::MainWindow::MainWindow()
 	setCentralWidget(&_pages);
 	connect((ConnectionPage *)_pages.getPage("connection"),
 		&ConnectionPage::changePage, this, &MainWindow::changePage);
+	QApplication::setWindowIcon(QIcon("src/assets/img/minilogo.png"));
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 }
 
