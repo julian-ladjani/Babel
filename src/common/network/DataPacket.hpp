@@ -12,8 +12,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
+#include <boost/algorithm/string.hpp>
 
 namespace babel
 {
@@ -33,10 +32,11 @@ namespace babel
 			unsigned long getNbArgs() const;
 			void setCommandId(CommandName _commandId);
 			const std::string serialize() const;
-			static std::unique_ptr<DataPacket>
-			deserialize(std::string);
+			static DataPacket deserialize(std::string);
+
 		private:
-			const std::string &serializeArgs() const;
+			static constexpr char ARG_SEPARATOR[] = "\x1f";
+			const std::string serializeArgs() const;
 			CommandName _commandId;
 			std::vector<std::string> _args;
 		};

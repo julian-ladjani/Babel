@@ -8,6 +8,7 @@
 #ifndef CPP_BABEL_2018_ATCPSOCKET_HPP
 #define CPP_BABEL_2018_ATCPSOCKET_HPP
 
+#include <vector>
 #include "ConnectionInfo.hpp"
 #include "DataPacket.hpp"
 
@@ -20,13 +21,15 @@ namespace babel
 			ATcpSocket(ConnectionInfo &connectionInfo);
 			virtual void connect() = 0;
 			virtual void send(babel::common::DataPacket) = 0;
-			virtual
+			virtual const
+			babel::common::DataPacket &receive() = 0;
 			virtual void disconnect() = 0;
-			virtual
 			virtual const ConnectionInfo &getConnectionInfo() = 0;
 		protected:
+			static constexpr char PACKET_SEPARATOR[] = "\x1d";
 			ConnectionInfo &_connectionInfo;
 			bool _isConnect;
+			std::vector<babel::common::DataPacket> _receiveQueue;
 		};
 	}
 }

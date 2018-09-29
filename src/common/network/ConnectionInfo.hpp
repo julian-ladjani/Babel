@@ -9,6 +9,7 @@
 #define CPP_BABEL_2018_CONNECTIONINFOS_HPP
 
 #include <array>
+#include <string>
 
 namespace babel {
 	namespace common {

@@ -21,7 +21,7 @@ unsigned long babel::common::DataPacket::getNbArgs() const
 void babel::common::DataPacket::setCommandId(
 	babel::common::DataPacket::CommandName _commandId)
 {
-	DataPacket::_commandId = _commandId;
+	this->_commandId = _commandId;
 }
 
 void babel::common::DataPacket::addArg(std::string arg)
@@ -48,17 +48,34 @@ const std::string babel::common::DataPacket::serialize() const
 {
 	std::string serialization;
 	std::string argSerialization = serializeArgs();
-	serialization += std::to_string(_commandId) + ":" + argSerialization;
+	serialization += std::to_string(_commandId) + ARG_SEPARATOR +
+		argSerialization;
 	return serialization;
 }
 
-const std::string &babel::common::DataPacket::serializeArgs() const
+const std::string babel::common::DataPacket::serializeArgs() const
 {
 	std::ostringstream vts;
 	if (!_args.empty()) {
 		std::copy(_args.begin(), _args.end() - 1,
-			std::ostream_iterator<std::string>(vts, ":"));
+			std::ostream_iterator<std::string>(vts,
+				ARG_SEPARATOR));
 		vts << _args.back();
 	}
 	return vts.str();
+}
+
+babel::common::DataPacket
+babel::common::DataPacket::deserialize(std::string serialized)
+{
+	babel::common::DataPacket dataPacket;
+	std::vector<std::string> argVec;
+
+	boost::split(argVec, serialized, boost::is_any_of(ARG_SEPARATOR));
+	if (argVec.empty())
+		return dataPacket;
+	dataPacket.setCommandId((CommandName) std::stoi(argVec[0]));
+	argVec.erase(argVec.begin());
+	dataPacket.setArgs(argVec);
+	return dataPacket;
 }
