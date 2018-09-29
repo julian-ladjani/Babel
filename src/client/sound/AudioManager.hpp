@@ -21,9 +21,9 @@ namespace babel
 		public:
 			AudioManager();
 			virtual ~AudioManager();
-			std::vector<unsigned short> getRecord();
+			std::vector<uint16_t> getRecord();
 			void playRecord(
-				std::vector<unsigned short> record);
+				std::vector<uint16_t> record);
 			void restartStream();
 			void startStream();
 			void stopStream();

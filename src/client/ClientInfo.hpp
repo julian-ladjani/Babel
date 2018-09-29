@@ -10,7 +10,7 @@
 
 #include <vector>
 #include <algorithm>
-#include <src/common/User.hpp>
+#include "src/common/User.hpp"
 
 namespace babel {
 	namespace client {

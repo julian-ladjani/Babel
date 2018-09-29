@@ -8,17 +8,17 @@
 #include "ConnectionInfo.hpp"
 
 babel::common::ConnectionInfo::ConnectionInfo(
-	unsigned short port, std::string ip) :
+	uint16_t port, std::string ip) :
 	_port(port), _ip(ip)
 {
 }
 
-unsigned short babel::common::ConnectionInfo::getPort() const
+uint16_t babel::common::ConnectionInfo::getPort() const
 {
 	return _port;
 }
 
-void babel::common::ConnectionInfo::setPort(unsigned short port)
+void babel::common::ConnectionInfo::setPort(uint16_t port)
 {
 	_port = port;
 }
