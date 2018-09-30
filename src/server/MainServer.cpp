@@ -14,6 +14,7 @@
 #include <iterator>
 #include <iostream>
 #include "src/common/network/DataPacket.hpp"
+#include "src/common/command/ACommand.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
 	std::string serialized;
 	dataPacket.addArg("lol");
 	dataPacket.setCommandId
-		(babel::common::DataPacket::CommandName::LOGIN);
+		(babel::common::ACommand::CommandName::LOGIN);
 	dataPacket.addArg("lol");
 	dataPacket.addArg("lil");
 	serialized = dataPacket.serialize();

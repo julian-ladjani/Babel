@@ -8,12 +8,11 @@
 #ifndef CPP_BABEL_2018_ACOMMAND_HPP
 #define CPP_BABEL_2018_ACOMMAND_HPP
 
-#include <src/common/network/DataPacket.hpp>
-
 namespace babel
 {
 	namespace common
 	{
+		class DataPacket;
 		class ACommand {
 		public:
 			enum CommandName {

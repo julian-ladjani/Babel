@@ -24,7 +24,11 @@ set(COMMON
         src/common/network/ATcpSocket.hpp
         src/common/network/ATcpSocket.cpp
 	src/common/exception/Exception.hpp
-	src/common/exception/Exception.cpp src/common/network/DataPacket.cpp src/common/network/DataPacket.hpp src/common/command/ACommand.cpp src/common/command/ACommand.hpp)
+	src/common/exception/Exception.cpp
+        src/common/network/DataPacket.cpp
+        src/common/network/DataPacket.hpp
+        src/common/command/ACommand.cpp
+        src/common/command/ACommand.hpp)
 
 set(CLIENT
 	src/client/gui/MainWindow.cpp
