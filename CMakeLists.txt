@@ -17,21 +17,21 @@ conan_basic_setup(KEEP_RPATHS)
 include_directories(${CMAKE_INCLUDE_PATH})
 
 set(COMMON
-        src/common/User.cpp
-        src/common/User.hpp
-        src/common/network/ConnectionInfo.hpp
-        src/common/network/ConnectionInfo.cpp
-        src/common/network/ATcpSocket.hpp
-        src/common/network/ATcpSocket.cpp
+		src/common/User.cpp
+		src/common/User.hpp
+		src/common/network/ConnectionInfo.hpp
+		src/common/network/ConnectionInfo.cpp
+		src/common/network/ATcpSocket.hpp
+		src/common/network/ATcpSocket.cpp
 		src/common/exception/Exception.hpp
 		src/common/exception/Exception.cpp
 		src/common/exception/CommandException.hpp
 		src/common/exception/CommandException.cpp
-        src/common/network/DataPacket.cpp
-        src/common/network/DataPacket.hpp
+		src/common/network/DataPacket.cpp
+		src/common/network/DataPacket.hpp
 		src/common/command/CommandName.hpp
-        src/common/command/ACommand.cpp
-        src/common/command/ACommand.hpp
+		src/common/command/ACommand.cpp
+		src/common/command/ACommand.hpp
 		src/common/command/CommandFactory.hpp
 		src/common/command/CommandFactory.cpp
 		src/common/command/CommandLogin.hpp
@@ -40,44 +40,46 @@ set(COMMON
 		src/common/command/CommandLogout.cpp)
 
 set(CLIENT
-	src/client/gui/MainWindow.cpp
-	src/client/gui/MainWindow.hpp
-	src/client/gui/components/Button.cpp
-	src/client/gui/components/Button.hpp
-	src/client/gui/components/CButton.cpp
-	src/client/gui/components/CButton.hpp
-	src/client/gui/components/Input.cpp
-	src/client/gui/components/Input.hpp
-	src/client/gui/components/Size.cpp
-	src/client/gui/components/Size.hpp
-	src/client/gui/components/Image.cpp
-	src/client/gui/components/Image.hpp
-	src/client/gui/pages/ABabelPage.hpp
-	src/client/gui/pages/MainPage.cpp
-	src/client/gui/pages/MainPage.hpp
-	src/client/gui/pages/PageManager.cpp
-	src/client/gui/pages/PageManager.hpp
-	src/client/gui/pages/ConnectionPage.cpp
-	src/client/gui/pages/ConnectionPage.hpp
-	src/client/sound/AudioManager.cpp
-	src/client/sound/AudioManager.hpp
-	src/client/sound/AudioEncoder.hpp
-	src/client/sound/AudioEncoder.cpp
-	src/client/ClientInfo.hpp
-	src/client/ClientInfo.cpp
-	src/client/Babel.cpp
-	src/client/Babel.hpp
-	src/client/gui/pages/ABabelPage.cpp
-	src/client/gui/pages/EchoSoundTestServicePage.cpp
-	src/client/gui/pages/EchoSoundTestServicePage.hpp
-	src/client/gui/components/Label.cpp
-	src/client/gui/components/Label.hpp
-	src/client/gui/components/ListWidget.cpp
-	src/client/gui/components/ListWidget.hpp)
+		src/client/gui/MainWindow.cpp
+		src/client/gui/MainWindow.hpp
+		src/client/gui/components/Button.cpp
+		src/client/gui/components/Button.hpp
+		src/client/gui/components/CButton.cpp
+		src/client/gui/components/CButton.hpp
+		src/client/gui/components/Input.cpp
+		src/client/gui/components/Input.hpp
+		src/client/gui/components/Size.cpp
+		src/client/gui/components/Size.hpp
+		src/client/gui/components/Image.cpp
+		src/client/gui/components/Image.hpp
+		src/client/gui/pages/ABabelPage.hpp
+		src/client/gui/pages/MainPage.cpp
+		src/client/gui/pages/MainPage.hpp
+		src/client/gui/pages/PageManager.cpp
+		src/client/gui/pages/PageManager.hpp
+		src/client/gui/pages/ConnectionPage.cpp
+		src/client/gui/pages/ConnectionPage.hpp
+		src/client/sound/AudioManager.cpp
+		src/client/sound/AudioManager.hpp
+		src/client/sound/AudioEncoder.hpp
+		src/client/sound/AudioEncoder.cpp
+		src/client/ClientInfo.hpp
+		src/client/ClientInfo.cpp
+		src/client/Babel.cpp
+		src/client/Babel.hpp
+		src/client/gui/pages/ABabelPage.cpp
+		src/client/gui/pages/EchoSoundTestServicePage.cpp
+		src/client/gui/pages/EchoSoundTestServicePage.hpp
+		src/client/gui/components/Label.cpp
+		src/client/gui/components/Label.hpp
+		src/client/gui/components/ListWidget.cpp
+		src/client/gui/components/ListWidget.hpp
+		src/client/gui/components/GroupBox.cpp
+		src/client/gui/components/GroupBox.hpp)
 
 set(SERVER
-        src/server/Server.cpp
-        src/server/Server.hpp)
+		src/server/Server.cpp
+		src/server/Server.hpp)
 
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 
@@ -92,7 +94,7 @@ target_link_libraries(babel_client Qt5::Widgets Qt5::Network Qt5::Core Qt5::Gui)
 target_link_libraries(babel_client Threads::Threads portaudio opus)
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    target_link_libraries(babel_client jack asound)
+	target_link_libraries(babel_client jack asound)
 endif()
 
 #if bug serverPropertiesSwitcher

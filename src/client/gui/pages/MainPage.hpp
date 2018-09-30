@@ -11,6 +11,7 @@
 #include <src/client/gui/components/Button.hpp>
 #include <src/client/gui/components/Label.hpp>
 #include <src/client/gui/components/ListWidget.hpp>
+#include <src/client/gui/components/GroupBox.hpp>
 #include <src/client/ClientInfo.hpp>
 #include <QtNetwork/QNetworkInterface>
 #include <QtNetwork/QHostInfo>
@@ -33,19 +34,31 @@ namespace babel {
 			QUdpSocket _udpSocket;
 			Button *_sender;
 		    enum QGroupeBoxType {
+			MAIN,
 			CONTACT,
-			MAIN
+			GBFAVORITE,
+			GBSERVER
 		    	};
 		    enum WidgetType {
 		        FAVORITE,
 		        SERVER,
 		        NAME
 		    	};
+		    enum SplitterType {
+		        CENTER,
+		        LIST,
+		    };
+		    enum VLayoutType {
+		        VLMAIN,
+		        VLCONTACT
+		    };
 		    	//std::array<std::unique_ptr<Button>, 2> _buttons;
 		    	std::array<std::unique_ptr<Label>, 3> _label;
 		    	//std::array<std::unique_ptr<Input>, 4> _inputs;
-		    	std::array<std::unique_ptr<QGroupBox>, 2> _container;
+		    	std::array<std::unique_ptr<GroupBox>, 4> _container;
 		    	std::array<std::unique_ptr<ListWidget>, 2> _list;
+		    	std::array<std::unique_ptr<QSplitter>, 3> _splitter;
+		    	std::array<std::unique_ptr<QVBoxLayout>, 2> _vLayout;
 		    	std::unique_ptr<Image> _logo;
 		    void sendData();
 		protected:
