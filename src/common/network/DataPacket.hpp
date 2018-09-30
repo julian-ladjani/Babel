@@ -13,7 +13,7 @@
 #include <iostream>
 #include <sstream>
 #include <boost/algorithm/string.hpp>
-#include "../command/ACommand.hpp"
+#include <src/common/command/CommandName.hpp>
 
 namespace babel
 {
@@ -21,22 +21,24 @@ namespace babel
 	{
 		class DataPacket {
 		public:
+			DataPacket(CommandName commandId = (CommandName)0,
+				   const std::vector<std::string> &args
+				   = std::vector<std::string>());
+
 			const std::vector<std::string> &getArgs() const;
 			void setArgs(const std::vector<std::string> &_args);
 			void addArg(std::string);
 			void removeArg(std::string);
-			babel::common::ACommand::CommandName
-			getCommandId() const;
+			CommandName getCommandId() const;
 			unsigned long getNbArgs() const;
-			void setCommandId(babel::common::ACommand::CommandName
-			_commandId);
+			void setCommandId(CommandName commandId);
 			const std::string serialize() const;
 			static DataPacket deserialize(std::string);
 
 		private:
 			static constexpr char ARG_SEPARATOR[] = "\x1f";
 			const std::string serializeArgs() const;
-			babel::common::ACommand::CommandName _commandId;
+			CommandName _commandId;
 			std::vector<std::string> _args;
 		};
 	}

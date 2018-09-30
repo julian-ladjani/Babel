@@ -5,16 +5,16 @@
 ** MainServer.cpp
 */
 
-#include <src/server/Server.hpp>
-#include <src/common/exception/Exception.hpp>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <sstream>
 #include <iterator>
 #include <iostream>
-#include "src/common/network/DataPacket.hpp"
-#include "src/common/command/ACommand.hpp"
+#include <src/server/Server.hpp>
+#include <src/common/exception/Exception.hpp>
+#include <src/common/network/DataPacket.hpp>
+#include <src/common/command/CommandName.hpp>
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	std::string serialized;
 	dataPacket.addArg("lol");
 	dataPacket.setCommandId
-		(babel::common::ACommand::CommandName::LOGIN);
+		(babel::common::CommandName::LOGIN);
 	dataPacket.addArg("lol");
 	dataPacket.addArg("lil");
 	serialized = dataPacket.serialize();

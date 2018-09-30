@@ -23,12 +23,21 @@ set(COMMON
         src/common/network/ConnectionInfo.cpp
         src/common/network/ATcpSocket.hpp
         src/common/network/ATcpSocket.cpp
-	src/common/exception/Exception.hpp
-	src/common/exception/Exception.cpp
+		src/common/exception/Exception.hpp
+		src/common/exception/Exception.cpp
+		src/common/exception/CommandException.hpp
+		src/common/exception/CommandException.cpp
         src/common/network/DataPacket.cpp
         src/common/network/DataPacket.hpp
+		src/common/command/CommandName.hpp
         src/common/command/ACommand.cpp
-        src/common/command/ACommand.hpp)
+        src/common/command/ACommand.hpp
+		src/common/command/CommandFactory.hpp
+		src/common/command/CommandFactory.cpp
+		src/common/command/CommandLogin.hpp
+		src/common/command/CommandLogin.cpp
+		src/common/command/CommandLogout.hpp
+		src/common/command/CommandLogout.cpp)
 
 set(CLIENT
 	src/client/gui/MainWindow.cpp
@@ -58,13 +67,13 @@ set(CLIENT
 	src/client/ClientInfo.cpp
 	src/client/Babel.cpp
 	src/client/Babel.hpp
-		src/client/gui/pages/ABabelPage.cpp
-		src/client/gui/pages/EchoSoundTestServicePage.cpp
-		src/client/gui/pages/EchoSoundTestServicePage.hpp
-		src/client/gui/components/Label.cpp
-		src/client/gui/components/Label.hpp
-		src/client/gui/components/ListWidget.cpp
-		src/client/gui/components/ListWidget.hpp)
+	src/client/gui/pages/ABabelPage.cpp
+	src/client/gui/pages/EchoSoundTestServicePage.cpp
+	src/client/gui/pages/EchoSoundTestServicePage.hpp
+	src/client/gui/components/Label.cpp
+	src/client/gui/components/Label.hpp
+	src/client/gui/components/ListWidget.cpp
+	src/client/gui/components/ListWidget.hpp)
 
 set(SERVER
         src/server/Server.cpp
