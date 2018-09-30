@@ -64,7 +64,9 @@ set(CLIENT
 		src/client/gui/components/Label.cpp
 		src/client/gui/components/Label.hpp
 		src/client/gui/components/ListWidget.cpp
-		src/client/gui/components/ListWidget.hpp)
+		src/client/gui/components/ListWidget.hpp
+		src/client/gui/components/GroupBox.cpp
+		src/client/gui/components/GroupBox.hpp)
 
 set(SERVER
         src/server/Server.cpp

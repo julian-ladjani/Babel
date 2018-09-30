@@ -10,14 +10,20 @@
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	_udpSocket(this),
 	_sender(new Button("SEND", STYLEDEFBUTTON, Size(500, 30))),
-	_logo(new Image("src/assets/img/sky.png", 600)),
+	_logo(new Image("src/assets/img/minilogo.png", 600)),
+	_splitter{std::make_unique<QSplitter>(),
+		  std::make_unique<QSplitter>()},
+	_vLayout{std::make_unique<QVBoxLayout>(),
+		  std::make_unique<QVBoxLayout>()},
 	_label{std::make_unique<Label>("Favorite"),
 	       std::make_unique<Label>("Server List"),
 	       std::make_unique<Label>("Lucas DEPRET")},
 	_list{std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
 	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)},
-	_container{std::make_unique<QGroupBox>(),
-	        std::make_unique<QGroupBox>()},
+	_container{std::make_unique<GroupBox>(),
+		   std::make_unique<GroupBox>(),
+		   std::make_unique<GroupBox>(),
+		   std::make_unique<GroupBox>()},
 	ABabelPage(_infos)
 {
     	_infos.addContact(common::User("Lucas DE PRES", 0, true));
@@ -35,24 +41,23 @@ void babel::client::MainPage::initSocket()
 	_udpSocket.bind(address);
 	qDebug() << _udpSocket.localAddress().toString() << ":"
 		 << _udpSocket.localPort();
-    	QVBoxLayout *vbox = new QVBoxLayout;
-    	QVBoxLayout *vbox2 = new QVBoxLayout;
-    	QSplitter *splitter = new QSplitter();
     	_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    	splitter->setOrientation(Qt::Horizontal);
-    	vbox2->addWidget(_logo.get());
-	vbox2->addWidget(_sender);
-    	_container[MAIN]->setLayout(vbox2);
-    	vbox->addWidget(_label[NAME].get());
-    	vbox->addWidget(_label[FAVORITE].get());
-    	vbox->addWidget(_list[FAVORITE].get());
-    	vbox->addWidget(_label[SERVER].get());
+    	_splitter[CENTER]->setOrientation(Qt::Horizontal);
+    	_container[MAIN]->addWidget(_logo.get());
+    	//_container[MAIN]->addWidget(_sender);
+    	_splitter[LIST]->setOrientation(Qt::Vertical);
+    	_container[CONTACT]->addWidget(_label[NAME].get());
+    	_container[GBFAVORITE]->addWidget(_label[FAVORITE].get());
+    	_container[GBFAVORITE]->addWidget(_list[FAVORITE].get());
+	_splitter[LIST]->addWidget(_container[GBFAVORITE].get());
+    	_container[GBSERVER]->addWidget(_label[SERVER].get());
+    	_container[GBSERVER]->addWidget(_list[SERVER].get());
     	_list[SERVER]->AddPersonne(_infos.getContacts());
-    	vbox->addWidget(_list[SERVER].get());
-    	_container[CONTACT]->setLayout(vbox);
-    	splitter->addWidget(_container[CONTACT].get());
-	splitter->addWidget(_container[MAIN].get());
-	_layout->addWidget(splitter, 0,0);
+    	_splitter[LIST]->addWidget(_container[GBSERVER].get());
+    	_container[CONTACT]->addWidget(_splitter[LIST].get());
+    	_splitter[CENTER]->addWidget(_container[CONTACT].get());
+	_splitter[CENTER]->addWidget(_container[MAIN].get());
+	_layout->addWidget(_splitter[CENTER].get(), 0,0);
 	_layout->setRowStretch(0,1);
 	setLayout(_layout);
 }
