@@ -13,6 +13,7 @@
 #include <iostream>
 #include <sstream>
 #include <boost/algorithm/string.hpp>
+#include "../command/ACommand.hpp"
 
 namespace babel
 {
@@ -20,24 +21,22 @@ namespace babel
 	{
 		class DataPacket {
 		public:
-			enum CommandName {
-				LOGIN,
-				LOGOUT,
-			};
 			const std::vector<std::string> &getArgs() const;
 			void setArgs(const std::vector<std::string> &_args);
 			void addArg(std::string);
 			void removeArg(std::string);
-			CommandName getCommandId() const;
+			babel::common::ACommand::CommandName
+			getCommandId() const;
 			unsigned long getNbArgs() const;
-			void setCommandId(CommandName _commandId);
+			void setCommandId(babel::common::ACommand::CommandName
+			_commandId);
 			const std::string serialize() const;
 			static DataPacket deserialize(std::string);
 
 		private:
 			static constexpr char ARG_SEPARATOR[] = "\x1f";
 			const std::string serializeArgs() const;
-			CommandName _commandId;
+			babel::common::ACommand::CommandName _commandId;
 			std::vector<std::string> _args;
 		};
 	}

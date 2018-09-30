@@ -7,7 +7,7 @@
 
 #include "DataPacket.hpp"
 
-babel::common::DataPacket::CommandName
+babel::common::ACommand::CommandName
 babel::common::DataPacket::getCommandId() const
 {
 	return _commandId;
@@ -19,7 +19,7 @@ unsigned long babel::common::DataPacket::getNbArgs() const
 }
 
 void babel::common::DataPacket::setCommandId(
-	babel::common::DataPacket::CommandName _commandId)
+	babel::common::ACommand::CommandName _commandId)
 {
 	this->_commandId = _commandId;
 }
@@ -74,7 +74,8 @@ babel::common::DataPacket::deserialize(std::string serialized)
 	boost::split(argVec, serialized, boost::is_any_of(ARG_SEPARATOR));
 	if (argVec.empty())
 		return dataPacket;
-	dataPacket.setCommandId((CommandName) std::stoi(argVec[0]));
+	dataPacket.setCommandId(
+		(babel::common::ACommand::CommandName) std::stoi(argVec[0]));
 	argVec.erase(argVec.begin());
 	dataPacket.setArgs(argVec);
 	return dataPacket;

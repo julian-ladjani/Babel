@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(CPP_babel_2018)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
 set(RUNTIME_OUTPUT_DIRECTORY build)
@@ -24,7 +24,7 @@ set(COMMON
         src/common/network/ATcpSocket.hpp
         src/common/network/ATcpSocket.cpp
 	src/common/exception/Exception.hpp
-	src/common/exception/Exception.cpp src/common/network/DataPacket.cpp src/common/network/DataPacket.hpp)
+	src/common/exception/Exception.cpp src/common/network/DataPacket.cpp src/common/network/DataPacket.hpp src/common/command/ACommand.cpp src/common/command/ACommand.hpp)
 
 set(CLIENT
 	src/client/gui/MainWindow.cpp
