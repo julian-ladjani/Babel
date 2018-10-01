@@ -14,3 +14,24 @@ babel::common::ATcpSocket::ATcpSocket(
 {
 
 }
+
+const babel::common::ConnectionInfo
+babel::common::ATcpSocket::getConnectionInfo() const
+{
+	return babel::common::ConnectionInfo();
+}
+
+const babel::common::DataPacket
+babel::common::ATcpSocket::getPacketFromQueue()
+{
+	if (_receiveQueue.empty())
+		return babel::common::DataPacket();
+	babel::common::DataPacket packet = _receiveQueue.at(0);
+	_receiveQueue.erase(_receiveQueue.begin());
+	return (packet);
+}
+
+bool babel::common::ATcpSocket::isConnect() const
+{
+	return _isConnect;
+}
