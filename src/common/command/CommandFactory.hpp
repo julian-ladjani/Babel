@@ -13,6 +13,7 @@
 #include <src/common/command/ACommand.hpp>
 #include <src/common/command/CommandLogin.hpp>
 #include <src/common/command/CommandLogout.hpp>
+#include <src/common/command/CommandUser.hpp>
 
 namespace babel {
 	namespace common {
@@ -20,7 +21,8 @@ namespace babel {
 		public:
 		public:
 			CommandFactory();
-			std::unique_ptr<ACommand> deserialize(DataPacket packet);
+			std::unique_ptr<ACommand> deserialize(
+				DataPacket packet);
 
 		private:
 			template<class T>

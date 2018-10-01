@@ -20,3 +20,23 @@ std::vector<std::string> babel::common::CommandLogin::getArgs() const
 {
 	return {_username, _password};
 }
+
+const std::string &babel::common::CommandLogin::getUsername() const
+{
+	return _username;
+}
+
+void babel::common::CommandLogin::setUsername(const std::string &username)
+{
+	_username = username;
+}
+
+const std::string &babel::common::CommandLogin::getPassword() const
+{
+	return _password;
+}
+
+void babel::common::CommandLogin::setPassword(const std::string &password)
+{
+	_password = password;
+}

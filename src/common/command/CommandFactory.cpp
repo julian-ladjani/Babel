@@ -13,7 +13,10 @@ babel::common::CommandFactory::CommandFactory() :
 				   <CommandLogin>},
 		   {babel::common::CommandName ::LOGOUT,
 			   &babel::common::CommandFactory::createCommand
-				   <CommandLogout>}})
+				   <CommandLogout>},
+		   {babel::common::CommandName ::USER,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandUser>}})
 {}
 
 std::unique_ptr<babel::common::ACommand>
