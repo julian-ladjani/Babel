@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	std::string serialized;
 	dataPacket.addArg("lol");
 	dataPacket.setCommandId
-		(babel::common::ACommand::CommandName::LOGIN);
+		(babel::common::CommandName::LOGIN);
 	dataPacket.addArg("lol");
 	dataPacket.addArg("lil");
 	serialized = dataPacket.serialize();
