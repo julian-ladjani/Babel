@@ -21,10 +21,13 @@ namespace babel {
 			void setUserId(uint32_t userId);
 			const std::string &getUsername() const;
 			void setUsername(const std::string &username);
+			bool isConnected() const;
+			void setConnected(bool _connected);
 
 		private:
 			uint32_t _userId;
 			std::string _username;
+			bool _connected;
 		};
 	}
 }
