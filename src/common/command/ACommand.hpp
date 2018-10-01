@@ -8,20 +8,21 @@
 #ifndef CPP_BABEL_2018_ACOMMAND_HPP
 #define CPP_BABEL_2018_ACOMMAND_HPP
 
+#include <string>
+#include <vector>
+#include <src/common/network/DataPacket.hpp>
+#include <src/common/command/CommandName.hpp>
+
 namespace babel
 {
 	namespace common
 	{
-		class DataPacket;
 		class ACommand {
 		public:
-			enum CommandName {
-				LOGIN,
-				LOGOUT,
-			};
-			ACommand(CommandName _commandId);
-			CommandName get_commandId() const;
-			virtual const DataPacket serialize() = 0;
+			ACommand(babel::common::CommandName commandId);
+			CommandName getCommandId() const;
+			const DataPacket serialize() const;
+			virtual std::vector<std::string> getArgs() const;
 		private:
 			CommandName _commandId;
 		};

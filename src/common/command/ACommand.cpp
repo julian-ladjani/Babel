@@ -7,14 +7,23 @@
 
 #include "ACommand.hpp"
 
-babel::common::ACommand::CommandName
-babel::common::ACommand::get_commandId() const
+babel::common::ACommand::ACommand(
+	babel::common::CommandName commandId) : _commandId(
+	commandId)
+{
+}
+
+babel::common::CommandName babel::common::ACommand::getCommandId() const
 {
 	return _commandId;
 }
 
-babel::common::ACommand::ACommand(
-	babel::common::ACommand::CommandName _commandId) : _commandId(
-	_commandId)
+const babel::common::DataPacket babel::common::ACommand::serialize() const
 {
+	return babel::common::DataPacket(_commandId, getArgs());
+}
+
+std::vector<std::string> babel::common::ACommand::getArgs() const
+{
+	return std::vector<std::string>();
 }
