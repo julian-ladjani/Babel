@@ -18,14 +18,16 @@ namespace babel
 	{
 		class ATcpSocket {
 		public:
-			ATcpSocket(ConnectionInfo &connectionInfo);
-			virtual void connect() = 0;
-			virtual void send(babel::common::DataPacket) = 0;
+			explicit ATcpSocket(ConnectionInfo &connectionInfo);
+			virtual bool connect() = 0;
+			virtual bool send(babel::common::DataPacket) = 0;
 			virtual const
 			babel::common::DataPacket &receive() = 0;
-			virtual void disconnect() = 0;
-			virtual const ConnectionInfo &getConnectionInfo() = 0;
+			virtual bool disconnect() = 0;
+			const ConnectionInfo getConnectionInfo() const;
+			bool isConnect() const;
 		protected:
+			const DataPacket getPacketFromQueue();
 			static constexpr char PACKET_SEPARATOR[] = "\x1d";
 			ConnectionInfo &_connectionInfo;
 			bool _isConnect;
