@@ -24,9 +24,10 @@ namespace babel
 			bool connect() override;
 			bool disconnect() override;
 			bool send(DataPacket packet) override;
-			const DataPacket &receive() override;
+			const DataPacket receive() override;
 		private:
 			void startRead();
+			bool _ioServiceStarted;
 			void handleRead(const boost::system::error_code &ec);
 			void handleWrite(const boost::system::error_code &ec);
 			boost::asio::io_service _ioService;

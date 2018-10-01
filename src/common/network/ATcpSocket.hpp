@@ -22,7 +22,7 @@ namespace babel
 			virtual bool connect() = 0;
 			virtual bool send(babel::common::DataPacket) = 0;
 			virtual const
-			babel::common::DataPacket &receive() = 0;
+			babel::common::DataPacket receive() = 0;
 			virtual bool disconnect() = 0;
 			const ConnectionInfo getConnectionInfo() const;
 			bool isConnect() const;

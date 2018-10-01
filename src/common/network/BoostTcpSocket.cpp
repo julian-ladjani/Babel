@@ -9,7 +9,7 @@
 
 babel::common::BoostTcpSocket::BoostTcpSocket(
 	babel::common::ConnectionInfo &connectionInfo) : ATcpSocket(
-	connectionInfo), _socket(_ioService)
+	connectionInfo), _socket(_ioService), _ioServiceStarted(false)
 {
 }
 
@@ -23,9 +23,10 @@ bool babel::common::BoostTcpSocket::connect()
 	_socket.connect(endpoint);
 	_isConnect = true;
 	startRead();
+	return true;
 }
 
-const babel::common::DataPacket &babel::common::BoostTcpSocket::receive()
+const babel::common::DataPacket babel::common::BoostTcpSocket::receive()
 {
 	return getPacketFromQueue();
 }
@@ -33,21 +34,17 @@ const babel::common::DataPacket &babel::common::BoostTcpSocket::receive()
 void
 babel::common::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
 {
-	std::cout << "Received: " << std::endl;
 	if (!_isConnect)
 		return;
 	if (ec) {
 		disconnect();
 		return;
 	}
-	std::string line;
-	std::istream is(&_input_buffer);
-	std::getline(is, line);
-	if (!line.empty())
-	{
-		std::cout << "Received: " << line << "\n";
-	}
+	std::string stringPacket;
+	std::istream(&_input_buffer) >> stringPacket;
+	std::cout << stringPacket << std::endl;
 	startRead();
+	_ioService.run();
 }
 
 bool babel::common::BoostTcpSocket::disconnect()
@@ -63,10 +60,10 @@ void babel::common::BoostTcpSocket::startRead()
 {
 	if (!_isConnect)
 		return;
-	std::cout << "test" << std::endl;
 	boost::asio::async_read_until(_socket,
 		_input_buffer, '\n',
-		boost::bind(&BoostTcpSocket::handleRead, this, _1));
+		boost::bind(&BoostTcpSocket::handleRead,
+			this, _1));
 }
 
 void babel::common::BoostTcpSocket::handleWrite(
@@ -86,5 +83,9 @@ bool babel::common::BoostTcpSocket::send(babel::common::DataPacket packet)
 	boost::asio::async_write(_socket, boost::asio::buffer(
 		serializedPacket.c_str(), serializedPacket.size()),
 		boost::bind(&BoostTcpSocket::handleWrite, this, _1));
+	if (!_ioServiceStarted) {
+		_ioService.run();
+		_ioServiceStarted = true;
+	}
 	return (true);
 }
