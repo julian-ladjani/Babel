@@ -21,7 +21,7 @@ namespace babel
 	{
 		class DataPacket {
 		public:
-			DataPacket(CommandName commandId = (CommandName)0,
+			DataPacket(CommandName commandId = UNDEFINED,
 				   const std::vector<std::string> &args
 				   = std::vector<std::string>());
 

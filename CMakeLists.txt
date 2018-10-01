@@ -37,7 +37,9 @@ set(COMMON
 		src/common/command/CommandLogin.hpp
 		src/common/command/CommandLogin.cpp
 		src/common/command/CommandLogout.hpp
-		src/common/command/CommandLogout.cpp)
+		src/common/command/CommandLogout.cpp
+		src/common/command/CommandUser.hpp
+		src/common/command/CommandUser.cpp)
 
 set(CLIENT
 		src/client/gui/MainWindow.cpp

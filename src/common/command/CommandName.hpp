@@ -11,8 +11,14 @@
 namespace babel {
 	namespace common {
 		enum CommandName {
+			UNDEFINED = 0,
 			LOGIN,
 			LOGOUT,
+			USER,		//id, username
+			CONNECT,	//id, ip?
+			DISCONNECT,	//id
+			CALL,		//id, ip?, port
+			CALL_ANSWER	//id, answer
 		};
 	}
 }
