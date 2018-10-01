@@ -15,24 +15,21 @@
 #include <src/common/exception/Exception.hpp>
 #include <src/common/network/DataPacket.hpp>
 #include <src/common/command/CommandName.hpp>
+#include <src/common/command/ACommand.hpp>
+#include <src/common/command/CommandFactory.hpp>
 
 int main(int argc, char *argv[])
 {
-	babel::common::DataPacket dataPacket;
-	babel::common::DataPacket newDataPacket;
-	std::string serialized;
-	dataPacket.addArg("lol");
-	dataPacket.setCommandId
-		(babel::common::CommandName::LOGIN);
-	dataPacket.addArg("lol");
-	dataPacket.addArg("lil");
-	serialized = dataPacket.serialize();
-	std::cout << serialized << std::endl;
-	newDataPacket = babel::common::DataPacket::deserialize(serialized);
-	serialized = newDataPacket.serialize();
-	std::cout << serialized << std::endl;
-
 	try {
+		babel::common::CommandFactory factory;
+		babel::common::DataPacket dataPacket(
+			babel::common::CommandName::LOGIN,
+			{"username", "password"});
+		std::unique_ptr<babel::common::ACommand> command
+			= factory.deserialize(dataPacket);
+		std::cout << dataPacket.serialize() << std::endl;
+		std::cout << command->serialize().serialize() << std::endl;
+
 		babel::server::Server server;
 		server.start();
 	} catch (babel::common::Exception &e) {

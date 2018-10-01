@@ -12,23 +12,24 @@
 #include <src/common/network/DataPacket.hpp>
 #include <src/common/command/ACommand.hpp>
 #include <src/common/command/CommandLogin.hpp>
+#include <src/common/command/CommandLogout.hpp>
 
 namespace babel {
 	namespace common {
 		class CommandFactory {
 		public:
-		private:
-			std::map<babel::common::CommandName,
-				babel::common::ACommand
-				(babel::common::CommandFactory::*)
-					(std::vector<std::string>)> _commands;
 		public:
 			CommandFactory();
-			ACommand deserialize(DataPacket packet);
+			std::unique_ptr<ACommand> deserialize(DataPacket packet);
 
 		private:
 			template<class T>
-			ACommand createCommand(std::vector<std::string> args);
+			std::unique_ptr<ACommand> createCommand(
+				std::vector<std::string> args);
+			std::map<babel::common::CommandName,
+				std::unique_ptr<babel::common::ACommand>
+				(babel::common::CommandFactory::*)
+					(std::vector<std::string>)> _commands;
 		};
 	}
 }

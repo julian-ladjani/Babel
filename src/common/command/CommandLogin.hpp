@@ -16,7 +16,7 @@ namespace babel {
 		class CommandLogin : public ACommand {
 		public:
 			CommandLogin(std::vector<std::string>);
-			std::vector<std::string> getArgs() override;
+			std::vector<std::string> getArgs() const override;
 
 		private:
 			std::string _username;

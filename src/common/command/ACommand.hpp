@@ -21,8 +21,8 @@ namespace babel
 		public:
 			ACommand(babel::common::CommandName commandId);
 			CommandName getCommandId() const;
-			const DataPacket serialize();
-			virtual std::vector<std::string> getArgs();
+			const DataPacket serialize() const;
+			virtual std::vector<std::string> getArgs() const;
 		private:
 			CommandName _commandId;
 		};

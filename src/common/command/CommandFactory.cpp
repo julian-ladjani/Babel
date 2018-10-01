@@ -10,10 +10,13 @@
 babel::common::CommandFactory::CommandFactory() :
 	_commands({{babel::common::CommandName ::LOGIN,
 			   &babel::common::CommandFactory::createCommand
-				   <CommandLogin>}})
+				   <CommandLogin>},
+		   {babel::common::CommandName ::LOGOUT,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandLogout>}})
 {}
 
-babel::common::ACommand
+std::unique_ptr<babel::common::ACommand>
 babel::common::CommandFactory::deserialize(babel::common::DataPacket packet)
 {
 	if (_commands.find(packet.getCommandId()) != _commands.end())
@@ -23,8 +26,9 @@ babel::common::CommandFactory::deserialize(babel::common::DataPacket packet)
 }
 
 template<class T>
-babel::common::ACommand babel::common::CommandFactory::createCommand(
-	std::vector<std::string> args)
+std::unique_ptr<babel::common::ACommand>
+        babel::common::CommandFactory::createCommand(
+        	std::vector<std::string> args)
 {
-	return T(args);
+	return std::make_unique<T>(args);
 }

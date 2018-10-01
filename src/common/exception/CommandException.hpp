@@ -12,7 +12,7 @@
 
 namespace babel {
 	namespace common {
-		class CommandException : Exception {
+		class CommandException : public Exception {
 		public:
 			explicit CommandException(
 				const std::string &message = "Unknown Error");

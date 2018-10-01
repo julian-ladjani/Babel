@@ -16,7 +16,7 @@ babel::common::CommandLogin::CommandLogin(std::vector<std::string> args) :
 	_password = args[1];
 }
 
-std::vector<std::string> babel::common::CommandLogin::getArgs()
+std::vector<std::string> babel::common::CommandLogin::getArgs() const
 {
 	return {_username, _password};
 }

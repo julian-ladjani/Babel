@@ -18,12 +18,12 @@ babel::common::CommandName babel::common::ACommand::getCommandId() const
 	return _commandId;
 }
 
-const babel::common::DataPacket babel::common::ACommand::serialize()
+const babel::common::DataPacket babel::common::ACommand::serialize() const
 {
 	return babel::common::DataPacket(_commandId, getArgs());
 }
 
-std::vector<std::string> babel::common::ACommand::getArgs()
+std::vector<std::string> babel::common::ACommand::getArgs() const
 {
 	return std::vector<std::string>();
 }
