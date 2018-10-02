@@ -45,7 +45,13 @@ set(COMMON
 		src/common/command/CommandUser.hpp
 		src/common/command/CommandUser.cpp
 		src/common/command/CommandUserState.cpp
-		src/common/command/CommandUserState.hpp)
+		src/common/command/CommandUserState.hpp
+		src/common/command/CommandCall.cpp
+		src/common/command/CommandCall.hpp
+		src/common/command/CommandCallAnswer.cpp
+		src/common/command/CommandCallAnswer.hpp
+		src/common/command/CommandCallEnd.cpp
+		src/common/command/CommandCallEnd.hpp)
 
 set(CLIENT
 		src/client/gui/MainWindow.cpp
