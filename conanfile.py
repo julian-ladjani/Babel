@@ -17,3 +17,8 @@ class Conan(ConanFile):
 
    def imports(self):
       self.copy("*.dll", dst="bin", src="bin") # From bin to bin
+
+   def build(self):
+       cmake = CMake(self)
+       cmake.configure(source_folder="")
+       cmake.build()
