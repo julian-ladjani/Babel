@@ -8,7 +8,7 @@
 #include "CommandLogout.hpp"
 
 babel::common::CommandLogout::CommandLogout(std::vector<std::string> args) :
-	ACommand(LOGOUT)
+	ACommand(CMD_LOGOUT)
 {
 	(void)args;
 }

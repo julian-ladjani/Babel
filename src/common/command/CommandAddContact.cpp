@@ -9,10 +9,10 @@
 
 babel::common::CommandAddContact::CommandAddContact(
 	std::vector<std::string> args) :
-	ACommand(ADD_CONTACT)
+	ACommand(CMD_ADD_CONTACT)
 {
 	if (args.size() < 1)
-		throw CommandException(ADD_CONTACT, "Not enough arguments");
+		throw CommandException(CMD_ADD_CONTACT, "Not enough arguments");
 	_userId = (uint32_t)std::stoi(args[0]);
 }
 

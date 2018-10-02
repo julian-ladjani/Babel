@@ -11,20 +11,20 @@
 namespace babel {
 	namespace common {
 		enum CommandName {
-			UNDEFINED = 0,
+			CMD_UNDEFINED = 0,
 			CMD_ERROR,
-			OK,
-			LOGIN,
-			LOGIN_OK,
-			LOGOUT,
-			DELETE,
-			USER,
-			USER_STATE,
-			CALL,
-			CALL_ANSWER,
-			CALL_END,
-			ADD_CONTACT,
-			MESSAGE
+			CMD_OK,
+			CMD_LOGIN,
+			CMD_LOGIN_OK,
+			CMD_LOGOUT,
+			CMD_DELETE,
+			CMD_USER,
+			CMD_USER_STATE,
+			CMD_CALL,
+			CMD_CALL_ANSWER,
+			CMD_CALL_END,
+			CMD_ADD_CONTACT,
+			CMD_MESSAGE
 		};
 	}
 }

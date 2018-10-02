@@ -8,10 +8,10 @@
 #include "CommandMessage.hpp"
 
 babel::common::CommandMessage::CommandMessage(std::vector<std::string> args) :
-	ACommand(MESSAGE)
+	ACommand(CMD_MESSAGE)
 {
 	if (args.size() < 3)
-		throw CommandException(MESSAGE, "Not enough arguments");
+		throw CommandException(CMD_MESSAGE, "Not enough arguments");
 	_messageId = (uint32_t)std::stoi(args[0]);
 	_message = args[1];
 }
