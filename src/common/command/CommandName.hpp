@@ -12,7 +12,7 @@ namespace babel {
 	namespace common {
 		enum CommandName {
 			UNDEFINED = 0,
-			ERROR,
+			CMD_ERROR,
 			OK,
 			LOGIN,
 			LOGIN_OK,

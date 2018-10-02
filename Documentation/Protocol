@@ -10,7 +10,7 @@ argX = argument n°X of the command.
 [List of Server to Client commands]
 Command		Arguments			Description
 
-ERROR		(commandId, message)		Client got an error on command (commandId).
+CMD_ERROR		(commandId, message)		Client got an error on command (commandId).
 OK		(commandId, message)		Client has successfully excecute the command (commandId).
 LOGIN_OK	(userId, username)		Client has successfully loged in with the user (userId, username).
 DELETE		(userId)			User (userId) has been deleted.
