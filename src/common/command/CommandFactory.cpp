@@ -8,24 +8,40 @@
 #include "CommandFactory.hpp"
 
 babel::common::CommandFactory::CommandFactory() :
-	_commands({{babel::common::CommandName ::ERROR,
+	_commands({{babel::common::CommandName::ERROR,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandError>},
-		   {babel::common::CommandName ::LOGIN,
+		   {babel::common::CommandName::LOGIN,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLogin>},
-		   {babel::common::CommandName ::LOGIN_OK,
+		   {babel::common::CommandName::LOGIN_OK,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLoginOk>},
-		   {babel::common::CommandName ::LOGOUT,
+		   {babel::common::CommandName::LOGOUT,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLogout>},
-		   {babel::common::CommandName ::USER,
+		   {babel::common::CommandName::USER,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandUser>},
-		   {babel::common::CommandName ::USER_STATE,
+		   {babel::common::CommandName::USER_STATE,
 			   &babel::common::CommandFactory::createCommand
-				   <CommandUserState>}})
+				   <CommandUserState>},
+		   {babel::common::CommandName::CALL,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandCall>},
+		   {babel::common::CommandName::CALL_ANSWER,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandCallAnswer>},
+		   {babel::common::CommandName::CALL_END,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandCallEnd>},
+		   {babel::common::CommandName::ADD_CONTACT,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandAddContact>},
+		   {babel::common::CommandName::MESSAGE,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandMessage>}
+		  })
 {}
 
 std::unique_ptr<babel::common::ACommand>
@@ -39,8 +55,8 @@ babel::common::CommandFactory::deserialize(babel::common::DataPacket packet)
 
 template<class T>
 std::unique_ptr<babel::common::ACommand>
-        babel::common::CommandFactory::createCommand(
-        	std::vector<std::string> args)
+babel::common::CommandFactory::createCommand(
+	std::vector<std::string> args)
 {
 	return std::make_unique<T>(args);
 }

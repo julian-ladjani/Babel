@@ -15,7 +15,7 @@ namespace babel {
 	namespace common {
 		class CommandCall : public ACommand {
 		public:
-			CommandCall(std::vector<std::string>);
+			CommandCall(std::vector<std::string> args);
 			std::vector<std::string> getArgs() const override;
 			uint32_t getUserId() const;
 			void setUserId(uint32_t userId);

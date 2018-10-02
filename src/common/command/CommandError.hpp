@@ -15,7 +15,7 @@ namespace babel {
 	namespace common {
 		class CommandError : public ACommand {
 		public:
-			CommandError(std::vector<std::string>);
+			CommandError(std::vector<std::string> args);
 			std::vector<std::string> getArgs() const override;
 			CommandName getErrorCommandId() const;
 			void setErrorCommandId(CommandName errorCommandId);

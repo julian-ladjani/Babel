@@ -51,7 +51,11 @@ set(COMMON
 		src/common/command/CommandCallAnswer.cpp
 		src/common/command/CommandCallAnswer.hpp
 		src/common/command/CommandCallEnd.cpp
-		src/common/command/CommandCallEnd.hpp)
+		src/common/command/CommandCallEnd.hpp
+		src/common/command/CommandAddContact.cpp
+		src/common/command/CommandAddContact.hpp
+		src/common/command/CommandMessage.cpp
+		src/common/command/CommandMessage.hpp)
 
 set(CLIENT
 		src/client/gui/MainWindow.cpp

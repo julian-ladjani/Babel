@@ -14,7 +14,7 @@ namespace babel {
 	namespace common {
 		class CommandLogout : public ACommand {
 		public:
-			CommandLogout(std::vector<std::string>);
+			CommandLogout(std::vector<std::string> args);
 		};
 	}
 }

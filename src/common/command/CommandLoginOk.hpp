@@ -15,7 +15,7 @@ namespace babel {
 	namespace common {
 		class CommandLoginOk : public ACommand {
 		public:
-			CommandLoginOk(std::vector<std::string>);
+			CommandLoginOk(std::vector<std::string> args);
 			std::vector<std::string> getArgs() const override;
 			uint32_t getUserId() const;
 			void setUserId(uint32_t userId);

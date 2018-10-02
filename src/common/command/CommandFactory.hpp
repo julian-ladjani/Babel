@@ -17,6 +17,11 @@
 #include <src/common/command/CommandLogout.hpp>
 #include <src/common/command/CommandUser.hpp>
 #include <src/common/command/CommandUserState.hpp>
+#include <src/common/command/CommandCall.hpp>
+#include <src/common/command/CommandCallAnswer.hpp>
+#include <src/common/command/CommandCallEnd.hpp>
+#include <src/common/command/CommandAddContact.hpp>
+#include <src/common/command/CommandMessage.hpp>
 
 namespace babel {
 	namespace common {
