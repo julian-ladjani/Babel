@@ -8,15 +8,24 @@
 #include "CommandFactory.hpp"
 
 babel::common::CommandFactory::CommandFactory() :
-	_commands({{babel::common::CommandName ::LOGIN,
+	_commands({{babel::common::CommandName ::ERROR,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandError>},
+		   {babel::common::CommandName ::LOGIN,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLogin>},
+		   {babel::common::CommandName ::LOGIN_OK,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandLoginOk>},
 		   {babel::common::CommandName ::LOGOUT,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLogout>},
 		   {babel::common::CommandName ::USER,
 			   &babel::common::CommandFactory::createCommand
-				   <CommandUser>}})
+				   <CommandUser>},
+		   {babel::common::CommandName ::USER_STATE,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandUserState>}})
 {}
 
 std::unique_ptr<babel::common::ACommand>
@@ -25,7 +34,7 @@ babel::common::CommandFactory::deserialize(babel::common::DataPacket packet)
 	if (_commands.find(packet.getCommandId()) != _commands.end())
 		return (this->*_commands[packet.getCommandId()])
 			(packet.getArgs());
-	throw CommandException("Unknow command");
+	throw CommandException(UNDEFINED, "Unknow command");
 }
 
 template<class T>

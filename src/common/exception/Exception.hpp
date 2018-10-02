@@ -18,7 +18,6 @@ namespace babel {
 			explicit Exception(
 				const std::string &context = "Undefined",
 				const std::string &message = "Unknown Error");
-
 			const char *what() const noexcept override;
 
 		private:

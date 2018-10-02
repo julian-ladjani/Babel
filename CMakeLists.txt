@@ -34,12 +34,18 @@ set(COMMON
 		src/common/command/ACommand.hpp
 		src/common/command/CommandFactory.hpp
 		src/common/command/CommandFactory.cpp
+		src/common/command/CommandError.cpp
+		src/common/command/CommandError.hpp
 		src/common/command/CommandLogin.hpp
 		src/common/command/CommandLogin.cpp
+		src/common/command/CommandLoginOk.cpp
+		src/common/command/CommandLoginOk.hpp
 		src/common/command/CommandLogout.hpp
 		src/common/command/CommandLogout.cpp
 		src/common/command/CommandUser.hpp
-		src/common/command/CommandUser.cpp)
+		src/common/command/CommandUser.cpp
+		src/common/command/CommandUserState.cpp
+		src/common/command/CommandUserState.hpp)
 
 set(CLIENT
 		src/client/gui/MainWindow.cpp

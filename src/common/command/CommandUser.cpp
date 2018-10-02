@@ -11,7 +11,7 @@ babel::common::CommandUser::CommandUser(std::vector<std::string> args) :
 	ACommand(USER)
 {
 	if (args.size() < 3)
-		throw CommandException("Not enough arguments");
+		throw CommandException(USER, "Not enough arguments");
 	_userId = (uint32_t)std::stoi(args[0]);
 	_username = args[1];
 	_connected = (bool)std::stoi(args[2]);
