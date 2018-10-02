@@ -8,7 +8,6 @@
 #ifndef CPP_BABEL_2018_WINDOW_HPP
 #define CPP_BABEL_2018_WINDOW_HPP
 
-#include <unistd.h>
 #include <memory>
 #include "ABabelPage.hpp"
 

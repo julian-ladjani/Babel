@@ -1,6 +1,7 @@
 # Clion dependencies
 cmake-build-debug
 .idea
+.vs
 
 # Prerequisites
 *.d

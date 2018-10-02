@@ -11,3 +11,7 @@ cmake_paths
 
 [options]
 Qt:shared=True
+portaudio:shared=True
+
+[imports]
+bin, *.dll -> ./bin
