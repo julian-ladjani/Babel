@@ -117,7 +117,12 @@ find_package(Boost REQUIRED)
 
 target_link_libraries(babel_server boost_system Threads::Threads)
 target_link_libraries(babel_client Qt5::Widgets Qt5::Network Qt5::Core Qt5::Gui)
-target_link_libraries(babel_client Threads::Threads portaudio_x64 opus)
+target_link_libraries(babel_client Threads::Threads opus)
+if (WIN32)
+    target_link_libraries(babel_client portaudio_x64)
+else()
+    target_link_libraries(babel_client portaudio)
+endif()
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
 	target_link_libraries(babel_client jack asound)
