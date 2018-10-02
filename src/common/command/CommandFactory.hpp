@@ -12,9 +12,11 @@
 #include <src/common/network/DataPacket.hpp>
 #include <src/common/command/ACommand.hpp>
 #include <src/common/command/CommandError.hpp>
+#include <src/common/command/CommandOk.hpp>
 #include <src/common/command/CommandLogin.hpp>
 #include <src/common/command/CommandLoginOk.hpp>
 #include <src/common/command/CommandLogout.hpp>
+#include <src/common/command/CommandDelete.hpp>
 #include <src/common/command/CommandUser.hpp>
 #include <src/common/command/CommandUserState.hpp>
 #include <src/common/command/CommandCall.hpp>

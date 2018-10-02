@@ -11,6 +11,9 @@ babel::common::CommandFactory::CommandFactory() :
 	_commands({{babel::common::CommandName::ERROR,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandError>},
+		   {babel::common::CommandName::OK,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandOk>},
 		   {babel::common::CommandName::LOGIN,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLogin>},
@@ -20,6 +23,9 @@ babel::common::CommandFactory::CommandFactory() :
 		   {babel::common::CommandName::LOGOUT,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandLogout>},
+		   {babel::common::CommandName::DELETE,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandDelete>},
 		   {babel::common::CommandName::USER,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandUser>},

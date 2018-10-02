@@ -36,12 +36,16 @@ set(COMMON
 		src/common/command/CommandFactory.cpp
 		src/common/command/CommandError.cpp
 		src/common/command/CommandError.hpp
+		src/common/command/CommandOk.cpp
+		src/common/command/CommandOk.hpp
 		src/common/command/CommandLogin.hpp
 		src/common/command/CommandLogin.cpp
 		src/common/command/CommandLoginOk.cpp
 		src/common/command/CommandLoginOk.hpp
 		src/common/command/CommandLogout.hpp
 		src/common/command/CommandLogout.cpp
+		src/common/command/CommandDelete.cpp
+		src/common/command/CommandDelete.hpp
 		src/common/command/CommandUser.hpp
 		src/common/command/CommandUser.cpp
 		src/common/command/CommandUserState.cpp
