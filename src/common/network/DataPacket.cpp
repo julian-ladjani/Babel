@@ -18,7 +18,7 @@ babel::common::DataPacket::getCommandId() const
 	return _commandId;
 }
 
-unsigned long babel::common::DataPacket::getNbArgs() const
+size_t babel::common::DataPacket::getNbArgs() const
 {
 	return _args.size();
 }

@@ -30,7 +30,7 @@ namespace babel
 			void addArg(std::string);
 			void removeArg(std::string);
 			CommandName getCommandId() const;
-			unsigned long getNbArgs() const;
+			size_t getNbArgs() const;
 			void setCommandId(CommandName commandId);
 			const std::string serialize() const;
 			static DataPacket deserialize(std::string);
