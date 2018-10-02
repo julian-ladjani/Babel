@@ -8,10 +8,10 @@
 #include "CommandError.hpp"
 
 babel::common::CommandError::CommandError(std::vector<std::string> args) :
-	ACommand(ERROR)
+	ACommand(CMD_ERROR)
 {
 	if (args.size() < 2)
-		throw CommandException(ERROR, "Not enough arguments");
+		throw CommandException(CMD_ERROR, "Not enough arguments");
 	_errorCommandId = (CommandName)stoi(args[0]);
 	_message = args[1];
 }

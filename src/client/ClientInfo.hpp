@@ -36,5 +36,4 @@ namespace babel {
 	}
 }
 
-
 #endif //CPP_BABEL_2018_CLIENTINFOS_HPP

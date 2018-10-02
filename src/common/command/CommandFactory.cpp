@@ -8,7 +8,7 @@
 #include "CommandFactory.hpp"
 
 babel::common::CommandFactory::CommandFactory() :
-	_commands({{babel::common::CommandName::ERROR,
+	_commands({{babel::common::CommandName::CMD_ERROR,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandError>},
 		   {babel::common::CommandName::OK,

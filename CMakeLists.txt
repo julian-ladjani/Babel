@@ -101,7 +101,8 @@ set(CLIENT
 
 set(SERVER
         src/server/Server.cpp
-        src/server/Server.hpp src/common/network/BoostTcpSocket.cpp
+        src/server/Server.hpp
+		src/common/network/BoostTcpSocket.cpp
         src/common/network/BoostTcpSocket.hpp)
 
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
