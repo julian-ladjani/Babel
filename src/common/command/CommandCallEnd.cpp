@@ -8,10 +8,10 @@
 #include "CommandCallEnd.hpp"
 
 babel::common::CommandCallEnd::CommandCallEnd(std::vector<std::string> args) :
-	ACommand(CALL_END)
+	ACommand(CMD_CALL_END)
 {
 	if (args.size() < 1)
-		throw CommandException(CALL_END, "Not enough arguments");
+		throw CommandException(CMD_CALL_END, "Not enough arguments");
 	_userId = (uint32_t)std::stoi(args[0]);
 }
 

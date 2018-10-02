@@ -8,10 +8,10 @@
 #include "CommandOk.hpp"
 
 babel::common::CommandOk::CommandOk(std::vector<std::string> args) :
-	ACommand(OK)
+	ACommand(CMD_OK)
 {
 	if (args.size() < 2)
-		throw CommandException(OK, "Not enough arguments");
+		throw CommandException(CMD_OK, "Not enough arguments");
 	_okCommandId = (CommandName)stoi(args[0]);
 	_message = args[1];
 }

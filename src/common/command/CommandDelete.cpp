@@ -9,7 +9,7 @@
 
 babel::common::CommandDelete::CommandDelete(
 	std::vector<std::string> args) :
-	ACommand(DELETE), _userId(0)
+	ACommand(CMD_DELETE), _userId(0)
 {
 	if (args.size() < 1)
 		_userId = (uint32_t)std::stoi(args[0]);

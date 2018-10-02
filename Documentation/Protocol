@@ -10,26 +10,26 @@ argX = argument n°X of the command.
 [List of Server to Client commands]
 Command		Arguments			Description
 
-CMD_ERROR		(commandId, message)		Client got an error on command (commandId).
-OK		(commandId, message)		Client has successfully excecute the command (commandId).
-LOGIN_OK	(userId, username)		Client has successfully loged in with the user (userId, username).
-DELETE		(userId)			User (userId) has been deleted.
-USER		(userId, username, state)	User (userId) exist with username (username) and is currently connected/disconnected (state).
-USER_STATE	(userId, state)			User (userId) has connected/disconnected (state)
-CALL		(userId, ip, port)		User (userId) want to call Client with address (ip) on port (port).
-CALL_ANSWER	(userId, ip, port)		User (userId) has answer to the call of Client with address (ip) on port (port) 
-CALL_END	(userId)			User (userId) has terminated the call with Client.
-ADD_CONTACT	(userId)			User (userId) is a contact of Client
-MESSAGE		(userId, message)		User (userId) has send the message (message) to Client.
+CMD_ERROR	(commandId, message)		Client got an error on command (commandId).
+CMD_OK		(commandId, message)		Client has successfully excecute the command (commandId).
+CMD_LOGIN_OK	(userId, username)		Client has successfully loged in with the user (userId, username).
+CMD_DELETE	(userId)			User (userId) has been deleted.
+CMD_USER	(userId, username, state)	User (userId) exist with username (username) and is currently connected/disconnected (state).
+CMD_USER_STATE	(userId, state)			User (userId) has connected/disconnected (state)
+CMD_CALL	(userId, ip, port)		User (userId) want to call Client with address (ip) on port (port).
+CMD_CALL_ANSWER	(userId, ip, port)		User (userId) has answer to the call of Client with address (ip) on port (port) 
+CMD_CALL_END	(userId)			User (userId) has terminated the call with Client.
+CMD_ADD_CONTACT	(userId)			User (userId) is a contact of Client
+CMD_MESSAGE	(userId, message)		User (userId) has send the message (message) to Client.
 
 [List of Client to Server commands]
 Command		Arguments			Description
 
-LOGIN		(username, password)		Try to log on the Server with username (username) and password (password).
-LOGOUT		(void)				Logout from the Server.
-DELETE		(void)				Delete Client's user from the Server.
-CALL		(userId, ip, port)		Call User (userId) with address (ip) on port (port).
-CALL_ANSWER	(userId, ip, port)		Anwser the call from User (userId) with address (ip) on port (port).
-CALL_END	(userId)			End the call with user (userId).
-ADD_CONTACT	(userId)			Add User (userId) to the list of contacts.
-MESSAGE		(userId, message)		Send the message (message) to the User (userId).
+CMD_LOGIN	(username, password)		Try to log on the Server with username (username) and password (password).
+CMD_LOGOUT	(void)				Logout from the Server.
+CMD_DELETE	(void)				Delete Client's user from the Server.
+CMD_CALL	(userId, ip, port)		Call User (userId) with address (ip) on port (port).
+CMD_CALL_ANSWER	(userId, ip, port)		Anwser the call from User (userId) with address (ip) on port (port).
+CMD_CALL_END	(userId)			End the call with user (userId).
+CMD_ADD_CONTACT	(userId)			Add User (userId) to the list of contacts.
+CMD_MESSAGE	(userId, message)		Send the message (message) to the User (userId).

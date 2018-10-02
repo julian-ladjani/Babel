@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	std::string serialized;
 	dataPacket.addArg("lol");
 	dataPacket.setCommandId
-		(babel::common::CommandName::LOGIN);
+		(babel::common::CommandName::CMD_LOGIN);
 	dataPacket.addArg("lol");
 	dataPacket.addArg("lil");
 	serialized = dataPacket.serialize();
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	try {
 		babel::common::CommandFactory factory;
 		babel::common::DataPacket dataPacket(
-			babel::common::CommandName::LOGIN,
+			babel::common::CommandName::CMD_LOGIN,
 			{"username", "password"});
 		std::unique_ptr<babel::common::ACommand> command
 			= factory.deserialize(dataPacket);

@@ -16,7 +16,7 @@ namespace babel {
 		class CommandException : public Exception {
 		public:
 			explicit CommandException(
-				CommandName commandId = UNDEFINED,
+				CommandName commandId = CMD_UNDEFINED,
 				const std::string &message = "Unknown Error");
 			CommandName getCommandId();
 		private:
