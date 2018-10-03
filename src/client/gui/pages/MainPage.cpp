@@ -80,7 +80,7 @@ void babel::client::MainPage::initMain() {
 void babel::client::MainPage::connections()
 {
 	connect(&_udpSocket, &QUdpSocket::readyRead, this, &MainPage::readData);
-	connect(_buttons[BEXIT].get(), &Button::clicked, this, &MainPage::changeToTestPage);
+	connect(_buttons[BEXIT].get(), &Button::clicked, this, &MainPage::changeToConnectionPage);
     	connect(_buttons[BTESTMIC].get(), &Button::clicked, this, &MainPage::testMic);
 
 }
@@ -100,12 +100,15 @@ void babel::client::MainPage::sendData()
 }
 
 void babel::client::MainPage::setLogin() {
+    if (_infos.getClientInfo().getLogin().length() > 32)
+	_label[LNAME]->setText(QString::fromStdString
+	(_infos.getClientInfo().getLogin()).left(29)+"...");
+    else
 	_label[LNAME]->setText(QString::fromStdString
 	(_infos.getClientInfo().getLogin()));
 }
 
-void babel::client::MainPage::changeToTestPage() {
-    printf("lol\n");
+void babel::client::MainPage::changeToConnectionPage() {
     emit changePage("connection");
 }
 
