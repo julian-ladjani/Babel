@@ -11,8 +11,7 @@ babel::client::EchoSoundTestServicePage::EchoSoundTestServicePage
 	(babel::client::ClientInfo &_infos) :
 	ABabelPage(_infos),
 	_udpSocket(this),
-	_buttons({std::make_unique<Button>("SEND",
-					   STYLEDEFBUTTON, Size(500, 30))}),
+	_buttons({std::make_unique<Button>("SEND", StyleManager::DEFAULTBUTTON, Size(500, 30))}),
 	_inputs({std::make_unique<Input>(240, "Ip Address"),
 	        std::make_unique<Input>(240, "Port"),
 		std::make_unique<Input>(500, "Message")})

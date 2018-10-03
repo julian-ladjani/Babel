@@ -7,7 +7,7 @@
 
 #include "Button.hpp"
 
-babel::client::Button::Button(const QString &text, const QString style, Size size)
+babel::client::Button::Button(const QString &text, StyleManager::Sheet style, Size size)
 {
 	std::ifstream infile;
 	std::string utf8_text = text.toUtf8().constData();
@@ -23,8 +23,8 @@ babel::client::Button::Button(const QString &text, const QString style, Size siz
 	auto styleheight =QStringLiteral("QPushButton {"
 			"min-height:%1px;"
 			"max-height:%1px;}").arg(size.getY());
-	setStyleSheet(style+stylewidth+styleheight);
-	setEnabled(true);
+	setStyleSheet(_style.getSheet(style)+styleheight+stylewidth);
+    	setEnabled(true);
 }
 
 babel::client::Button::~Button()

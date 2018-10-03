@@ -22,7 +22,10 @@ babel::client::MainWindow::MainWindow()
 	setCentralWidget(&_pages);
 	connect((ConnectionPage *)_pages.getPage("connection"),
 		&ConnectionPage::changePage, this, &MainWindow::changePage);
+	connect((ConnectionPage *)_pages.getPage("main"),
+	    &ConnectionPage::changePage, this, &MainWindow::changePage);
 	QApplication::setWindowIcon(QIcon("src/assets/img/minilogo.png"));
+    	QFontDatabase::removeAllApplicationFonts();
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 }
 
@@ -43,5 +46,9 @@ void babel::client::MainWindow::changePage(std::string pageName)
 {
 	std::cout << _infos.getClientInfo().getLogin() << std::endl;
 	std::cout << pageName << std::endl;
+        if (pageName == "main") {
+	    MainPage *mainPage = (MainPage *) _pages.getPage(pageName);
+	    mainPage->setLogin();
+	}
 	_pages.setCurrentPage(pageName);
 }
