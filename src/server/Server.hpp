@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <map>
 #include <src/common/User.hpp>
 #include <src/common/command/ACommand.hpp>
 #include <src/common/exception/CommandException.hpp>
