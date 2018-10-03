@@ -106,6 +106,8 @@ set(CLIENT
 set(SERVER
         src/server/Server.cpp
         src/server/Server.hpp
+		src/server/ServerCommandHandler.cpp
+		src/server/ServerCommandHandler.hpp
 		src/common/network/BoostTcpSocket.cpp
         src/common/network/BoostTcpSocket.hpp)
 
