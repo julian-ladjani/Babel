@@ -60,10 +60,10 @@ namespace babel {
 		    	std::array<std::unique_ptr<GroupBox>, 5> _container;
 		    	std::array<std::unique_ptr<QSplitter>, 3> _splitter;
 		    	std::unique_ptr<Image> _logo;
+			Thread _threadMic;
 		    	void sendData();
 		    	void changeToTestPage();
 		    	void testMic();
-		    	Thread thread1;
 		protected:
 			void connections() override;
 		};

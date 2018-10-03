@@ -14,14 +14,11 @@ namespace babel {
 	class Thread : public QThread {
 	public:
 	    explicit Thread();
-
 	    ~Thread();
 
 	    void run();
 	    void out();
-
-	protected:
-	private:
+	    private:
 	    bool _test;
 	};
     }
