@@ -70,14 +70,14 @@ set(CLIENT
 		src/client/gui/MainWindow.hpp
 		src/client/gui/components/Button.cpp
 		src/client/gui/components/Button.hpp
-		src/client/gui/components/CButton.cpp
-		src/client/gui/components/CButton.hpp
 		src/client/gui/components/Input.cpp
 		src/client/gui/components/Input.hpp
 		src/client/gui/components/Size.cpp
 		src/client/gui/components/Size.hpp
 		src/client/gui/components/Image.cpp
 		src/client/gui/components/Image.hpp
+		src/client/gui/components/Style.cpp
+		src/client/gui/components/Style.hpp
 		src/client/gui/pages/ABabelPage.hpp
 		src/client/gui/pages/MainPage.cpp
 		src/client/gui/pages/MainPage.hpp
@@ -101,7 +101,7 @@ set(CLIENT
 		src/client/gui/components/ListWidget.cpp
 		src/client/gui/components/ListWidget.hpp
 		src/client/gui/components/GroupBox.cpp
-		src/client/gui/components/GroupBox.hpp)
+		src/client/gui/components/GroupBox.hpp src/client/gui/components/StyleManager.cpp src/client/gui/components/StyleManager.hpp)
 
 set(SERVER
         src/server/Server.cpp

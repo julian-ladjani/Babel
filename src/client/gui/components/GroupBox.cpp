@@ -10,6 +10,7 @@
 
 babel::client::GroupBox::GroupBox(QBoxLayout *layout) {
     _layout = layout;
+    _layout->setAlignment(Qt::AlignVCenter);
     setLayout(layout);
 }
 

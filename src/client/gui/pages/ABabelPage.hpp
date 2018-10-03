@@ -16,9 +16,9 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
 #include <src/client/ClientInfo.hpp>
-#include "src/client/gui/components/CButton.hpp"
 #include "src/client/gui/components/Input.hpp"
 #include "src/client/gui/components/Image.hpp"
+#include "src/client/gui/components/Button.hpp"
 
 namespace babel {
 	namespace client {
