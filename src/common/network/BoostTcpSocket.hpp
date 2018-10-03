@@ -15,16 +15,17 @@
 
 namespace babel
 {
-	namespace common
+	namespace server
 	{
-		class BoostTcpSocket : public ATcpSocket {
+		class BoostTcpSocket : public common::ATcpSocket {
 		public:
 			explicit
-			BoostTcpSocket(ConnectionInfo &connectionInfo);
+			BoostTcpSocket(common::ConnectionInfo
+			&connectionInfo);
 			bool connect() override;
 			bool disconnect() override;
-			bool send(DataPacket packet) override;
-			const DataPacket receive() override;
+			bool send(common::DataPacket packet) override;
+			const common::DataPacket receive() override;
 		private:
 			void startRead();
 			void handleRead(const boost::system::error_code &ec);

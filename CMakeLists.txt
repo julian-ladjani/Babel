@@ -102,10 +102,12 @@ set(CLIENT
 		src/client/gui/components/ListWidget.hpp
 		src/client/gui/components/GroupBox.cpp
 		src/client/gui/components/GroupBox.hpp
-		src/client/gui/components/StyleManager.cpp
-		src/client/gui/components/StyleManager.hpp
-		src/client/gui/components/Thread.cpp
-		src/client/gui/components/Thread.hpp)
+        src/common/network/QtTcpSocket.cpp
+        src/common/network/QtTcpSocket.hpp
+        src/client/gui/components/StyleManager.cpp
+        src/client/gui/components/StyleManager.hpp
+        src/client/gui/components/Thread.cpp
+        src/client/gui/components/Thread.hpp)
 
 set(SERVER
         src/server/Server.cpp

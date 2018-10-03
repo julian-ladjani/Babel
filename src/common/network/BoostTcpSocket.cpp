@@ -7,13 +7,13 @@
 
 #include "BoostTcpSocket.hpp"
 
-babel::common::BoostTcpSocket::BoostTcpSocket(
+babel::server::BoostTcpSocket::BoostTcpSocket(
 	babel::common::ConnectionInfo &connectionInfo) : ATcpSocket(
 	connectionInfo), _socket(_ioService), _ioServiceStarted(false)
 {
 }
 
-bool babel::common::BoostTcpSocket::connect()
+bool babel::server::BoostTcpSocket::connect()
 {
 	if (_isConnect)
 		return false;
@@ -26,13 +26,13 @@ bool babel::common::BoostTcpSocket::connect()
 	return true;
 }
 
-const babel::common::DataPacket babel::common::BoostTcpSocket::receive()
+const babel::common::DataPacket babel::server::BoostTcpSocket::receive()
 {
 	return getPacketFromQueue();
 }
 
 void
-babel::common::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
+babel::server::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
 {
 	if (!_isConnect)
 		return;
@@ -47,7 +47,7 @@ babel::common::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
 	_ioService.run();
 }
 
-bool babel::common::BoostTcpSocket::disconnect()
+bool babel::server::BoostTcpSocket::disconnect()
 {
 	if (!_isConnect)
 		return false;
@@ -56,7 +56,7 @@ bool babel::common::BoostTcpSocket::disconnect()
 	return true;
 }
 
-void babel::common::BoostTcpSocket::startRead()
+void babel::server::BoostTcpSocket::startRead()
 {
 	if (!_isConnect)
 		return;
@@ -66,7 +66,7 @@ void babel::common::BoostTcpSocket::startRead()
 			this, _1));
 }
 
-void babel::common::BoostTcpSocket::handleWrite(
+void babel::server::BoostTcpSocket::handleWrite(
 	const boost::system::error_code &ec)
 {
 	if (!_isConnect)
@@ -75,7 +75,7 @@ void babel::common::BoostTcpSocket::handleWrite(
 		disconnect();
 }
 
-bool babel::common::BoostTcpSocket::send(babel::common::DataPacket packet)
+bool babel::server::BoostTcpSocket::send(babel::common::DataPacket packet)
 {
 	if (!_isConnect)
 		return false;
