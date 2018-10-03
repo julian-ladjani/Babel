@@ -61,7 +61,8 @@ void babel::server::Server::removeClient(common::User user)
 
 void babel::server::Server::sendToAllClients(babel::common::ACommand command)
 {
-	for (babel::common::User client : _clients) {
+	(void)command;
+	for (babel::common::User &client : _clients) {
 		std::cout << client.getId() << std::endl;
 	}
 }

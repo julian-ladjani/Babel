@@ -23,7 +23,7 @@ babel::client::ListWidget::~ListWidget()
 }
 
 void babel::client::ListWidget::AddPersonne(std::vector<common::User> contacts) {
-    for (int i=0; i < contacts.size(); i++){
+    for (uint32_t i = 0; i < contacts.size(); i++){
         QListWidgetItem *itm = new QListWidgetItem;
         itm->setText(QString::fromStdString(contacts[i].getLogin()));
         if (contacts[i].isConnected())

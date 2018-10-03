@@ -8,23 +8,23 @@
 #include "MainPage.hpp"
 
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
+	ABabelPage(_infos),
 	_udpSocket(this),
 	_sender(new Button("SEND", STYLEDEFBUTTON, Size(500, 30))),
 	_logo(new Image("src/assets/img/minilogo.png", 600)),
-	_splitter{std::make_unique<QSplitter>(),
-		  std::make_unique<QSplitter>()},
-	_vLayout{std::make_unique<QVBoxLayout>(),
-		  std::make_unique<QVBoxLayout>()},
 	_label{std::make_unique<Label>("Favorite"),
 	       std::make_unique<Label>("Server List"),
 	       std::make_unique<Label>("Lucas DEPRET")},
-	_list{std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
-	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)},
 	_container{std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>()},
-	ABabelPage(_infos)
+	_list{std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
+	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)},
+	_splitter{std::make_unique<QSplitter>(),
+		  std::make_unique<QSplitter>()},
+	_vLayout{std::make_unique<QVBoxLayout>(),
+		  std::make_unique<QVBoxLayout>()}
 {
     	_infos.addContact(common::User("Lucas DE PRES", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));

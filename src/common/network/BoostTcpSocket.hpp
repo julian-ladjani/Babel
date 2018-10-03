@@ -27,13 +27,13 @@ namespace babel
 			const DataPacket receive() override;
 		private:
 			void startRead();
-			bool _ioServiceStarted;
 			void handleRead(const boost::system::error_code &ec);
 			void handleWrite(const boost::system::error_code &ec);
 			boost::asio::io_service _ioService;
 			boost::asio::streambuf _input_buffer;
 			boost::asio::ip::tcp::socket _socket;
 			boost::asio::ip::tcp::endpoint _endpoint;
+			bool _ioServiceStarted;
 		};
 	}
 }
