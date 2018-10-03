@@ -101,7 +101,7 @@ set(CLIENT
 		src/client/gui/components/ListWidget.cpp
 		src/client/gui/components/ListWidget.hpp
 		src/client/gui/components/GroupBox.cpp
-		src/client/gui/components/GroupBox.hpp)
+		src/client/gui/components/GroupBox.hpp src/common/network/QtTcpSocket.cpp src/common/network/QtTcpSocket.hpp)
 
 set(SERVER
         src/server/Server.cpp

@@ -26,7 +26,7 @@ int main()
 	babel::common::DataPacket dataPacket;
 	babel::common::DataPacket newDataPacket;
 	auto info = babel::common::ConnectionInfo(32444, "0.0.0.0");
-	babel::common::BoostTcpSocket socket(info);
+	babel::server::BoostTcpSocket socket(info);
 
 	std::string serialized;
 	dataPacket.addArg("lol");
