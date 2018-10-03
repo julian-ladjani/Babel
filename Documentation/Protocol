@@ -1,6 +1,5 @@
 [Packet prototype]
-
-"CommandId\x1farg1\x1farg2\x1farg3...\x1d"
+"CommandId\x1farg1\x1farg2...\x1d"
 
 CommandId = ID of the command.
 argX = argument n°X of the command.
@@ -33,3 +32,16 @@ CMD_CALL_ANSWER	(userId, ip, port)		Anwser the call from User (userId) with addr
 CMD_CALL_END	(userId)			End the call with user (userId).
 CMD_CONTACT	(userId, state)			Add/remove (state) User (userId) to the list of contacts.
 CMD_MESSAGE	(userId, message)		Send the message (message) to the User (userId).
+
+[List of argument types]
+Argument	Type
+
+commandId	int (enum CommandName)
+userId		uint32_t
+username	std::string
+password	std::string
+message		std::string
+ip		std::string
+port		uint16_t
+state		bool
+void		void (no arguments)
