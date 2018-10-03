@@ -17,7 +17,7 @@ namespace babel
 	namespace client
 	{
 		class QtTcpSocket
-			: public common::ATcpSocket, public QObject {
+			: public QObject, public common::ATcpSocket {
 		Q_OBJECT
 		public:
 			explicit

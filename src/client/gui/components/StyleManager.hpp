@@ -8,8 +8,10 @@
 #ifndef STYLEMANAGER_HPP_
 #define STYLEMANAGER_HPP_
 
-#include "Style.hpp"
+#include <array>
 #include <memory>
+#include "Style.hpp"
+
 namespace babel {
     namespace client {
 	class StyleManager {
