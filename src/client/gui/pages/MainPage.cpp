@@ -11,7 +11,7 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	ABabelPage(_infos),
 	_udpSocket(this),
 	_buttons({std::make_unique<Button>("src/assets/img/connect.png",
-	StyleManager::ORANGEBUTTON, Size(75, 75))}),
+	StyleManager::ORANGEBUTTON, Size(55, 55))}),
 	_label({std::make_unique<Label>("Black List"),
 	       std::make_unique<Label>("Server List"),
 	       std::make_unique<Label>("")}),
@@ -74,6 +74,7 @@ void babel::client::MainPage::initMain() {
 void babel::client::MainPage::connections()
 {
 	connect(&_udpSocket, &QUdpSocket::readyRead, this, &MainPage::readData);
+	connect(_buttons[BEXIT].get(), &Button::clicked, this, &MainPage::changeToTestPage);
 }
 
 void babel::client::MainPage::readData()
@@ -93,5 +94,10 @@ void babel::client::MainPage::sendData()
 void babel::client::MainPage::setLogin() {
 	_label[LNAME]->setText(QString::fromStdString
 	(_infos.getClientInfo().getLogin()));
+}
+
+void babel::client::MainPage::changeToTestPage() {
+    printf("lol\n");
+    emit changePage("connection");
 }
 

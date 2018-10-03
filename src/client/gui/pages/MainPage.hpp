@@ -8,24 +8,14 @@
 #ifndef CPP_BABEL_2018_MAINPAGE_HPP
 #define CPP_BABEL_2018_MAINPAGE_HPP
 
-#include <src/client/gui/components/Button.hpp>
-#include <src/client/gui/components/Label.hpp>
-#include <src/client/gui/components/ListWidget.hpp>
-#include <src/client/gui/components/GroupBox.hpp>
-#include <src/client/ClientInfo.hpp>
-#include <QtNetwork/QNetworkInterface>
-#include <QtNetwork/QHostInfo>
-#include <QtNetwork/QNetworkDatagram>
-#include <QtNetwork/QHostAddress>
-#include <QtNetwork/QUdpSocket>
 #include "ConnectionPage.hpp"
 #include "ABabelPage.hpp"
-#include <QtWidgets/QSplitter>
 
 namespace babel {
 	namespace client {
 		class MainPage : public ABabelPage
 		{
+		Q_OBJECT
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
 			void initSocket();
@@ -33,6 +23,8 @@ namespace babel {
 		    	void initMain();
 			void readData();
 			void setLogin();
+		Q_SIGNALS:
+		    void changePage(std::string pageName);
 		private:
 			QUdpSocket _udpSocket;
 			enum ButtonType{
@@ -65,6 +57,7 @@ namespace babel {
 		    	std::array<std::unique_ptr<QSplitter>, 3> _splitter;
 		    	std::unique_ptr<Image> _logo;
 		    	void sendData();
+		    	void changeToTestPage();
 		protected:
 			void connections() override;
 		};
