@@ -18,7 +18,8 @@ namespace babel
 	{
 		class ACommand {
 		public:
-			ACommand(babel::common::CommandName commandId);
+			explicit ACommand(babel::common::CommandName commandId);
+			virtual ~ACommand() = default;
 			CommandName getCommandId() const;
 			const DataPacket serialize() const;
 			virtual std::vector<std::string> getArgs() const;
