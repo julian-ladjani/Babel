@@ -112,11 +112,11 @@ void babel::client::MainPage::changeToTestPage() {
 void babel::client::MainPage::testMic() {
     _test = !_test;
     if (_test) {
-	thread1.start();
+	_threadMic.start();
     }
-    else{
-        thread1.out();
-        thread1.wait();
-        thread1.quit();
+    else {
+        _threadMic.out();
+        _threadMic.wait();
+        _threadMic.quit();
     }
 }
