@@ -60,8 +60,8 @@ set(COMMON
 		src/common/command/CommandCallAnswer.hpp
 		src/common/command/CommandCallEnd.cpp
 		src/common/command/CommandCallEnd.hpp
-		src/common/command/CommandAddContact.cpp
-		src/common/command/CommandAddContact.hpp
+        src/common/command/CommandContact.cpp
+        src/common/command/CommandContact.hpp
 		src/common/command/CommandMessage.cpp
 		src/common/command/CommandMessage.hpp)
 

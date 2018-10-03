@@ -19,7 +19,7 @@ CMD_USER_STATE	(userId, state)			User (userId) has connected/disconnected (state
 CMD_CALL	(userId, ip, port)		User (userId) want to call Client with address (ip) on port (port).
 CMD_CALL_ANSWER	(userId, ip, port)		User (userId) has answer to the call of Client with address (ip) on port (port) 
 CMD_CALL_END	(userId)			User (userId) has terminated the call with Client.
-CMD_ADD_CONTACT	(userId)			User (userId) is a contact of Client
+CMD_CONTACT	(userId, state)			User (userId) is/isn't (state) a contact of Client
 CMD_MESSAGE	(userId, message)		User (userId) has send the message (message) to Client.
 
 [List of Client to Server commands]
@@ -31,5 +31,5 @@ CMD_DELETE	(void)				Delete Client's user from the Server.
 CMD_CALL	(userId, ip, port)		Call User (userId) with address (ip) on port (port).
 CMD_CALL_ANSWER	(userId, ip, port)		Anwser the call from User (userId) with address (ip) on port (port).
 CMD_CALL_END	(userId)			End the call with user (userId).
-CMD_ADD_CONTACT	(userId)			Add User (userId) to the list of contacts.
+CMD_CONTACT	(userId, state)			Add/remove (state) User (userId) to the list of contacts.
 CMD_MESSAGE	(userId, message)		Send the message (message) to the User (userId).

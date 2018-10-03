@@ -18,14 +18,13 @@ int babel::server::Server::start()
 
 void babel::server::Server::addClient(common::User user)
 {
-	_clients.push_back(user);
+	if (std::find(_clients.begin(), _clients.end(), user) == _clients.end())
+		_clients.push_back(user);
 }
 
 void babel::server::Server::removeClient(common::User user)
 {
-//Je sais pas coder.
-/*	const std::vector<common::User>::iterator position =
-		std::find(_clients.begin(), _clients.end(), user);
+	auto position =	std::find(_clients.begin(), _clients.end(), user);
 	if (position != _clients.end())
-		_clients.erase(position);*/
+		_clients.erase(position);
 }

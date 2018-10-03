@@ -22,7 +22,7 @@
 #include <src/common/command/CommandCall.hpp>
 #include <src/common/command/CommandCallAnswer.hpp>
 #include <src/common/command/CommandCallEnd.hpp>
-#include <src/common/command/CommandAddContact.hpp>
+#include <src/common/command/CommandContact.hpp>
 #include <src/common/command/CommandMessage.hpp>
 
 namespace babel {

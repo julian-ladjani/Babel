@@ -41,9 +41,9 @@ babel::common::CommandFactory::CommandFactory() :
 		   {babel::common::CommandName::CMD_CALL_END,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandCallEnd>},
-		   {babel::common::CommandName::CMD_ADD_CONTACT,
+		   {babel::common::CommandName::CMD_CONTACT,
 			   &babel::common::CommandFactory::createCommand
-				   <CommandAddContact>},
+				   <CommandContact>},
 		   {babel::common::CommandName::CMD_MESSAGE,
 			   &babel::common::CommandFactory::createCommand
 				   <CommandMessage>}

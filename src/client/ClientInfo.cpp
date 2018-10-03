@@ -47,14 +47,14 @@ void babel::client::ClientInfo::setContacts(
 
 void babel::client::ClientInfo::addContact(common::User user)
 {
-	_contacts.push_back(user);
+	if (std::find(_contacts.begin(), _contacts.end(), user)
+	    == _contacts.end())
+		_contacts.push_back(user);
 }
 
 void babel::client::ClientInfo::removeContact(common::User user)
 {
-//Je sais pas coder.
-/*	const std::vector<common::User>::iterator position =
-		std::find(_contacts.begin(), _contacts.end(), user);
+	auto position = std::find(_contacts.begin(), _contacts.end(), user);
 	if (position != _contacts.end())
-		_contacts.erase(position); */
+		_contacts.erase(position);
 }

@@ -23,7 +23,7 @@ namespace babel {
 			CMD_CALL,
 			CMD_CALL_ANSWER,
 			CMD_CALL_END,
-			CMD_ADD_CONTACT,
+			CMD_CONTACT,
 			CMD_MESSAGE
 		};
 	}
