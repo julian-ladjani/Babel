@@ -9,7 +9,6 @@
 #define CPP_BABEL_2018_ACOMMAND_HPP
 
 #include <string>
-#include <vector>
 #include <src/common/network/DataPacket.hpp>
 #include <src/common/command/CommandName.hpp>
 

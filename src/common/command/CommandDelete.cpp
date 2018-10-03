@@ -11,7 +11,7 @@ babel::common::CommandDelete::CommandDelete(
 	std::vector<std::string> args) :
 	ACommand(CMD_DELETE), _userId(0)
 {
-	if (args.size() < 1)
+	if (!args.empty())
 		_userId = (uint32_t)std::stoi(args[0]);
 }
 

@@ -17,13 +17,13 @@ namespace babel {
 		public:
 			CommandMessage(std::vector<std::string> args);
 			std::vector<std::string> getArgs() const override;
-			uint32_t getMessageId() const;
-			void setMessageId(uint32_t messageId);
+			uint32_t getUserId() const;
+			void setUserId(uint32_t messageId);
 			const std::string &getMessage() const;
 			void setMessage(const std::string &message);
 
 		private:
-			uint32_t _messageId;
+			uint32_t _userId;
 			std::string _message;
 		};
 	}

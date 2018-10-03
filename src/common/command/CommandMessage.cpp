@@ -12,23 +12,23 @@ babel::common::CommandMessage::CommandMessage(std::vector<std::string> args) :
 {
 	if (args.size() < 3)
 		throw CommandException(CMD_MESSAGE, "Not enough arguments");
-	_messageId = (uint32_t)std::stoi(args[0]);
+	_userId = (uint32_t)std::stoi(args[0]);
 	_message = args[1];
 }
 
 std::vector<std::string> babel::common::CommandMessage::getArgs() const
 {
-	return {std::to_string(_messageId), _message};
+	return {std::to_string(_userId), _message};
 }
 
-uint32_t babel::common::CommandMessage::getMessageId() const
+uint32_t babel::common::CommandMessage::getUserId() const
 {
-	return _messageId;
+	return _userId;
 }
 
-void babel::common::CommandMessage::setMessageId(uint32_t messageId)
+void babel::common::CommandMessage::setUserId(uint32_t userId)
 {
-	_messageId = messageId;
+	_userId = userId;
 }
 
 const std::string &babel::common::CommandMessage::getMessage() const
