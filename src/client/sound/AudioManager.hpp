@@ -40,7 +40,6 @@ namespace babel
 		private:
 			bool _recording;
 			bool _streaming;
-			bool _playing;
 			uint32_t _channel;
 			uint32_t _bufferSize;
 			uint32_t _sampleRate;

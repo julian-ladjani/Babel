@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 if (WIN32)
     add_definitions("")
 else()
-    add_definitions("-fPIC -g")
+    add_definitions("-fPIC -g -Wextra -Wall")
 endif()
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -106,6 +106,8 @@ set(CLIENT
 set(SERVER
         src/server/Server.cpp
         src/server/Server.hpp
+		src/server/ServerCommandHandler.cpp
+		src/server/ServerCommandHandler.hpp
 		src/common/network/BoostTcpSocket.cpp
         src/common/network/BoostTcpSocket.hpp)
 

@@ -35,9 +35,9 @@ namespace babel {
 				PORT,
 				MSG
 			};
+			QUdpSocket _udpSocket;
 			std::array<std::unique_ptr<Button>, 1> _buttons;
 			std::array<std::unique_ptr<Input>, 3> _inputs;
-			QUdpSocket _udpSocket;
 			common::ConnectionInfo cinfos;
 			void sendData();
 			void connections() override;

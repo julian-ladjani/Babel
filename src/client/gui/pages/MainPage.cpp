@@ -8,23 +8,23 @@
 #include "MainPage.hpp"
 
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
+	ABabelPage(_infos),
 	_udpSocket(this),
-	_buttons{std::make_unique<Button>("src/assets/img/connect.png",
-	StyleManager::ORANGEBUTTON, Size(75, 75))},
-	_label{std::make_unique<Label>("Black List"),
+	_buttons({std::make_unique<Button>("src/assets/img/connect.png",
+	StyleManager::ORANGEBUTTON, Size(75, 75))}),
+	_label({std::make_unique<Label>("Black List"),
 	       std::make_unique<Label>("Server List"),
-	       std::make_unique<Label>("")},
-	_list{std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
-	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)},
-	_container{std::make_unique<GroupBox>(),
+	       std::make_unique<Label>("")}),
+	_list({std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
+	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)}),
+	_container({std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
-		   std::make_unique<GroupBox>(new QHBoxLayout)},
-	_splitter{std::make_unique<QSplitter>(),
-		  std::make_unique<QSplitter>()},
-	_logo(new Image("src/assets/img/minilogo.png", 600)),
-	ABabelPage(_infos)
+		   std::make_unique<GroupBox>(new QHBoxLayout)}),
+	_splitter({std::make_unique<QSplitter>(),
+		  std::make_unique<QSplitter>()}),
+	_logo(new Image("src/assets/img/minilogo.png", 600))
 {
     	_infos.addContact(common::User("Lucas DE PRES", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));

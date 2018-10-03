@@ -8,8 +8,9 @@
 #include <QtWidgets/QMessageBox>
 #include "ConnectionPage.hpp"
 
-babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
-	: _buttons{std::make_unique<Button>(
+babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos) :
+	ABabelPage(_infos),
+	_buttons{std::make_unique<Button>(
 	"Logout", StyleManager::DEFAULTBUTTON, Size(500,30)),
 	std::make_unique<Button>(
 	"Options", StyleManager::HYPERTEXTBUTTON, Size(500,30)),
@@ -20,8 +21,7 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	std::make_unique<Input>(500, "Passworld"),
 	std::make_unique<Input>(235, "IP Adress"),
 	std::make_unique<Input>(235, "Port")},
-	_logo(std::make_unique<Image>("src/assets/img/logo.png", 350)),
-	ABabelPage(_infos)
+	_logo(std::make_unique<Image>("src/assets/img/logo.png", 350))
 {
 	_inputs.at(LOGIN)->setEchoMode(QLineEdit::Password);
 	_inputs.at(LOGIN)->setInputMethodHints(

@@ -59,7 +59,7 @@ void babel::client::Style::setExtra(QString extra) {
 QString babel::client::Style::getStyleStreet() const
 {
     QString style("");
-    for (int i = 0; i < _styleSheet.size(); i++)
+    for (size_t i = 0; i < _styleSheet.size(); i++)
         style += _styleSheet[i];
     style += "}";
     return style;

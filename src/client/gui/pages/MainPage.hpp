@@ -60,8 +60,8 @@ namespace babel {
 			};
 		    	std::array<std::unique_ptr<Button>, 1> _buttons;
 		    	std::array<std::unique_ptr<Label>, 3> _label;
-		    	std::array<std::unique_ptr<GroupBox>, 5> _container;
 		    	std::array<std::unique_ptr<ListWidget>, 2> _list;
+		    	std::array<std::unique_ptr<GroupBox>, 5> _container;
 		    	std::array<std::unique_ptr<QSplitter>, 3> _splitter;
 		    	std::unique_ptr<Image> _logo;
 		    	void sendData();

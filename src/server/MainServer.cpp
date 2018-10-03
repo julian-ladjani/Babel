@@ -21,7 +21,7 @@
 #include "src/common/command/ACommand.hpp"
 #include "src/common/network/BoostTcpSocket.hpp"
 
-int main(int argc, char *argv[])
+int main()
 {
 	babel::common::DataPacket dataPacket;
 	babel::common::DataPacket newDataPacket;
