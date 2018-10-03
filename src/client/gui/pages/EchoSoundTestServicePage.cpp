@@ -11,10 +11,11 @@ babel::client::EchoSoundTestServicePage::EchoSoundTestServicePage
 	(babel::client::ClientInfo &_infos) :
 	ABabelPage(_infos),
 	_udpSocket(this),
-	_buttons{std::make_unique<Button>("SEND", STYLEDEFBUTTON, Size(500, 30))},
-	_inputs{std::make_unique<Input>(240, "Ip Address"),
+	_buttons({std::make_unique<Button>("SEND",
+					   STYLEDEFBUTTON, Size(500, 30))}),
+	_inputs({std::make_unique<Input>(240, "Ip Address"),
 	        std::make_unique<Input>(240, "Port"),
-		std::make_unique<Input>(500, "Message")}
+		std::make_unique<Input>(500, "Message")})
 {
 	_layout->addWidget(_inputs.at(IP_ADDRESS).get(), 0, 0, 1, 1);
 	_layout->addWidget(_inputs.at(PORT).get(), 0, 1, 1, 1);

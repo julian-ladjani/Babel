@@ -8,7 +8,7 @@
 #include "AudioManager.hpp"
 
 babel::client::AudioManager::AudioManager() :
-	_recording(false), _streaming(false), _playing(false),
+	_recording(false), _streaming(false),
 	_channel(1), _bufferSize(480), _sampleRate(48000), _stream(nullptr)
 {
 	PaError paErr = Pa_Initialize();
