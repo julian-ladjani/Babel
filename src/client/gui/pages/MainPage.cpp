@@ -5,12 +5,17 @@
 // MainPage.cpp
 //
 
+#include <src/client/sound/AudioManager.hpp>
+#include <src/client/sound/AudioEncoder.hpp>
 #include "MainPage.hpp"
 
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	ABabelPage(_infos),
 	_udpSocket(this),
+	_test(false),
 	_buttons({std::make_unique<Button>("src/assets/img/connect.png",
+	StyleManager::ORANGEBUTTON, Size(55, 55)),
+	std::make_unique<Button>("src/assets/img/mic.png",
 	StyleManager::ORANGEBUTTON, Size(55, 55))}),
 	_label({std::make_unique<Label>("Black List"),
 	       std::make_unique<Label>("Server List"),
@@ -51,6 +56,7 @@ void babel::client::MainPage::initSideBar() {
     	_splitter[SLIST]->setOrientation(Qt::Vertical);
     	_container[GBNAME]->addWidget(_buttons[BEXIT].get());
     	_container[GBNAME]->addWidget(_label[LNAME].get());
+    	_container[GBNAME]->addWidget(_buttons[BTESTMIC].get());
     	_container[GBSIDEBAR]->addWidget(_container[GBNAME].get());
     	_container[GBCONTACT]->addWidget(_label[LFAVORITE].get());
     	_container[GBCONTACT]->addWidget(_list[LWFAVORITE].get());
@@ -75,6 +81,8 @@ void babel::client::MainPage::connections()
 {
 	connect(&_udpSocket, &QUdpSocket::readyRead, this, &MainPage::readData);
 	connect(_buttons[BEXIT].get(), &Button::clicked, this, &MainPage::changeToTestPage);
+    	connect(_buttons[BTESTMIC].get(), &Button::clicked, this, &MainPage::testMic);
+
 }
 
 void babel::client::MainPage::readData()
@@ -101,3 +109,14 @@ void babel::client::MainPage::changeToTestPage() {
     emit changePage("connection");
 }
 
+void babel::client::MainPage::testMic() {
+    _test = !_test;
+    if (_test) {
+	thread1.start();
+    }
+    else{
+        thread1.out();
+        thread1.wait();
+        thread1.quit();
+    }
+}
