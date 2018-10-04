@@ -17,16 +17,20 @@ babel::client::Thread::~Thread()
 {
 }
 
-void babel::client::Thread::run() {
-    babel::client::AudioManager audio;
-    babel::client::AudioEncoder encoder(audio.getSampleRate(), audio.getChannel());
-    audio.startStream();
-    audio.startRecording();
-    while (_test) {
-	audio.playRecord(encoder.decode(encoder.encode(audio.getRecord())));
-    }
+void babel::client::Thread::run()
+{
+	babel::client::AudioManager audio;
+	babel::client::AudioEncoder encoder(audio.getSampleRate(),
+					    audio.getChannel());
+	audio.startStream();
+	audio.startRecording();
+	while (_test) {
+		audio.playRecord(encoder.decode(
+			encoder.encode(audio.getRecord())));
+	}
 }
 
-void babel::client::Thread::out() {
-    _test = !_test;
+void babel::client::Thread::out()
+{
+	_test = !_test;
 }

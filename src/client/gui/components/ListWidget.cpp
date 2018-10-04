@@ -25,7 +25,11 @@ babel::client::ListWidget::~ListWidget()
 void babel::client::ListWidget::AddPersonne(std::vector<common::User> contacts) {
     for (uint32_t i = 0; i < contacts.size(); i++){
         QListWidgetItem *itm = new QListWidgetItem;
-        itm->setText(QString::fromStdString(contacts[i].getLogin()));
+        if (contacts[i].getLogin().length() > 32)
+            itm->setText(QString::fromStdString
+            (contacts[i].getLogin()).left(29)+"...");
+        else
+            itm->setText(QString::fromStdString(contacts[i].getLogin()));
         if (contacts[i].isConnected())
             itm->setIcon(QIcon("src/assets/img/off.png"));
         else
