@@ -8,7 +8,10 @@
 #ifndef CPP_BABEL_2018_ATCPSOCKET_HPP
 #define CPP_BABEL_2018_ATCPSOCKET_HPP
 
+#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/classification.hpp>
 #include <vector>
+#include <string>
 #include "ConnectionInfo.hpp"
 #include "DataPacket.hpp"
 
@@ -27,11 +30,17 @@ namespace babel
 			const ConnectionInfo getConnectionInfo() const;
 			bool isConnect() const;
 		protected:
+			std::string addPacketsToQueue(std::string &,
+				std::string = std::string());
 			const DataPacket getPacketFromQueue();
 			static constexpr char PACKET_SEPARATOR[] = "\x1d";
 			ConnectionInfo &_connectionInfo;
 			bool _isConnect;
+			std::string _uncompletePacket;
 			std::vector<babel::common::DataPacket> _receiveQueue;
+		private:
+			void addPacketToQueue(std::string);
+			void addPacketToQueue(std::vector<std::string> &);
 		};
 	}
 }

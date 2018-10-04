@@ -8,6 +8,8 @@
 #ifndef CPP_BABEL_2018_QTTCPSOCKET_HPP
 #define CPP_BABEL_2018_QTTCPSOCKET_HPP
 
+#include <string>
+#include <vector>
 #include <QtNetwork>
 #include <QtNetwork/QTcpSocket>
 #include "ATcpSocket.hpp"
@@ -30,7 +32,7 @@ namespace babel
 		private:
 			void startRead();
 			void handleRead();
-			char *_input_buffer;
+			QDataStream _input_buffer;
 			QTcpSocket _socket;
 		};
 	}

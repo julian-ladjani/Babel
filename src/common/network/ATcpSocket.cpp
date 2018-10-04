@@ -35,3 +35,35 @@ bool babel::common::ATcpSocket::isConnect() const
 {
 	return _isConnect;
 }
+
+void babel::common::ATcpSocket::addPacketToQueue(std::string strPacket)
+{
+	if (strPacket.empty())
+		return;
+	_receiveQueue.push_back(DataPacket::deserialize(strPacket));
+}
+
+void babel::common::ATcpSocket::addPacketToQueue(
+	std::vector<std::string> &vecPackets)
+{
+	if (vecPackets.empty())
+		return;
+	for (auto &vecPacket : vecPackets)
+		addPacketToQueue(vecPacket);
+}
+
+std::string
+babel::common::ATcpSocket::addPacketsToQueue(std::string &packets,
+	std::string notFinishedPacket)
+{
+	std::vector<std::string> vecPackets;
+	boost::split(vecPackets, packets, boost::is_any_of(PACKET_SEPARATOR));
+	if (!notFinishedPacket.empty())
+		*vecPackets.begin() += notFinishedPacket;
+	if (packets[packets.size() - 2] != PACKET_SEPARATOR[0]) {
+		notFinishedPacket = *vecPackets.end();
+		vecPackets.erase(vecPackets.end());
+	}
+	addPacketToQueue(vecPackets);
+	return notFinishedPacket;
+}
