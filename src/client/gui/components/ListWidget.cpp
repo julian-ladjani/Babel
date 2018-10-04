@@ -34,6 +34,7 @@ void babel::client::ListWidget::AddPersonne(std::vector<common::User> contacts) 
             itm->setIcon(QIcon("src/assets/img/off.png"));
         else
             itm->setIcon(QIcon("src/assets/img/on.png"));
+        itm->setSizeHint(QSize(50,50));
         addItem(itm);
         itm->setTextAlignment(Qt::AlignCenter);
     }

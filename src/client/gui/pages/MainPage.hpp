@@ -8,18 +8,19 @@
 #ifndef CPP_BABEL_2018_MAINPAGE_HPP
 #define CPP_BABEL_2018_MAINPAGE_HPP
 
-#include <src/client/gui/components/Thread.hpp>
 #include "ConnectionPage.hpp"
+#include "src/client/gui/components/TMicro.hpp"
 #include "ABabelPage.hpp"
-#include "src/client/gui/components/Thread.hpp"
 
 namespace babel {
 	namespace client {
+	    class TMicro;
 		class MainPage : public ABabelPage
 		{
 		Q_OBJECT
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
+			~MainPage();
 			void initSocket();
 		    	void initSideBar();
 		    	void initMain();
@@ -27,6 +28,7 @@ namespace babel {
 			void setLogin();
 		Q_SIGNALS:
 		    void changePage(std::string pageName);
+		    void changeMic();
 		private:
 			QUdpSocket _udpSocket;
 			bool  _test;
@@ -60,9 +62,9 @@ namespace babel {
 		    	std::array<std::unique_ptr<GroupBox>, 5> _container;
 		    	std::array<std::unique_ptr<QSplitter>, 3> _splitter;
 		    	std::unique_ptr<Image> _logo;
-			Thread _threadMic;
+			std::unique_ptr<TMicro>_threadMic;
 		    	void sendData();
-		    	void changeToTestPage();
+		    	void changeToConnectionPage();
 		    	void testMic();
 		protected:
 			void connections() override;

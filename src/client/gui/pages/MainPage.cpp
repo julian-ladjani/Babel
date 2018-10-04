@@ -5,8 +5,6 @@
 // MainPage.cpp
 //
 
-#include <src/client/sound/AudioManager.hpp>
-#include <src/client/sound/AudioEncoder.hpp>
 #include "MainPage.hpp"
 
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
@@ -29,7 +27,8 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 		   std::make_unique<GroupBox>(new QHBoxLayout)}),
 	_splitter({std::make_unique<QSplitter>(),
 		  std::make_unique<QSplitter>()}),
-	_logo(new Image("src/assets/img/minilogo.png", 600))
+	_logo(new Image("src/assets/img/minilogo.png", 600)),
+	_threadMic(std::make_unique<TMicro>(this))
 {
     	_infos.addContact(common::User("Lucas DE PRES", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
@@ -41,14 +40,21 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	connections();
 }
 
-void babel::client::MainPage::initSocket()
-{
-	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
+babel::client::MainPage::~MainPage(){
+	if (_threadMic->is_loop()) {
+	    emit changeMic();
+	    _threadMic->wait();
+	}
+}
+
+void babel::client::MainPage::initSocket() {
+    	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
 	_udpSocket.bind(address);
 	qDebug() << _udpSocket.localAddress().toString() << ":"
 		 << _udpSocket.localPort();
 }
+
 
 void babel::client::MainPage::initSideBar() {
     	_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -99,7 +105,8 @@ void babel::client::MainPage::sendData()
 		(QByteArray("coucou"), QHostAddress::LocalHost, 7755);
 }
 
-void babel::client::MainPage::setLogin() {
+void babel::client::MainPage::setLogin()
+{
     if (_infos.getClientInfo().getLogin().length() > 32)
 	_label[LNAME]->setText(QString::fromStdString
 	(_infos.getClientInfo().getLogin()).left(29)+"...");
@@ -108,18 +115,17 @@ void babel::client::MainPage::setLogin() {
 	(_infos.getClientInfo().getLogin()));
 }
 
-void babel::client::MainPage::changeToConnectionPage() {
+void babel::client::MainPage::changeToConnectionPage()
+{
+    if (_threadMic->is_loop()) {
+	emit changeMic();
+	_threadMic->wait();
+    }
     emit changePage("connection");
 }
 
-void babel::client::MainPage::testMic() {
-    _test = !_test;
-    if (_test) {
-	_threadMic.start();
-    }
-    else {
-        _threadMic.out();
-        _threadMic.wait();
-        _threadMic.quit();
-    }
+void babel::client::MainPage::testMic()
+{
+   emit changeMic();
 }
+
