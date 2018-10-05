@@ -74,10 +74,20 @@ set(CLIENT
 		src/client/gui/components/Input.hpp
 		src/client/gui/components/Size.cpp
 		src/client/gui/components/Size.hpp
+		src/client/gui/components/Label.cpp
+		src/client/gui/components/Label.hpp
+		src/client/gui/components/ListWidget.cpp
+		src/client/gui/components/ListWidget.hpp
+		src/client/gui/components/GroupBox.cpp
+		src/client/gui/components/GroupBox.hpp
 		src/client/gui/components/Image.cpp
 		src/client/gui/components/Image.hpp
 		src/client/gui/components/Style.cpp
 		src/client/gui/components/Style.hpp
+		src/client/gui/components/StyleManager.cpp
+		src/client/gui/components/StyleManager.hpp
+		src/client/gui/components/TMicro.cpp
+		src/client/gui/components/TMicro.hpp
 		src/client/gui/pages/ABabelPage.hpp
 		src/client/gui/pages/MainPage.cpp
 		src/client/gui/pages/MainPage.hpp
@@ -96,18 +106,8 @@ set(CLIENT
 		src/client/gui/pages/ABabelPage.cpp
 		src/client/gui/pages/EchoSoundTestServicePage.cpp
 		src/client/gui/pages/EchoSoundTestServicePage.hpp
-		src/client/gui/components/Label.cpp
-		src/client/gui/components/Label.hpp
-		src/client/gui/components/ListWidget.cpp
-		src/client/gui/components/ListWidget.hpp
-		src/client/gui/components/GroupBox.cpp
-		src/client/gui/components/GroupBox.hpp
         src/common/network/QtTcpSocket.cpp
-        src/common/network/QtTcpSocket.hpp
-        src/client/gui/components/StyleManager.cpp
-        src/client/gui/components/StyleManager.hpp
-        src/client/gui/components/Thread.cpp
-        src/client/gui/components/Thread.hpp)
+        src/common/network/QtTcpSocket.hpp)
 
 set(SERVER
         src/server/Server.cpp
