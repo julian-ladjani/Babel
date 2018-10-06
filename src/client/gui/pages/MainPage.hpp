@@ -59,8 +59,8 @@ namespace babel {
 		    	std::array<std::unique_ptr<Button>, 2> _buttons;
 		    	std::array<std::unique_ptr<Label>, 3> _labels;
 		    	std::array<std::unique_ptr<ListWidget>, 2> _lists;
-		    	std::array<std::unique_ptr<GroupBox>, 5> _containers;
-		    	std::array<std::unique_ptr<QSplitter>, 3> _splitters;
+		    	std::array<GroupBox*, 5> _containers;
+		    	std::array<QSplitter*, 3> _splitters;
 		    	std::unique_ptr<Image> _logo;
 			std::unique_ptr<TMicro>_threadMic;
 		    	void sendData();

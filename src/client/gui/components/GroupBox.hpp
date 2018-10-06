@@ -17,9 +17,6 @@ namespace babel {
 	class GroupBox : public QGroupBox {
 	public:
 	    GroupBox(QBoxLayout *layout = new QVBoxLayout);
-
-	    ~GroupBox();
-
 	    QWidget *addWidget(QWidget *widget);
 
 	protected:

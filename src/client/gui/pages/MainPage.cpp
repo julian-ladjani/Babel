@@ -20,19 +20,15 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	       std::make_unique<Label>("")}),
 	_lists({std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
 	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)}),
-	_containers({std::make_unique<GroupBox>(),
-		   std::make_unique<GroupBox>(),
-		   std::make_unique<GroupBox>(),
-		   std::make_unique<GroupBox>(),
-		   std::make_unique<GroupBox>(new QHBoxLayout)}),
-	_splitters({std::make_unique<QSplitter>(),
-		  std::make_unique<QSplitter>()}),
+	_containers({new GroupBox(), new GroupBox(), new GroupBox(),
+		     new GroupBox(), new GroupBox(new QHBoxLayout)}),
+	_splitters({new QSplitter(), new QSplitter()}),
 	_logo(new Image("src/assets/img/minilogo.png", 600)),
 	_threadMic(std::make_unique<TMicro>(this))
 {
-    	_infos.addContact(common::User("Lucas DE PRES", 0, true));
+    	_infos.addContact(common::User("Lucas Deloin", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
- 	_infos.addContact(common::User("Julian Italien", 2, false));
+ 	_infos.addContact(common::User("Julian Ladjani", 2, false));
 	_infos.addContact(common::User("Yanick Sucre", 3, false));
 	initSocket();
 	initSideBar();
@@ -51,28 +47,28 @@ void babel::client::MainPage::initSocket() {
 
 void babel::client::MainPage::initSideBar() {
     	_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    //	_splitters.at(SCENTER)->setOrientation(Qt::Horizontal);
-   // 	_splitters.at(SLIST)->setOrientation(Qt::Vertical);
-    //	_containers.at(GBNAME)->addWidget(_buttons.at(BEXIT).get());
-    //	_containers.at(GBNAME)->addWidget(_labels.at(LNAME).get());
-    //	_containers.at(GBNAME)->addWidget(_buttons.at(BTESTMIC).get());
-    //	_containers.at(GBSIDEBAR)->addWidget(_containers.at(GBNAME).get());
-    //	_containers.at(GBCONTACT)->addWidget(_labels.at(LFAVORITE).get());
-    //	_containers.at(GBCONTACT)->addWidget(_lists.at(LWFAVORITE).get());
-	//_splitters.at(SLIST)->addWidget(_containers.at(GBCONTACT).get());
-    	//_containers.at(GBSERVER)->addWidget(_labels.at(LSERVER).get());
-    	//_containers.at(GBSERVER)->addWidget(_lists.at(LWSERVER).get());
-    	//_lists.at(LWSERVER)->AddPersonne(_infos.getContacts());
-    	//_splitters.at(SLIST)->addWidget(_containers.at(GBSERVER).get());
-    	//_containers.at(GBSIDEBAR)->addWidget(_splitters.at(SLIST).get());
-    	//_splitters.at(SCENTER)->addWidget(_containers.at(GBSIDEBAR).get());
+    	_splitters.at(SCENTER)->setOrientation(Qt::Horizontal);
+    	_splitters.at(SLIST)->setOrientation(Qt::Vertical);
+    	_containers.at(GBNAME)->addWidget(_buttons.at(BEXIT).get());
+    	_containers.at(GBNAME)->addWidget(_labels.at(LNAME).get());
+    	_containers.at(GBNAME)->addWidget(_buttons.at(BTESTMIC).get());
+    	_containers.at(GBSIDEBAR)->addWidget(_containers.at(GBNAME));
+    	_containers.at(GBCONTACT)->addWidget(_labels.at(LFAVORITE).get());
+    	_containers.at(GBCONTACT)->addWidget(_lists.at(LWFAVORITE).get());
+	_splitters.at(SLIST)->addWidget(_containers.at(GBCONTACT));
+    	_containers.at(GBSERVER)->addWidget(_labels.at(LSERVER).get());
+    	_containers.at(GBSERVER)->addWidget(_lists.at(LWSERVER).get());
+    	_lists.at(LWSERVER)->AddPersonne(_infos.getContacts());
+    	_splitters.at(SLIST)->addWidget(_containers.at(GBSERVER));
+    	_containers.at(GBSIDEBAR)->addWidget(_splitters.at(SLIST));
+    	_splitters.at(SCENTER)->addWidget(_containers.at(GBSIDEBAR));
 }
 
 void babel::client::MainPage::initMain() {
     	_containers.at(GBMAIN)->addWidget(_logo.get());
-	_splitters.at(SCENTER)->addWidget(_containers.at(GBMAIN).get());
-	_layout->addWidget(_splitters.at(SCENTER).get(), 0,0);
-	_layout->setRowStretch(0,1);
+	_splitters.at(SCENTER)->addWidget(_containers.at(GBMAIN));
+	_layout->addWidget(_splitters.at(SCENTER), 0, 0);
+	_layout->setRowStretch(0, 1);
 	setLayout(_layout);
 }
 
