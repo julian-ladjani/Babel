@@ -11,7 +11,7 @@ babel::common::CommandCall::CommandCall(std::vector<std::string> args) :
 	ACommand(CMD_CALL)
 {
 	if (args.size() < 3)
-		throw CommandException(CMD_CALL, "Not enough arguments");
+		throw CommandException(CMD_CALL, "Not enough arguments.");
 	_userId = (uint32_t)std::stoi(args[0]);
 	_ip = args[1];
 	_port = (uint16_t)std::stoi(args[2]);

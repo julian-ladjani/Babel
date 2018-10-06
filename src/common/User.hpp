@@ -32,9 +32,13 @@ namespace babel {
 			const ConnectionInfo &getConnectionInfo() const;
 			void setConnectionInfo(
 				const ConnectionInfo &connectionInfo);
+			const std::vector<uint32_t> &getContacts() const;
+			void setContacts(
+				const std::vector<uint32_t> &_contacts);
 			bool addContact(uint32_t userId);
 			bool removeContact(uint32_t userId);
 			bool operator==(const User &user) const;
+			bool operator==(const uint32_t &userId) const;
 
 		private:
 			uint32_t _id;

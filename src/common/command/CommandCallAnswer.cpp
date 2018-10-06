@@ -7,11 +7,12 @@
 
 #include "CommandCallAnswer.hpp"
 
-babel::common::CommandCallAnswer::CommandCallAnswer(std::vector<std::string> args) :
-	ACommand(CMD_CALL_ANSWER)
+babel::common::CommandCallAnswer::CommandCallAnswer(
+	std::vector<std::string> args) : ACommand(CMD_CALL_ANSWER)
 {
 	if (args.size() < 3)
-		throw CommandException(CMD_CALL_ANSWER, "Not enough arguments");
+		throw CommandException(CMD_CALL_ANSWER,
+				       "Not enough arguments.");
 	_userId = (uint32_t)std::stoi(args[0]);
 	_ip = args[1];
 	_port = (uint16_t)std::stoi(args[2]);

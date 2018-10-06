@@ -7,11 +7,11 @@
 
 #include "CommandUserState.hpp"
 
-babel::common::CommandUserState::CommandUserState(std::vector<std::string> args) :
-	ACommand(CMD_USER_STATE)
+babel::common::CommandUserState::CommandUserState(
+	std::vector<std::string> args) : ACommand(CMD_USER_STATE)
 {
 	if (args.size() < 2)
-		throw CommandException(CMD_USER_STATE, "Not enough arguments");
+		throw CommandException(CMD_USER_STATE, "Not enough arguments.");
 	_userId = (uint32_t)stoi(args[0]);
 	_connected = (bool)stoi(args[1]);
 }

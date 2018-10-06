@@ -30,7 +30,7 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	_logo(new Image("src/assets/img/minilogo.png", 600)),
 	_threadMic(std::make_unique<TMicro>(this))
 {
-    	_infos.addContact(common::User(0, "Lucas DE PRES", ""));
+    	_infos.addContact(common::User("Lucas DE PRES", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
  	_infos.addContact(common::User("Julian Italien", 2, false));
 	_infos.addContact(common::User("Yanick Sucre", 3, false));
