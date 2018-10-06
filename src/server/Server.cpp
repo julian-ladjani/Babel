@@ -7,9 +7,11 @@
 
 #include "Server.hpp"
 
-babel::server::Server::Server() : _clients(), _sockets(),
-				  _commandHandler(_clients, _sockets)
-{}
+babel::server::Server::Server() : _clients(), _tcpServer(),
+	_commandHandler(_clients,
+		_tcpServer.getSockets())
+{
+}
 
 int babel::server::Server::start()
 {
@@ -19,6 +21,7 @@ int babel::server::Server::start()
 
 void babel::server::Server::addClient(common::User user)
 {
-	if (std::find(_clients.begin(), _clients.end(), user) == _clients.end())
+	if (std::find(_clients.begin(), _clients.end(), user) ==
+		_clients.end())
 		_clients.push_back(user);
 }
