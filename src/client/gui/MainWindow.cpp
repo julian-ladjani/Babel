@@ -5,6 +5,7 @@
 // MainWindow.cpp
 //
 
+#include <src/common/command/CommandLogout.hpp>
 #include "MainWindow.hpp"
 
 babel::client::MainWindow::MainWindow() : _cmdHandler(_infos)
@@ -57,6 +58,7 @@ void babel::client::MainWindow::tryConnect()
 
 void babel::client::MainWindow::disconnect()
 {
+	_infos.getSocket().send(common::CommandLogout({}).serialize());
 	_infos.getSocket().disconnect();
 	changePage("connection");
 }
