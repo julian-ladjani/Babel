@@ -46,7 +46,13 @@ babel::common::CommandFactory::CommandFactory() :
 				   <CommandContact>},
 		   {babel::common::CommandName::CMD_MESSAGE,
 			   &babel::common::CommandFactory::createCommand
-				   <CommandMessage>}
+				   <CommandMessage>},
+		   {babel::common::CommandName::CMD_PING,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandPing>},
+		   {babel::common::CommandName::CMD_PONG,
+			   &babel::common::CommandFactory::createCommand
+				   <CommandPong>}
 		  })
 {}
 

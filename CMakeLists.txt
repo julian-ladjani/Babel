@@ -63,7 +63,11 @@ set(COMMON
         src/common/command/CommandContact.cpp
         src/common/command/CommandContact.hpp
 		src/common/command/CommandMessage.cpp
-		src/common/command/CommandMessage.hpp)
+		src/common/command/CommandMessage.hpp
+		src/common/command/CommandPing.cpp
+		src/common/command/CommandPing.hpp
+		src/common/command/CommandPong.cpp
+		src/common/command/CommandPong.hpp)
 
 set(CLIENT
 		src/client/gui/MainWindow.cpp

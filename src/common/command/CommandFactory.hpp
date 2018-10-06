@@ -24,6 +24,8 @@
 #include <src/common/command/CommandCallEnd.hpp>
 #include <src/common/command/CommandContact.hpp>
 #include <src/common/command/CommandMessage.hpp>
+#include <src/common/command/CommandPing.hpp>
+#include <src/common/command/CommandPong.hpp>
 
 namespace babel {
 	namespace common {

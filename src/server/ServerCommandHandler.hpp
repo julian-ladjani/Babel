@@ -22,6 +22,7 @@
 #include <src/common/command/CommandCallAnswer.hpp>
 #include <src/common/command/CommandCallEnd.hpp>
 #include <src/common/command/CommandMessage.hpp>
+#include <src/common/command/CommandPong.hpp>
 #include <src/common/exception/CommandException.hpp>
 #include <src/server/network/BoostTcpSocket.hpp>
 
@@ -59,6 +60,10 @@ namespace babel {
 						   uint32_t userId);
 			bool commandMessageHandler(common::ACommand command,
 						   uint32_t userId);
+			bool commandPingHandler(common::ACommand command,
+						   uint32_t userId);
+			bool commandPongHandler(common::ACommand command,
+						   uint32_t userId);
 			void sendToAllClients(
 				babel::common::DataPacket packet);
 			bool createUser(common::CommandLogin &cmd,
@@ -67,9 +72,9 @@ namespace babel {
 			void disconnectUser(uint32_t userId);
 			std::pair<babel::server::BoostTcpSocket,
 				uint32_t> &getSocket(uint32_t userId);
-			uint32_t getNextId();
+			uint32_t getNextId() const;
 			babel::common::User &getUser(uint32_t userId);
-			bool isConnected(uint32_t userId);
+			bool isConnected(uint32_t userId) const;
 			bool sendOk(uint32_t userId, common::CommandName cmd,
 				    const std::string &msg);
 		};

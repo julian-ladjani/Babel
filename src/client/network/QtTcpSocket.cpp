@@ -5,7 +5,6 @@
 ** 	QtTcpSocket class
 */
 
-#include <QtWidgets/QDialog>
 #include "QtTcpSocket.hpp"
 
 babel::client::QtTcpSocket::QtTcpSocket(
