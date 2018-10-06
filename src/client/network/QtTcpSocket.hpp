@@ -12,6 +12,7 @@
 #include <vector>
 #include <QtNetwork>
 #include <QtNetwork/QTcpSocket>
+#include <QtWidgets/QDialog>
 #include "src/common/network/ATcpSocket.hpp"
 
 namespace babel
@@ -29,6 +30,9 @@ namespace babel
 			bool disconnect() override;
 			bool send(common::DataPacket packet) override;
 			const common::DataPacket receive() override;
+			void onSuccessConnection();
+		Q_SIGNALS:
+			void connectionSuccess();
 		private:
 			void startRead();
 			void handleRead();

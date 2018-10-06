@@ -20,7 +20,7 @@ namespace babel {
 		Q_OBJECT
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
-			virtual ~MainPage(){};
+			~MainPage();
 			void initSocket();
 		    	void initSideBar();
 		    	void initMain();
@@ -28,6 +28,7 @@ namespace babel {
 			void setLogin();
 		Q_SIGNALS:
 		    void changePage(std::string pageName);
+		    void disconnect();
 		    void changeMic();
 		private:
 			QUdpSocket _udpSocket;

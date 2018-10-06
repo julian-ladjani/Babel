@@ -36,6 +36,15 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	connections();
 }
 
+babel::client::MainPage::~MainPage()
+{
+    if (_threadMic->is_loop()) {
+	emit changeMic();
+	_threadMic->wait();
+	_threadMic->quit();
+    }
+}
+
 void babel::client::MainPage::initSocket() {
     	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
@@ -75,8 +84,10 @@ void babel::client::MainPage::initMain() {
 void babel::client::MainPage::connections()
 {
 	connect(&_udpSocket, &QUdpSocket::readyRead, this, &MainPage::readData);
-	connect(_buttons.at(BEXIT).get(), &Button::clicked, this, &MainPage::changeToConnectionPage);
-    	connect(_buttons.at(BTESTMIC).get(), &Button::clicked, this, &MainPage::testMic);
+	connect(_buttons.at(BEXIT).get(),
+		&Button::clicked, this, &MainPage::changeToConnectionPage);
+    	connect(_buttons.at(BTESTMIC).get(),
+		&Button::clicked, this, &MainPage::testMic);
 
 }
 
@@ -84,7 +95,6 @@ void babel::client::MainPage::readData()
 {
 	while (_udpSocket.hasPendingDatagrams()) {
 		QNetworkDatagram datagram = _udpSocket.receiveDatagram();
-		std::cout << datagram.data().toStdString() << std::endl;
 	}
 }
 
@@ -110,7 +120,7 @@ void babel::client::MainPage::changeToConnectionPage()
 	emit changeMic();
 	_threadMic->wait();
     }
-    emit changePage("connection");
+    emit disconnect();
 }
 
 void babel::client::MainPage::testMic()

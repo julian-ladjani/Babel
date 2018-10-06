@@ -5,7 +5,6 @@
 ** 	QtTcpSocket class
 */
 
-#include <QtWidgets/QDialog>
 #include "QtTcpSocket.hpp"
 
 babel::client::QtTcpSocket::QtTcpSocket(
@@ -14,6 +13,14 @@ babel::client::QtTcpSocket::QtTcpSocket(
 {
 	_input_buffer.setDevice(&_socket);
 	_input_buffer.setVersion(QDataStream::Qt_4_0);
+	QObject::connect(&_socket, &QTcpSocket::connected,
+			this, &QtTcpSocket::onSuccessConnection);
+}
+
+void babel::client::QtTcpSocket::onSuccessConnection()
+{
+	_isConnect = true;
+	emit connectionSuccess();
 }
 
 bool babel::client::QtTcpSocket::connect()
@@ -30,7 +37,8 @@ bool babel::client::QtTcpSocket::disconnect()
 {
 	if (!_isConnect)
 		return false;
-	_socket.disconnect();
+	_socket.disconnectFromHost();
+	_isConnect = false;
 	return true;
 }
 
@@ -63,4 +71,3 @@ void babel::client::QtTcpSocket::handleRead()
 	_uncompletePacket = addPacketsToQueue(stdTmpBuffer,
 		_uncompletePacket);
 }
-

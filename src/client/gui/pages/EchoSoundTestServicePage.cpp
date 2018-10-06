@@ -30,7 +30,6 @@ void babel::client::EchoSoundTestServicePage::initSocket()
 	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
 	_udpSocket.bind(address);
-	printf("couille\n");
 	qDebug() << _udpSocket.localAddress().toString() << ":"
 		 << _udpSocket.localPort();
 }
@@ -57,3 +56,4 @@ void babel::client::EchoSoundTestServicePage::sendData()
 		 QHostAddress(_inputs.at(IP_ADDRESS)->text()),
 		 (quint16)(_inputs.at(PORT)->text().toInt()));
 }
+/*53876*/

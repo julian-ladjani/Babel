@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** CPP_babel_2018
 ** File description:
-** ServerCommandHandler.cpp
+** CommandHandler.cpp
 */
 
 #include "ServerCommandHandler.hpp"
@@ -34,7 +34,14 @@ babel::server::ServerCommandHandler::ServerCommandHandler(
 				  ::commandContactHandler},
 			  {babel::common::CommandName::CMD_MESSAGE,
 				  &babel::server::ServerCommandHandler
-				  ::commandMessageHandler}})
+				  ::commandMessageHandler},
+			  {babel::common::CommandName::CMD_PING,
+				  &babel::server::ServerCommandHandler
+				  ::commandPingHandler},
+			  {babel::common::CommandName::CMD_PONG,
+				  &babel::server::ServerCommandHandler
+				  ::commandPongHandler}
+			 })
 {}
 
 bool babel::server::ServerCommandHandler::handleCommand(
@@ -63,8 +70,8 @@ bool babel::server::ServerCommandHandler::commandLoginHandler(
 {
 	common::CommandLogin &cmd = (common::CommandLogin &) command;
 	for (common::User &user : _clients) {
-		if (!cmd.getUsername().compare(user.getLogin())) {
-			if (!cmd.getPassword().compare(user.getPassword()))
+		if (cmd.getUsername() == user.getLogin()) {
+			if (cmd.getPassword() == user.getPassword())
 				throw common::CommandException(
 					common::CMD_LOGIN, "Correct password.");
 			return connectUser(user, userId);
@@ -219,6 +226,22 @@ bool babel::server::ServerCommandHandler::commandMessageHandler(
 	return sendOk(userId, common::CMD_MESSAGE, "Message ok.");
 }
 
+bool babel::server::ServerCommandHandler::commandPingHandler(
+	babel::common::ACommand command, uint32_t userId)
+{
+	getSocket(userId).first.send(common::CommandPong({}).serialize());
+	return true;
+	(void)command;
+}
+
+bool babel::server::ServerCommandHandler::commandPongHandler(
+	babel::common::ACommand command, uint32_t userId)
+{
+	return true;
+	(void)command;
+	(void)userId;
+}
+
 std::pair<babel::server::BoostTcpSocket &, int32_t> &
 babel::server::ServerCommandHandler::getSocket(int32_t userId)
 {
@@ -239,23 +262,23 @@ babel::server::ServerCommandHandler::getUser(int32_t userId)
 	return _clients[0];
 }
 
-bool babel::server::ServerCommandHandler::isConnected(uint32_t userId)
+bool babel::server::ServerCommandHandler::isConnected(uint32_t userId) const
 {
-	for (common::User &user : _clients) {
+	for (const common::User &user : _clients) {
 		if (user.getId() == userId)
 			return user.isConnected();
 	}
 	return false;
 }
 
-uint32_t babel::server::ServerCommandHandler::getNextId()
+uint32_t babel::server::ServerCommandHandler::getNextId() const
 {
 	uint32_t id = 0;
-	for (auto &sock : _sockets) {
+	for (const auto &sock : _sockets) {
 		if (sock.second > id)
 			id = sock.second;
 	}
-	for (common::User &user : _clients) {
+	for (const common::User &user : _clients) {
 		if (user.getId() > id)
 			id = user.getId();
 	}
@@ -264,6 +287,7 @@ uint32_t babel::server::ServerCommandHandler::getNextId()
 
 bool babel::server::ServerCommandHandler::sendOk(
 	uint32_t userId, babel::common::CommandName cmd, const std::string &msg)
+
 {
 	auto &sock = getSocket(userId);
 	sock.first.send(common::CommandOk(

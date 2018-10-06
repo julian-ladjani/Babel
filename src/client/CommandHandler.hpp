@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** CPP_babel_2018
 ** File description:
-** CommandHandler.hpp
+** ServerCommandHandler.hpp
 */
 
 #ifndef CPP_BABEL_2018_SERVERCOMMANDHANDLER_HPP
@@ -22,29 +22,24 @@
 #include <src/common/command/CommandCallAnswer.hpp>
 #include <src/common/command/CommandCallEnd.hpp>
 #include <src/common/command/CommandMessage.hpp>
-#include <src/common/command/CommandPong.hpp>
 #include <src/common/exception/CommandException.hpp>
-#include <src/server/network/BoostTcpSocket.hpp>
+#include <src/client/network/QtTcpSocket.hpp>
+#include "ClientInfo.hpp"
 
 namespace babel {
-	namespace server {
-		class ServerCommandHandler {
+	namespace client {
+		class CommandHandler {
 		public:
-			ServerCommandHandler(
-				std::vector<babel::common::User> &client,
-				std::vector<std::pair<BoostTcpSocket &,
-					int32_t>> &_sockets);
+			CommandHandler(ClientInfo &info);
 			bool handleCommand(common::ACommand command,
 					   uint32_t userId);
 		private:
-			std::vector<babel::common::User> &_clients;
-			std::vector<std::pair<babel::server::BoostTcpSocket &,
-				int32_t>> &_sockets;
-			std::map<babel::common::CommandName,
-				bool (babel::server::ServerCommandHandler::*)
+			ClientInfo &_infos;
+/*			std::map<babel::common::CommandName,
+				bool (babel::client::CommandHandler::*)
 					(common::ACommand command,
-					 uint32_t userId)> _commandHandlers;
-			bool commandLoginHandler(common::ACommand command,
+					 uint32_t userId)> _commandHandlers;*/
+/*			bool commandLoginHandler(common::ACommand command,
 						 uint32_t userId);
 			bool commandLogoutHandler(common::ACommand command,
 						  uint32_t userId);
@@ -60,23 +55,19 @@ namespace babel {
 						   uint32_t userId);
 			bool commandMessageHandler(common::ACommand command,
 						   uint32_t userId);
-			bool commandPingHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandPongHandler(common::ACommand command,
-						   uint32_t userId);
 			void sendToAllClients(
 				babel::common::DataPacket packet);
 			bool createUser(common::CommandLogin &cmd,
 					uint32_t userId);
 			bool connectUser(common::User &user, uint32_t userId);
 			void disconnectUser(uint32_t userId);
-			std::pair<babel::server::BoostTcpSocket &,
-				int32_t> &getSocket(int32_t userId);
-			uint32_t getNextId() const;
-			babel::common::User &getUser(int32_t userId);
-			bool isConnected(uint32_t userId) const;
+			std::pair<babel::server::BoostTcpSocket,
+				uint32_t> &getSocket(uint32_t userId);
+			uint32_t getNextId();
+			babel::common::User &getUser(uint32_t userId);
+			bool isConnected(uint32_t userId);
 			bool sendOk(uint32_t userId, common::CommandName cmd,
-				    const std::string &msg);
+				    const std::string &msg);*/
 		};
 	}
 }

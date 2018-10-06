@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <src/client/network/QtTcpSocket.hpp>
 #include "src/common/User.hpp"
 
 namespace babel {
@@ -27,11 +28,13 @@ namespace babel {
 				const std::vector<common::User> &contacts);
 			void addContact(common::User user);
 			void removeContact(common::User user);
+			QtTcpSocket &getSocket();
 
 		private:
 			common::User _clientInfo;
 			common::ConnectionInfo _serverInfo;
 			std::vector<common::User> _contacts;
+			QtTcpSocket _socket;
 		};
 	}
 }
