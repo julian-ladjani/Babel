@@ -108,8 +108,8 @@ set(CLIENT
 		src/client/gui/pages/MainPage.hpp
 		src/client/gui/pages/PageManager.cpp
 		src/client/gui/pages/PageManager.hpp
-        	src/client/network/QtTcpSocket.cpp
-        	src/client/network/QtTcpSocket.hpp
+		src/client/network/QtTcpSocket.cpp
+		src/client/network/QtTcpSocket.hpp
 		src/client/gui/components/TConversation.cpp
 		src/client/gui/components/TConversation.hpp
 		src/client/sound/AudioEncoder.cpp
