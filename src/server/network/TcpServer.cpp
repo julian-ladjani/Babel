@@ -7,8 +7,9 @@
 
 #include "TcpServer.hpp"
 
-babel::server::TcpServer::TcpServer(uint16_t _port) : _port(_port),
-	_tcpAcceptor(_ioContext)
+babel::server::TcpServer::TcpServer(uint16_t port) :
+	_tcpAcceptor(_ioContext, boost::asio::ip::tcp::endpoint(
+		boost::asio::ip::tcp::v4(), port))
 {
 	_ioContext.run();
 }

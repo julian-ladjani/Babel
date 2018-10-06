@@ -19,7 +19,7 @@ namespace babel
 	{
 		class TcpServer {
 		public:
-			explicit TcpServer(uint16_t _port = 53876);
+			explicit TcpServer(uint16_t port = 53876);
 			std::vector<std::pair<BoostTcpSocket &, int32_t>>
 			&getSockets();
 		private:
@@ -28,7 +28,6 @@ namespace babel
 				const boost::system::error_code &ec);
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
 				int32_t>> _sockets;
-			uint16_t _port;
 			int32_t _minId = -1;
 			boost::asio::io_context _ioContext;
 			boost::asio::ip::tcp::acceptor _tcpAcceptor;
