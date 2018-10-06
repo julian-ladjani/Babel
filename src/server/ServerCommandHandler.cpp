@@ -9,7 +9,7 @@
 
 babel::server::ServerCommandHandler::ServerCommandHandler(
 	std::vector<babel::common::User> &clients,
-	std::vector<std::pair<BoostTcpSocket, uint32_t>> &sockets) :
+	std::vector<std::pair<BoostTcpSocket &, int32_t>> &sockets) :
 	_clients(clients), _sockets(sockets),
 	_commandHandlers({{babel::common::CommandName::CMD_LOGIN,
 				  &babel::server::ServerCommandHandler
@@ -51,8 +51,8 @@ bool babel::server::ServerCommandHandler::handleCommand(
 void babel::server::ServerCommandHandler::sendToAllClients(
 	babel::common::DataPacket packet)
 {
-	for (std::pair<babel::server::BoostTcpSocket,
-			uint32_t> &sock : _sockets) {
+	for (std::pair<babel::server::BoostTcpSocket &,
+			int32_t> &sock : _sockets) {
 		if (sock.second > 0)
 			sock.first.send(packet);
 	}
@@ -219,8 +219,8 @@ bool babel::server::ServerCommandHandler::commandMessageHandler(
 	return sendOk(userId, common::CMD_MESSAGE, "Message ok.");
 }
 
-std::pair<babel::server::BoostTcpSocket, uint32_t> &
-babel::server::ServerCommandHandler::getSocket(uint32_t userId)
+std::pair<babel::server::BoostTcpSocket &, int32_t> &
+babel::server::ServerCommandHandler::getSocket(int32_t userId)
 {
 	for (auto &sock : _sockets) {
 		if (sock.second == userId)
@@ -230,7 +230,7 @@ babel::server::ServerCommandHandler::getSocket(uint32_t userId)
 }
 
 babel::common::User &
-babel::server::ServerCommandHandler::getUser(uint32_t userId)
+babel::server::ServerCommandHandler::getUser(int32_t userId)
 {
 	for (common::User &user : _clients) {
 		if (user.getId() == userId)

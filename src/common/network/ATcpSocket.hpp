@@ -22,6 +22,7 @@ namespace babel
 		class ATcpSocket {
 		public:
 			explicit ATcpSocket(ConnectionInfo &connectionInfo);
+			virtual ~ATcpSocket() = default;
 			virtual bool connect() = 0;
 			virtual bool send(babel::common::DataPacket) = 0;
 			virtual const

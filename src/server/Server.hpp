@@ -11,6 +11,7 @@
 #include <iostream>
 #include <algorithm>
 #include <src/server/ServerCommandHandler.hpp>
+#include "src/server/network/TcpServer.hpp"
 
 namespace babel {
 	namespace server {
@@ -23,8 +24,7 @@ namespace babel {
 
 		private:
 			std::vector<babel::common::User> _clients;
-			std::vector<std::pair<babel::server::BoostTcpSocket,
-				uint32_t>> _sockets;
+			TcpServer _tcpServer;
 			ServerCommandHandler _commandHandler;
 
 		};

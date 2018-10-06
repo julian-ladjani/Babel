@@ -115,7 +115,7 @@ set(SERVER
 		src/server/ServerCommandHandler.cpp
 		src/server/ServerCommandHandler.hpp
         src/server/network/BoostTcpSocket.cpp
-        src/server/network/BoostTcpSocket.hpp)
+        src/server/network/BoostTcpSocket.hpp src/server/network/TcpServer.cpp src/server/network/TcpServer.hpp)
 
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 

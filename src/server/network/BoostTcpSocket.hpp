@@ -19,22 +19,23 @@ namespace babel
 	{
 		class BoostTcpSocket : public common::ATcpSocket {
 		public:
-			explicit
 			BoostTcpSocket(common::ConnectionInfo
-			&connectionInfo);
+			connectionInfo, boost::asio::io_context &ioContext);
 			bool connect() override;
 			bool disconnect() override;
 			bool send(common::DataPacket packet) override;
 			const common::DataPacket receive() override;
+			boost::asio::ip::tcp::socket &
+			getSocket();
+			bool mustBeConnected();
 		private:
 			void startRead();
 			void handleRead(const boost::system::error_code &ec);
 			void handleWrite(const boost::system::error_code &ec);
-			boost::asio::io_service _ioService;
+			boost::asio::io_context &_ioContext;
 			boost::asio::streambuf _input_buffer;
 			boost::asio::ip::tcp::socket _socket;
 			boost::asio::ip::tcp::endpoint _endpoint;
-			bool _ioServiceStarted;
 		};
 	}
 }

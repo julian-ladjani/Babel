@@ -8,8 +8,9 @@
 #include "BoostTcpSocket.hpp"
 
 babel::server::BoostTcpSocket::BoostTcpSocket(
-	babel::common::ConnectionInfo &connectionInfo) : ATcpSocket(
-	connectionInfo), _socket(_ioService), _ioServiceStarted(false)
+	common::ConnectionInfo connectionInfo,
+	boost::asio::io_context &ioContext) : ATcpSocket(connectionInfo),
+	_ioContext(ioContext), _socket(_ioContext)
 {
 }
 
@@ -45,7 +46,6 @@ babel::server::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
 	_uncompletePacket = addPacketsToQueue(stringPacket,
 		_uncompletePacket);
 	startRead();
-	_ioService.run();
 }
 
 bool babel::server::BoostTcpSocket::disconnect()
@@ -84,9 +84,26 @@ bool babel::server::BoostTcpSocket::send(babel::common::DataPacket packet)
 	boost::asio::async_write(_socket, boost::asio::buffer(
 		serializedPacket.c_str(), serializedPacket.size()),
 		boost::bind(&BoostTcpSocket::handleWrite, this, _1));
-	if (!_ioServiceStarted) {
-		_ioService.run();
-		_ioServiceStarted = true;
-	}
 	return (true);
+}
+
+boost::asio::ip::tcp::socket &
+babel::server::BoostTcpSocket::getSocket()
+{
+	return _socket;
+}
+
+bool babel::server::BoostTcpSocket::mustBeConnected()
+{
+	if (_isConnect && _socket.is_open())
+		return true;
+	if (_socket.is_open()) {
+		_isConnect = true;
+		_connectionInfo.setIp(
+			_socket.remote_endpoint().address().to_string());
+		_connectionInfo.setPort(_socket.remote_endpoint().port());
+		return true;
+	}
+	_isConnect = false;
+	return false;
 }

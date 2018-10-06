@@ -31,14 +31,14 @@ namespace babel {
 		public:
 			ServerCommandHandler(
 				std::vector<babel::common::User> &client,
-				std::vector<std::pair<BoostTcpSocket,
-					uint32_t>> &_sockets);
+				std::vector<std::pair<BoostTcpSocket &,
+					int32_t>> &_sockets);
 			bool handleCommand(common::ACommand command,
 					   uint32_t userId);
 		private:
 			std::vector<babel::common::User> &_clients;
-			std::vector<std::pair<babel::server::BoostTcpSocket,
-				uint32_t>> &_sockets;
+			std::vector<std::pair<babel::server::BoostTcpSocket &,
+				int32_t>> &_sockets;
 			std::map<babel::common::CommandName,
 				bool (babel::server::ServerCommandHandler::*)
 					(common::ACommand command,
@@ -65,10 +65,10 @@ namespace babel {
 					uint32_t userId);
 			bool connectUser(common::User &user, uint32_t userId);
 			void disconnectUser(uint32_t userId);
-			std::pair<babel::server::BoostTcpSocket,
-				uint32_t> &getSocket(uint32_t userId);
+			std::pair<babel::server::BoostTcpSocket &,
+				int32_t> &getSocket(int32_t userId);
 			uint32_t getNextId();
-			babel::common::User &getUser(uint32_t userId);
+			babel::common::User &getUser(int32_t userId);
 			bool isConnected(uint32_t userId);
 			bool sendOk(uint32_t userId, common::CommandName cmd,
 				    const std::string &msg);
