@@ -35,7 +35,7 @@ namespace babel {
 				std::vector<std::pair<BoostTcpSocket &,
 					int32_t>> &_sockets);
 			bool handleCommand(common::ACommand command,
-					   uint32_t userId);
+					   int32_t userId);
 		private:
 			std::vector<babel::common::User> &_clients;
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
