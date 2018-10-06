@@ -22,7 +22,7 @@
 #include <src/common/command/CommandCallEnd.hpp>
 #include <src/common/command/CommandMessage.hpp>
 #include <src/common/exception/CommandException.hpp>
-#include <src/common/network/BoostTcpSocket.hpp>
+#include <src/server/network/BoostTcpSocket.hpp>
 
 namespace babel {
 	namespace server {

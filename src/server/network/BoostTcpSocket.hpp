@@ -11,7 +11,7 @@
 #include <string>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
-#include "ATcpSocket.hpp"
+#include "src/common/network/ATcpSocket.hpp"
 
 namespace babel
 {

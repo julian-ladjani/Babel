@@ -12,7 +12,7 @@
 #include <vector>
 #include <QtNetwork>
 #include <QtNetwork/QTcpSocket>
-#include "ATcpSocket.hpp"
+#include "src/common/network/ATcpSocket.hpp"
 
 namespace babel
 {
