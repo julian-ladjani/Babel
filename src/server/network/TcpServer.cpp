@@ -34,8 +34,10 @@ bool babel::server::TcpServer::startAccept()
 void
 babel::server::TcpServer::handleAccept(const boost::system::error_code &ec)
 {
-	if (ec)
+	if (ec) {
+		throw TcpServerException(ec.message());
 		return;
+	}
 	auto idSocketPair = std::pair<babel::server::BoostTcpSocket &, int32_t>
 		(*_tcpSockets[_tcpSockets.size() - 1], _minId);
 	_minId--;

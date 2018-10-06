@@ -67,7 +67,9 @@ set(COMMON
 		src/common/command/CommandPing.cpp
 		src/common/command/CommandPing.hpp
 		src/common/command/CommandPong.cpp
-		src/common/command/CommandPong.hpp)
+		src/common/command/CommandPong.hpp
+        src/common/exception/TcpSocketException.cpp
+        src/common/exception/TcpSocketException.hpp)
 
 set(CLIENT
 		src/client/Babel.cpp
@@ -123,7 +125,11 @@ set(SERVER
         src/server/ServerCommandHandler.cpp
 		src/server/ServerCommandHandler.hpp
         src/server/network/BoostTcpSocket.cpp
-        src/server/network/BoostTcpSocket.hpp src/server/network/TcpServer.cpp src/server/network/TcpServer.hpp)
+        src/server/network/BoostTcpSocket.hpp
+        src/server/network/TcpServer.cpp
+        src/server/network/TcpServer.hpp
+        src/server/exception/TcpServerException.cpp
+        src/server/exception/TcpServerException.hpp)
 
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 

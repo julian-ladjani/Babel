@@ -12,6 +12,7 @@
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include "src/common/network/ATcpSocket.hpp"
+#include "src/common/exception/TcpSocketException.hpp"
 
 namespace babel
 {

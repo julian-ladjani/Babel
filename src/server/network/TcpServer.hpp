@@ -12,6 +12,7 @@
 #include <vector>
 #include <boost/bind.hpp>
 #include "BoostTcpSocket.hpp"
+#include "src/server/exception/TcpServerException.hpp"
 
 namespace babel
 {
