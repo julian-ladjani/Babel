@@ -19,7 +19,7 @@
 #include <src/common/command/CommandFactory.hpp>
 #include "src/common/network/DataPacket.hpp"
 #include "src/common/command/ACommand.hpp"
-#include "src/common/network/BoostTcpSocket.hpp"
+#include "src/server/network/BoostTcpSocket.hpp"
 
 int main()
 {

@@ -15,17 +15,17 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	StyleManager::ORANGEBUTTON, Size(55, 55)),
 	std::make_unique<Button>("src/assets/img/mic.png",
 	StyleManager::ORANGEBUTTON, Size(55, 55))}),
-	_label({std::make_unique<Label>("Black List"),
+	_labels({std::make_unique<Label>("Black List"),
 	       std::make_unique<Label>("Server List"),
 	       std::make_unique<Label>("")}),
-	_list({std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
+	_lists({std::make_unique<ListWidget>(QAbstractItemView::DropOnly),
 	      std::make_unique<ListWidget>(QAbstractItemView::DragOnly)}),
-	_container({std::make_unique<GroupBox>(),
+	_containers({std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(),
 		   std::make_unique<GroupBox>(new QHBoxLayout)}),
-	_splitter({std::make_unique<QSplitter>(),
+	_splitters({std::make_unique<QSplitter>(),
 		  std::make_unique<QSplitter>()}),
 	_logo(new Image("src/assets/img/minilogo.png", 600)),
 	_threadMic(std::make_unique<TMicro>(this))
@@ -40,13 +40,6 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	connections();
 }
 
-babel::client::MainPage::~MainPage(){
-	if (_threadMic->is_loop()) {
-	    emit changeMic();
-	    _threadMic->wait();
-	}
-}
-
 void babel::client::MainPage::initSocket() {
     	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
@@ -58,27 +51,27 @@ void babel::client::MainPage::initSocket() {
 
 void babel::client::MainPage::initSideBar() {
     	_layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    	_splitter[SCENTER]->setOrientation(Qt::Horizontal);
-    	_splitter[SLIST]->setOrientation(Qt::Vertical);
-    	_container[GBNAME]->addWidget(_buttons[BEXIT].get());
-    	_container[GBNAME]->addWidget(_label[LNAME].get());
-    	_container[GBNAME]->addWidget(_buttons[BTESTMIC].get());
-    	_container[GBSIDEBAR]->addWidget(_container[GBNAME].get());
-    	_container[GBCONTACT]->addWidget(_label[LFAVORITE].get());
-    	_container[GBCONTACT]->addWidget(_list[LWFAVORITE].get());
-	_splitter[SLIST]->addWidget(_container[GBCONTACT].get());
-    	_container[GBSERVER]->addWidget(_label[LSERVER].get());
-    	_container[GBSERVER]->addWidget(_list[LWSERVER].get());
-    	_list[LWSERVER]->AddPersonne(_infos.getContacts());
-    	_splitter[SLIST]->addWidget(_container[GBSERVER].get());
-    	_container[GBSIDEBAR]->addWidget(_splitter[SLIST].get());
-    	_splitter[SCENTER]->addWidget(_container[GBSIDEBAR].get());
+    //	_splitters.at(SCENTER)->setOrientation(Qt::Horizontal);
+   // 	_splitters.at(SLIST)->setOrientation(Qt::Vertical);
+    //	_containers.at(GBNAME)->addWidget(_buttons.at(BEXIT).get());
+    //	_containers.at(GBNAME)->addWidget(_labels.at(LNAME).get());
+    //	_containers.at(GBNAME)->addWidget(_buttons.at(BTESTMIC).get());
+    //	_containers.at(GBSIDEBAR)->addWidget(_containers.at(GBNAME).get());
+    //	_containers.at(GBCONTACT)->addWidget(_labels.at(LFAVORITE).get());
+    //	_containers.at(GBCONTACT)->addWidget(_lists.at(LWFAVORITE).get());
+	//_splitters.at(SLIST)->addWidget(_containers.at(GBCONTACT).get());
+    	//_containers.at(GBSERVER)->addWidget(_labels.at(LSERVER).get());
+    	//_containers.at(GBSERVER)->addWidget(_lists.at(LWSERVER).get());
+    	//_lists.at(LWSERVER)->AddPersonne(_infos.getContacts());
+    	//_splitters.at(SLIST)->addWidget(_containers.at(GBSERVER).get());
+    	//_containers.at(GBSIDEBAR)->addWidget(_splitters.at(SLIST).get());
+    	//_splitters.at(SCENTER)->addWidget(_containers.at(GBSIDEBAR).get());
 }
 
 void babel::client::MainPage::initMain() {
-    	_container[GBMAIN]->addWidget(_logo.get());
-	_splitter[SCENTER]->addWidget(_container[GBMAIN].get());
-	_layout->addWidget(_splitter[SCENTER].get(), 0,0);
+    	_containers.at(GBMAIN)->addWidget(_logo.get());
+	_splitters.at(SCENTER)->addWidget(_containers.at(GBMAIN).get());
+	_layout->addWidget(_splitters.at(SCENTER).get(), 0,0);
 	_layout->setRowStretch(0,1);
 	setLayout(_layout);
 }
@@ -86,8 +79,8 @@ void babel::client::MainPage::initMain() {
 void babel::client::MainPage::connections()
 {
 	connect(&_udpSocket, &QUdpSocket::readyRead, this, &MainPage::readData);
-	connect(_buttons[BEXIT].get(), &Button::clicked, this, &MainPage::changeToConnectionPage);
-    	connect(_buttons[BTESTMIC].get(), &Button::clicked, this, &MainPage::testMic);
+	connect(_buttons.at(BEXIT).get(), &Button::clicked, this, &MainPage::changeToConnectionPage);
+    	connect(_buttons.at(BTESTMIC).get(), &Button::clicked, this, &MainPage::testMic);
 
 }
 
@@ -108,10 +101,10 @@ void babel::client::MainPage::sendData()
 void babel::client::MainPage::setLogin()
 {
     if (_infos.getClientInfo().getLogin().length() > 32)
-	_label[LNAME]->setText(QString::fromStdString
+	_labels[LNAME]->setText(QString::fromStdString
 	(_infos.getClientInfo().getLogin()).left(29)+"...");
     else
-	_label[LNAME]->setText(QString::fromStdString
+	_labels[LNAME]->setText(QString::fromStdString
 	(_infos.getClientInfo().getLogin()));
 }
 
