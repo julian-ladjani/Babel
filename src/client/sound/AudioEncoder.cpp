@@ -5,7 +5,6 @@
 ** AudioEncoder.cpp
 */
 
-#include <src/common/exception/Exception.hpp>
 #include "AudioEncoder.hpp"
 
 babel::client::AudioEncoder::AudioEncoder(uint32_t sampleRate,

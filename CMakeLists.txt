@@ -63,56 +63,64 @@ set(COMMON
         src/common/command/CommandContact.cpp
         src/common/command/CommandContact.hpp
 		src/common/command/CommandMessage.cpp
-		src/common/command/CommandMessage.hpp)
+		src/common/command/CommandMessage.hpp
+		src/common/command/CommandPing.cpp
+		src/common/command/CommandPing.hpp
+		src/common/command/CommandPong.cpp
+		src/common/command/CommandPong.hpp)
 
 set(CLIENT
-		src/client/gui/MainWindow.cpp
-		src/client/gui/MainWindow.hpp
+		src/client/Babel.cpp
+		src/client/Babel.hpp
+		src/client/ClientInfo.cpp
+		src/client/ClientInfo.hpp
+		src/client/CommandHandler.cpp
+		src/client/CommandHandler.hpp
 		src/client/gui/components/Button.cpp
 		src/client/gui/components/Button.hpp
-		src/client/gui/components/Input.cpp
-		src/client/gui/components/Input.hpp
-		src/client/gui/components/Size.cpp
-		src/client/gui/components/Size.hpp
-		src/client/gui/components/Label.cpp
-		src/client/gui/components/Label.hpp
-		src/client/gui/components/ListWidget.cpp
-		src/client/gui/components/ListWidget.hpp
 		src/client/gui/components/GroupBox.cpp
 		src/client/gui/components/GroupBox.hpp
 		src/client/gui/components/Image.cpp
 		src/client/gui/components/Image.hpp
+		src/client/gui/components/Input.cpp
+		src/client/gui/components/Input.hpp
+		src/client/gui/components/Label.cpp
+		src/client/gui/components/Label.hpp
+		src/client/gui/components/ListWidget.cpp
+		src/client/gui/components/ListWidget.hpp
+		src/client/gui/components/Size.cpp
+		src/client/gui/components/Size.hpp
 		src/client/gui/components/Style.cpp
 		src/client/gui/components/Style.hpp
 		src/client/gui/components/StyleManager.cpp
 		src/client/gui/components/StyleManager.hpp
 		src/client/gui/components/TMicro.cpp
 		src/client/gui/components/TMicro.hpp
+		src/client/gui/MainWindow.cpp
+		src/client/gui/MainWindow.hpp
+		src/client/gui/pages/ABabelPage.cpp
 		src/client/gui/pages/ABabelPage.hpp
+		src/client/gui/pages/ConnectionPage.cpp
+		src/client/gui/pages/ConnectionPage.hpp
+		src/client/gui/pages/EchoSoundTestServicePage.cpp
+		src/client/gui/pages/EchoSoundTestServicePage.hpp
 		src/client/gui/pages/MainPage.cpp
 		src/client/gui/pages/MainPage.hpp
 		src/client/gui/pages/PageManager.cpp
 		src/client/gui/pages/PageManager.hpp
-		src/client/gui/pages/ConnectionPage.cpp
-		src/client/gui/pages/ConnectionPage.hpp
-		src/client/sound/AudioManager.cpp
-		src/client/sound/AudioManager.hpp
-		src/client/sound/AudioEncoder.hpp
+        	src/client/network/QtTcpSocket.cpp
+        	src/client/network/QtTcpSocket.hpp
+		src/client/gui/components/TConversation.cpp
+		src/client/gui/components/TConversation.hpp
 		src/client/sound/AudioEncoder.cpp
-		src/client/ClientInfo.hpp
-		src/client/ClientInfo.cpp
-		src/client/Babel.cpp
-		src/client/Babel.hpp
-		src/client/gui/pages/ABabelPage.cpp
-		src/client/gui/pages/EchoSoundTestServicePage.cpp
-		src/client/gui/pages/EchoSoundTestServicePage.hpp
-        src/client/network/QtTcpSocket.cpp
-        src/client/network/QtTcpSocket.hpp src/client/gui/components/TConversation.cpp src/client/gui/components/TConversation.hpp)
+		src/client/sound/AudioEncoder.hpp
+		src/client/sound/AudioManager.cpp
+		src/client/sound/AudioManager.hpp)
 
 set(SERVER
         src/server/Server.cpp
         src/server/Server.hpp
-		src/server/ServerCommandHandler.cpp
+        src/server/ServerCommandHandler.cpp
 		src/server/ServerCommandHandler.hpp
         src/server/network/BoostTcpSocket.cpp
         src/server/network/BoostTcpSocket.hpp)

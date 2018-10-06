@@ -20,6 +20,8 @@ CMD_CALL_ANSWER	(userId, ip, port)		User (userId) has answer to the call of Clie
 CMD_CALL_END	(userId)			User (userId) has terminated the call with Client.
 CMD_CONTACT	(userId, state)			User (userId) is/isn't (state) a contact of Client
 CMD_MESSAGE	(userId, message)		User (userId) has send the message (message) to Client.
+CMD_PING	(void)	 			Ping the Client.
+CMD_PONG	(void)				Answer to a ping from the Client.
 
 [List of Client to Server commands]
 Command		Arguments			Description
@@ -32,6 +34,8 @@ CMD_CALL_ANSWER	(userId, ip, port)		Anwser the call from User (userId) with addr
 CMD_CALL_END	(userId)			End the call with user (userId).
 CMD_CONTACT	(userId, state)			Add/remove (state) User (userId) to the list of contacts.
 CMD_MESSAGE	(userId, message)		Send the message (message) to the User (userId).
+CMD_PING	(void)	 			Ping the Server.
+CMD_PONG	(void)				Answer to a ping from the Server.
 
 [List of argument types]
 Argument	Type
