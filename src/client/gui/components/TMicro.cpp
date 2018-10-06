@@ -22,8 +22,7 @@ void babel::client::TMicro::run()
 	audio.startStream();
 	audio.startRecording();
 	while (_loop) {
-		audio.playRecord(encoder.decode(
-			encoder.encode(audio.getRecord())));
+		audio.playRecord(audio.getRecord());
 	}
 	audio.stopRecording();
 	audio.closeStream();
