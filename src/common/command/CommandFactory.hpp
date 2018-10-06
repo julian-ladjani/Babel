@@ -34,7 +34,7 @@ namespace babel {
 		public:
 			CommandFactory();
 			std::unique_ptr<ACommand> deserialize(
-				DataPacket packet);
+				DataPacket &packet);
 
 		private:
 			template<class T>

@@ -10,6 +10,8 @@
 
 #include <iostream>
 #include <algorithm>
+#include <src/common/command/CommandError.hpp>
+#include <src/common/command/CommandFactory.hpp>
 #include <src/server/ServerCommandHandler.hpp>
 #include "src/server/network/TcpServer.hpp"
 
@@ -23,10 +25,15 @@ namespace babel {
 			void removeClient(common::User user);
 
 		private:
+			bool _running;
+			common::CommandFactory _cmdFactory;
 			std::vector<babel::common::User> _clients;
 			TcpServer _tcpServer;
 			ServerCommandHandler _commandHandler;
-
+			std::vector<std::pair<babel::server::BoostTcpSocket &,
+				int32_t>> _sockets;
+			void handleClient(babel::server::BoostTcpSocket &sock,
+					  int32_t userId);
 		};
 	}
 }

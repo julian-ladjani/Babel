@@ -57,7 +57,7 @@ babel::common::CommandFactory::CommandFactory() :
 {}
 
 std::unique_ptr<babel::common::ACommand>
-babel::common::CommandFactory::deserialize(babel::common::DataPacket packet)
+babel::common::CommandFactory::deserialize(babel::common::DataPacket &packet)
 {
 	if (_commands.find(packet.getCommandId()) != _commands.end())
 		return (this->*_commands[packet.getCommandId()])

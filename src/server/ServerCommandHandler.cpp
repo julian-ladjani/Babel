@@ -171,7 +171,7 @@ bool babel::server::ServerCommandHandler::commandCallAnswerHandler(
 			common::CMD_CALL_ANSWER, "You need to login first.");
 	if (!isConnected(cmd.getUserId()))
 		throw common::CommandException(
-			common::CMD_CALL, "User is not connected.");
+			common::CMD_CALL_ANSWER, "User is not connected.");
 	getSocket(cmd.getUserId()).first.send(common::CommandCallAnswer(
 		{std::to_string(userId), cmd.getIp(),
 		 std::to_string(cmd.getPort())}).serialize());
@@ -187,7 +187,7 @@ bool babel::server::ServerCommandHandler::commandCallEndHandler(
 			common::CMD_CALL_END, "You need to login first.");
 	if (!isConnected(cmd.getUserId()))
 		throw common::CommandException(
-			common::CMD_CALL, "User is not connected.");
+			common::CMD_CALL_END, "User is not connected.");
 	getSocket(cmd.getUserId()).first.send(common::CommandCall(
 		{std::to_string(userId)}).serialize());
 	return sendOk(userId, common::CMD_CALL_END, "Call end ok.");
@@ -222,7 +222,7 @@ bool babel::server::ServerCommandHandler::commandMessageHandler(
 			common::CMD_MESSAGE, "You need to login first.");
 	if (!isConnected(cmd.getUserId()))
 		throw common::CommandException(
-			common::CMD_CALL, "User is not connected.");
+			common::CMD_MESSAGE, "User is not connected.");
 	getSocket(cmd.getUserId()).first.send(common::CommandContact(
 		{std::to_string(userId), cmd.getMessage()}).serialize());
 	return sendOk(userId, common::CMD_MESSAGE, "Message ok.");
