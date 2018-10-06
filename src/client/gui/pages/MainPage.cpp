@@ -36,6 +36,15 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	connections();
 }
 
+babel::client::MainPage::~MainPage()
+{
+    if (_threadMic->is_loop()) {
+	emit changeMic();
+	_threadMic->wait();
+	_threadMic->quit();
+    }
+}
+
 void babel::client::MainPage::initSocket() {
     	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));

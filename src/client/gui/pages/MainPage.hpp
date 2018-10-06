@@ -20,7 +20,7 @@ namespace babel {
 		Q_OBJECT
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
-			virtual ~MainPage(){};
+			~MainPage();
 			void initSocket();
 		    	void initSideBar();
 		    	void initMain();

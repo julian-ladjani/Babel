@@ -25,8 +25,6 @@ babel::client::MainWindow::MainWindow()
 	connect((ConnectionPage *)_pages.getPage("main"),
 	    &ConnectionPage::changePage, this, &MainWindow::changePage);
 	QApplication::setWindowIcon(QIcon("src/assets/img/minilogo.png"));
-    	QFontDatabase::removeAllApplicationFonts();
-	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
 }
 
 void babel::client::MainWindow::initClientInfos()

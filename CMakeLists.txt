@@ -107,7 +107,7 @@ set(CLIENT
 		src/client/gui/pages/EchoSoundTestServicePage.cpp
 		src/client/gui/pages/EchoSoundTestServicePage.hpp
         src/client/network/QtTcpSocket.cpp
-        src/client/network/QtTcpSocket.hpp)
+        src/client/network/QtTcpSocket.hpp src/client/gui/components/TConversation.cpp src/client/gui/components/TConversation.hpp)
 
 set(SERVER
         src/server/Server.cpp
