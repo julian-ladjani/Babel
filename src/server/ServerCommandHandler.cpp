@@ -98,6 +98,8 @@ bool babel::server::ServerCommandHandler::connectUser(
 			{std::to_string(contactId), "1"}).serialize());
 	sendToAllClients(common::CommandUserState(
 		{std::to_string(user.getId()), "1"}).serialize());
+	sock.first.send(common::CommandLoginOk({std::to_string(user.getId()),
+						user.getLogin()}).serialize());
 	return sendOk(sock.second, common::CMD_LOGIN, "Login ok.");
 }
 

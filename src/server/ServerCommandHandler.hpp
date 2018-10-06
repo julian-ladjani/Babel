@@ -12,10 +12,11 @@
 #include <utility>
 #include <src/common/User.hpp>
 #include <src/common/command/ACommand.hpp>
-#include <src/common/command/CommandLogin.hpp>
-#include <src/common/command/CommandUserState.hpp>
-#include <src/common/command/CommandUser.hpp>
 #include <src/common/command/CommandOk.hpp>
+#include <src/common/command/CommandLogin.hpp>
+#include <src/common/command/CommandLoginOk.hpp>
+#include <src/common/command/CommandUser.hpp>
+#include <src/common/command/CommandUserState.hpp>
 #include <src/common/command/CommandContact.hpp>
 #include <src/common/command/CommandCall.hpp>
 #include <src/common/command/CommandCallAnswer.hpp>
