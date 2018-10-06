@@ -10,6 +10,7 @@
 
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QBoxLayout>
+#include <vector>
 
 namespace babel {
     namespace client {
@@ -23,7 +24,8 @@ namespace babel {
 
 	protected:
 	private:
-	    QBoxLayout *_layout;
+	    	QBoxLayout *_layout;
+		std::vector<QWidget *> _list;
 	};
     }
 }

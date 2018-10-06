@@ -20,7 +20,7 @@ namespace babel {
 		Q_OBJECT
 		public:
 			explicit MainPage(client::ClientInfo &_infos);
-			~MainPage();
+			virtual ~MainPage(){};
 			void initSocket();
 		    	void initSideBar();
 		    	void initMain();
@@ -57,10 +57,10 @@ namespace babel {
 			    SLIST,
 			};
 		    	std::array<std::unique_ptr<Button>, 2> _buttons;
-		    	std::array<std::unique_ptr<Label>, 3> _label;
-		    	std::array<std::unique_ptr<ListWidget>, 2> _list;
-		    	std::array<std::unique_ptr<GroupBox>, 5> _container;
-		    	std::array<std::unique_ptr<QSplitter>, 3> _splitter;
+		    	std::array<std::unique_ptr<Label>, 3> _labels;
+		    	std::array<std::unique_ptr<ListWidget>, 2> _lists;
+		    	std::array<std::unique_ptr<GroupBox>, 5> _containers;
+		    	std::array<std::unique_ptr<QSplitter>, 3> _splitters;
 		    	std::unique_ptr<Image> _logo;
 			std::unique_ptr<TMicro>_threadMic;
 		    	void sendData();

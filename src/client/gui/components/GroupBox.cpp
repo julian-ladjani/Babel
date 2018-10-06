@@ -20,5 +20,6 @@ babel::client::GroupBox::~GroupBox()
 
 QWidget *babel::client::GroupBox::addWidget(QWidget *widget) {
     _layout->addWidget(widget);
+    _list.push_back(widget);
     return widget;
 }
