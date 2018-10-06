@@ -37,7 +37,8 @@ bool babel::client::QtTcpSocket::disconnect()
 {
 	if (!_isConnect)
 		return false;
-	_socket.disconnect();
+	_socket.disconnectFromHost();
+	_isConnect = false;
 	return true;
 }
 

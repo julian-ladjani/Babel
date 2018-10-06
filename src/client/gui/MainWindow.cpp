@@ -28,8 +28,8 @@ babel::client::MainWindow::MainWindow() : _cmdHandler(_infos)
 
 void babel::client::MainWindow::initConnects()
 {
-	connect((ConnectionPage *)_pages.getPage("main"),
-		&ConnectionPage::changePage, this, &MainWindow::changePage);
+	connect((MainPage *)_pages.getPage("main"),
+		&MainPage::disconnect, this, &MainWindow::disconnect);
 	connect((ConnectionPage *)_pages.getPage("connection"),
 		&ConnectionPage::changePage, this, &MainWindow::tryConnect);
 	connect(&_infos.getSocket(), &QtTcpSocket::connectionSuccess,
@@ -55,6 +55,12 @@ void babel::client::MainWindow::tryConnect()
 		return;
 }
 
+void babel::client::MainWindow::disconnect()
+{
+	_infos.getSocket().disconnect();
+	changePage("connection");
+}
+
 void babel::client::MainWindow::login()
 {
 	common::CommandLogin cmd(
@@ -66,8 +72,6 @@ void babel::client::MainWindow::login()
 
 void babel::client::MainWindow::changePage(std::string pageName)
 {
-	std::cout << _infos.getClientInfo().getLogin() << std::endl;
-	std::cout << pageName << std::endl;
         if (pageName == "main") {
 	    MainPage *mainPage = (MainPage *) _pages.getPage(pageName);
 	    mainPage->setLogin();

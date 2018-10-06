@@ -28,6 +28,7 @@ namespace babel {
 			void setLogin();
 		Q_SIGNALS:
 		    void changePage(std::string pageName);
+		    void disconnect();
 		    void changeMic();
 		private:
 			QUdpSocket _udpSocket;

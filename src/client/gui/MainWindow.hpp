@@ -39,6 +39,7 @@ namespace babel {
 			void tryConnect();
 			void login();
 			void initConnects();
+			void disconnect();
 		};
 
 	}
