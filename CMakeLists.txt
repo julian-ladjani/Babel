@@ -106,16 +106,16 @@ set(CLIENT
 		src/client/gui/pages/ABabelPage.cpp
 		src/client/gui/pages/EchoSoundTestServicePage.cpp
 		src/client/gui/pages/EchoSoundTestServicePage.hpp
-        src/common/network/QtTcpSocket.cpp
-        src/common/network/QtTcpSocket.hpp)
+        src/client/network/QtTcpSocket.cpp
+        src/client/network/QtTcpSocket.hpp)
 
 set(SERVER
         src/server/Server.cpp
         src/server/Server.hpp
 		src/server/ServerCommandHandler.cpp
 		src/server/ServerCommandHandler.hpp
-		src/common/network/BoostTcpSocket.cpp
-        src/common/network/BoostTcpSocket.hpp)
+        src/server/network/BoostTcpSocket.cpp
+        src/server/network/BoostTcpSocket.hpp)
 
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 
