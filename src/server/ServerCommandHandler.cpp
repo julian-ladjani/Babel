@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** CPP_babel_2018
 ** File description:
-** ServerCommandHandler.cpp
+** CommandHandler.cpp
 */
 
 #include "ServerCommandHandler.hpp"
@@ -271,7 +271,7 @@ bool babel::server::ServerCommandHandler::isConnected(uint32_t userId) const
 uint32_t babel::server::ServerCommandHandler::getNextId() const
 {
 	uint32_t id = 0;
-	for (auto &sock : _sockets) {
+	for (const auto &sock : _sockets) {
 		if (sock.second > id)
 			id = sock.second;
 	}
@@ -283,8 +283,8 @@ uint32_t babel::server::ServerCommandHandler::getNextId() const
 }
 
 bool babel::server::ServerCommandHandler::sendOk(
-	uint32_t userId, babel::common::CommandName cmd,
-	const std::string &msg)
+	uint32_t userId, babel::common::CommandName cmd, const std::string &msg)
+
 {
 	auto &sock = getSocket(userId);
 	sock.first.send(common::CommandOk(
