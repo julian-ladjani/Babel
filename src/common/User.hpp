@@ -17,12 +17,16 @@ namespace babel {
 	namespace common {
 		class User {
 		public:
-			explicit User(const std::string &login = "",
-				      uint32_t id = 0, bool connected = false);
+			explicit User(uint32_t id = 0,
+				      const std::string &login = "",
+				      const std::string &password = "");
+			User(const std::string &login, uint32_t id, bool state);
+			uint32_t getId() const;
+			void setId(uint32_t id);
 			const std::string &getLogin() const;
 			void setLogin(const std::string &login);
-			int32_t getId() const;
-			void setId(uint32_t id);
+			const std::string &getPassword() const;
+			void setPassword(const std::string &password);
 			bool isConnected() const;
 			void setConnected(bool connected);
 			const ConnectionInfo &getConnectionInfo() const;
@@ -33,8 +37,9 @@ namespace babel {
 			bool operator==(const User &user) const;
 
 		private:
-			std::string _login;
 			uint32_t _id;
+			std::string _login;
+			std::string _password;
 			bool _connected;
 			ConnectionInfo _connectionInfo;
 			std::vector<uint32_t> _contacts;

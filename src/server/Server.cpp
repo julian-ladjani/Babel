@@ -7,7 +7,8 @@
 
 #include "Server.hpp"
 
-babel::server::Server::Server() : _clients(), _commandHandler(_clients)
+babel::server::Server::Server() : _clients(), _sockets(),
+				  _commandHandler(_clients, _sockets)
 {}
 
 int babel::server::Server::start()

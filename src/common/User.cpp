@@ -7,10 +7,26 @@
 
 #include "User.hpp"
 
-babel::common::User::User(const std::string &login, uint32_t id, bool connected) :
-	_login(login), _id(id), _connected(connected),
+babel::common::User::User(uint32_t id, const std::string &login,
+			  const std::string &password) :
+	_id(id), _login(login), _password(password), _connected(false),
 	_connectionInfo(), _contacts()
 {}
+
+babel::common::User::User(const std::string &login, uint32_t id, bool state) :
+	_id(id), _login(login), _password(""), _connected(state),
+	_connectionInfo(), _contacts()
+{}
+
+uint32_t babel::common::User::getId() const
+{
+	return _id;
+}
+
+void babel::common::User::setId(uint32_t id)
+{
+	_id = id;
+}
 
 const std::string &babel::common::User::getLogin() const
 {
@@ -22,16 +38,15 @@ void babel::common::User::setLogin(const std::string &login)
 	_login = login;
 }
 
-int32_t babel::common::User::getId() const
+const std::string &babel::common::User::getPassword() const
 {
-	return _id;
+	return _password;
 }
 
-void babel::common::User::setId(uint32_t id)
+void babel::common::User::setPassword(const std::string &password)
 {
-	_id = id;
+	_password = password;
 }
-
 bool babel::common::User::isConnected() const
 {
 	return _connected;
