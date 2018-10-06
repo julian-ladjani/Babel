@@ -17,7 +17,7 @@ namespace babel {
 	namespace server {
 		class Server {
 		public:
-			Server();
+			Server(uint16_t port = 53876);
 			int start();
 			void addClient(common::User user);
 			void removeClient(common::User user);

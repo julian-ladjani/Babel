@@ -7,9 +7,9 @@
 
 #include "Server.hpp"
 
-babel::server::Server::Server() : _clients(), _tcpServer(),
-	_commandHandler(_clients,
-		_tcpServer.getSockets())
+babel::server::Server::Server(uint16_t port) :
+	_clients(), _tcpServer(port),
+	_commandHandler(_clients, _tcpServer.getSockets())
 {
 }
 
@@ -22,6 +22,13 @@ int babel::server::Server::start()
 void babel::server::Server::addClient(common::User user)
 {
 	if (std::find(_clients.begin(), _clients.end(), user) ==
-		_clients.end())
+	    _clients.end())
 		_clients.push_back(user);
+}
+
+void babel::server::Server::removeClient(common::User user)
+{
+	auto position =	std::find(_clients.begin(), _clients.end(), user);
+	if (position != _clients.end())
+		_clients.erase(position);
 }

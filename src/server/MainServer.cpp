@@ -21,40 +21,11 @@
 #include "src/common/command/ACommand.hpp"
 #include "src/server/network/BoostTcpSocket.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	babel::common::DataPacket dataPacket;
-	babel::common::DataPacket newDataPacket;
-	auto info = babel::common::ConnectionInfo(32444, "0.0.0.0");
-	auto ioContext = boost::asio::io_context();
-	babel::server::BoostTcpSocket socket(info, ioContext);
-
-	std::string serialized;
-	dataPacket.addArg("lol");
-	dataPacket.setCommandId
-		(babel::common::CommandName::CMD_LOGIN);
-	dataPacket.addArg("lol");
-	dataPacket.addArg("lil");
-	serialized = dataPacket.serialize();
-	std::cout << serialized << std::endl;
-	newDataPacket = babel::common::DataPacket::deserialize(serialized);
-	serialized = newDataPacket.serialize();
-	std::cout << serialized << std::endl;
-	socket.connect();
-	socket.send(newDataPacket);
-	while (socket.isConnect());
-
 	try {
-		babel::common::CommandFactory factory;
-		babel::common::DataPacket dataPacket(
-			babel::common::CommandName::CMD_LOGIN,
-			{"username", "password"});
-		std::unique_ptr<babel::common::ACommand> command
-			= factory.deserialize(dataPacket);
-		std::cout << dataPacket.serialize() << std::endl;
-		std::cout << command->serialize().serialize() << std::endl;
-
-		babel::server::Server server;
+		babel::server::Server server(
+			(uint16_t)(ac > 1 ? atoi(av[1]) : 53876));
 		server.start();
 	} catch (babel::common::Exception &e) {
 		std::cout << e.what() << std::endl;
