@@ -15,7 +15,7 @@ babel::client::CommandHandler::CommandHandler(babel::client::ClientInfo &info) :
 
 bool
 babel::client::CommandHandler::handleCommand(babel::common::ACommand command,
-					     uint32_t userId)
+						uint32_t userId)
 {
 	return false;
 }
