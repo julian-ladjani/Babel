@@ -69,6 +69,16 @@ void babel::common::User::setConnectionInfo(
 	_connectionInfo = connectionInfos;
 }
 
+const std::vector<uint32_t> &babel::common::User::getContacts() const
+{
+	return _contacts;
+}
+
+void babel::common::User::setContacts(const std::vector<uint32_t> &contacts)
+{
+	_contacts = contacts;
+}
+
 bool babel::common::User::addContact(uint32_t userId)
 {
 	if (std::find(_contacts.begin(), _contacts.end(), userId)
@@ -91,4 +101,9 @@ bool babel::common::User::removeContact(uint32_t userId)
 bool babel::common::User::operator==(const babel::common::User &user) const
 {
 	return _id == user._id;
+}
+
+bool babel::common::User::operator==(const uint32_t &userId) const
+{
+	return _id == userId;
 }

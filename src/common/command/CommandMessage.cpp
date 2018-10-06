@@ -11,7 +11,7 @@ babel::common::CommandMessage::CommandMessage(std::vector<std::string> args) :
 	ACommand(CMD_MESSAGE)
 {
 	if (args.size() < 3)
-		throw CommandException(CMD_MESSAGE, "Not enough arguments");
+		throw CommandException(CMD_MESSAGE, "Not enough arguments.");
 	_userId = (uint32_t)std::stoi(args[0]);
 	_message = args[1];
 }

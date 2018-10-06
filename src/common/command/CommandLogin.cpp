@@ -11,7 +11,7 @@ babel::common::CommandLogin::CommandLogin(std::vector<std::string> args) :
 	ACommand(CMD_LOGIN)
 {
 	if (args.size() < 2)
-		throw CommandException(CMD_LOGIN, "Not enough arguments");
+		throw CommandException(CMD_LOGIN, "Not enough arguments.");
 	_username = args[0];
 	_password = args[1];
 }

@@ -5,9 +5,6 @@
 ** ServerCommandHandler.cpp
 */
 
-#include <src/common/command/CommandUserState.hpp>
-#include <src/common/command/CommandUser.hpp>
-#include <src/common/command/CommandOk.hpp>
 #include "ServerCommandHandler.hpp"
 
 babel::server::ServerCommandHandler::ServerCommandHandler(
@@ -48,7 +45,7 @@ bool babel::server::ServerCommandHandler::handleCommand(
 		return (this->*_commandHandlers[command.getCommandId()])
 			(command, userId);
 	throw common::CommandException(command.getCommandId(),
-				       "Command not supported");
+				       "Command not supported.");
 }
 
 void babel::server::ServerCommandHandler::sendToAllClients(
@@ -69,14 +66,14 @@ bool babel::server::ServerCommandHandler::commandLoginHandler(
 		if (!cmd.getUsername().compare(user.getLogin())) {
 			if (!cmd.getPassword().compare(user.getPassword()))
 				throw common::CommandException(
-					common::CMD_LOGIN, "Correct password");
-			return ConnectUser(user, userId);
+					common::CMD_LOGIN, "Correct password.");
+			return connectUser(user, userId);
 		}
 	}
-	return CreateUser(cmd, userId);
+	return createUser(cmd, userId);
 }
 
-bool babel::server::ServerCommandHandler::CreateUser(
+bool babel::server::ServerCommandHandler::createUser(
 	babel::common::CommandLogin &cmd, uint32_t userId)
 {
 
@@ -86,75 +83,138 @@ bool babel::server::ServerCommandHandler::CreateUser(
 	sendToAllClients(common::CommandUser(
 		{std::to_string(user.getId()),
 		 cmd.getUsername(), "1"}).serialize());
-	sendOk(userId, common::CMD_LOGIN, "Account created");
-	return ConnectUser(user, userId);
+	sendOk(userId, common::CMD_LOGIN, "Account created.");
+	return connectUser(user, userId);
 }
 
-bool babel::server::ServerCommandHandler::ConnectUser(
+bool babel::server::ServerCommandHandler::connectUser(
 	common::User &user, uint32_t userId)
 {
 	auto &sock = getSocket(userId);
 	sock.second = user.getId();
 	user.setConnected(true);
+	for (uint32_t contactId: user.getContacts())
+		sock.first.send(common::CommandContact(
+			{std::to_string(contactId), "1"}).serialize());
 	sendToAllClients(common::CommandUserState(
 		{std::to_string(user.getId()), "1"}).serialize());
-	return sendOk(sock.second, common::CMD_LOGIN, "Login ok");
+	return sendOk(sock.second, common::CMD_LOGIN, "Login ok.");
 }
 
 bool babel::server::ServerCommandHandler::commandLogoutHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_LOGOUT, "You need to login first.");
+	disconnectUser(userId);
+	return sendOk(userId, common::CMD_LOGOUT, "Logout ok.");
 	(void)command;
-	(void)userId;
-	return true;
+}
+
+void babel::server::ServerCommandHandler::disconnectUser(uint32_t userId)
+{
+	common::User &user = getUser(userId);
+	user.setConnected(false);
+	sendToAllClients(common::CommandUserState(
+		{std::to_string(userId), "0"}).serialize());
 }
 
 bool babel::server::ServerCommandHandler::commandDeleteHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_DELETE, "You need to login first.");
+	auto position =	std::find(_clients.begin(), _clients.end(), userId);
+	if (position != _clients.end())
+		_clients.erase(position);
+	sendToAllClients(common::CommandUserState(
+		{std::to_string(userId), "0"}).serialize());
+	return sendOk(userId, common::CMD_DELETE, "Delete ok.");
 	(void)command;
-	(void)userId;
-	return true;
 }
 
 bool babel::server::ServerCommandHandler::commandCallHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
-	(void)command;
-	(void)userId;
-	return true;
+	common::CommandCall &cmd = (common::CommandCall &) command;
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_CALL, "You need to login first.");
+	if (!isConnected(cmd.getUserId()))
+		throw common::CommandException(
+			common::CMD_CALL, "User is not connected.");
+	getSocket(cmd.getUserId()).first.send(common::CommandCall(
+		{std::to_string(userId), cmd.getIp(),
+		 std::to_string(cmd.getPort())}).serialize());
+	return sendOk(userId, common::CMD_CALL, "Call ok.");
 }
 
 bool babel::server::ServerCommandHandler::commandCallAnswerHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
-	(void)command;
-	(void)userId;
-	return true;
+	common::CommandCallAnswer &cmd = (common::CommandCallAnswer &) command;
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_CALL_ANSWER, "You need to login first.");
+	if (!isConnected(cmd.getUserId()))
+		throw common::CommandException(
+			common::CMD_CALL, "User is not connected.");
+	getSocket(cmd.getUserId()).first.send(common::CommandCallAnswer(
+		{std::to_string(userId), cmd.getIp(),
+		 std::to_string(cmd.getPort())}).serialize());
+	return sendOk(userId, common::CMD_CALL_ANSWER, "Call answer ok.");
 }
 
 bool babel::server::ServerCommandHandler::commandCallEndHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
-	(void)command;
-	(void)userId;
-	return true;
+	common::CommandCallEnd &cmd = (common::CommandCallEnd &) command;
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_CALL_END, "You need to login first.");
+	if (!isConnected(cmd.getUserId()))
+		throw common::CommandException(
+			common::CMD_CALL, "User is not connected.");
+	getSocket(cmd.getUserId()).first.send(common::CommandCall(
+		{std::to_string(userId)}).serialize());
+	return sendOk(userId, common::CMD_CALL_END, "Call end ok.");
 }
 
 bool babel::server::ServerCommandHandler::commandContactHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
-	(void)command;
-	(void)userId;
-	return true;
+	common::CommandContact &cmd = (common::CommandContact &) command;
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_CONTACT, "You need to login first.");
+	common::User &user = getUser(userId);
+	if ((cmd.isContact() && !user.addContact(cmd.getUserId())) ||
+	    (!cmd.isContact() && !user.removeContact(cmd.getUserId())))
+		throw common::CommandException(
+			common::CMD_CONTACT,
+			cmd.isContact() ? "User is already a contact."
+					: "User isn't a contact.");
+	getSocket(cmd.getUserId()).first.send(common::CommandContact(
+		{std::to_string(cmd.getUserId()),
+		 std::to_string(cmd.isContact())}).serialize());
+	return sendOk(userId, common::CMD_CONTACT, "Contact ok.");
 }
 
 bool babel::server::ServerCommandHandler::commandMessageHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
-	(void)command;
-	(void)userId;
-	return true;
+	common::CommandMessage &cmd = (common::CommandMessage &) command;
+	if (!isConnected(userId))
+		throw common::CommandException(
+			common::CMD_MESSAGE, "You need to login first.");
+	if (!isConnected(cmd.getUserId()))
+		throw common::CommandException(
+			common::CMD_CALL, "User is not connected.");
+	getSocket(cmd.getUserId()).first.send(common::CommandContact(
+		{std::to_string(userId), cmd.getMessage()}).serialize());
+	return sendOk(userId, common::CMD_MESSAGE, "Message ok.");
 }
 
 std::pair<babel::server::BoostTcpSocket, uint32_t> &
@@ -165,6 +225,25 @@ babel::server::ServerCommandHandler::getSocket(uint32_t userId)
 			return sock;
 	}
 	return _sockets[0];
+}
+
+babel::common::User &
+babel::server::ServerCommandHandler::getUser(uint32_t userId)
+{
+	for (common::User &user : _clients) {
+		if (user.getId() == userId)
+			return user;
+	}
+	return _clients[0];
+}
+
+bool babel::server::ServerCommandHandler::isConnected(uint32_t userId)
+{
+	for (common::User &user : _clients) {
+		if (user.getId() == userId)
+			return user.isConnected();
+	}
+	return false;
 }
 
 uint32_t babel::server::ServerCommandHandler::getNextId()
