@@ -25,7 +25,7 @@ namespace babel {
 			std::vector<babel::common::User> _clients;
 			std::vector<std::pair<babel::server::BoostTcpSocket,
 				uint32_t>> _sockets;
-			CommandHandler _commandHandler;
+			ServerCommandHandler _commandHandler;
 
 		};
 	}

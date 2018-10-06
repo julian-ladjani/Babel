@@ -60,10 +60,14 @@ set(COMMON
 		src/common/command/CommandCallAnswer.hpp
 		src/common/command/CommandCallEnd.cpp
 		src/common/command/CommandCallEnd.hpp
-        	src/common/command/CommandContact.cpp
-        	src/common/command/CommandContact.hpp
+        src/common/command/CommandContact.cpp
+        src/common/command/CommandContact.hpp
 		src/common/command/CommandMessage.cpp
-		src/common/command/CommandMessage.hpp)
+		src/common/command/CommandMessage.hpp
+		src/common/command/CommandPing.cpp
+		src/common/command/CommandPing.hpp
+		src/common/command/CommandPong.cpp
+		src/common/command/CommandPong.hpp)
 
 set(CLIENT
 		src/client/Babel.cpp
@@ -106,6 +110,8 @@ set(CLIENT
 		src/client/gui/pages/PageManager.hpp
         	src/client/network/QtTcpSocket.cpp
         	src/client/network/QtTcpSocket.hpp
+		src/client/gui/components/TConversation.cpp
+		src/client/gui/components/TConversation.hpp
 		src/client/sound/AudioEncoder.cpp
 		src/client/sound/AudioEncoder.hpp
 		src/client/sound/AudioManager.cpp
@@ -114,7 +120,7 @@ set(CLIENT
 set(SERVER
         src/server/Server.cpp
         src/server/Server.hpp
-        src/server/CommandHandler.cpp
+        src/server/ServerCommandHandler.cpp
 		src/server/ServerCommandHandler.hpp
         src/server/network/BoostTcpSocket.cpp
         src/server/network/BoostTcpSocket.hpp)

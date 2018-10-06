@@ -24,7 +24,9 @@ namespace babel {
 			CMD_CALL_ANSWER,
 			CMD_CALL_END,
 			CMD_CONTACT,
-			CMD_MESSAGE
+			CMD_MESSAGE,
+			CMD_PING,
+			CMD_PONG
 		};
 	}
 }
