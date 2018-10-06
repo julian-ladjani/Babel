@@ -7,7 +7,7 @@
 
 #include "MainWindow.hpp"
 
-babel::client::MainWindow::MainWindow()
+babel::client::MainWindow::MainWindow() : _cmdHandler(_infos)
 {
 	resize(1280, 720);
 	srand(static_cast<unsigned int>(time(nullptr)));
@@ -20,13 +20,20 @@ babel::client::MainWindow::MainWindow()
 	_pages.addWidget(new EchoSoundTestServicePage(_infos),
 			 "echo_sound_test_service");
 	setCentralWidget(&_pages);
-	connect((ConnectionPage *)_pages.getPage("connection"),
-		&ConnectionPage::changePage, this, &MainWindow::changePage);
-	connect((ConnectionPage *)_pages.getPage("main"),
-	    &ConnectionPage::changePage, this, &MainWindow::changePage);
 	QApplication::setWindowIcon(QIcon("src/assets/img/minilogo.png"));
     	QFontDatabase::removeAllApplicationFonts();
 	QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
+	initConnects();
+}
+
+void babel::client::MainWindow::initConnects()
+{
+	connect((ConnectionPage *)_pages.getPage("main"),
+		&ConnectionPage::changePage, this, &MainWindow::changePage);
+	connect((ConnectionPage *)_pages.getPage("connection"),
+		&ConnectionPage::changePage, this, &MainWindow::tryConnect);
+	connect(&_infos.getSocket(), &QtTcpSocket::connectionSuccess,
+		this, &MainWindow::login);
 }
 
 void babel::client::MainWindow::initClientInfos()
@@ -40,6 +47,21 @@ void babel::client::MainWindow::initClientInfos()
 	}
 	user.setConnectionInfo(cinfo);
 	_infos.setClientInfo(user);
+}
+
+void babel::client::MainWindow::tryConnect()
+{
+	if (!_infos.getSocket().connect())
+		return;
+}
+
+void babel::client::MainWindow::login()
+{
+	common::CommandLogin cmd(
+		{_infos.getClientInfo().getLogin(),
+		 _infos.getClientInfo().getPassword()});
+	_infos.getSocket().send(cmd.serialize());
+	changePage("main");
 }
 
 void babel::client::MainWindow::changePage(std::string pageName)

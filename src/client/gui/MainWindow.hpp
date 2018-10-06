@@ -21,6 +21,7 @@
 #include "src/client/gui/pages/MainPage.hpp"
 #include <QtNetwork/QHostInfo>
 #include <QtNetwork/QNetworkInterface>
+#include <src/client/CommandHandler.hpp>
 
 namespace babel {
 	namespace client {
@@ -33,7 +34,11 @@ namespace babel {
 			void changePage(std::string pageName);
 			PageManager _pages;
 			ClientInfo _infos;
+			CommandHandler _cmdHandler;
 			void initClientInfos();
+			void tryConnect();
+			void login();
+			void initConnects();
 		};
 
 	}

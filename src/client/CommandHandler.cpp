@@ -19,3 +19,4 @@ babel::client::CommandHandler::handleCommand(babel::common::ACommand command,
 {
 	return false;
 }
+

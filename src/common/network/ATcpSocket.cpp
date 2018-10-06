@@ -12,7 +12,6 @@ babel::common::ATcpSocket::ATcpSocket(
 	babel::common::ConnectionInfo &_connectionInfo)
 	: _connectionInfo(_connectionInfo), _isConnect(false)
 {
-
 }
 
 const babel::common::ConnectionInfo

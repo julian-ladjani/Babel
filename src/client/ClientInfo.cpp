@@ -8,8 +8,10 @@
 #include "ClientInfo.hpp"
 
 babel::client::ClientInfo::ClientInfo() :
-	_clientInfo(), _serverInfo(), _contacts()
-{}
+	_clientInfo(), _serverInfo(53876, "127.0.0.1"), _contacts(),
+	_socket(_serverInfo)
+{
+}
 
 babel::common::User &babel::client::ClientInfo::getClientInfo()
 {
@@ -57,4 +59,9 @@ void babel::client::ClientInfo::removeContact(common::User user)
 	auto position = std::find(_contacts.begin(), _contacts.end(), user);
 	if (position != _contacts.end())
 		_contacts.erase(position);
+}
+
+babel::client::QtTcpSocket &babel::client::ClientInfo::getSocket()
+{
+	return _socket;
 }

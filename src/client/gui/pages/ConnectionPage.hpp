@@ -21,7 +21,6 @@ namespace babel {
 
 			void arrangeWidgets();
 			void serverPropertiesSwitcher();
-
 			virtual ~ConnectionPage() {};
 			void handleButton();
 		Q_SIGNALS:

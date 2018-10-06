@@ -14,6 +14,14 @@ babel::client::QtTcpSocket::QtTcpSocket(
 {
 	_input_buffer.setDevice(&_socket);
 	_input_buffer.setVersion(QDataStream::Qt_4_0);
+	QObject::connect(&_socket, &QTcpSocket::connected,
+			this, &QtTcpSocket::onSuccessConnection);
+}
+
+void babel::client::QtTcpSocket::onSuccessConnection()
+{
+	_isConnect = true;
+	emit connectionSuccess();
 }
 
 bool babel::client::QtTcpSocket::connect()
@@ -63,4 +71,3 @@ void babel::client::QtTcpSocket::handleRead()
 	_uncompletePacket = addPacketsToQueue(stdTmpBuffer,
 		_uncompletePacket);
 }
-

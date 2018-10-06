@@ -76,7 +76,6 @@ void babel::client::ConnectionPage::handleButton()
     	if (_inputs.at(LOGIN)->text() != "") {
 	    _infos.getClientInfo().setLogin
 		    (_inputs.at(LOGIN)->text().toUtf8().constData());
-
 	    emit changePage("main");
 	}
 	else {

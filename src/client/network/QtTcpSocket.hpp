@@ -29,6 +29,9 @@ namespace babel
 			bool disconnect() override;
 			bool send(common::DataPacket packet) override;
 			const common::DataPacket receive() override;
+			void onSuccessConnection();
+		Q_SIGNALS:
+			void connectionSuccess();
 		private:
 			void startRead();
 			void handleRead();
