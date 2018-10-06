@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** CPP_babel_2018
 ** File description:
-** CommandHandler.hpp
+** ServerCommandHandler.hpp
 */
 
 #ifndef CPP_BABEL_2018_SERVERCOMMANDHANDLER_HPP
@@ -23,27 +23,23 @@
 #include <src/common/command/CommandCallEnd.hpp>
 #include <src/common/command/CommandMessage.hpp>
 #include <src/common/exception/CommandException.hpp>
-#include <src/server/network/BoostTcpSocket.hpp>
+#include <src/client/network/QtTcpSocket.hpp>
+#include "ClientInfo.hpp"
 
 namespace babel {
-	namespace server {
+	namespace client {
 		class CommandHandler {
 		public:
-			CommandHandler(
-				std::vector<babel::common::User> &client,
-				std::vector<std::pair<BoostTcpSocket,
-					uint32_t>> &_sockets);
+			CommandHandler(ClientInfo &info);
 			bool handleCommand(common::ACommand command,
 					   uint32_t userId);
 		private:
-			std::vector<babel::common::User> &_clients;
-			std::vector<std::pair<babel::server::BoostTcpSocket,
-				uint32_t>> &_sockets;
-			std::map<babel::common::CommandName,
-				bool (babel::server::CommandHandler::*)
+			ClientInfo &_infos;
+/*			std::map<babel::common::CommandName,
+				bool (babel::client::CommandHandler::*)
 					(common::ACommand command,
-					 uint32_t userId)> _commandHandlers;
-			bool commandLoginHandler(common::ACommand command,
+					 uint32_t userId)> _commandHandlers;*/
+/*			bool commandLoginHandler(common::ACommand command,
 						 uint32_t userId);
 			bool commandLogoutHandler(common::ACommand command,
 						  uint32_t userId);
@@ -71,7 +67,7 @@ namespace babel {
 			babel::common::User &getUser(uint32_t userId);
 			bool isConnected(uint32_t userId);
 			bool sendOk(uint32_t userId, common::CommandName cmd,
-				    const std::string &msg);
+				    const std::string &msg);*/
 		};
 	}
 }
