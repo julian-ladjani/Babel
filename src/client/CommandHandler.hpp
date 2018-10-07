@@ -25,12 +25,12 @@
 #include <src/common/command/CommandMessage.hpp>
 #include <src/common/exception/CommandException.hpp>
 #include <src/client/network/QtTcpSocket.hpp>
-#include <src/server/network/BoostTcpSocket.hpp>
 #include "ClientInfo.hpp"
 
 namespace babel {
 	namespace client {
-		class CommandHandler {
+		class CommandHandler : public QObject {
+		Q_OBJECT
 		public:
 			CommandHandler(ClientInfo &info);
 			bool handleCommand(common::ACommand command);
@@ -55,10 +55,6 @@ namespace babel {
 					uint32_t userId);
 			bool connectUser(common::User &user, uint32_t userId);
 			void disconnectUser(uint32_t userId);
-			std::pair<babel::server::BoostTcpSocket,
-				uint32_t> &getSocket(uint32_t userId);
-			uint32_t getNextId();
-			babel::common::User &getUser(uint32_t userId);
 			bool isConnected(uint32_t userId);
 			bool sendOk(uint32_t userId, common::CommandName cmd,
 				    const std::string &msg);
