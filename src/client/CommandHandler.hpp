@@ -33,7 +33,8 @@ namespace babel {
 		Q_OBJECT
 		public:
 			CommandHandler(ClientInfo &info);
-			bool handleCommand(common::ACommand command);
+			bool handleCommand(std::unique_ptr<common::ACommand>
+			        &command);
 		Q_SIGNALS:
 		    	void changePage(std::string pageName);
 		private:
@@ -58,6 +59,7 @@ namespace babel {
 			bool isConnected(uint32_t userId);
 			bool sendOk(uint32_t userId, common::CommandName cmd,
 				    const std::string &msg);
+			void tryToHandle();
 		};
 	}
 }
