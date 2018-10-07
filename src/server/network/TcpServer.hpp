@@ -27,11 +27,11 @@ namespace babel
 				uint16_t port = 53876);
 			std::vector<std::pair<BoostTcpSocket &, int32_t>>
 			&getSockets();
+			void closeSocket(common::ConnectionInfo connectionInfo);
 		private:
 			bool startAccept();
 			void handleAccept(
 				const boost::system::error_code &ec);
-			void closeSocket(common::ConnectionInfo connectionInfo);
 			void sendDisconnectionMessage(int32_t socketId);
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
 				int32_t>> _sockets;

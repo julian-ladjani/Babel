@@ -39,8 +39,7 @@ babel::server::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
 		return;
 	if (ec) {
 		disconnect();
-		throw common::TcpSocketException(_connectionInfo,
-			ec.message());
+		return;
 	}
 	std::string stringPacket;
 	std::istream(&_input_buffer) >> stringPacket;
@@ -75,8 +74,6 @@ void babel::server::BoostTcpSocket::handleWrite(
 		return;
 	if (ec) {
 		disconnect();
-		throw common::TcpSocketException(_connectionInfo,
-			ec.message());
 	}
 }
 
@@ -105,7 +102,7 @@ bool babel::server::BoostTcpSocket::mustBeConnected()
 		_isConnect = true;
 		_connectionInfo.setIp(
 			_socket.remote_endpoint().address().to_string());
-		_connectionInfo.setPort(_socket.remote_endpoint().port());
+		_connectionInfo.setPort((uint16_t)_socket.remote_endpoint().port());
 		startRead();
 		return true;
 	}

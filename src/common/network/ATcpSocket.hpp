@@ -39,7 +39,7 @@ namespace babel
 				std::string &, std::string = std::string());
 			const DataPacket getPacketFromQueue();
 			static constexpr char PACKET_SEPARATOR[] = "\x1d";
-			ConnectionInfo &_connectionInfo;
+			ConnectionInfo _connectionInfo;
 			bool _isConnect;
 			std::string _uncompletePacket;
 			std::vector<babel::common::DataPacket> _receiveQueue;
