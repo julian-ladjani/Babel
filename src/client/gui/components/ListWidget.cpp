@@ -23,18 +23,17 @@ babel::client::ListWidget::~ListWidget()
 }
 
 void babel::client::ListWidget::AddPersonne(std::vector<common::User> contacts) {
-    for (uint32_t i = 0; i < contacts.size(); i++){
-        QListWidgetItem *itm = new QListWidgetItem;
-        if (contacts[i].getLogin().length() > 32)
+    for (auto &contact : contacts) {
+        auto *itm = new QListWidgetItem;
+        if (contact.getLogin().length() > 32)
             itm->setText(QString::fromStdString
-            (contacts[i].getLogin()).left(29)+"...");
+            (contact.getLogin()).left(29)+"...");
         else
-            itm->setText(QString::fromStdString(contacts[i].getLogin()));
-        if (contacts[i].isConnected())
-            itm->setIcon(QIcon("src/assets/img/off.png"));
-        else
-            itm->setIcon(QIcon("src/assets/img/on.png"));
+            itm->setText(QString::fromStdString(contact.getLogin()));
+        itm->setIcon(QIcon((contact.isConnected()) ?
+                "src/assets/img/off.png" : "src/assets/img/on.png"));
         itm->setSizeHint(QSize(50,50));
+        itm->setData(Qt::UserRole, contact.getId());
         addItem(itm);
         itm->setTextAlignment(Qt::AlignCenter);
     }

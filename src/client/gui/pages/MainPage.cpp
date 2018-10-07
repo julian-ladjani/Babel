@@ -6,6 +6,7 @@
 //
 
 #include "MainPage.hpp"
+#include <boost/range/algorithm.hpp>
 
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	ABabelPage(_infos),
@@ -24,7 +25,7 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 		     new GroupBox(), new GroupBox(new QHBoxLayout)}),
 	_splitters({new QSplitter(), new QSplitter()}),
 	_logo(new Image("src/assets/img/minilogo.png", 600)),
-	_threadMic(std::make_unique<TMicro>(this))
+	_threadMic(std::make_unique<TMicro>(this)), _callSection(_infos)
 {
     	_infos.addContact(common::User("Lucas Deloin", 0, true));
     	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
@@ -74,7 +75,7 @@ void babel::client::MainPage::initSideBar() {
 }
 
 void babel::client::MainPage::initMain() {
-    	_containers.at(GBMAIN)->addWidget(_logo.get());
+    	_containers.at(GBMAIN)->addWidget(&_callSection);
 	_splitters.at(SCENTER)->addWidget(_containers.at(GBMAIN));
 	_layout->addWidget(_splitters.at(SCENTER), 0, 0);
 	_layout->setRowStretch(0, 1);
@@ -88,7 +89,10 @@ void babel::client::MainPage::connections()
 		&Button::clicked, this, &MainPage::changeToConnectionPage);
     	connect(_buttons.at(BTESTMIC).get(),
 		&Button::clicked, this, &MainPage::testMic);
-
+    	connect(_lists.at(LWFAVORITE).get(), &QListWidget::itemActivated,
+		this, &MainPage::updateActiveContact);
+	connect(_lists.at(LWSERVER).get(), &QListWidget::itemActivated,
+		this, &babel::client::MainPage::updateActiveContact);
 }
 
 void babel::client::MainPage::readData()
@@ -96,6 +100,14 @@ void babel::client::MainPage::readData()
 	while (_udpSocket.hasPendingDatagrams()) {
 		QNetworkDatagram datagram = _udpSocket.receiveDatagram();
 	}
+}
+
+void babel::client::MainPage::updateActiveContact(QListWidgetItem *contactItem)
+{
+	int id = contactItem->data(Qt::UserRole).toInt();
+	auto &contacts = _infos.getContacts();
+	auto contact = *boost::range::find(contacts, id);
+	_infos.setActiveUser(contact);
 }
 
 void babel::client::MainPage::sendData()
@@ -127,4 +139,3 @@ void babel::client::MainPage::testMic()
 {
    emit changeMic();
 }
-

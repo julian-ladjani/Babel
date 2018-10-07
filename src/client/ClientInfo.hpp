@@ -15,7 +15,8 @@
 
 namespace babel {
 	namespace client {
-		class ClientInfo {
+		class ClientInfo : public QObject{
+		Q_OBJECT
 		public:
 			ClientInfo();
 			common::User &getClientInfo();
@@ -29,12 +30,16 @@ namespace babel {
 			void addContact(common::User user);
 			void removeContact(common::User user);
 			QtTcpSocket &getSocket();
-
+			common::User &getActiveUser();
+			void setActiveUser(common::User &activeUser);
+		Q_SIGNALS:
+			void userUpdated();
 		private:
 			common::User _clientInfo;
 			common::ConnectionInfo _serverInfo;
 			std::vector<common::User> _contacts;
 			QtTcpSocket _socket;
+			common::User &_activeUser;
 		};
 	}
 }

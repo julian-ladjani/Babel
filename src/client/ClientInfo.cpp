@@ -9,7 +9,7 @@
 
 babel::client::ClientInfo::ClientInfo() :
 	_clientInfo(), _serverInfo(53876, "127.0.0.1"), _contacts(),
-	_socket(_serverInfo)
+	_socket(_serverInfo), _activeUser(_clientInfo)
 {
 }
 
@@ -64,4 +64,15 @@ void babel::client::ClientInfo::removeContact(common::User user)
 babel::client::QtTcpSocket &babel::client::ClientInfo::getSocket()
 {
 	return _socket;
+}
+
+babel::common::User &babel::client::ClientInfo::getActiveUser()
+{
+	return _activeUser;
+}
+
+void babel::client::ClientInfo::setActiveUser(babel::common::User &activeUser)
+{
+	ClientInfo::_activeUser = activeUser;
+	emit userUpdated();
 }

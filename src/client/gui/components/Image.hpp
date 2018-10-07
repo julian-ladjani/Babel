@@ -20,6 +20,7 @@ namespace babel {
 	public:
 	    Image(const QString text, int size);
 	    ~Image();
+	    void update(const QString text, int size);
 	};
     }
 }

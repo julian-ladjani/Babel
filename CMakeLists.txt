@@ -60,8 +60,8 @@ set(COMMON
 		src/common/command/CommandCallAnswer.hpp
 		src/common/command/CommandCallEnd.cpp
 		src/common/command/CommandCallEnd.hpp
-        src/common/command/CommandContact.cpp
-        src/common/command/CommandContact.hpp
+	        src/common/command/CommandContact.cpp
+        	src/common/command/CommandContact.hpp
 		src/common/command/CommandMessage.cpp
 		src/common/command/CommandMessage.hpp
 		src/common/command/CommandPing.cpp
@@ -100,6 +100,8 @@ set(CLIENT
 		src/client/gui/MainWindow.hpp
 		src/client/gui/pages/ABabelPage.cpp
 		src/client/gui/pages/ABabelPage.hpp
+		src/client/gui/pages/CallPage.cpp
+		src/client/gui/pages/CallPage.hpp
 		src/client/gui/pages/ConnectionPage.cpp
 		src/client/gui/pages/ConnectionPage.hpp
 		src/client/gui/pages/EchoSoundTestServicePage.cpp
@@ -115,7 +117,7 @@ set(CLIENT
 		src/client/sound/AudioEncoder.cpp
 		src/client/sound/AudioEncoder.hpp
 		src/client/sound/AudioManager.cpp
-		src/client/sound/AudioManager.hpp)
+		src/client/sound/AudioManager.hpp src/client/gui/components/Chat.cpp src/client/gui/components/Chat.hpp)
 
 set(SERVER
         src/server/Server.cpp

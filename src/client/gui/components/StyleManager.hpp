@@ -16,7 +16,9 @@ namespace babel {
     namespace client {
 	class StyleManager {
 	public:
-	    enum Sheet{
+		StyleManager(int size = 0);
+
+		enum Sheet{
 		REDBUTTON,
 		GREENBUTTON,
 		ORANGEBUTTON,
@@ -31,11 +33,11 @@ namespace babel {
 	protected:
 	private:
 	    	std::array<std::unique_ptr<QString>, 5> _styles;
-		QString createRedButton();
-		QString createGreenButton();
-		QString createOrangeButton();
-		QString createDefaultButton();
-		QString createHyperTextButton();
+		QString createRedButton(int size);
+		QString createGreenButton(int size);
+		QString createOrangeButton(int size);
+		QString createDefaultButton(int size);
+		QString createHyperTextButton(int size);
 	};
     }
 }

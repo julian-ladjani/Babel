@@ -32,11 +32,9 @@ namespace babel {
 	public:
 	    Button(const QString &text, StyleManager::Sheet style, Size size);
 	    ~Button();
-
 	protected:
 	private:
 	    StyleManager _style;
-
 	};
     }
 }

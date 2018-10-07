@@ -11,6 +11,7 @@
 #include "ConnectionPage.hpp"
 #include "src/client/gui/components/TMicro.hpp"
 #include "ABabelPage.hpp"
+#include "CallPage.hpp"
 
 namespace babel {
 	namespace client {
@@ -67,6 +68,8 @@ namespace babel {
 		    	void sendData();
 		    	void changeToConnectionPage();
 		    	void testMic();
+			void updateActiveContact(QListWidgetItem *contactItem);
+		    	CallPage _callSection;
 		protected:
 			void connections() override;
 		};

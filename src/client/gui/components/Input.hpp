@@ -16,6 +16,9 @@ namespace babel {
 		{
 			public:
 			Input(int size, QString placeholder);
+
+			Input(QString placeholders);
+
 			~Input();
 		};
 	}
