@@ -34,6 +34,8 @@ void babel::client::MainWindow::initConnects()
 		this, &MainWindow::login);
 	connect(&mainPage->getCallSection(), &CallPage::sendMessageSignal,
 		this, &MainWindow::sendMessage);
+	connect(&_cmdHandler, &CommandHandler::changePage, this,
+		&MainWindow::changePage);
 }
 
 void babel::client::MainWindow::sendMessage(std::string &msg)
@@ -75,7 +77,6 @@ void babel::client::MainWindow::login()
 		{_infos.getClientInfo().getLogin(),
 		 _infos.getClientInfo().getPassword()});
 	_infos.getSocket().send(cmd.serialize());
-	changePage("main");
 }
 
 void babel::client::MainWindow::changePage(std::string pageName)

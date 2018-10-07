@@ -90,7 +90,7 @@ void babel::client::MainPage::connections()
 		this, &MainPage::updateActiveContact);
 	connect(_lists.at(LWSERVER).get(), &QListWidget::itemActivated,
 		this, &babel::client::MainPage::updateActiveContact);
-	//connect(&_infos.getSocket(), &QTcpSocket::readyRead, &MainPage::readTcpData);
+//	connect(&_, &QTcpSocket::readyRead, &MainPage::readTcpData);
 }
 
 void babel::client::MainPage::readData()
