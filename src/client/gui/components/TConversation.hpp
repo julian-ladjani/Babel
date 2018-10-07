@@ -27,7 +27,6 @@ namespace babel {
 	    void applyConversation();
 	    bool is_loop() const;
 	    void changeContact(QString address, int port);
-
 	private:
 	    bool _loop;
 	    AudioManager _audio;

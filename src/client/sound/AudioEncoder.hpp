@@ -28,7 +28,7 @@ namespace babel {
 		private:
 			OpusEncoder *_encoder;
 			OpusDecoder *_decoder;
-			void throwOpusError(int opusErr) const;
+			void throwOpusError() const;
 		};
 	}
 }

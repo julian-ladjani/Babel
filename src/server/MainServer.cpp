@@ -5,22 +5,11 @@
 ** MainServer.cpp
 */
 
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <sstream>
-#include <iterator>
 #include <iostream>
+#include <sstream>
+#include <string>
 #include <src/server/Server.hpp>
 #include <src/common/exception/Exception.hpp>
-#include <src/common/network/DataPacket.hpp>
-#include <src/common/command/CommandName.hpp>
-#include <src/common/command/ACommand.hpp>
-#include <src/common/command/CommandFactory.hpp>
-#include "src/common/network/DataPacket.hpp"
-#include "src/common/command/ACommand.hpp"
-#include "src/server/network/BoostTcpSocket.hpp"
-#include "src/server/SqliteServer.hpp"
 
 int main(int ac, char **av)
 {

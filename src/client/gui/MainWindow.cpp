@@ -13,7 +13,7 @@ babel::client::MainWindow::MainWindow() : _cmdHandler(_infos)
 	resize(1280, 720);
 	setWindowTitle(QApplication::translate(
 		"Epyks", "Epyks, Grand et impuissant !"));
-	setStyleSheet("background-color:#3d3d3d");
+	setStyleSheet("background-color:#3d3d3d; color:#3d3d3d;");
 	initClientInfos();
 	_pages.addWidget(new ConnectionPage(_infos), "connection");
 	_pages.addWidget(new MainPage(_infos), "main");
