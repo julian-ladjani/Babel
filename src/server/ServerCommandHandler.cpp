@@ -9,8 +9,9 @@
 
 babel::server::ServerCommandHandler::ServerCommandHandler(
 	std::vector<babel::common::User> &clients,
-	std::vector<std::pair<BoostTcpSocket &, int32_t>> &sockets) :
-	_clients(clients), _sockets(sockets),
+	std::vector<std::pair<BoostTcpSocket &, int32_t>> &sockets,
+	SqliteServer &sqliteServer) :
+	_clients(clients), _sockets(sockets), _sqliteServer(sqliteServer),
 	_commandHandlers({{babel::common::CommandName::CMD_LOGIN,
 				  &babel::server::ServerCommandHandler
 				  ::commandLoginHandler},
@@ -67,6 +68,7 @@ bool babel::server::ServerCommandHandler::commandLoginHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
 	common::CommandLogin &cmd = (common::CommandLogin &) command;
+	std::cout << "login :" << cmd.getUsername() << " / " << cmd.getPassword() << std::endl;
 	for (common::User &user : _clients) {
 		if (cmd.getUsername() == user.getLogin()) {
 			if (cmd.getPassword() == user.getPassword())
