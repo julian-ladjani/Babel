@@ -7,8 +7,7 @@
 
 #include "TMicro.hpp"
 
-babel::client::TMicro::TMicro(ABabelPage *page): _loop(false), encoder(audio.getSampleRate(),
-	audio.getChannel())
+babel::client::TMicro::TMicro(ABabelPage *page): _loop(false)
 {
     QObject::connect((MainPage *)page, &MainPage::changeMic, this, &TMicro::changeMic);
 }
