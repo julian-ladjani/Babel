@@ -25,6 +25,7 @@
 #include <src/common/command/CommandPong.hpp>
 #include <src/common/exception/CommandException.hpp>
 #include <src/server/network/BoostTcpSocket.hpp>
+#include "src/server/SqliteServer.hpp"
 
 namespace babel {
 	namespace server {
@@ -33,13 +34,15 @@ namespace babel {
 			ServerCommandHandler(
 				std::vector<babel::common::User> &client,
 				std::vector<std::pair<BoostTcpSocket &,
-					int32_t>> &_sockets);
+					int32_t>> &_sockets,
+				SqliteServer &_sqliteServer);
 			bool handleCommand(common::ACommand command,
 					   int32_t userId);
 		private:
 			std::vector<babel::common::User> &_clients;
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
 				int32_t>> &_sockets;
+			SqliteServer &_sqliteServer;
 			std::map<babel::common::CommandName,
 				bool (babel::server::ServerCommandHandler::*)
 					(common::ACommand command,

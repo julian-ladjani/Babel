@@ -11,8 +11,6 @@ babel::client::QtTcpSocket::QtTcpSocket(
 	babel::common::ConnectionInfo &connectionInfo) : ATcpSocket(
 	connectionInfo)
 {
-	_input_buffer.setDevice(&_socket);
-	_input_buffer.setVersion(QDataStream::Qt_4_0);
 	QObject::connect(&_socket, &QTcpSocket::connected,
 			this, &QtTcpSocket::onSuccessConnection);
 }
@@ -53,7 +51,9 @@ bool babel::client::QtTcpSocket::send(babel::common::DataPacket packet)
 
 const babel::common::DataPacket babel::client::QtTcpSocket::receive()
 {
+	std::cout << getPacketFromQueue().serialize() << std::endl;
 	return getPacketFromQueue();
+
 }
 
 void babel::client::QtTcpSocket::startRead()
@@ -64,10 +64,9 @@ void babel::client::QtTcpSocket::startRead()
 
 void babel::client::QtTcpSocket::handleRead()
 {
-	QString tmpBuffer;
 	std::string stdTmpBuffer;
-	_input_buffer >> tmpBuffer;
-	stdTmpBuffer = tmpBuffer.toStdString();
+	stdTmpBuffer = _socket.readAll().toStdString();
 	_uncompletePacket = addPacketsToQueue(stdTmpBuffer,
 		_uncompletePacket);
+	std::cout << "Uncomplete : " <<_uncompletePacket << std::endl;
 }

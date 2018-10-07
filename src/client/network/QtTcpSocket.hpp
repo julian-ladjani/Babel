@@ -36,7 +36,6 @@ namespace babel
 		private:
 			void startRead();
 			void handleRead();
-			QDataStream _input_buffer;
 			QTcpSocket _socket;
 		};
 	}

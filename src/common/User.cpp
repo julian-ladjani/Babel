@@ -6,6 +6,7 @@
 */
 
 #include "User.hpp"
+#include <utility>
 
 babel::common::User::User(uint32_t id, const std::string &login,
 			  const std::string &password) :
@@ -106,4 +107,14 @@ bool babel::common::User::operator==(const babel::common::User &user) const
 bool babel::common::User::operator==(const uint32_t &userId) const
 {
 	return _id == userId;
+}
+
+std::string &babel::common::User::getMessages()
+{
+	return _messages;
+}
+
+void babel::common::User::setMessages(std::string &messages)
+{
+	User::_messages = messages;
 }

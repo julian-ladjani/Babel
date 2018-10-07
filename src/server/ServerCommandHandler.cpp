@@ -9,8 +9,9 @@
 
 babel::server::ServerCommandHandler::ServerCommandHandler(
 	std::vector<babel::common::User> &clients,
-	std::vector<std::pair<BoostTcpSocket &, int32_t>> &sockets) :
-	_clients(clients), _sockets(sockets),
+	std::vector<std::pair<BoostTcpSocket &, int32_t>> &sockets,
+	SqliteServer &sqliteServer) :
+	_clients(clients), _sockets(sockets), _sqliteServer(sqliteServer),
 	_commandHandlers({{babel::common::CommandName::CMD_LOGIN,
 				  &babel::server::ServerCommandHandler
 				  ::commandLoginHandler},
@@ -67,6 +68,7 @@ bool babel::server::ServerCommandHandler::commandLoginHandler(
 	babel::common::ACommand command, uint32_t userId)
 {
 	common::CommandLogin &cmd = (common::CommandLogin &) command;
+	std::cout << "login :" << cmd.getUsername() << " / " << cmd.getPassword() << std::endl;
 	for (common::User &user : _clients) {
 		if (cmd.getUsername() == user.getLogin()) {
 			if (cmd.getPassword() == user.getPassword())
@@ -81,10 +83,10 @@ bool babel::server::ServerCommandHandler::commandLoginHandler(
 bool babel::server::ServerCommandHandler::createUser(
 	babel::common::CommandLogin &cmd, uint32_t userId)
 {
-
 	common::User user(getNextId(), cmd.getUsername(), cmd.getPassword());
 	user.setConnected(true);
 	_clients.push_back(user);
+	_sqliteServer.addUser(user);
 	sendToAllClients(common::CommandUser(
 		{std::to_string(user.getId()),
 		 cmd.getUsername(), "1"}).serialize());
@@ -138,8 +140,10 @@ bool babel::server::ServerCommandHandler::commandDeleteHandler(
 		throw common::CommandException(
 			common::CMD_DELETE, "You need to login first.");
 	auto position =	std::find(_clients.begin(), _clients.end(), userId);
-	if (position != _clients.end())
+	if (position != _clients.end()) {
+		_sqliteServer.removeUser(*position);
 		_clients.erase(position);
+	}
 	sendToAllClients(common::CommandUserState(
 		{std::to_string(userId), "0"}).serialize());
 	return sendOk(userId, common::CMD_DELETE, "Delete ok.");
@@ -207,6 +211,10 @@ bool babel::server::ServerCommandHandler::commandContactHandler(
 			common::CMD_CONTACT,
 			cmd.isContact() ? "User is already a contact."
 					: "User isn't a contact.");
+	if (cmd.isContact())
+		_sqliteServer.addContact(userId, cmd.getUserId());
+	else
+		_sqliteServer.removeContact(userId, cmd.getUserId());
 	getSocket(cmd.getUserId()).first.send(common::CommandContact(
 		{std::to_string(cmd.getUserId()),
 		 std::to_string(cmd.isContact())}).serialize());

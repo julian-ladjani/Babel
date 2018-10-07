@@ -40,6 +40,8 @@ namespace babel {
 			void login();
 			void initConnects();
 			void disconnect();
+
+			void sendMessage(std::string &msg);
 		};
 
 	}

@@ -26,12 +26,21 @@ babel::client::MainWindow::MainWindow() : _cmdHandler(_infos)
 
 void babel::client::MainWindow::initConnects()
 {
-	connect((MainPage *)_pages.getPage("main"),
-		&MainPage::disconnect, this, &MainWindow::disconnect);
+	auto mainPage = (MainPage *)_pages.getPage("main");
+	connect(mainPage, &MainPage::disconnect, this, &MainWindow::disconnect);
 	connect((ConnectionPage *)_pages.getPage("connection"),
 		&ConnectionPage::changePage, this, &MainWindow::tryConnect);
 	connect(&_infos.getSocket(), &QtTcpSocket::connectionSuccess,
 		this, &MainWindow::login);
+	connect(&mainPage->getCallSection(), &CallPage::sendMessageSignal,
+		this, &MainWindow::sendMessage);
+}
+
+void babel::client::MainWindow::sendMessage(std::string &msg)
+{
+	_infos.getSocket().send(common::CommandMessage(
+			{std::to_string(_infos.getActiveUser().getId()),
+			 msg}).serialize());
 }
 
 void babel::client::MainWindow::initClientInfos()

@@ -119,7 +119,9 @@ set(CLIENT
 		src/client/sound/AudioEncoder.cpp
 		src/client/sound/AudioEncoder.hpp
 		src/client/sound/AudioManager.cpp
-		src/client/sound/AudioManager.hpp src/client/gui/components/Chat.cpp src/client/gui/components/Chat.hpp)
+		src/client/sound/AudioManager.hpp
+		src/client/gui/components/Chat.cpp
+		src/client/gui/components/Chat.hpp)
 
 set(SERVER
         src/server/Server.cpp
@@ -131,7 +133,9 @@ set(SERVER
         src/server/network/TcpServer.cpp
         src/server/network/TcpServer.hpp
         src/server/exception/TcpServerException.cpp
-        src/server/exception/TcpServerException.hpp)
+        src/server/exception/TcpServerException.hpp
+		src/server/SqliteServer.hpp
+		src/server/SqliteServer.cpp)
 
 add_executable(babel_client src/client/MainClient.cpp ${CLIENT} ${COMMON})
 
@@ -142,15 +146,18 @@ find_package(Qt5Network CONFIG REQUIRED)
 find_package(Qt5Core CONFIG REQUIRED)
 find_package(Qt5Gui CONFIG REQUIRED)
 find_package(portaudio REQUIRED)
+find_package(opus REQUIRED)
+find_package(sqlite3 REQUIRED)
 find_package(Boost REQUIRED)
 
-target_link_libraries(babel_server boost_system Threads::Threads)
+target_link_libraries(babel_server boost_system Threads::Threads sqlite3)
 target_link_libraries(babel_client Qt5::Widgets Qt5::Network Qt5::Core Qt5::Gui)
 target_link_libraries(babel_client Threads::Threads opus)
 if (WIN32)
     target_link_libraries(babel_client portaudio_x64)
 else()
     target_link_libraries(babel_client portaudio)
+    target_link_libraries(babel_server dl)
 endif()
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
