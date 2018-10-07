@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// CallController.cpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** CallController.cpp
+*/
 
 #include <src/client/sound/AudioManager.hpp>
 #include <src/client/sound/AudioEncoder.hpp>

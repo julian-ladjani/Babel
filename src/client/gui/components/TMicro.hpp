@@ -26,7 +26,8 @@ namespace babel {
 
 	private:
 	    bool _loop;
-	    AudioManager audio;
+	    AudioManager _audio;
+	    AudioEncoder _encode;
 	};
     }
 }

@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// EchoSoundTestServicePage.hpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** EchoSoundTestServicePage.hpp
+*/
 
 #ifndef CPP_BABEL_2018_ECHOSOUNDTESTSERVICEPAGE_HPP
 #define CPP_BABEL_2018_ECHOSOUNDTESTSERVICEPAGE_HPP
