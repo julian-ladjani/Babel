@@ -26,12 +26,17 @@ babel::server::TcpServer::getSockets()
 
 bool babel::server::TcpServer::startAccept()
 {
-	babel::common::ConnectionInfo connectionInfo;
-	_tcpSockets.push_back(
-		std::make_unique<BoostTcpSocket>(connectionInfo, _ioContext));
-	_tcpAcceptor.async_accept(
-		_tcpSockets[_tcpSockets.size() - 1]->getSocket(),
-		boost::bind(&TcpServer::handleAccept, this, _1));
+	try {
+		babel::common::ConnectionInfo connectionInfo;
+		_tcpSockets.push_back(
+			std::make_unique<BoostTcpSocket>(connectionInfo,
+							 _ioContext));
+		_tcpAcceptor.async_accept(
+			_tcpSockets[_tcpSockets.size() - 1]->getSocket(),
+			boost::bind(&TcpServer::handleAccept, this, _1));
+	} catch (babel::common::TcpSocketException &e) {
+		closeSocket(e.getConnectionInfo());
+	}
 	return false;
 }
 
@@ -47,4 +52,31 @@ babel::server::TcpServer::handleAccept(const boost::system::error_code &ec)
 	idSocketPair.first.mustBeConnected();
 	_sockets.push_back(idSocketPair);
 	startAccept();
+}
+
+void babel::server::TcpServer::closeSocket(
+	babel::common::ConnectionInfo connectionInfo)
+{
+	for (uint32_t i = 0; i < _sockets.size(); ++i) {
+		if (_sockets[i].first == connectionInfo) {
+			sendDisconnectionMessage(_sockets[i].second);
+			_sockets[i].second = 0;
+		}
+	}
+	for (uint32_t i = 0; i < _tcpSockets.size(); ++i) {
+		if (*(_tcpSockets[i]) == connectionInfo) {
+			_tcpSockets[i]->disconnect();
+			_tcpSockets.erase(_tcpSockets.begin() + i);
+		}
+	}
+}
+
+void babel::server::TcpServer::sendDisconnectionMessage(int32_t socketId)
+{
+	common::DataPacket packet = common::CommandUserState(
+		{std::to_string(socketId), "0"}).serialize();
+	for (auto sock : _sockets) {
+		if (sock.second > 0)
+			sock.first.send(packet);
+	}
 }

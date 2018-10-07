@@ -31,9 +31,12 @@ namespace babel
 			virtual bool disconnect() = 0;
 			const ConnectionInfo getConnectionInfo() const;
 			bool isConnect() const;
+			bool operator==(const ATcpSocket &socket) const;
+			bool operator==(
+				const ConnectionInfo &connectionInfo) const;
 		protected:
-			std::string addPacketsToQueue(std::string &,
-				std::string = std::string());
+			std::string addPacketsToQueue(
+				std::string &, std::string = std::string());
 			const DataPacket getPacketFromQueue();
 			static constexpr char PACKET_SEPARATOR[] = "\n";
 			ConnectionInfo &_connectionInfo;

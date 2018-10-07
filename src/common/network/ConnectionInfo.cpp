@@ -32,3 +32,10 @@ void babel::common::ConnectionInfo::setIp(const std::string &Ip)
 {
 	ConnectionInfo::_ip = Ip;
 }
+
+bool babel::common::ConnectionInfo::operator==(
+	const babel::common::ConnectionInfo &connectionInfo) const
+{
+	return connectionInfo.getPort() == this->getPort()
+	       && connectionInfo.getIp() == this->getIp();
+}
