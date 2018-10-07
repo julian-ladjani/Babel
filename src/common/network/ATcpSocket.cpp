@@ -38,7 +38,9 @@ void babel::common::ATcpSocket::addPacketToQueue(std::string strPacket)
 {
 	if (strPacket.empty())
 		return;
-	_receiveQueue.push_back(DataPacket::deserialize(strPacket));
+	auto dataPacket = DataPacket::deserialize(strPacket);
+	if (dataPacket.getCommandId() != CommandName::CMD_UNDEFINED)
+		_receiveQueue.push_back(DataPacket::deserialize(strPacket));
 }
 
 void babel::common::ATcpSocket::addPacketToQueue(
