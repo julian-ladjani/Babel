@@ -49,8 +49,6 @@ void babel::client::MainPage::initSocket() {
     	auto addr = _infos.getClientInfo().getConnectionInfo().getIp();
 	QHostAddress address(QString::fromStdString(addr));
 	_udpSocket.bind(address);
-	//qDebug() << _udpSocket.localAddress().toString() << ":"
-	//	 << _udpSocket.localPort();
 }
 
 

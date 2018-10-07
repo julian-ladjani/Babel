@@ -13,6 +13,8 @@
 #include <src/client/gui/components/TConversation.hpp>
 #include "ABabelPage.hpp"
 #include "src/client/network/soundPacket.hpp"
+#include <QtWidgets/QMessageBox>
+#include <src/client/network/soundPacket.hpp>
 
 namespace babel {
 	namespace client {
@@ -35,8 +37,7 @@ namespace babel {
 		private:
 			enum BtnType {
 				CONNECTION,
-				OPTIONS,
-				TEST
+				OPTIONS
 			};
 			enum InputType {
 				LOGIN,
@@ -44,7 +45,7 @@ namespace babel {
 				IP_ADDRESS,
 				PORT
 			};
-			std::array<std::unique_ptr<Button>, 3> _buttons;
+			std::array<std::unique_ptr<Button>, 2> _buttons;
 			std::array<std::unique_ptr<Input>, 4> _inputs;
 			std::unique_ptr<Image> _logo;
 		    	TConversation *_threadConversation;
@@ -52,10 +53,7 @@ namespace babel {
 		    	AudioManager _audio;
 		    	AudioEncoder _encode;
 		    	int64_t _timeStamp;
-		    	void changeToTestPage();
 		    	void initSocket();
-		    	void readAudio();
-			std::vector<uint16_t> convert(SoundPacket sp);
 		};
 
 	}
