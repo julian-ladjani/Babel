@@ -28,10 +28,10 @@ namespace babel {
 			void getUserContacts(uint32_t userId,
 					     std::vector<uint32_t>
 					     &contactList) const;
-			void addUser(common::User user) const;
+			void addUser(common::User &user) const;
 			void addContact(uint32_t userId,
 					uint32_t contactId) const;
-			void removeUser(common::User user) const;
+			void removeUser(common::User &user) const;
 			void removeContact(uint32_t userId,
 					   uint32_t contactId) const;
 		private:
