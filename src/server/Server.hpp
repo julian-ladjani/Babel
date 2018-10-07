@@ -10,23 +10,30 @@
 
 #include <iostream>
 #include <algorithm>
+#include <src/common/command/CommandError.hpp>
+#include <src/common/command/CommandFactory.hpp>
 #include <src/server/ServerCommandHandler.hpp>
+#include "src/server/network/TcpServer.hpp"
 
 namespace babel {
 	namespace server {
 		class Server {
 		public:
-			Server();
+			Server(uint16_t port = 53876);
 			int start();
 			void addClient(common::User user);
 			void removeClient(common::User user);
 
 		private:
+			bool _running;
+			common::CommandFactory _cmdFactory;
 			std::vector<babel::common::User> _clients;
-			std::vector<std::pair<babel::server::BoostTcpSocket,
-				uint32_t>> _sockets;
+			TcpServer _tcpServer;
 			ServerCommandHandler _commandHandler;
-
+			std::vector<std::pair<babel::server::BoostTcpSocket &,
+				int32_t>> _sockets;
+			void handleClient(babel::server::BoostTcpSocket &sock,
+					  int32_t userId);
 		};
 	}
 }

@@ -24,7 +24,6 @@ namespace babel
 			DataPacket(CommandName commandId = CMD_UNDEFINED,
 				   const std::vector<std::string> &args
 				   = std::vector<std::string>());
-
 			const std::vector<std::string> &getArgs() const;
 			void setArgs(const std::vector<std::string> &_args);
 			void addArg(std::string);
