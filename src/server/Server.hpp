@@ -11,6 +11,7 @@
 #include <iostream>
 #include <algorithm>
 #include <src/common/command/CommandError.hpp>
+#include <boost/asio.hpp>
 #include <src/common/command/CommandFactory.hpp>
 #include <src/server/ServerCommandHandler.hpp>
 #include "src/server/network/TcpServer.hpp"
@@ -25,12 +26,13 @@ namespace babel {
 			void removeClient(common::User user);
 
 		private:
+			boost::asio::io_context _ioContext;
 			bool _running;
 			common::CommandFactory _cmdFactory;
 			std::vector<babel::common::User> _clients;
 			TcpServer _tcpServer;
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
-				int32_t>> _sockets;
+				int32_t>> &_sockets;
 			SqliteServer _sqliteServer;
 			ServerCommandHandler _commandHandler;
 			void handleClient(babel::server::BoostTcpSocket &sock,

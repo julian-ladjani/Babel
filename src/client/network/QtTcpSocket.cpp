@@ -68,5 +68,4 @@ void babel::client::QtTcpSocket::handleRead()
 	stdTmpBuffer = _socket.readAll().toStdString();
 	_uncompletePacket = addPacketsToQueue(stdTmpBuffer,
 		_uncompletePacket);
-	std::cout << "Uncomplete : " <<_uncompletePacket << std::endl;
 }

@@ -150,7 +150,8 @@ find_package(opus REQUIRED)
 find_package(sqlite3 REQUIRED)
 find_package(Boost REQUIRED)
 
-target_link_libraries(babel_server boost_system Threads::Threads sqlite3)
+target_link_libraries(babel_server boost_system boost_thread
+        Threads::Threads sqlite3)
 target_link_libraries(babel_client Qt5::Widgets Qt5::Network Qt5::Core Qt5::Gui)
 target_link_libraries(babel_client Threads::Threads opus)
 if (WIN32)
