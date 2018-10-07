@@ -12,6 +12,7 @@
 #include <QtNetwork/QUdpSocket>
 #include <src/client/gui/components/TConversation.hpp>
 #include "ABabelPage.hpp"
+#include "src/client/network/soundPacket.hpp"
 
 namespace babel {
 	namespace client {
@@ -50,9 +51,11 @@ namespace babel {
 		    	QUdpSocket _udpSocket;
 		    	AudioManager _audio;
 		    	AudioEncoder _encode;
+		    	int64_t _timeStamp;
 		    	void changeToTestPage();
 		    	void initSocket();
 		    	void readAudio();
+			std::vector<uint16_t> convert(SoundPacket sp);
 		};
 
 	}

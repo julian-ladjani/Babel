@@ -59,5 +59,5 @@ babel::client::AudioEncoder::encode(std::vector<uint16_t> sample) const
 
 void babel::client::AudioEncoder::throwOpusError(int opusErr) const
 {
-	throw babel::common::Exception("Opus Error", opus_strerror(opusErr));
+//	throw babel::common::Exception("Opus Error", opus_strerror(opusErr));
 }

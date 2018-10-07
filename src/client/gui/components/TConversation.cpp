@@ -5,6 +5,7 @@
 ** TConversation.cpp
 */
 
+#include <src/client/network/soundPacket.hpp>
 #include "TConversation.hpp"
 
 babel::client::TConversation::TConversation(ABabelPage *page):
@@ -18,17 +19,23 @@ babel::client::TConversation::TConversation(ABabelPage *page):
 
 void babel::client::TConversation::run()
 {
-    _audio.startStream();
+   _audio.startStream();
    _audio.startRecording();
-    while (_loop) {
-	std::vector<uint16_t> voice(_encoder.encode(_audio.getRecord()));
-	_udpSocket.writeDatagram(
-		QByteArray(QByteArray((char *)voice.data(), (int)(voice.size() * 2))),
-		 QHostAddress(_address),
-		 (quint16)_port);
-    }
-    _audio.stopRecording();
-    _audio.closeStream();
+   SoundPacket sp{};
+   SoundPacketConvertor spConv{};
+   while (_loop) {
+	std::vector<uint16_t> voice(_audio.getRecord());
+	sp.size = voice.size() * 2;
+	sp.magicNumber = 0x666;
+	sp.timeStamp = QDateTime::currentDateTime().toTime_t();
+	std::memset(sp.sound, 0, sp.size);
+	memcpy(sp.sound, voice.data(), sp.size);
+	spConv.sp = sp;
+	_udpSocket.writeDatagram(QByteArray(spConv.buf, 976),
+		QHostAddress(_address), (quint16) _port);
+   }
+   _audio.stopRecording();
+   _audio.closeStream();
 }
 
 void babel::client::TConversation::applyConversation(){

@@ -6,6 +6,7 @@
 */
 
 #include <QtWidgets/QMessageBox>
+#include <src/client/network/soundPacket.hpp>
 #include "ConnectionPage.hpp"
 
 babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos) :
@@ -25,7 +26,8 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	_threadConversation(new TConversation(this)),
 	_udpSocket(this),
 	_audio(),
-	_encode(_audio.getSampleRate(), _audio.getChannel())
+	_encode(_audio.getSampleRate(), _audio.getChannel()),
+	_timeStamp(0)
 {	_inputs.at(IP_ADDRESS)->setText("10.18.207.38");
 	_inputs.at(LOGIN)->setEchoMode(QLineEdit::Password);
 	_inputs.at(LOGIN)->setInputMethodHints(
@@ -34,6 +36,8 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	arrangeWidgets();
 	connections();
 	initSocket();
+	_audio.startStream();
+	_audio.startRecording();
 }
 
 void babel::client::ConnectionPage::connections()
@@ -55,7 +59,8 @@ void babel::client::ConnectionPage::initSocket()
     _udpSocket.bind(address, port);
     qDebug() << _udpSocket.localAddress().toString() << ":"
 	     << _udpSocket.localPort();
-    connect(&_udpSocket, &QUdpSocket::readyRead, this, &ConnectionPage::readAudio);
+    connect(&_udpSocket, &QUdpSocket::readyRead,
+		this, &ConnectionPage::readAudio);
 }
 
 void babel::client::ConnectionPage::changeToTestPage()
@@ -65,28 +70,28 @@ void babel::client::ConnectionPage::changeToTestPage()
     emit applyConversation();
 }
 
-std::vector<uint16_t> convert(QByteArray array)
+std::vector<uint16_t> babel::client::ConnectionPage::convert(SoundPacket sp)
 {
     std::vector<uint16_t> tmp;
-    char *charArray = array.data();
-    for (int i = 0; i < array.size(); i += 2) {
-	tmp.push_back((uint16_t)(charArray[i] + (charArray[i + 1] << 8)));
+    for (unsigned int i = 0; i < sp.size; i += 2) {
+	tmp.push_back((uint16_t)(sp.sound[i] + (sp.sound[i + 1] << 8)));
     }
     return tmp;
 }
 
 void babel::client::ConnectionPage::readAudio()
 {
-    printf("5/5 reçu!!\n");
-    _audio.startStream();
-    _audio.startRecording();
-    while (_udpSocket.hasPendingDatagrams()) {
-	QNetworkDatagram datagram = _udpSocket.receiveDatagram();
-	std::vector<uint16_t> bufferToCompress = convert(datagram.data());
-	_audio.playRecord(_encode.decode(bufferToCompress));
-    }
-    _audio.stopRecording();
-    _audio.stopStream();
+	QByteArray datagram;
+	while (_udpSocket.hasPendingDatagrams()) {
+		datagram.resize(_udpSocket.pendingDatagramSize());
+		_udpSocket.readDatagram(datagram.data(), datagram.size());
+		SoundPacketConvertor spc;
+		std::memset(spc.sp.sound, 0, 960);
+		memcpy(spc.buf, datagram.data(), 976);
+		std::vector<uint16_t> bufferToCompress = this->convert(spc.sp);
+		_audio.playRecord(bufferToCompress);
+		_timeStamp = spc.sp.timeStamp;
+	}
 }
 
 void babel::client::ConnectionPage::serverPropertiesSwitcher()
