@@ -121,7 +121,7 @@ set(CLIENT
 		src/client/sound/AudioManager.cpp
 		src/client/sound/AudioManager.hpp
 		src/client/gui/components/Chat.cpp
-		src/client/gui/components/Chat.hpp)
+		src/client/gui/components/Chat.hpp src/client/network/soundPacket.hpp)
 
 set(SERVER
         src/server/Server.cpp

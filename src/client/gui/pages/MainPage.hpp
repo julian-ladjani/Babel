@@ -16,6 +16,7 @@
 #include "src/client/gui/components/TMicro.hpp"
 #include "ABabelPage.hpp"
 #include "CallPage.hpp"
+#include <src/common/network/DataPacket.hpp>
 
 namespace babel {
 	namespace client {
@@ -77,6 +78,7 @@ namespace babel {
 		    	CallPage _callSection;
 		protected:
 			void connections() override;
+			void readTcpData();
 		};
 
 	}

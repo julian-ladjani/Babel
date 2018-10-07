@@ -80,6 +80,5 @@ void babel::client::QtTcpSocket::handleRead()
 void
 babel::client::QtTcpSocket::getSocketErrorCode(QAbstractSocket::SocketError)
 {
-	throw common::TcpSocketException(_connectionInfo,
-		_socket.errorString().toStdString());
+	this->disconnect();
 }

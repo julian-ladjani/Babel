@@ -15,10 +15,10 @@ babel::client::AudioEncoder::AudioEncoder(uint32_t sampleRate,
 	_encoder = opus_encoder_create(
 		sampleRate, channel, OPUS_APPLICATION_VOIP, &opusErr);
 	if (opusErr != OPUS_OK)
-		throwOpusError(opusErr);
+		throwOpusError();
 	_decoder = opus_decoder_create(sampleRate, channel, &opusErr);
 	if (opusErr != OPUS_OK)
-		throwOpusError(opusErr);
+		throwOpusError();
 }
 
 babel::client::AudioEncoder::~AudioEncoder()
@@ -39,7 +39,7 @@ babel::client::AudioEncoder::decode(std::vector<uint16_t> encoded) const
 				(opus_int16 *)decoded.data(),
 				(int)encoded.size(), 0);
 	if (bytes < 0)
-		throwOpusError(OPUS_INVALID_PACKET);
+		throwOpusError();
 	return decoded;
 }
 
@@ -53,11 +53,11 @@ babel::client::AudioEncoder::encode(std::vector<uint16_t> sample) const
 				(unsigned char *)(encoded.data()),
 				(int)encoded.size());
 	if (bytes < 0)
-		throwOpusError(OPUS_INVALID_PACKET);
+		throwOpusError();
 	return encoded;
 }
 
-void babel::client::AudioEncoder::throwOpusError(int opusErr) const
+void babel::client::AudioEncoder::throwOpusError() const
 {
-	throw babel::common::Exception("Opus Error", opus_strerror(opusErr));
+//	throw babel::common::Exception("Opus Error", opus_strerror(opusErr));
 }

@@ -10,6 +10,7 @@
 
 #include <map>
 #include <utility>
+#include <QObject>
 #include <src/common/User.hpp>
 #include <src/common/command/ACommand.hpp>
 #include <src/common/command/CommandOk.hpp>
@@ -24,6 +25,7 @@
 #include <src/common/command/CommandMessage.hpp>
 #include <src/common/exception/CommandException.hpp>
 #include <src/client/network/QtTcpSocket.hpp>
+#include <src/server/network/BoostTcpSocket.hpp>
 #include "ClientInfo.hpp"
 
 namespace babel {
@@ -31,30 +33,22 @@ namespace babel {
 		class CommandHandler {
 		public:
 			CommandHandler(ClientInfo &info);
-			bool handleCommand(common::ACommand command,
-					   uint32_t userId);
+			bool handleCommand(common::ACommand command);
+		Q_SIGNALS:
+		    	void changePage(std::string pageName);
 		private:
 			ClientInfo &_infos;
-/*			std::map<babel::common::CommandName,
+			std::map<babel::common::CommandName,
 				bool (babel::client::CommandHandler::*)
-					(common::ACommand command,
-					 uint32_t userId)> _commandHandlers;*/
-/*			bool commandLoginHandler(common::ACommand command,
-						 uint32_t userId);
-			bool commandLogoutHandler(common::ACommand command,
-						  uint32_t userId);
-			bool commandDeleteHandler(common::ACommand command,
-						  uint32_t userId);
-			bool commandCallHandler(common::ACommand command,
-						uint32_t userId);
-			bool commandCallAnswerHandler(common::ACommand command,
-						      uint32_t userId);
-			bool commandCallEndHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandContactHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandMessageHandler(common::ACommand command,
-						   uint32_t userId);
+					(common::ACommand command)>
+					_commandHandlers;
+			bool commandLoginOkHandler(common::ACommand command);
+			bool commandDeleteHandler(common::ACommand command);
+			bool commandCallHandler(common::ACommand command);
+			bool commandCallAnswerHandler(common::ACommand command);
+			bool commandCallEndHandler(common::ACommand command);
+			bool commandContactHandler(common::ACommand command);
+			bool commandMessageHandler(common::ACommand command);
 			void sendToAllClients(
 				babel::common::DataPacket packet);
 			bool createUser(common::CommandLogin &cmd,
@@ -67,7 +61,7 @@ namespace babel {
 			babel::common::User &getUser(uint32_t userId);
 			bool isConnected(uint32_t userId);
 			bool sendOk(uint32_t userId, common::CommandName cmd,
-				    const std::string &msg);*/
+				    const std::string &msg);
 		};
 	}
 }
