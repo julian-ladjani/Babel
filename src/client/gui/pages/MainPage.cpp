@@ -105,7 +105,7 @@ void babel::client::MainPage::updateActiveContact(QListWidgetItem *contactItem)
 {
 	int id = contactItem->data(Qt::UserRole).toInt();
 	auto &contacts = _infos.getContacts();
-	auto contact = *boost::range::find(contacts, id);
+	auto contact = *std::find(contacts.begin(), contacts.end(), id);
 	_infos.setActiveUser(contact);
 }
 
@@ -137,4 +137,9 @@ void babel::client::MainPage::changeToConnectionPage()
 void babel::client::MainPage::testMic()
 {
    emit changeMic();
+}
+
+babel::client::CallPage &babel::client::MainPage::getCallSection()
+{
+	return _callSection;
 }

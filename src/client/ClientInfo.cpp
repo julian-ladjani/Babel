@@ -9,7 +9,7 @@
 
 babel::client::ClientInfo::ClientInfo() :
 	_clientInfo(), _serverInfo(53876, "127.0.0.1"), _contacts(),
-	_socket(_serverInfo), _activeUser(_clientInfo)
+	_socket(_serverInfo), _activeUserId(_clientInfo.getId())
 {
 }
 
@@ -68,11 +68,13 @@ babel::client::QtTcpSocket &babel::client::ClientInfo::getSocket()
 
 babel::common::User &babel::client::ClientInfo::getActiveUser()
 {
-	return _activeUser;
+	if (_clientInfo.getId() == _activeUserId)
+		return _clientInfo;
+	return *std::find(_contacts.begin(), _contacts.end(), _activeUserId);
 }
 
 void babel::client::ClientInfo::setActiveUser(babel::common::User &activeUser)
 {
-	ClientInfo::_activeUser = activeUser;
+	ClientInfo::_activeUserId = activeUser.getId();
 	emit userUpdated();
 }
