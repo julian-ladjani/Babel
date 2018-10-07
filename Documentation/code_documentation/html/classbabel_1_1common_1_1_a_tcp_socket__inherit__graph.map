@@ -1,0 +1,4 @@
+<map id="babel::common::ATcpSocket" name="babel::common::ATcpSocket">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_qt_tcp_socket.html" title="{babel::client::QtTcpSocket\n||+ QtTcpSocket()\l+ connect()\l+ disconnect()\l+ send()\l+ receive()\l}" alt="" coords="5,340,181,467"/>
+<area shape="rect" id="node3" href="$classbabel_1_1server_1_1_boost_tcp_socket.html" title="{babel::server::BoostTcpSocket\n||+ BoostTcpSocket()\l+ connect()\l+ disconnect()\l+ send()\l+ receive()\l+ getSocket()\l+ mustBeConnected()\l}" alt="" coords="204,327,406,480"/>
+</map>

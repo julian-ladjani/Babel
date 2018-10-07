@@ -1,0 +1,7 @@
+<map id="QWidget" name="QWidget">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_a_babel_page.html" title="{babel::client::ABabelPage\n|# _infos\l# _layout\l|+ ABabelPage()\l+ ~ABabelPage()\l# connections()\l}" alt="" coords="309,127,483,240"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_call_page.html" title="{babel::client::CallPage\n||+ CallPage()\l+ arrangeWidgets()\l+ ~CallPage()\l# connections()\l}" alt="" coords="5,328,159,441"/>
+<area shape="rect" id="node4" href="$classbabel_1_1client_1_1_connection_page.html" title="{babel::client::ConnectionPage\n||+ ConnectionPage()\l+ arrangeWidgets()\l+ serverPropertiesSwitcher()\l+ ~ConnectionPage()\l+ handleButton()\l# connections()\l}" alt="" coords="183,315,382,455"/>
+<area shape="rect" id="node5" href="$classbabel_1_1client_1_1_echo_sound_test_service_page.html" title="{babel::client::EchoSound\lTestServicePage\n||+ EchoSoundTestServicePage()\l+ initSocket()\l+ readData()\l}" alt="" coords="405,328,616,441"/>
+<area shape="rect" id="node6" href="$classbabel_1_1client_1_1_main_page.html" title="{babel::client::MainPage\n||+ MainPage()\l+ ~MainPage()\l+ initSocket()\l+ initSideBar()\l+ initMain()\l+ readData()\l+ setLogin()\l+ getCallSection()\l# connections()\l# readTcpData()\l}" alt="" coords="640,288,800,481"/>
+</map>

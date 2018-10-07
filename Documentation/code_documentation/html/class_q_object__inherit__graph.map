@@ -1,0 +1,6 @@
+<map id="QObject" name="QObject">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_call_controller.html" title="{babel::client::CallController\n||+ CallController()\l+ startCall()\l+ yaduson()\l}" alt="" coords="5,187,186,287"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_client_info.html" title="{babel::client::ClientInfo\n||+ ClientInfo()\l+ getClientInfo()\l+ setClientInfo()\l+ getServerInfo()\l+ setServerInfo()\l+ getContacts()\l+ setContacts()\l+ addContact()\l+ removeContact()\l+ getSocket()\l+ getActiveUser()\l+ setActiveUser()\l}" alt="" coords="210,127,366,347"/>
+<area shape="rect" id="node4" href="$classbabel_1_1client_1_1_command_handler.html" title="{babel::client::CommandHandler\n||+ CommandHandler()\l+ handleCommand()\l}" alt="" coords="390,193,598,280"/>
+<area shape="rect" id="node5" href="$classbabel_1_1client_1_1_qt_tcp_socket.html" title="{babel::client::QtTcpSocket\n||+ QtTcpSocket()\l+ connect()\l+ disconnect()\l+ send()\l+ receive()\l}" alt="" coords="623,173,798,300"/>
+</map>

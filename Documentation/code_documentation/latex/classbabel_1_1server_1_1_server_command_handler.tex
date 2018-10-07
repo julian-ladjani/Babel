@@ -1,0 +1,61 @@
+\hypertarget{classbabel_1_1server_1_1_server_command_handler}{}\section{babel\+:\+:server\+:\+:Server\+Command\+Handler Class Reference}
+\label{classbabel_1_1server_1_1_server_command_handler}\index{babel\+::server\+::\+Server\+Command\+Handler@{babel\+::server\+::\+Server\+Command\+Handler}}
+
+
+{\ttfamily \#include $<$Server\+Command\+Handler.\+hpp$>$}
+
+
+
+Collaboration diagram for babel\+:\+:server\+:\+:Server\+Command\+Handler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classbabel_1_1server_1_1_server_command_handler__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1server_1_1_server_command_handler_aa5d9383dcd2e9a38263e3b11722a2f4a}{Server\+Command\+Handler}} (std\+::vector$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_user}{babel\+::common\+::\+User}} $>$ \&client, std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket}{Boost\+Tcp\+Socket}} \&, int32\+\_\+t $>$$>$ \&\+\_\+sockets, \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server}{Sqlite\+Server}} \&\+\_\+sqlite\+Server)
+\item 
+bool \mbox{\hyperlink{classbabel_1_1server_1_1_server_command_handler_ad6e3e8c0c7e708fae3a82553e34c6d0d}{handle\+Command}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_a_command}{common\+::\+A\+Command}} $>$ \&command, int32\+\_\+t user\+Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 32 of file Server\+Command\+Handler.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_server_command_handler_aa5d9383dcd2e9a38263e3b11722a2f4a}\label{classbabel_1_1server_1_1_server_command_handler_aa5d9383dcd2e9a38263e3b11722a2f4a}} 
+\index{babel\+::server\+::\+Server\+Command\+Handler@{babel\+::server\+::\+Server\+Command\+Handler}!Server\+Command\+Handler@{Server\+Command\+Handler}}
+\index{Server\+Command\+Handler@{Server\+Command\+Handler}!babel\+::server\+::\+Server\+Command\+Handler@{babel\+::server\+::\+Server\+Command\+Handler}}
+\subsubsection{\texorpdfstring{Server\+Command\+Handler()}{ServerCommandHandler()}}
+{\footnotesize\ttfamily babel\+::server\+::\+Server\+Command\+Handler\+::\+Server\+Command\+Handler (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_user}{babel\+::common\+::\+User}} $>$ \&}]{client,  }\item[{std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket}{Boost\+Tcp\+Socket}} \&, int32\+\_\+t $>$$>$ \&}]{\+\_\+sockets,  }\item[{\mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server}{Sqlite\+Server}} \&}]{\+\_\+sqlite\+Server }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Server\+Command\+Handler.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_server_command_handler_ad6e3e8c0c7e708fae3a82553e34c6d0d}\label{classbabel_1_1server_1_1_server_command_handler_ad6e3e8c0c7e708fae3a82553e34c6d0d}} 
+\index{babel\+::server\+::\+Server\+Command\+Handler@{babel\+::server\+::\+Server\+Command\+Handler}!handle\+Command@{handle\+Command}}
+\index{handle\+Command@{handle\+Command}!babel\+::server\+::\+Server\+Command\+Handler@{babel\+::server\+::\+Server\+Command\+Handler}}
+\subsubsection{\texorpdfstring{handle\+Command()}{handleCommand()}}
+{\footnotesize\ttfamily bool babel\+::server\+::\+Server\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_a_command}{common\+::\+A\+Command}} $>$ \&}]{command,  }\item[{int32\+\_\+t}]{user\+Id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file Server\+Command\+Handler.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/server/\mbox{\hyperlink{_server_command_handler_8hpp}{Server\+Command\+Handler.\+hpp}}\item 
+src/server/\mbox{\hyperlink{_server_command_handler_8cpp}{Server\+Command\+Handler.\+cpp}}\end{DoxyCompactItemize}

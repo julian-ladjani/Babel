@@ -1,0 +1,5 @@
+<map id="babel::common::User::getId" name="babel::common::User::getId">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_client_info.html#a1c003c4161627708b555d1108cd910f2" title="babel::client::ClientInfo\l::setActiveUser" alt="" coords="212,5,369,44"/>
+<area shape="rect" id="node3" href="$classbabel_1_1server_1_1_sqlite_server.html#a699fb4106518510a5105616704eca892" title="babel::server::SqliteServer\l::addUser" alt="" coords="201,68,380,107"/>
+<area shape="rect" id="node4" href="$classbabel_1_1server_1_1_sqlite_server.html#ac7bc85e200004667440927de28502f22" title="babel::server::SqliteServer\l::removeUser" alt="" coords="201,131,380,169"/>
+</map>

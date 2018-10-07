@@ -1,0 +1,154 @@
+\hypertarget{classbabel_1_1server_1_1_boost_tcp_socket}{}\section{babel\+:\+:server\+:\+:Boost\+Tcp\+Socket Class Reference}
+\label{classbabel_1_1server_1_1_boost_tcp_socket}\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+
+
+{\ttfamily \#include $<$Boost\+Tcp\+Socket.\+hpp$>$}
+
+
+
+Inheritance diagram for babel\+:\+:server\+:\+:Boost\+Tcp\+Socket\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classbabel_1_1server_1_1_boost_tcp_socket__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for babel\+:\+:server\+:\+:Boost\+Tcp\+Socket\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_boost_tcp_socket__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_a2f3dff111d960e94b72d00f7da25cb05}{Boost\+Tcp\+Socket}} (\mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{common\+::\+Connection\+Info}} connection\+Info, boost\+::asio\+::io\+\_\+context \&io\+Context)
+\item 
+bool \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_aaf7b9b56a3587d8b48c5ed9418492e12}{connect}} () override
+\item 
+bool \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_ab5f0e6ea149aa5c1b54189b2214bac88}{disconnect}} () override
+\item 
+bool \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_a037e9440c226c8701b55b005d9f1eea4}{send}} (\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{common\+::\+Data\+Packet}} packet) override
+\item 
+const \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{common\+::\+Data\+Packet}} \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_a0f59c22aa0755aece70891287352bf5c}{receive}} () override
+\item 
+boost\+::asio\+::ip\+::tcp\+::socket \& \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_ab02065f9b93488e1ff4aa141ff73ddc1}{get\+Socket}} ()
+\item 
+bool \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_aa36010743728795b7b48909f7d22c432}{must\+Be\+Connected}} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file Boost\+Tcp\+Socket.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_a2f3dff111d960e94b72d00f7da25cb05}\label{classbabel_1_1server_1_1_boost_tcp_socket_a2f3dff111d960e94b72d00f7da25cb05}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!Boost\+Tcp\+Socket@{Boost\+Tcp\+Socket}}
+\index{Boost\+Tcp\+Socket@{Boost\+Tcp\+Socket}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{Boost\+Tcp\+Socket()}{BoostTcpSocket()}}
+{\footnotesize\ttfamily babel\+::server\+::\+Boost\+Tcp\+Socket\+::\+Boost\+Tcp\+Socket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{common\+::\+Connection\+Info}}}]{connection\+Info,  }\item[{boost\+::asio\+::io\+\_\+context \&}]{io\+Context }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Boost\+Tcp\+Socket.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_aaf7b9b56a3587d8b48c5ed9418492e12}\label{classbabel_1_1server_1_1_boost_tcp_socket_aaf7b9b56a3587d8b48c5ed9418492e12}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!connect@{connect}}
+\index{connect@{connect}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool babel\+::server\+::\+Boost\+Tcp\+Socket\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_ae049c9a079ad9e4f0ddfc4b2282e2493}{babel\+::common\+::\+A\+Tcp\+Socket}}.
+
+
+
+Definition at line 17 of file Boost\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_ab5f0e6ea149aa5c1b54189b2214bac88}\label{classbabel_1_1server_1_1_boost_tcp_socket_ab5f0e6ea149aa5c1b54189b2214bac88}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily bool babel\+::server\+::\+Boost\+Tcp\+Socket\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a8aa4d31dccc7314d5866410846d83159}{babel\+::common\+::\+A\+Tcp\+Socket}}.
+
+
+
+Definition at line 51 of file Boost\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_ab02065f9b93488e1ff4aa141ff73ddc1}\label{classbabel_1_1server_1_1_boost_tcp_socket_ab02065f9b93488e1ff4aa141ff73ddc1}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!get\+Socket@{get\+Socket}}
+\index{get\+Socket@{get\+Socket}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{get\+Socket()}{getSocket()}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::tcp\+::socket \& babel\+::server\+::\+Boost\+Tcp\+Socket\+::get\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file Boost\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_aa36010743728795b7b48909f7d22c432}\label{classbabel_1_1server_1_1_boost_tcp_socket_aa36010743728795b7b48909f7d22c432}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!must\+Be\+Connected@{must\+Be\+Connected}}
+\index{must\+Be\+Connected@{must\+Be\+Connected}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{must\+Be\+Connected()}{mustBeConnected()}}
+{\footnotesize\ttfamily bool babel\+::server\+::\+Boost\+Tcp\+Socket\+::must\+Be\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 97 of file Boost\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_a0f59c22aa0755aece70891287352bf5c}\label{classbabel_1_1server_1_1_boost_tcp_socket_a0f59c22aa0755aece70891287352bf5c}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!receive@{receive}}
+\index{receive@{receive}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}} babel\+::server\+::\+Boost\+Tcp\+Socket\+::receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a8bfec8f1b34e75429f9e912ed7108936}{babel\+::common\+::\+A\+Tcp\+Socket}}.
+
+
+
+Definition at line 30 of file Boost\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_boost_tcp_socket_a037e9440c226c8701b55b005d9f1eea4}\label{classbabel_1_1server_1_1_boost_tcp_socket_a037e9440c226c8701b55b005d9f1eea4}} 
+\index{babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}!send@{send}}
+\index{send@{send}!babel\+::server\+::\+Boost\+Tcp\+Socket@{babel\+::server\+::\+Boost\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily bool babel\+::server\+::\+Boost\+Tcp\+Socket\+::send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{common\+::\+Data\+Packet}}}]{packet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a4c6b77b93cedcb874caa0a9cee6cad36}{babel\+::common\+::\+A\+Tcp\+Socket}}.
+
+
+
+Definition at line 80 of file Boost\+Tcp\+Socket.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_boost_tcp_socket_a037e9440c226c8701b55b005d9f1eea4_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/server/network/\mbox{\hyperlink{_boost_tcp_socket_8hpp}{Boost\+Tcp\+Socket.\+hpp}}\item 
+src/server/network/\mbox{\hyperlink{_boost_tcp_socket_8cpp}{Boost\+Tcp\+Socket.\+cpp}}\end{DoxyCompactItemize}

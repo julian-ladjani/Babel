@@ -1,0 +1,10 @@
+<map id="src/client/ClientInfo.hpp" name="src/client/ClientInfo.hpp">
+<area shape="rect" id="node4" href="$_qt_tcp_socket_8hpp.html" title="src/client/network\l/QtTcpSocket.hpp" alt="" coords="459,79,585,117"/>
+<area shape="rect" id="node21" href="$_user_8hpp.html" title="src/common/User.hpp" alt="" coords="732,172,883,197"/>
+<area shape="rect" id="node9" href="$_a_tcp_socket_8hpp.html" title="src/common/network\l/ATcpSocket.hpp" alt="" coords="244,165,389,204"/>
+<area shape="rect" id="node18" href="$_tcp_socket_exception_8hpp.html" title="src/common/exception\l/TcpSocketException.hpp" alt="" coords="907,165,1078,204"/>
+<area shape="rect" id="node12" href="$_connection_info_8hpp.html" title="ConnectionInfo.hpp" alt="" coords="739,259,876,284"/>
+<area shape="rect" id="node14" href="$_command_name_8hpp.html" title="src/common/command\l/CommandName.hpp" alt="" coords="494,339,651,377"/>
+<area shape="rect" id="node15" href="$_data_packet_8hpp.html" title="DataPacket.hpp" alt="" coords="386,259,503,284"/>
+<area shape="rect" id="node19" href="$_exception_8hpp.html" title="Exception.hpp" alt="" coords="920,259,1025,284"/>
+</map>

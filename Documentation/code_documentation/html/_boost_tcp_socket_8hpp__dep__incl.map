@@ -1,0 +1,10 @@
+<map id="src/server/network/BoostTcpSocket.hpp" name="src/server/network/BoostTcpSocket.hpp">
+<area shape="rect" id="node2" href="$_server_command_handler_8hpp.html" title="src/server/ServerCommand\lHandler.hpp" alt="" coords="96,92,280,131"/>
+<area shape="rect" id="node7" href="$_tcp_server_8hpp.html" title="src/server/network\l/TcpServer.hpp" alt="" coords="304,92,435,131"/>
+<area shape="rect" id="node9" href="$_boost_tcp_socket_8cpp.html" title="src/server/network\l/BoostTcpSocket.cpp" alt="" coords="459,92,605,131"/>
+<area shape="rect" id="node3" href="$_server_8hpp.html" title="src/server/Server.hpp" alt="" coords="214,185,362,211"/>
+<area shape="rect" id="node6" href="$_server_command_handler_8cpp.html" title="src/server/ServerCommand\lHandler.cpp" alt="" coords="5,179,190,217"/>
+<area shape="rect" id="node4" href="$_main_server_8cpp.html" title="src/server/MainServer.cpp" alt="" coords="108,265,284,291"/>
+<area shape="rect" id="node5" href="$_server_8cpp.html" title="src/server/Server.cpp" alt="" coords="308,265,455,291"/>
+<area shape="rect" id="node8" href="$_tcp_server_8cpp.html" title="src/server/network\l/TcpServer.cpp" alt="" coords="386,179,516,217"/>
+</map>

@@ -1,0 +1,305 @@
+\hypertarget{classbabel_1_1common_1_1_user}{}\section{babel\+:\+:common\+:\+:User Class Reference}
+\label{classbabel_1_1common_1_1_user}\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+
+
+{\ttfamily \#include $<$User.\+hpp$>$}
+
+
+
+Collaboration diagram for babel\+:\+:common\+:\+:User\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classbabel_1_1common_1_1_user__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1common_1_1_user_a0737ac6172fac228854e51e992203339}{User}} (uint32\+\_\+t id=0, const std\+::string \&login=\char`\"{}\char`\"{}, const std\+::string \&password=\char`\"{}\char`\"{})
+\item 
+\mbox{\hyperlink{classbabel_1_1common_1_1_user_a12d30f9811561f98d1039d42da0f4c5d}{User}} (const std\+::string \&login, uint32\+\_\+t id, bool state)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classbabel_1_1common_1_1_user_accd1833b33a6e7429ad2d43a28e1116a}{get\+Id}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_af41e9f23dc42c669de4127cfb14da579}{set\+Id}} (uint32\+\_\+t id)
+\item 
+const std\+::string \& \mbox{\hyperlink{classbabel_1_1common_1_1_user_a9e4935028bc942da08a2eafcd4b0008b}{get\+Login}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_ac5cd71368a7f95d120c58edab902ca24}{set\+Login}} (const std\+::string \&login)
+\item 
+const std\+::string \& \mbox{\hyperlink{classbabel_1_1common_1_1_user_a2b5c6ca06f0a664ba93ae3d4f473a887}{get\+Password}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_a21a022eabf382fc25decbd79001bf206}{set\+Password}} (const std\+::string \&password)
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_user_a8af22580dc334973ac39cc74aed7c946}{is\+Connected}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_a8ed42b85ce28caa1c04c2592e09e1925}{set\+Connected}} (bool connected)
+\item 
+const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \& \mbox{\hyperlink{classbabel_1_1common_1_1_user_a6dcd5d99ec1d1a789f71711c2601bef2}{get\+Connection\+Info}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_a739b57a2489b0c7784a98852a0539ff1}{set\+Connection\+Info}} (const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \&connection\+Info)
+\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \& \mbox{\hyperlink{classbabel_1_1common_1_1_user_a2765d87c14df492dddcffb1af2a85649}{get\+Contacts}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_adc7949c540c63549dbb20b0ea314e622}{set\+Contacts}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&\+\_\+contacts)
+\item 
+std\+::string \& \mbox{\hyperlink{classbabel_1_1common_1_1_user_a6ab6d31606d207c4a8669ca77372fdad}{get\+Messages}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_user_a0c4a3f92d80b9eaedb4ce0ca42771847}{set\+Messages}} (std\+::string \&messages)
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_user_accfb669d54137d82757a31928053c2c8}{add\+Contact}} (uint32\+\_\+t user\+Id)
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_user_ab2a3d75d5c02fe4a3cd2b9c066bb6445}{remove\+Contact}} (uint32\+\_\+t user\+Id)
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_user_a966aa4761080c430f3028d61bbc91230}{operator==}} (const \mbox{\hyperlink{classbabel_1_1common_1_1_user}{User}} \&user) const
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_user_ae1fa1482613860ede04093a37f9316c0}{operator==}} (const uint32\+\_\+t \&user\+Id) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file User.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a0737ac6172fac228854e51e992203339}\label{classbabel_1_1common_1_1_user_a0737ac6172fac228854e51e992203339}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!User@{User}}
+\index{User@{User}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily babel\+::common\+::\+User\+::\+User (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id = {\ttfamily 0},  }\item[{const std\+::string \&}]{login = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const std\+::string \&}]{password = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 11 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a12d30f9811561f98d1039d42da0f4c5d}\label{classbabel_1_1common_1_1_user_a12d30f9811561f98d1039d42da0f4c5d}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!User@{User}}
+\index{User@{User}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily babel\+::common\+::\+User\+::\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login,  }\item[{uint32\+\_\+t}]{id,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file User.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_accfb669d54137d82757a31928053c2c8}\label{classbabel_1_1common_1_1_user_accfb669d54137d82757a31928053c2c8}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!add\+Contact@{add\+Contact}}
+\index{add\+Contact@{add\+Contact}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{add\+Contact()}{addContact()}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+User\+::add\+Contact (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a6dcd5d99ec1d1a789f71711c2601bef2}\label{classbabel_1_1common_1_1_user_a6dcd5d99ec1d1a789f71711c2601bef2}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!get\+Connection\+Info@{get\+Connection\+Info}}
+\index{get\+Connection\+Info@{get\+Connection\+Info}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Connection\+Info()}{getConnectionInfo()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{babel\+::common\+::\+Connection\+Info}} \& babel\+::common\+::\+User\+::get\+Connection\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 62 of file User.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_user_a6dcd5d99ec1d1a789f71711c2601bef2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a2765d87c14df492dddcffb1af2a85649}\label{classbabel_1_1common_1_1_user_a2765d87c14df492dddcffb1af2a85649}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!get\+Contacts@{get\+Contacts}}
+\index{get\+Contacts@{get\+Contacts}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Contacts()}{getContacts()}}
+{\footnotesize\ttfamily const std\+::vector$<$ uint32\+\_\+t $>$ \& babel\+::common\+::\+User\+::get\+Contacts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 73 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_accd1833b33a6e7429ad2d43a28e1116a}\label{classbabel_1_1common_1_1_user_accd1833b33a6e7429ad2d43a28e1116a}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily uint32\+\_\+t babel\+::common\+::\+User\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 22 of file User.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_user_accd1833b33a6e7429ad2d43a28e1116a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a9e4935028bc942da08a2eafcd4b0008b}\label{classbabel_1_1common_1_1_user_a9e4935028bc942da08a2eafcd4b0008b}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!get\+Login@{get\+Login}}
+\index{get\+Login@{get\+Login}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Login()}{getLogin()}}
+{\footnotesize\ttfamily const std\+::string \& babel\+::common\+::\+User\+::get\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 32 of file User.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_user_a9e4935028bc942da08a2eafcd4b0008b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a6ab6d31606d207c4a8669ca77372fdad}\label{classbabel_1_1common_1_1_user_a6ab6d31606d207c4a8669ca77372fdad}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!get\+Messages@{get\+Messages}}
+\index{get\+Messages@{get\+Messages}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Messages()}{getMessages()}}
+{\footnotesize\ttfamily std\+::string \& babel\+::common\+::\+User\+::get\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 112 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a2b5c6ca06f0a664ba93ae3d4f473a887}\label{classbabel_1_1common_1_1_user_a2b5c6ca06f0a664ba93ae3d4f473a887}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!get\+Password@{get\+Password}}
+\index{get\+Password@{get\+Password}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{get\+Password()}{getPassword()}}
+{\footnotesize\ttfamily const std\+::string \& babel\+::common\+::\+User\+::get\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 42 of file User.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_user_a2b5c6ca06f0a664ba93ae3d4f473a887_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a8af22580dc334973ac39cc74aed7c946}\label{classbabel_1_1common_1_1_user_a8af22580dc334973ac39cc74aed7c946}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!is\+Connected@{is\+Connected}}
+\index{is\+Connected@{is\+Connected}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{is\+Connected()}{isConnected()}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+User\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 51 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a966aa4761080c430f3028d61bbc91230}\label{classbabel_1_1common_1_1_user_a966aa4761080c430f3028d61bbc91230}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!operator==@{operator==}}
+\index{operator==@{operator==}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+User\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbabel_1_1common_1_1_user}{User}} \&}]{user }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 102 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_ae1fa1482613860ede04093a37f9316c0}\label{classbabel_1_1common_1_1_user_ae1fa1482613860ede04093a37f9316c0}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!operator==@{operator==}}
+\index{operator==@{operator==}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+User\+::operator== (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{user\+Id }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 107 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_ab2a3d75d5c02fe4a3cd2b9c066bb6445}\label{classbabel_1_1common_1_1_user_ab2a3d75d5c02fe4a3cd2b9c066bb6445}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!remove\+Contact@{remove\+Contact}}
+\index{remove\+Contact@{remove\+Contact}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{remove\+Contact()}{removeContact()}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+User\+::remove\+Contact (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 93 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a8ed42b85ce28caa1c04c2592e09e1925}\label{classbabel_1_1common_1_1_user_a8ed42b85ce28caa1c04c2592e09e1925}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Connected@{set\+Connected}}
+\index{set\+Connected@{set\+Connected}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Connected()}{setConnected()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Connected (\begin{DoxyParamCaption}\item[{bool}]{connected }\end{DoxyParamCaption})}
+
+
+
+Definition at line 56 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a739b57a2489b0c7784a98852a0539ff1}\label{classbabel_1_1common_1_1_user_a739b57a2489b0c7784a98852a0539ff1}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Connection\+Info@{set\+Connection\+Info}}
+\index{set\+Connection\+Info@{set\+Connection\+Info}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Connection\+Info()}{setConnectionInfo()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Connection\+Info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \&}]{connection\+Info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 67 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_adc7949c540c63549dbb20b0ea314e622}\label{classbabel_1_1common_1_1_user_adc7949c540c63549dbb20b0ea314e622}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Contacts@{set\+Contacts}}
+\index{set\+Contacts@{set\+Contacts}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Contacts()}{setContacts()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Contacts (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{\+\_\+contacts }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_af41e9f23dc42c669de4127cfb14da579}\label{classbabel_1_1common_1_1_user_af41e9f23dc42c669de4127cfb14da579}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Id()}{setId()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Id (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_ac5cd71368a7f95d120c58edab902ca24}\label{classbabel_1_1common_1_1_user_ac5cd71368a7f95d120c58edab902ca24}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Login@{set\+Login}}
+\index{set\+Login@{set\+Login}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Login()}{setLogin()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Login (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a0c4a3f92d80b9eaedb4ce0ca42771847}\label{classbabel_1_1common_1_1_user_a0c4a3f92d80b9eaedb4ce0ca42771847}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Messages@{set\+Messages}}
+\index{set\+Messages@{set\+Messages}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Messages()}{setMessages()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Messages (\begin{DoxyParamCaption}\item[{std\+::string \&}]{messages }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file User.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_user_a21a022eabf382fc25decbd79001bf206}\label{classbabel_1_1common_1_1_user_a21a022eabf382fc25decbd79001bf206}} 
+\index{babel\+::common\+::\+User@{babel\+::common\+::\+User}!set\+Password@{set\+Password}}
+\index{set\+Password@{set\+Password}!babel\+::common\+::\+User@{babel\+::common\+::\+User}}
+\subsubsection{\texorpdfstring{set\+Password()}{setPassword()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+User\+::set\+Password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file User.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/common/\mbox{\hyperlink{_user_8hpp}{User.\+hpp}}\item 
+src/common/\mbox{\hyperlink{_user_8cpp}{User.\+cpp}}\end{DoxyCompactItemize}

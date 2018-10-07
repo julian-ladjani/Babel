@@ -1,0 +1,272 @@
+\hypertarget{classbabel_1_1common_1_1_a_tcp_socket}{}\section{babel\+:\+:common\+:\+:A\+Tcp\+Socket Class Reference}
+\label{classbabel_1_1common_1_1_a_tcp_socket}\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+
+
+{\ttfamily \#include $<$A\+Tcp\+Socket.\+hpp$>$}
+
+
+
+Inheritance diagram for babel\+:\+:common\+:\+:A\+Tcp\+Socket\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_a_tcp_socket__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for babel\+:\+:common\+:\+:A\+Tcp\+Socket\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_a_tcp_socket__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_afc97013cfafa24251d58cd82c39cb716}{A\+Tcp\+Socket}} (\mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \&connection\+Info)
+\item 
+virtual \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a1030e55170e3c533442588a71370eb0a}{$\sim$\+A\+Tcp\+Socket}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_ae049c9a079ad9e4f0ddfc4b2282e2493}{connect}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a4c6b77b93cedcb874caa0a9cee6cad36}{send}} (\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}})=0
+\item 
+virtual const \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}} \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a8bfec8f1b34e75429f9e912ed7108936}{receive}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a8aa4d31dccc7314d5866410846d83159}{disconnect}} ()=0
+\item 
+const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a5e834bf865edebb37d8018a56668f3bf}{get\+Connection\+Info}} () const
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_af253a6e358f04cdfe2daf19244f6d614}{is\+Connect}} () const
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_ae6434c16ae66afbcf46e5253da01024c}{operator==}} (const \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket}{A\+Tcp\+Socket}} \&socket) const
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_acc33c4655f867911fe8593464818fd76}{operator==}} (const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \&connection\+Info) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_ad92a444e56b590684b28978319a26b0f}{add\+Packets\+To\+Queue}} (std\+::string \&, std\+::string=std\+::string())
+\item 
+const \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{Data\+Packet}} \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a2e057c8d9e01aba599e4314a93a5d238}{get\+Packet\+From\+Queue}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a7da9857439a1ec09a294f836fc7f4953}{\+\_\+connection\+Info}}
+\item 
+bool \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a3c81c4d172cd2d40a3420adb91198c44}{\+\_\+is\+Connect}}
+\item 
+std\+::string \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a9a4028cf3901dce3a0521dcf95261c84}{\+\_\+uncomplete\+Packet}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}} $>$ \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a4aa705ce6c0507c6a59137e8c42a4f20}{\+\_\+receive\+Queue}}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr char \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket_a078160df0f68925ab42586e86f0b9bd4}{P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR}} \mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}x1d\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 23 of file A\+Tcp\+Socket.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_afc97013cfafa24251d58cd82c39cb716}\label{classbabel_1_1common_1_1_a_tcp_socket_afc97013cfafa24251d58cd82c39cb716}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!A\+Tcp\+Socket@{A\+Tcp\+Socket}}
+\index{A\+Tcp\+Socket@{A\+Tcp\+Socket}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{A\+Tcp\+Socket()}{ATcpSocket()}}
+{\footnotesize\ttfamily babel\+::common\+::\+A\+Tcp\+Socket\+::\+A\+Tcp\+Socket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \&}]{connection\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 10 of file A\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a1030e55170e3c533442588a71370eb0a}\label{classbabel_1_1common_1_1_a_tcp_socket_a1030e55170e3c533442588a71370eb0a}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!````~A\+Tcp\+Socket@{$\sim$\+A\+Tcp\+Socket}}
+\index{````~A\+Tcp\+Socket@{$\sim$\+A\+Tcp\+Socket}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{$\sim$\+A\+Tcp\+Socket()}{~ATcpSocket()}}
+{\footnotesize\ttfamily virtual babel\+::common\+::\+A\+Tcp\+Socket\+::$\sim$\+A\+Tcp\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_ad92a444e56b590684b28978319a26b0f}\label{classbabel_1_1common_1_1_a_tcp_socket_ad92a444e56b590684b28978319a26b0f}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!add\+Packets\+To\+Queue@{add\+Packets\+To\+Queue}}
+\index{add\+Packets\+To\+Queue@{add\+Packets\+To\+Queue}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{add\+Packets\+To\+Queue()}{addPacketsToQueue()}}
+{\footnotesize\ttfamily std\+::string babel\+::common\+::\+A\+Tcp\+Socket\+::add\+Packets\+To\+Queue (\begin{DoxyParamCaption}\item[{std\+::string \&}]{packets,  }\item[{std\+::string}]{not\+Finished\+Packet = {\ttfamily std\+:\+:string()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 56 of file A\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_ae049c9a079ad9e4f0ddfc4b2282e2493}\label{classbabel_1_1common_1_1_a_tcp_socket_ae049c9a079ad9e4f0ddfc4b2282e2493}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!connect@{connect}}
+\index{connect@{connect}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily virtual bool babel\+::common\+::\+A\+Tcp\+Socket\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classbabel_1_1client_1_1_qt_tcp_socket_a61e2297c813f090a97dc49d0c2a8c2c3}{babel\+::client\+::\+Qt\+Tcp\+Socket}}, and \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_aaf7b9b56a3587d8b48c5ed9418492e12}{babel\+::server\+::\+Boost\+Tcp\+Socket}}.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a8aa4d31dccc7314d5866410846d83159}\label{classbabel_1_1common_1_1_a_tcp_socket_a8aa4d31dccc7314d5866410846d83159}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily virtual bool babel\+::common\+::\+A\+Tcp\+Socket\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classbabel_1_1client_1_1_qt_tcp_socket_a16d6be985545aaa0376250896accc586}{babel\+::client\+::\+Qt\+Tcp\+Socket}}, and \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_ab5f0e6ea149aa5c1b54189b2214bac88}{babel\+::server\+::\+Boost\+Tcp\+Socket}}.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a5e834bf865edebb37d8018a56668f3bf}\label{classbabel_1_1common_1_1_a_tcp_socket_a5e834bf865edebb37d8018a56668f3bf}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!get\+Connection\+Info@{get\+Connection\+Info}}
+\index{get\+Connection\+Info@{get\+Connection\+Info}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{get\+Connection\+Info()}{getConnectionInfo()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{babel\+::common\+::\+Connection\+Info}} babel\+::common\+::\+A\+Tcp\+Socket\+::get\+Connection\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 17 of file A\+Tcp\+Socket.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_a_tcp_socket_a5e834bf865edebb37d8018a56668f3bf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a2e057c8d9e01aba599e4314a93a5d238}\label{classbabel_1_1common_1_1_a_tcp_socket_a2e057c8d9e01aba599e4314a93a5d238}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!get\+Packet\+From\+Queue@{get\+Packet\+From\+Queue}}
+\index{get\+Packet\+From\+Queue@{get\+Packet\+From\+Queue}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{get\+Packet\+From\+Queue()}{getPacketFromQueue()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}} babel\+::common\+::\+A\+Tcp\+Socket\+::get\+Packet\+From\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 23 of file A\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_af253a6e358f04cdfe2daf19244f6d614}\label{classbabel_1_1common_1_1_a_tcp_socket_af253a6e358f04cdfe2daf19244f6d614}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!is\+Connect@{is\+Connect}}
+\index{is\+Connect@{is\+Connect}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{is\+Connect()}{isConnect()}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+A\+Tcp\+Socket\+::is\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 32 of file A\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_ae6434c16ae66afbcf46e5253da01024c}\label{classbabel_1_1common_1_1_a_tcp_socket_ae6434c16ae66afbcf46e5253da01024c}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!operator==@{operator==}}
+\index{operator==@{operator==}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+A\+Tcp\+Socket\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbabel_1_1common_1_1_a_tcp_socket}{A\+Tcp\+Socket}} \&}]{socket }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 79 of file A\+Tcp\+Socket.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_a_tcp_socket_ae6434c16ae66afbcf46e5253da01024c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_acc33c4655f867911fe8593464818fd76}\label{classbabel_1_1common_1_1_a_tcp_socket_acc33c4655f867911fe8593464818fd76}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!operator==@{operator==}}
+\index{operator==@{operator==}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+A\+Tcp\+Socket\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} \&}]{connection\+Info }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 85 of file A\+Tcp\+Socket.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a8bfec8f1b34e75429f9e912ed7108936}\label{classbabel_1_1common_1_1_a_tcp_socket_a8bfec8f1b34e75429f9e912ed7108936}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!receive@{receive}}
+\index{receive@{receive}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily virtual const \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}} babel\+::common\+::\+A\+Tcp\+Socket\+::receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classbabel_1_1client_1_1_qt_tcp_socket_ac79df4ffe6efc050afe567c596754e5c}{babel\+::client\+::\+Qt\+Tcp\+Socket}}, and \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_a0f59c22aa0755aece70891287352bf5c}{babel\+::server\+::\+Boost\+Tcp\+Socket}}.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a4c6b77b93cedcb874caa0a9cee6cad36}\label{classbabel_1_1common_1_1_a_tcp_socket_a4c6b77b93cedcb874caa0a9cee6cad36}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!send@{send}}
+\index{send@{send}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily virtual bool babel\+::common\+::\+A\+Tcp\+Socket\+::send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classbabel_1_1client_1_1_qt_tcp_socket_a8f6bdb14b7b6742f11cf1d9e4e39e09d}{babel\+::client\+::\+Qt\+Tcp\+Socket}}, and \mbox{\hyperlink{classbabel_1_1server_1_1_boost_tcp_socket_a037e9440c226c8701b55b005d9f1eea4}{babel\+::server\+::\+Boost\+Tcp\+Socket}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a7da9857439a1ec09a294f836fc7f4953}\label{classbabel_1_1common_1_1_a_tcp_socket_a7da9857439a1ec09a294f836fc7f4953}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!\+\_\+connection\+Info@{\+\_\+connection\+Info}}
+\index{\+\_\+connection\+Info@{\+\_\+connection\+Info}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{\+\_\+connection\+Info}{\_connectionInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbabel_1_1common_1_1_connection_info}{Connection\+Info}} babel\+::common\+::\+A\+Tcp\+Socket\+::\+\_\+connection\+Info\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 42 of file A\+Tcp\+Socket.\+hpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a3c81c4d172cd2d40a3420adb91198c44}\label{classbabel_1_1common_1_1_a_tcp_socket_a3c81c4d172cd2d40a3420adb91198c44}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!\+\_\+is\+Connect@{\+\_\+is\+Connect}}
+\index{\+\_\+is\+Connect@{\+\_\+is\+Connect}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{\+\_\+is\+Connect}{\_isConnect}}
+{\footnotesize\ttfamily bool babel\+::common\+::\+A\+Tcp\+Socket\+::\+\_\+is\+Connect\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 43 of file A\+Tcp\+Socket.\+hpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a4aa705ce6c0507c6a59137e8c42a4f20}\label{classbabel_1_1common_1_1_a_tcp_socket_a4aa705ce6c0507c6a59137e8c42a4f20}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!\+\_\+receive\+Queue@{\+\_\+receive\+Queue}}
+\index{\+\_\+receive\+Queue@{\+\_\+receive\+Queue}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{\+\_\+receive\+Queue}{\_receiveQueue}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}}$>$ babel\+::common\+::\+A\+Tcp\+Socket\+::\+\_\+receive\+Queue\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 45 of file A\+Tcp\+Socket.\+hpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a9a4028cf3901dce3a0521dcf95261c84}\label{classbabel_1_1common_1_1_a_tcp_socket_a9a4028cf3901dce3a0521dcf95261c84}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!\+\_\+uncomplete\+Packet@{\+\_\+uncomplete\+Packet}}
+\index{\+\_\+uncomplete\+Packet@{\+\_\+uncomplete\+Packet}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{\+\_\+uncomplete\+Packet}{\_uncompletePacket}}
+{\footnotesize\ttfamily std\+::string babel\+::common\+::\+A\+Tcp\+Socket\+::\+\_\+uncomplete\+Packet\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 44 of file A\+Tcp\+Socket.\+hpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_a_tcp_socket_a078160df0f68925ab42586e86f0b9bd4}\label{classbabel_1_1common_1_1_a_tcp_socket_a078160df0f68925ab42586e86f0b9bd4}} 
+\index{babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}!P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR@{P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR}}
+\index{P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR@{P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR}!babel\+::common\+::\+A\+Tcp\+Socket@{babel\+::common\+::\+A\+Tcp\+Socket}}
+\subsubsection{\texorpdfstring{P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR}{PACKET\_SEPARATOR}}
+{\footnotesize\ttfamily constexpr char babel\+::common\+::\+A\+Tcp\+Socket\+::\+P\+A\+C\+K\+E\+T\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR\mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}x1d\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 41 of file A\+Tcp\+Socket.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/common/network/\mbox{\hyperlink{_a_tcp_socket_8hpp}{A\+Tcp\+Socket.\+hpp}}\item 
+src/common/network/\mbox{\hyperlink{_a_tcp_socket_8cpp}{A\+Tcp\+Socket.\+cpp}}\end{DoxyCompactItemize}

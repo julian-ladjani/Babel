@@ -1,0 +1,5 @@
+<map id="babel::common::DataPacket::serialize" name="babel::common::DataPacket::serialize">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_qt_tcp_socket.html#a8f6bdb14b7b6742f11cf1d9e4e39e09d" title="babel::client::QtTcpSocket\l::send" alt="" coords="255,5,431,44"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_qt_tcp_socket.html#ac79df4ffe6efc050afe567c596754e5c" title="babel::client::QtTcpSocket\l::receive" alt="" coords="255,68,431,107"/>
+<area shape="rect" id="node4" href="$classbabel_1_1server_1_1_boost_tcp_socket.html#a037e9440c226c8701b55b005d9f1eea4" title="babel::server::BoostTcpSocket\l::send" alt="" coords="242,131,444,169"/>
+</map>

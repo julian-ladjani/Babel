@@ -1,0 +1,81 @@
+\hypertarget{classbabel_1_1common_1_1_command_factory}{}\section{babel\+:\+:common\+:\+:Command\+Factory Class Reference}
+\label{classbabel_1_1common_1_1_command_factory}\index{babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}}
+
+
+{\ttfamily \#include $<$Command\+Factory.\+hpp$>$}
+
+
+
+Collaboration diagram for babel\+:\+:common\+:\+:Command\+Factory\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classbabel_1_1common_1_1_command_factory__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1common_1_1_command_factory_afe9c853c6e8baf55e4629895bd5fa4bd}{Command\+Factory}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_a_command}{A\+Command}} $>$ \mbox{\hyperlink{classbabel_1_1common_1_1_command_factory_acc85d28a39f2a59ae5358d858d61eaa7}{deserialize}} (\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{Data\+Packet}} \&packet)
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_a_command}{babel\+::common\+::\+A\+Command}} $>$ \mbox{\hyperlink{classbabel_1_1common_1_1_command_factory_a8917abd2fa6e9e262fd0c5c804b009e6}{create\+Command}} (std\+::vector$<$ std\+::string $>$ args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 32 of file Command\+Factory.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_command_factory_afe9c853c6e8baf55e4629895bd5fa4bd}\label{classbabel_1_1common_1_1_command_factory_afe9c853c6e8baf55e4629895bd5fa4bd}} 
+\index{babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}!Command\+Factory@{Command\+Factory}}
+\index{Command\+Factory@{Command\+Factory}!babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}}
+\subsubsection{\texorpdfstring{Command\+Factory()}{CommandFactory()}}
+{\footnotesize\ttfamily babel\+::common\+::\+Command\+Factory\+::\+Command\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Command\+Factory.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_command_factory_a8917abd2fa6e9e262fd0c5c804b009e6}\label{classbabel_1_1common_1_1_command_factory_a8917abd2fa6e9e262fd0c5c804b009e6}} 
+\index{babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}!create\+Command@{create\+Command}}
+\index{create\+Command@{create\+Command}!babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}}
+\subsubsection{\texorpdfstring{create\+Command()}{createCommand()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classbabel_1_1common_1_1_a_command}{babel\+::common\+::\+A\+Command}}$>$ babel\+::common\+::\+Command\+Factory\+::create\+Command (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{args }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file Command\+Factory.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_command_factory_acc85d28a39f2a59ae5358d858d61eaa7}\label{classbabel_1_1common_1_1_command_factory_acc85d28a39f2a59ae5358d858d61eaa7}} 
+\index{babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!babel\+::common\+::\+Command\+Factory@{babel\+::common\+::\+Command\+Factory}}
+\subsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_a_command}{babel\+::common\+::\+A\+Command}} $>$ babel\+::common\+::\+Command\+Factory\+::deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{Data\+Packet}} \&}]{packet }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file Command\+Factory.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_command_factory_acc85d28a39f2a59ae5358d858d61eaa7_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/common/command/\mbox{\hyperlink{_command_factory_8hpp}{Command\+Factory.\+hpp}}\item 
+src/common/command/\mbox{\hyperlink{_command_factory_8cpp}{Command\+Factory.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_audio_manager.html#a2cea1058232cdce07789770bd1e4b268" title="babel::client::AudioManager\l::startStream" alt="" coords="104,5,290,44"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_audio_manager.html#a71802aa6bb9e397add7f3d7112d35d98" title="babel::client::AudioManager\l::startRecording" alt="" coords="104,68,290,107"/>
+<area shape="rect" id="node4" href="$classbabel_1_1common_1_1_exception.html#ab18e71922173ed032bd7c59ebe7ac299" title="babel::common::Exception\l::what" alt="" coords="108,131,286,169"/>
+</map>

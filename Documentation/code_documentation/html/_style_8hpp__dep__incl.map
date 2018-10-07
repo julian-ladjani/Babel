@@ -1,0 +1,28 @@
+<map id="src/client/gui/components/Style.hpp" name="src/client/gui/components/Style.hpp">
+<area shape="rect" id="node2" href="$_style_manager_8hpp.html" title="src/client/gui/components\l/StyleManager.hpp" alt="" coords="957,92,1129,131"/>
+<area shape="rect" id="node27" href="$_style_8cpp.html" title="src/client/gui/components\l/Style.cpp" alt="" coords="1153,92,1325,131"/>
+<area shape="rect" id="node3" href="$_button_8hpp.html" title="src/client/gui/components\l/Button.hpp" alt="" coords="860,179,1032,217"/>
+<area shape="rect" id="node26" href="$_style_manager_8cpp.html" title="src/client/gui/components\l/StyleManager.cpp" alt="" coords="1056,179,1228,217"/>
+<area shape="rect" id="node4" href="$_a_babel_page_8hpp.html" title="src/client/gui/pages\l/ABabelPage.hpp" alt="" coords="534,265,670,304"/>
+<area shape="rect" id="node14" href="$_echo_sound_test_service_page_8hpp.html" title="src/client/gui/pages\l/EchoSoundTestServicePage.hpp" alt="" coords="520,525,740,564"/>
+<area shape="rect" id="node25" href="$_button_8cpp.html" title="src/client/gui/components\l/Button.cpp" alt="" coords="983,265,1154,304"/>
+<area shape="rect" id="node5" href="$_main_window_8hpp.html" title="src/client/gui/MainWindow.hpp" alt="" coords="293,619,494,644"/>
+<area shape="rect" id="node10" href="$_page_manager_8hpp.html" title="src/client/gui/pages\l/PageManager.hpp" alt="" coords="23,352,159,391"/>
+<area shape="rect" id="node12" href="$_t_conversation_8hpp.html" title="src/client/gui/components\l/TConversation.hpp" alt="" coords="233,352,405,391"/>
+<area shape="rect" id="node13" href="$_connection_page_8hpp.html" title="src/client/gui/pages\l/ConnectionPage.hpp" alt="" coords="430,439,579,477"/>
+<area shape="rect" id="node16" href="$_main_page_8hpp.html" title="src/client/gui/pages\l/MainPage.hpp" alt="" coords="779,525,915,564"/>
+<area shape="rect" id="node22" href="$_call_page_8hpp.html" title="src/client/gui/pages\l/CallPage.hpp" alt="" coords="690,352,826,391"/>
+<area shape="rect" id="node24" href="$_a_babel_page_8cpp.html" title="src/client/gui/pages\l/ABabelPage.cpp" alt="" coords="429,352,564,391"/>
+<area shape="rect" id="node6" href="$_babel_8hpp.html" title="src/client/Babel.hpp" alt="" coords="132,705,269,731"/>
+<area shape="rect" id="node8" href="$_main_window_8cpp.html" title="src/client/gui/MainWindow.cpp" alt="" coords="294,705,494,731"/>
+<area shape="rect" id="node9" href="$_main_client_8cpp.html" title="src/client/MainClient.cpp" alt="" coords="518,705,683,731"/>
+<area shape="rect" id="node7" href="$_babel_8cpp.html" title="src/client/Babel.cpp" alt="" coords="132,785,269,811"/>
+<area shape="rect" id="node11" href="$_page_manager_8cpp.html" title="src/client/gui/pages\l/PageManager.cpp" alt="" coords="23,439,159,477"/>
+<area shape="rect" id="node21" href="$_t_conversation_8cpp.html" title="src/client/gui/components\l/TConversation.cpp" alt="" coords="233,439,405,477"/>
+<area shape="rect" id="node20" href="$_connection_page_8cpp.html" title="src/client/gui/pages\l/ConnectionPage.cpp" alt="" coords="297,525,446,564"/>
+<area shape="rect" id="node15" href="$_echo_sound_test_service_page_8cpp.html" title="src/client/gui/pages\l/EchoSoundTestServicePage.cpp" alt="" coords="518,612,737,651"/>
+<area shape="rect" id="node17" href="$_t_micro_8hpp.html" title="src/client/gui/components\l/TMicro.hpp" alt="" coords="761,612,933,651"/>
+<area shape="rect" id="node19" href="$_main_page_8cpp.html" title="src/client/gui/pages\l/MainPage.cpp" alt="" coords="957,612,1092,651"/>
+<area shape="rect" id="node18" href="$_t_micro_8cpp.html" title="src/client/gui/components\l/TMicro.cpp" alt="" coords="761,699,933,737"/>
+<area shape="rect" id="node23" href="$_call_page_8cpp.html" title="src/client/gui/pages\l/CallPage.cpp" alt="" coords="671,439,807,477"/>
+</map>

@@ -1,0 +1,229 @@
+\hypertarget{classbabel_1_1client_1_1_main_page}{}\section{babel\+:\+:client\+:\+:Main\+Page Class Reference}
+\label{classbabel_1_1client_1_1_main_page}\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+
+
+{\ttfamily \#include $<$Main\+Page.\+hpp$>$}
+
+
+
+Inheritance diagram for babel\+:\+:client\+:\+:Main\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classbabel_1_1client_1_1_main_page__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for babel\+:\+:client\+:\+:Main\+Page\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classbabel_1_1client_1_1_main_page__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a074e02d9bc1d546bf91428a2d32b91ba}{change\+Page}} (std\+::string page\+Name)
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a67ad5c452053020a9c04315d97d01a8b}{disconnect}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_ac26005a5a71444e1f9d84852b642a5e3}{change\+Mic}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1client_1_1_main_page_ae98d1ec7f7eecae6cbbed21ffeaa1762}{Main\+Page}} (\mbox{\hyperlink{classbabel_1_1client_1_1_client_info}{client\+::\+Client\+Info}} \&\mbox{\hyperlink{classbabel_1_1client_1_1_a_babel_page_aa2070ebfda878ceff938b8a60e7e2898}{\+\_\+infos}})
+\item 
+\mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a94e35edc679b094fcfe80246a386c0c0}{$\sim$\+Main\+Page}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_ac26d6673b35dd999441c4d4e0ac75167}{init\+Socket}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a67221fe4867d4ed09de3d57135578fd2}{init\+Side\+Bar}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a2470869cdd04299fd5730d2f3238f773}{init\+Main}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a4d08b1d3f23a58f937e7bb716317b924}{read\+Data}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a04bbc090f594f37b254e2d7d751fbdb9}{set\+Login}} ()
+\item 
+\mbox{\hyperlink{classbabel_1_1client_1_1_call_page}{Call\+Page}} \& \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_ac15fa7d1c10d493edaf9ddbadf4f45ae}{get\+Call\+Section}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_a4c7d94ab3421e1032ed97dc90787f57a}{connections}} () override
+\item 
+void \mbox{\hyperlink{classbabel_1_1client_1_1_main_page_ae2447ec4e19e7694afc106ccb52a0d43}{read\+Tcp\+Data}} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file Main\+Page.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_ae98d1ec7f7eecae6cbbed21ffeaa1762}\label{classbabel_1_1client_1_1_main_page_ae98d1ec7f7eecae6cbbed21ffeaa1762}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!Main\+Page@{Main\+Page}}
+\index{Main\+Page@{Main\+Page}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{Main\+Page()}{MainPage()}}
+{\footnotesize\ttfamily babel\+::client\+::\+Main\+Page\+::\+Main\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1client_1_1_client_info}{client\+::\+Client\+Info}} \&}]{\+\_\+infos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 10 of file Main\+Page.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a94e35edc679b094fcfe80246a386c0c0}\label{classbabel_1_1client_1_1_main_page_a94e35edc679b094fcfe80246a386c0c0}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!````~Main\+Page@{$\sim$\+Main\+Page}}
+\index{````~Main\+Page@{$\sim$\+Main\+Page}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Page()}{~MainPage()}}
+{\footnotesize\ttfamily babel\+::client\+::\+Main\+Page\+::$\sim$\+Main\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file Main\+Page.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_ac26005a5a71444e1f9d84852b642a5e3}\label{classbabel_1_1client_1_1_main_page_ac26005a5a71444e1f9d84852b642a5e3}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!change\+Mic@{change\+Mic}}
+\index{change\+Mic@{change\+Mic}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{change\+Mic}{changeMic}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::change\+Mic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classbabel_1_1client_1_1_main_page_ac26005a5a71444e1f9d84852b642a5e3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a074e02d9bc1d546bf91428a2d32b91ba}\label{classbabel_1_1client_1_1_main_page_a074e02d9bc1d546bf91428a2d32b91ba}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!change\+Page@{change\+Page}}
+\index{change\+Page@{change\+Page}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{change\+Page}{changePage}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::change\+Page (\begin{DoxyParamCaption}\item[{std\+::string}]{page\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a4c7d94ab3421e1032ed97dc90787f57a}\label{classbabel_1_1client_1_1_main_page_a4c7d94ab3421e1032ed97dc90787f57a}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!connections@{connections}}
+\index{connections@{connections}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{connections()}{connections()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classbabel_1_1client_1_1_a_babel_page_a37097dfd8ded982074554509e5eab8b0}{babel\+::client\+::\+A\+Babel\+Page}}.
+
+
+
+Definition at line 82 of file Main\+Page.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1client_1_1_main_page_a4c7d94ab3421e1032ed97dc90787f57a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a67ad5c452053020a9c04315d97d01a8b}\label{classbabel_1_1client_1_1_main_page_a67ad5c452053020a9c04315d97d01a8b}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{disconnect}{disconnect}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_ac15fa7d1c10d493edaf9ddbadf4f45ae}\label{classbabel_1_1client_1_1_main_page_ac15fa7d1c10d493edaf9ddbadf4f45ae}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!get\+Call\+Section@{get\+Call\+Section}}
+\index{get\+Call\+Section@{get\+Call\+Section}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{get\+Call\+Section()}{getCallSection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbabel_1_1client_1_1_call_page}{babel\+::client\+::\+Call\+Page}} \& babel\+::client\+::\+Main\+Page\+::get\+Call\+Section (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file Main\+Page.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a2470869cdd04299fd5730d2f3238f773}\label{classbabel_1_1client_1_1_main_page_a2470869cdd04299fd5730d2f3238f773}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!init\+Main@{init\+Main}}
+\index{init\+Main@{init\+Main}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{init\+Main()}{initMain()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::init\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 74 of file Main\+Page.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a67221fe4867d4ed09de3d57135578fd2}\label{classbabel_1_1client_1_1_main_page_a67221fe4867d4ed09de3d57135578fd2}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!init\+Side\+Bar@{init\+Side\+Bar}}
+\index{init\+Side\+Bar@{init\+Side\+Bar}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{init\+Side\+Bar()}{initSideBar()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::init\+Side\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file Main\+Page.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_ac26d6673b35dd999441c4d4e0ac75167}\label{classbabel_1_1client_1_1_main_page_ac26d6673b35dd999441c4d4e0ac75167}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!init\+Socket@{init\+Socket}}
+\index{init\+Socket@{init\+Socket}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{init\+Socket()}{initSocket()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::init\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file Main\+Page.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a4d08b1d3f23a58f937e7bb716317b924}\label{classbabel_1_1client_1_1_main_page_a4d08b1d3f23a58f937e7bb716317b924}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!read\+Data@{read\+Data}}
+\index{read\+Data@{read\+Data}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{read\+Data()}{readData()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::read\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file Main\+Page.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1client_1_1_main_page_a4d08b1d3f23a58f937e7bb716317b924_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_ae2447ec4e19e7694afc106ccb52a0d43}\label{classbabel_1_1client_1_1_main_page_ae2447ec4e19e7694afc106ccb52a0d43}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!read\+Tcp\+Data@{read\+Tcp\+Data}}
+\index{read\+Tcp\+Data@{read\+Tcp\+Data}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{read\+Tcp\+Data()}{readTcpData()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::read\+Tcp\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 146 of file Main\+Page.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1client_1_1_main_page_ae2447ec4e19e7694afc106ccb52a0d43_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1client_1_1_main_page_a04bbc090f594f37b254e2d7d751fbdb9}\label{classbabel_1_1client_1_1_main_page_a04bbc090f594f37b254e2d7d751fbdb9}} 
+\index{babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}!set\+Login@{set\+Login}}
+\index{set\+Login@{set\+Login}!babel\+::client\+::\+Main\+Page@{babel\+::client\+::\+Main\+Page}}
+\subsubsection{\texorpdfstring{set\+Login()}{setLogin()}}
+{\footnotesize\ttfamily void babel\+::client\+::\+Main\+Page\+::set\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file Main\+Page.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/client/gui/pages/\mbox{\hyperlink{_main_page_8hpp}{Main\+Page.\+hpp}}\item 
+src/client/gui/pages/\mbox{\hyperlink{_main_page_8cpp}{Main\+Page.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var namespacebabel_1_1client =
+[
+    [ "ABabelPage", "classbabel_1_1client_1_1_a_babel_page.html", "classbabel_1_1client_1_1_a_babel_page" ],
+    [ "AudioEncoder", "classbabel_1_1client_1_1_audio_encoder.html", "classbabel_1_1client_1_1_audio_encoder" ],
+    [ "AudioManager", "classbabel_1_1client_1_1_audio_manager.html", "classbabel_1_1client_1_1_audio_manager" ],
+    [ "Babel", "classbabel_1_1client_1_1_babel.html", "classbabel_1_1client_1_1_babel" ],
+    [ "Button", "classbabel_1_1client_1_1_button.html", "classbabel_1_1client_1_1_button" ],
+    [ "CallController", "classbabel_1_1client_1_1_call_controller.html", "classbabel_1_1client_1_1_call_controller" ],
+    [ "CallPage", "classbabel_1_1client_1_1_call_page.html", "classbabel_1_1client_1_1_call_page" ],
+    [ "Chat", "classbabel_1_1client_1_1_chat.html", "classbabel_1_1client_1_1_chat" ],
+    [ "ClientInfo", "classbabel_1_1client_1_1_client_info.html", "classbabel_1_1client_1_1_client_info" ],
+    [ "CommandHandler", "classbabel_1_1client_1_1_command_handler.html", "classbabel_1_1client_1_1_command_handler" ],
+    [ "ConnectionPage", "classbabel_1_1client_1_1_connection_page.html", "classbabel_1_1client_1_1_connection_page" ],
+    [ "EchoSoundTestServicePage", "classbabel_1_1client_1_1_echo_sound_test_service_page.html", "classbabel_1_1client_1_1_echo_sound_test_service_page" ],
+    [ "GroupBox", "classbabel_1_1client_1_1_group_box.html", "classbabel_1_1client_1_1_group_box" ],
+    [ "Image", "classbabel_1_1client_1_1_image.html", "classbabel_1_1client_1_1_image" ],
+    [ "Input", "classbabel_1_1client_1_1_input.html", "classbabel_1_1client_1_1_input" ],
+    [ "Label", "classbabel_1_1client_1_1_label.html", "classbabel_1_1client_1_1_label" ],
+    [ "ListWidget", "classbabel_1_1client_1_1_list_widget.html", "classbabel_1_1client_1_1_list_widget" ],
+    [ "MainPage", "classbabel_1_1client_1_1_main_page.html", "classbabel_1_1client_1_1_main_page" ],
+    [ "MainWindow", "classbabel_1_1client_1_1_main_window.html", "classbabel_1_1client_1_1_main_window" ],
+    [ "PageManager", "classbabel_1_1client_1_1_page_manager.html", "classbabel_1_1client_1_1_page_manager" ],
+    [ "QtTcpSocket", "classbabel_1_1client_1_1_qt_tcp_socket.html", "classbabel_1_1client_1_1_qt_tcp_socket" ],
+    [ "Style", "classbabel_1_1client_1_1_style.html", "classbabel_1_1client_1_1_style" ],
+    [ "StyleManager", "classbabel_1_1client_1_1_style_manager.html", "classbabel_1_1client_1_1_style_manager" ],
+    [ "TConversation", "classbabel_1_1client_1_1_t_conversation.html", "classbabel_1_1client_1_1_t_conversation" ],
+    [ "TMicro", "classbabel_1_1client_1_1_t_micro.html", "classbabel_1_1client_1_1_t_micro" ]
+];

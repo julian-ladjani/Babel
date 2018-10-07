@@ -1,0 +1,7 @@
+<map id="babel::client::CallController::startCall" name="babel::client::CallController::startCall">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_audio_manager.html#a6e370c5b51c74ee31a81cc7ec1cdadb2" title="babel::client::AudioManager\l::getSampleRate" alt="" coords="234,5,421,44"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_audio_manager.html#a9d53c9ba60013ae16beee6e33147de81" title="babel::client::AudioManager\l::getChannel" alt="" coords="234,68,421,107"/>
+<area shape="rect" id="node4" href="$classbabel_1_1client_1_1_audio_manager.html#a2cea1058232cdce07789770bd1e4b268" title="babel::client::AudioManager\l::startStream" alt="" coords="234,131,421,169"/>
+<area shape="rect" id="node5" href="$classbabel_1_1client_1_1_audio_manager.html#a71802aa6bb9e397add7f3d7112d35d98" title="babel::client::AudioManager\l::startRecording" alt="" coords="234,193,421,232"/>
+<area shape="rect" id="node6" href="$classbabel_1_1client_1_1_audio_manager.html#abe6f93340f16c366d6e2a447f8f32965" title="babel::client::AudioManager\l::getRecord" alt="" coords="234,256,421,295"/>
+</map>

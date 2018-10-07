@@ -1,0 +1,6 @@
+<map id="babel::client::CallPage" name="babel::client::CallPage">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_a_babel_page.html" title="{babel::client::ABabelPage\n||+ ABabelPage()\l+ ~ABabelPage()\l# connections()\l}" alt="" coords="68,409,242,509"/>
+<area shape="rect" id="node3" href="$class_q_widget.html" title="{QWidget\n||}" alt="" coords="5,201,79,275"/>
+<area shape="rect" id="node5" href="$classbabel_1_1client_1_1_client_info.html" title="{babel::client::ClientInfo\n||+ ClientInfo()\l+ getClientInfo()\l+ setClientInfo()\l+ getServerInfo()\l+ setServerInfo()\l+ getContacts()\l+ setContacts()\l+ addContact()\l+ removeContact()\l+ getSocket()\l+ getActiveUser()\l+ setActiveUser()\l}" alt="" coords="232,128,388,348"/>
+<area shape="rect" id="node6" href="$class_q_object.html" title="{QObject\n||}" alt="" coords="275,5,345,79"/>
+</map>

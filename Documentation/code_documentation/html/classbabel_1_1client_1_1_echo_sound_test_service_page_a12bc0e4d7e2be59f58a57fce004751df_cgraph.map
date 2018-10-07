@@ -1,0 +1,5 @@
+<map id="babel::client::EchoSoundTestServicePage::initSocket" name="babel::client::EchoSoundTestServicePage::initSocket">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_client_info.html#a50cd2a1bae911402337b166c55d28770" title="babel::client::ClientInfo\l::getClientInfo" alt="" coords="255,5,412,44"/>
+<area shape="rect" id="node3" href="$classbabel_1_1common_1_1_user.html#a6dcd5d99ec1d1a789f71711c2601bef2" title="babel::common::User\l::getConnectionInfo" alt="" coords="260,68,408,107"/>
+<area shape="rect" id="node4" href="$classbabel_1_1common_1_1_connection_info.html#a218d1756c060abaaa9d2390f65031f66" title="babel::common::Connection\lInfo::getIp" alt="" coords="240,131,427,169"/>
+</map>

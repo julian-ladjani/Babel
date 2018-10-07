@@ -1,0 +1,10 @@
+<map id="src/client/gui/pages/MainPage.hpp" name="src/client/gui/pages/MainPage.hpp">
+<area shape="rect" id="node2" href="$_main_window_8hpp.html" title="src/client/gui/MainWindow.hpp" alt="" coords="262,99,463,124"/>
+<area shape="rect" id="node7" href="$_t_micro_8hpp.html" title="src/client/gui/components\l/TMicro.hpp" alt="" coords="534,92,705,131"/>
+<area shape="rect" id="node9" href="$_main_page_8cpp.html" title="src/client/gui/pages\l/MainPage.cpp" alt="" coords="729,92,865,131"/>
+<area shape="rect" id="node3" href="$_babel_8hpp.html" title="src/client/Babel.hpp" alt="" coords="5,185,143,211"/>
+<area shape="rect" id="node5" href="$_main_window_8cpp.html" title="src/client/gui/MainWindow.cpp" alt="" coords="168,185,367,211"/>
+<area shape="rect" id="node6" href="$_main_client_8cpp.html" title="src/client/MainClient.cpp" alt="" coords="391,185,557,211"/>
+<area shape="rect" id="node4" href="$_babel_8cpp.html" title="src/client/Babel.cpp" alt="" coords="6,265,143,291"/>
+<area shape="rect" id="node8" href="$_t_micro_8cpp.html" title="src/client/gui/components\l/TMicro.cpp" alt="" coords="582,179,753,217"/>
+</map>

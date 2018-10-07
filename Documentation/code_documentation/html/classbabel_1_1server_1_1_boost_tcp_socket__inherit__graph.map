@@ -1,0 +1,3 @@
+<map id="babel::server::BoostTcpSocket" name="babel::server::BoostTcpSocket">
+<area shape="rect" id="node2" href="$classbabel_1_1common_1_1_a_tcp_socket.html" title="{babel::common::ATcpSocket\n|# _connectionInfo\l# _isConnect\l# _uncompletePacket\l# _receiveQueue\l# PACKET_SEPARATOR\l|+ ATcpSocket()\l+ ~ATcpSocket()\l+ connect()\l+ send()\l+ receive()\l+ disconnect()\l+ getConnectionInfo()\l+ isConnect()\l+ operator==()\l+ operator==()\l# addPacketsToQueue()\l# getPacketFromQueue()\l}" alt="" coords="11,5,201,279"/>
+</map>

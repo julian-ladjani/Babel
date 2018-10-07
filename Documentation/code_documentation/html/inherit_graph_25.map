@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_q_widget.html" title="QWidget" alt="" coords="5,83,79,108"/>
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_a_babel_page.html" title="babel::client::ABabelPage" alt="" coords="127,83,301,108"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_call_page.html" title="babel::client::CallPage" alt="" coords="371,5,525,31"/>
+<area shape="rect" id="node4" href="$classbabel_1_1client_1_1_connection_page.html" title="babel::client::ConnectionPage" alt="" coords="349,55,547,80"/>
+<area shape="rect" id="node5" href="$classbabel_1_1client_1_1_echo_sound_test_service_page.html" title="babel::client::EchoSound\lTestServicePage" alt="" coords="363,104,532,143"/>
+<area shape="rect" id="node6" href="$classbabel_1_1client_1_1_main_page.html" title="babel::client::MainPage" alt="" coords="368,167,528,192"/>
+</map>

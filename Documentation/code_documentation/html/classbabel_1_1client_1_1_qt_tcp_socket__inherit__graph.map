@@ -1,0 +1,4 @@
+<map id="babel::client::QtTcpSocket" name="babel::client::QtTcpSocket">
+<area shape="rect" id="node2" href="$class_q_object.html" title="{QObject\n||}" alt="" coords="5,105,76,179"/>
+<area shape="rect" id="node3" href="$classbabel_1_1common_1_1_a_tcp_socket.html" title="{babel::common::ATcpSocket\n|# _connectionInfo\l# _isConnect\l# _uncompletePacket\l# _receiveQueue\l# PACKET_SEPARATOR\l|+ ATcpSocket()\l+ ~ATcpSocket()\l+ connect()\l+ send()\l+ receive()\l+ disconnect()\l+ getConnectionInfo()\l+ isConnect()\l+ operator==()\l+ operator==()\l# addPacketsToQueue()\l# getPacketFromQueue()\l}" alt="" coords="99,5,288,279"/>
+</map>

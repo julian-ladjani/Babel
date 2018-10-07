@@ -1,0 +1,22 @@
+<map id="src/client/gui/pages/CallPage.hpp" name="src/client/gui/pages/CallPage.hpp">
+<area shape="rect" id="node3" href="$_chat_8hpp.html" title="src/client/gui/components\l/Chat.hpp" alt="" coords="2850,92,3022,131"/>
+<area shape="rect" id="node5" href="$_a_babel_page_8hpp.html" title="ABabelPage.hpp" alt="" coords="1791,99,1913,124"/>
+<area shape="rect" id="node19" href="$_client_info_8hpp.html" title="src/client/ClientInfo.hpp" alt="" coords="3244,185,3404,211"/>
+<area shape="rect" id="node40" href="$_input_8hpp.html" title="src/client/gui/components\l/Input.hpp" alt="" coords="3049,179,3221,217"/>
+<area shape="rect" id="node42" href="$_image_8hpp.html" title="src/client/gui/components\l/Image.hpp" alt="" coords="194,179,366,217"/>
+<area shape="rect" id="node46" href="$_button_8hpp.html" title="src/client/gui/components\l/Button.hpp" alt="" coords="729,179,901,217"/>
+<area shape="rect" id="node60" href="$_label_8hpp.html" title="src/client/gui/components\l/Label.hpp" alt="" coords="462,179,634,217"/>
+<area shape="rect" id="node61" href="$_list_widget_8hpp.html" title="src/client/gui/components\l/ListWidget.hpp" alt="" coords="1480,179,1651,217"/>
+<area shape="rect" id="node64" href="$_group_box_8hpp.html" title="src/client/gui/components\l/GroupBox.hpp" alt="" coords="3478,179,3650,217"/>
+<area shape="rect" id="node22" href="$_qt_tcp_socket_8hpp.html" title="src/client/network\l/QtTcpSocket.hpp" alt="" coords="2751,265,2878,304"/>
+<area shape="rect" id="node39" href="$_user_8hpp.html" title="src/common/User.hpp" alt="" coords="2335,272,2486,297"/>
+<area shape="rect" id="node27" href="$_a_tcp_socket_8hpp.html" title="src/common/network\l/ATcpSocket.hpp" alt="" coords="3143,352,3287,391"/>
+<area shape="rect" id="node36" href="$_tcp_socket_exception_8hpp.html" title="src/common/exception\l/TcpSocketException.hpp" alt="" coords="2393,352,2564,391"/>
+<area shape="rect" id="node30" href="$_connection_info_8hpp.html" title="ConnectionInfo.hpp" alt="" coords="2410,445,2547,471"/>
+<area shape="rect" id="node32" href="$_command_name_8hpp.html" title="src/common/command\l/CommandName.hpp" alt="" coords="3618,525,3774,564"/>
+<area shape="rect" id="node33" href="$_data_packet_8hpp.html" title="DataPacket.hpp" alt="" coords="3413,445,3529,471"/>
+<area shape="rect" id="node37" href="$_exception_8hpp.html" title="Exception.hpp" alt="" coords="1435,445,1541,471"/>
+<area shape="rect" id="node55" href="$_size_8hpp.html" title="Size.hpp" alt="" coords="869,272,942,297"/>
+<area shape="rect" id="node56" href="$_style_manager_8hpp.html" title="StyleManager.hpp" alt="" coords="460,272,588,297"/>
+<area shape="rect" id="node57" href="$_style_8hpp.html" title="Style.hpp" alt="" coords="486,359,563,384"/>
+</map>

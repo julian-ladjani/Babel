@@ -1,0 +1,12 @@
+<map id="src/client/gui/pages/CallPage.hpp" name="src/client/gui/pages/CallPage.hpp">
+<area shape="rect" id="node2" href="$_main_page_8hpp.html" title="src/client/gui/pages\l/MainPage.hpp" alt="" coords="552,92,687,131"/>
+<area shape="rect" id="node11" href="$_call_page_8cpp.html" title="src/client/gui/pages\l/CallPage.cpp" alt="" coords="712,92,847,131"/>
+<area shape="rect" id="node3" href="$_main_window_8hpp.html" title="src/client/gui/MainWindow.hpp" alt="" coords="262,185,463,211"/>
+<area shape="rect" id="node8" href="$_t_micro_8hpp.html" title="src/client/gui/components\l/TMicro.hpp" alt="" coords="534,179,705,217"/>
+<area shape="rect" id="node10" href="$_main_page_8cpp.html" title="src/client/gui/pages\l/MainPage.cpp" alt="" coords="729,179,865,217"/>
+<area shape="rect" id="node4" href="$_babel_8hpp.html" title="src/client/Babel.hpp" alt="" coords="5,272,143,297"/>
+<area shape="rect" id="node6" href="$_main_window_8cpp.html" title="src/client/gui/MainWindow.cpp" alt="" coords="168,272,367,297"/>
+<area shape="rect" id="node7" href="$_main_client_8cpp.html" title="src/client/MainClient.cpp" alt="" coords="391,272,557,297"/>
+<area shape="rect" id="node5" href="$_babel_8cpp.html" title="src/client/Babel.cpp" alt="" coords="6,352,143,377"/>
+<area shape="rect" id="node9" href="$_t_micro_8cpp.html" title="src/client/gui/components\l/TMicro.cpp" alt="" coords="582,265,753,304"/>
+</map>

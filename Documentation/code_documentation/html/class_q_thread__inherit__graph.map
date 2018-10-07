@@ -1,0 +1,4 @@
+<map id="QThread" name="QThread">
+<area shape="rect" id="node2" href="$classbabel_1_1client_1_1_t_conversation.html" title="{babel::client::TConversation\n||+ TConversation()\l+ ~TConversation()\l+ run()\l+ applyConversation()\l+ is_loop()\l+ changeContact()\l}" alt="" coords="5,127,192,267"/>
+<area shape="rect" id="node3" href="$classbabel_1_1client_1_1_t_micro.html" title="{babel::client::TMicro\n||+ TMicro()\l+ ~TMicro()\l+ run()\l+ changeMic()\l+ is_loop()\l}" alt="" coords="216,133,357,260"/>
+</map>

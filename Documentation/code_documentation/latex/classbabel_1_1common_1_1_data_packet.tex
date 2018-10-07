@@ -1,0 +1,202 @@
+\hypertarget{classbabel_1_1common_1_1_data_packet}{}\section{babel\+:\+:common\+:\+:Data\+Packet Class Reference}
+\label{classbabel_1_1common_1_1_data_packet}\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+
+
+{\ttfamily \#include $<$Data\+Packet.\+hpp$>$}
+
+
+
+Collaboration diagram for babel\+:\+:common\+:\+:Data\+Packet\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classbabel_1_1common_1_1_data_packet__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_a860ff3cd9e290b5b22efaf4f73c1cf1c}{Data\+Packet}} (\mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2c}{Command\+Name}} command\+Id=\mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2ca452461e4930e2af5d48e5d2f3eecf98f}{C\+M\+D\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}}, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())
+\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_a9b5191cfb79290db7eea1a9b9aff3936}{get\+Args}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_aa81d00824a4e02c4800cb0f98a054527}{set\+Args}} (const std\+::vector$<$ std\+::string $>$ \&\+\_\+args)
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_a5fa7533d1b80455b7400286ecef769d2}{add\+Arg}} (std\+::string)
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_a809bfdee8aa18d067790b9d2672d1ab7}{remove\+Arg}} (std\+::string)
+\item 
+\mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2c}{Command\+Name}} \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_a70997898a38b52a810dcaab6e390e13b}{get\+Command\+Id}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_ac931a547932857c13bbb641464d43422}{get\+Nb\+Args}} () const
+\item 
+void \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_ad156fb4f229df76b32fa8511eeb76b40}{set\+Command\+Id}} (\mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2c}{Command\+Name}} command\+Id)
+\item 
+const std\+::string \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_a5b7325b86634dfc305bcc102bfc95636}{serialize}} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{Data\+Packet}} \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet_aeb93b2fb7ceaa5d78409808796a895f4}{deserialize}} (std\+::string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file Data\+Packet.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_a860ff3cd9e290b5b22efaf4f73c1cf1c}\label{classbabel_1_1common_1_1_data_packet_a860ff3cd9e290b5b22efaf4f73c1cf1c}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!Data\+Packet@{Data\+Packet}}
+\index{Data\+Packet@{Data\+Packet}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{Data\+Packet()}{DataPacket()}}
+{\footnotesize\ttfamily babel\+::common\+::\+Data\+Packet\+::\+Data\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2c}{Command\+Name}}}]{command\+Id = {\ttfamily \mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2ca452461e4930e2af5d48e5d2f3eecf98f}{C\+M\+D\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}}},  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Data\+Packet.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_a5fa7533d1b80455b7400286ecef769d2}\label{classbabel_1_1common_1_1_data_packet_a5fa7533d1b80455b7400286ecef769d2}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!add\+Arg@{add\+Arg}}
+\index{add\+Arg@{add\+Arg}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{add\+Arg()}{addArg()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+Data\+Packet\+::add\+Arg (\begin{DoxyParamCaption}\item[{std\+::string}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file Data\+Packet.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_aeb93b2fb7ceaa5d78409808796a895f4}\label{classbabel_1_1common_1_1_data_packet_aeb93b2fb7ceaa5d78409808796a895f4}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbabel_1_1common_1_1_data_packet}{babel\+::common\+::\+Data\+Packet}} babel\+::common\+::\+Data\+Packet\+::deserialize (\begin{DoxyParamCaption}\item[{std\+::string}]{serialized }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 75 of file Data\+Packet.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_data_packet_aeb93b2fb7ceaa5d78409808796a895f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_a9b5191cfb79290db7eea1a9b9aff3936}\label{classbabel_1_1common_1_1_data_packet_a9b5191cfb79290db7eea1a9b9aff3936}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!get\+Args@{get\+Args}}
+\index{get\+Args@{get\+Args}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{get\+Args()}{getArgs()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& babel\+::common\+::\+Data\+Packet\+::get\+Args (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 42 of file Data\+Packet.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_data_packet_a9b5191cfb79290db7eea1a9b9aff3936_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_a70997898a38b52a810dcaab6e390e13b}\label{classbabel_1_1common_1_1_data_packet_a70997898a38b52a810dcaab6e390e13b}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!get\+Command\+Id@{get\+Command\+Id}}
+\index{get\+Command\+Id@{get\+Command\+Id}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{get\+Command\+Id()}{getCommandId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2c}{babel\+::common\+::\+Command\+Name}} babel\+::common\+::\+Data\+Packet\+::get\+Command\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 17 of file Data\+Packet.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_data_packet_a70997898a38b52a810dcaab6e390e13b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_ac931a547932857c13bbb641464d43422}\label{classbabel_1_1common_1_1_data_packet_ac931a547932857c13bbb641464d43422}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!get\+Nb\+Args@{get\+Nb\+Args}}
+\index{get\+Nb\+Args@{get\+Nb\+Args}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{get\+Nb\+Args()}{getNbArgs()}}
+{\footnotesize\ttfamily size\+\_\+t babel\+::common\+::\+Data\+Packet\+::get\+Nb\+Args (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 22 of file Data\+Packet.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_a809bfdee8aa18d067790b9d2672d1ab7}\label{classbabel_1_1common_1_1_data_packet_a809bfdee8aa18d067790b9d2672d1ab7}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!remove\+Arg@{remove\+Arg}}
+\index{remove\+Arg@{remove\+Arg}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{remove\+Arg()}{removeArg()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+Data\+Packet\+::remove\+Arg (\begin{DoxyParamCaption}\item[{std\+::string}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file Data\+Packet.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_a5b7325b86634dfc305bcc102bfc95636}\label{classbabel_1_1common_1_1_data_packet_a5b7325b86634dfc305bcc102bfc95636}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!serialize@{serialize}}
+\index{serialize@{serialize}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily const std\+::string babel\+::common\+::\+Data\+Packet\+::serialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 53 of file Data\+Packet.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_data_packet_a5b7325b86634dfc305bcc102bfc95636_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_aa81d00824a4e02c4800cb0f98a054527}\label{classbabel_1_1common_1_1_data_packet_aa81d00824a4e02c4800cb0f98a054527}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!set\+Args@{set\+Args}}
+\index{set\+Args@{set\+Args}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{set\+Args()}{setArgs()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+Data\+Packet\+::set\+Args (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{\+\_\+args }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file Data\+Packet.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_data_packet_aa81d00824a4e02c4800cb0f98a054527_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1common_1_1_data_packet_ad156fb4f229df76b32fa8511eeb76b40}\label{classbabel_1_1common_1_1_data_packet_ad156fb4f229df76b32fa8511eeb76b40}} 
+\index{babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}!set\+Command\+Id@{set\+Command\+Id}}
+\index{set\+Command\+Id@{set\+Command\+Id}!babel\+::common\+::\+Data\+Packet@{babel\+::common\+::\+Data\+Packet}}
+\subsubsection{\texorpdfstring{set\+Command\+Id()}{setCommandId()}}
+{\footnotesize\ttfamily void babel\+::common\+::\+Data\+Packet\+::set\+Command\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacebabel_1_1common_a2d31f246c776da6bf656bd71e86cbb2c}{Command\+Name}}}]{command\+Id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file Data\+Packet.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1common_1_1_data_packet_ad156fb4f229df76b32fa8511eeb76b40_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/common/network/\mbox{\hyperlink{_data_packet_8hpp}{Data\+Packet.\+hpp}}\item 
+src/common/network/\mbox{\hyperlink{_data_packet_8cpp}{Data\+Packet.\+cpp}}\end{DoxyCompactItemize}

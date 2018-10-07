@@ -1,0 +1,16 @@
+<map id="src/client/gui/components/TConversation.hpp" name="src/client/gui/components/TConversation.hpp">
+<area shape="rect" id="node2" href="$_connection_page_8hpp.html" title="src/client/gui/pages\l/ConnectionPage.hpp" alt="" coords="467,92,616,131"/>
+<area shape="rect" id="node15" href="$_t_conversation_8cpp.html" title="src/client/gui/components\l/TConversation.cpp" alt="" coords="641,92,813,131"/>
+<area shape="rect" id="node3" href="$_main_window_8hpp.html" title="src/client/gui/MainWindow.hpp" alt="" coords="284,272,484,297"/>
+<area shape="rect" id="node8" href="$_echo_sound_test_service_page_8hpp.html" title="src/client/gui/pages\l/EchoSoundTestServicePage.hpp" alt="" coords="233,179,453,217"/>
+<area shape="rect" id="node10" href="$_main_page_8hpp.html" title="src/client/gui/pages\l/MainPage.hpp" alt="" coords="527,179,662,217"/>
+<area shape="rect" id="node14" href="$_connection_page_8cpp.html" title="src/client/gui/pages\l/ConnectionPage.cpp" alt="" coords="687,179,836,217"/>
+<area shape="rect" id="node4" href="$_babel_8hpp.html" title="src/client/Babel.hpp" alt="" coords="419,359,557,384"/>
+<area shape="rect" id="node6" href="$_main_window_8cpp.html" title="src/client/gui/MainWindow.cpp" alt="" coords="5,359,205,384"/>
+<area shape="rect" id="node7" href="$_main_client_8cpp.html" title="src/client/MainClient.cpp" alt="" coords="229,359,395,384"/>
+<area shape="rect" id="node5" href="$_babel_8cpp.html" title="src/client/Babel.cpp" alt="" coords="419,439,556,464"/>
+<area shape="rect" id="node9" href="$_echo_sound_test_service_page_8cpp.html" title="src/client/gui/pages\l/EchoSoundTestServicePage.cpp" alt="" coords="41,265,260,304"/>
+<area shape="rect" id="node11" href="$_t_micro_8hpp.html" title="src/client/gui/components\l/TMicro.hpp" alt="" coords="509,265,681,304"/>
+<area shape="rect" id="node13" href="$_main_page_8cpp.html" title="src/client/gui/pages\l/MainPage.cpp" alt="" coords="704,265,840,304"/>
+<area shape="rect" id="node12" href="$_t_micro_8cpp.html" title="src/client/gui/components\l/TMicro.cpp" alt="" coords="581,352,753,391"/>
+</map>

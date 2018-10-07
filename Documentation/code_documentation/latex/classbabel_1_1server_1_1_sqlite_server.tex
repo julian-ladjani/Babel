@@ -1,0 +1,187 @@
+\hypertarget{classbabel_1_1server_1_1_sqlite_server}{}\section{babel\+:\+:server\+:\+:Sqlite\+Server Class Reference}
+\label{classbabel_1_1server_1_1_sqlite_server}\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+
+
+{\ttfamily \#include $<$Sqlite\+Server.\+hpp$>$}
+
+
+
+Collaboration diagram for babel\+:\+:server\+:\+:Sqlite\+Server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classbabel_1_1server_1_1_sqlite_server__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_a51ccab47c4de4410853fb212a5a6d5f9}{Sqlite\+Server}} ()
+\item 
+virtual \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_ac5cb387c4d9cd38a66f259dfc1061702}{$\sim$\+Sqlite\+Server}} ()
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_abb0cc14be5f51826b9165e14ce83e0d0}{execute\+Command}} (std\+::string command, void $\ast$var, int($\ast$callback)(void $\ast$, int, char $\ast$$\ast$, char $\ast$$\ast$)) const
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_ac0e58c4ae276fc3c52b7205a5098a75c}{get\+Users}} (std\+::vector$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_user}{common\+::\+User}} $>$ \&user\+List) const
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_ab00366d846c96ad4521cda421b8a0f31}{get\+User\+Contacts}} (uint32\+\_\+t user\+Id, std\+::vector$<$ uint32\+\_\+t $>$ \&contact\+List) const
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_a699fb4106518510a5105616704eca892}{add\+User}} (\mbox{\hyperlink{classbabel_1_1common_1_1_user}{common\+::\+User}} \&user) const
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_a8d9428a329928080f449eaca7c7d8f80}{add\+Contact}} (uint32\+\_\+t user\+Id, uint32\+\_\+t contact\+Id) const
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_ac7bc85e200004667440927de28502f22}{remove\+User}} (\mbox{\hyperlink{classbabel_1_1common_1_1_user}{common\+::\+User}} \&user) const
+\item 
+void \mbox{\hyperlink{classbabel_1_1server_1_1_sqlite_server_a526fe31d577c1227af6ed92ee6f65bd6}{remove\+Contact}} (uint32\+\_\+t user\+Id, uint32\+\_\+t contact\+Id) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file Sqlite\+Server.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_a51ccab47c4de4410853fb212a5a6d5f9}\label{classbabel_1_1server_1_1_sqlite_server_a51ccab47c4de4410853fb212a5a6d5f9}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!Sqlite\+Server@{Sqlite\+Server}}
+\index{Sqlite\+Server@{Sqlite\+Server}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{Sqlite\+Server()}{SqliteServer()}}
+{\footnotesize\ttfamily babel\+::server\+::\+Sqlite\+Server\+::\+Sqlite\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Sqlite\+Server.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_sqlite_server_a51ccab47c4de4410853fb212a5a6d5f9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_ac5cb387c4d9cd38a66f259dfc1061702}\label{classbabel_1_1server_1_1_sqlite_server_ac5cb387c4d9cd38a66f259dfc1061702}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!````~Sqlite\+Server@{$\sim$\+Sqlite\+Server}}
+\index{````~Sqlite\+Server@{$\sim$\+Sqlite\+Server}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{$\sim$\+Sqlite\+Server()}{~SqliteServer()}}
+{\footnotesize\ttfamily babel\+::server\+::\+Sqlite\+Server\+::$\sim$\+Sqlite\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 25 of file Sqlite\+Server.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_a8d9428a329928080f449eaca7c7d8f80}\label{classbabel_1_1server_1_1_sqlite_server_a8d9428a329928080f449eaca7c7d8f80}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!add\+Contact@{add\+Contact}}
+\index{add\+Contact@{add\+Contact}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{add\+Contact()}{addContact()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::add\+Contact (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id,  }\item[{uint32\+\_\+t}]{contact\+Id }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 48 of file Sqlite\+Server.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_a699fb4106518510a5105616704eca892}\label{classbabel_1_1server_1_1_sqlite_server_a699fb4106518510a5105616704eca892}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!add\+User@{add\+User}}
+\index{add\+User@{add\+User}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{add\+User()}{addUser()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::add\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_user}{common\+::\+User}} \&}]{user }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 38 of file Sqlite\+Server.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_sqlite_server_a699fb4106518510a5105616704eca892_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_abb0cc14be5f51826b9165e14ce83e0d0}\label{classbabel_1_1server_1_1_sqlite_server_abb0cc14be5f51826b9165e14ce83e0d0}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!execute\+Command@{execute\+Command}}
+\index{execute\+Command@{execute\+Command}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{execute\+Command()}{executeCommand()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::execute\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{command,  }\item[{void $\ast$}]{var,  }\item[{int($\ast$)(void $\ast$, int, char $\ast$$\ast$, char $\ast$$\ast$)}]{callback }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 30 of file Sqlite\+Server.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_sqlite_server_abb0cc14be5f51826b9165e14ce83e0d0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_ab00366d846c96ad4521cda421b8a0f31}\label{classbabel_1_1server_1_1_sqlite_server_ab00366d846c96ad4521cda421b8a0f31}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!get\+User\+Contacts@{get\+User\+Contacts}}
+\index{get\+User\+Contacts@{get\+User\+Contacts}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{get\+User\+Contacts()}{getUserContacts()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::get\+User\+Contacts (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{contact\+List }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 82 of file Sqlite\+Server.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_sqlite_server_ab00366d846c96ad4521cda421b8a0f31_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_ac0e58c4ae276fc3c52b7205a5098a75c}\label{classbabel_1_1server_1_1_sqlite_server_ac0e58c4ae276fc3c52b7205a5098a75c}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!get\+Users@{get\+Users}}
+\index{get\+Users@{get\+Users}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{get\+Users()}{getUsers()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::get\+Users (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classbabel_1_1common_1_1_user}{common\+::\+User}} $>$ \&}]{user\+List }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 75 of file Sqlite\+Server.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_sqlite_server_ac0e58c4ae276fc3c52b7205a5098a75c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_a526fe31d577c1227af6ed92ee6f65bd6}\label{classbabel_1_1server_1_1_sqlite_server_a526fe31d577c1227af6ed92ee6f65bd6}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!remove\+Contact@{remove\+Contact}}
+\index{remove\+Contact@{remove\+Contact}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{remove\+Contact()}{removeContact()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::remove\+Contact (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id,  }\item[{uint32\+\_\+t}]{contact\+Id }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 65 of file Sqlite\+Server.\+cpp.
+
+\mbox{\Hypertarget{classbabel_1_1server_1_1_sqlite_server_ac7bc85e200004667440927de28502f22}\label{classbabel_1_1server_1_1_sqlite_server_ac7bc85e200004667440927de28502f22}} 
+\index{babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}!remove\+User@{remove\+User}}
+\index{remove\+User@{remove\+User}!babel\+::server\+::\+Sqlite\+Server@{babel\+::server\+::\+Sqlite\+Server}}
+\subsubsection{\texorpdfstring{remove\+User()}{removeUser()}}
+{\footnotesize\ttfamily void babel\+::server\+::\+Sqlite\+Server\+::remove\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbabel_1_1common_1_1_user}{common\+::\+User}} \&}]{user }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 58 of file Sqlite\+Server.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbabel_1_1server_1_1_sqlite_server_ac7bc85e200004667440927de28502f22_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/server/\mbox{\hyperlink{_sqlite_server_8hpp}{Sqlite\+Server.\+hpp}}\item 
+src/server/\mbox{\hyperlink{_sqlite_server_8cpp}{Sqlite\+Server.\+cpp}}\end{DoxyCompactItemize}
