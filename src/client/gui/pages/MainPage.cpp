@@ -92,6 +92,7 @@ void babel::client::MainPage::connections()
 		this, &MainPage::updateActiveContact);
 	connect(_lists.at(LWSERVER).get(), &QListWidget::itemActivated,
 		this, &babel::client::MainPage::updateActiveContact);
+	//connect(&_infos.getSocket(), &QTcpSocket::readyRead, &MainPage::readTcpData);
 }
 
 void babel::client::MainPage::readData()
@@ -142,4 +143,9 @@ void babel::client::MainPage::testMic()
 babel::client::CallPage &babel::client::MainPage::getCallSection()
 {
 	return _callSection;
+}
+
+void babel::client::MainPage::readTcpData() {
+    common::DataPacket data = _infos.getSocket().receive();
+    data.getArgs();
 }
