@@ -121,7 +121,10 @@ set(CLIENT
 		src/client/sound/AudioManager.cpp
 		src/client/sound/AudioManager.hpp
 		src/client/gui/components/Chat.cpp
-		src/client/gui/components/Chat.hpp src/client/network/soundPacket.hpp)
+		src/client/gui/components/Chat.hpp
+		src/client/network/soundPacket.hpp
+		src/client/CommandHandler.cpp
+		src/client/CommandHandler.hpp)
 
 set(SERVER
         src/server/Server.cpp
@@ -153,7 +156,7 @@ find_package(Boost REQUIRED)
 target_link_libraries(babel_server boost_system boost_thread
         Threads::Threads sqlite3)
 target_link_libraries(babel_client Qt5::Widgets Qt5::Network Qt5::Core Qt5::Gui)
-target_link_libraries(babel_client Threads::Threads opus)
+target_link_libraries(babel_client boost_system Threads::Threads opus)
 if (WIN32)
     target_link_libraries(babel_client portaudio_x64)
 else()

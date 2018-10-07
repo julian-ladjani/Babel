@@ -48,12 +48,27 @@ babel::server::ServerCommandHandler::ServerCommandHandler(
 bool babel::server::ServerCommandHandler::handleCommand(
 	std::unique_ptr<babel::common::ACommand> &command, int32_t userId)
 {
+	printCommand(command, userId);
 	if (_commandHandlers.find(command->getCommandId())
 	    != _commandHandlers.end())
 		return (this->*_commandHandlers[command->getCommandId()])
 			(command, userId);
 	throw common::CommandException(command->getCommandId(),
 				       "Command not supported.");
+}
+
+void babel::server::ServerCommandHandler::printCommand(
+	std::unique_ptr<babel::common::ACommand> &cmd, int32_t userId) const
+{
+	std::vector<std::string> args = cmd->getArgs();
+	std::cout << "User " << userId << " send command "
+		  << cmd->getCommandId() << " (";
+	for (uint32_t i = 0; i < args.size(); ++i) {
+		std::cout << args[i];
+		if (i < args.size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << ")" << std::endl;
 }
 
 void babel::server::ServerCommandHandler::sendToAllClients(

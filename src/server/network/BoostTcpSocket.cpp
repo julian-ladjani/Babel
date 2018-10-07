@@ -52,6 +52,7 @@ bool babel::server::BoostTcpSocket::disconnect()
 {
 	if (!_isConnect)
 		return false;
+	if (_socket.is_open())
 	_socket.close();
 	_isConnect = false;
 	return true;
@@ -102,7 +103,8 @@ bool babel::server::BoostTcpSocket::mustBeConnected()
 		_isConnect = true;
 		_connectionInfo.setIp(
 			_socket.remote_endpoint().address().to_string());
-		_connectionInfo.setPort((uint16_t)_socket.remote_endpoint().port());
+		_connectionInfo.setPort(
+			(uint16_t)_socket.remote_endpoint().port());
 		startRead();
 		return true;
 	}
