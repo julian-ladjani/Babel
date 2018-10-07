@@ -10,6 +10,7 @@
 
 #include <map>
 #include <utility>
+#include <iostream>
 #include <src/common/User.hpp>
 #include <src/common/command/ACommand.hpp>
 #include <src/common/command/CommandOk.hpp>
@@ -47,8 +48,11 @@ namespace babel {
 			std::map<babel::common::CommandName,
 				bool (babel::server::ServerCommandHandler::*)
 					(std::unique_ptr<common::ACommand> &
-					 command,
+					command,
 					 uint32_t userId)> _commandHandlers;
+			void printCommand(
+				std::unique_ptr<common::ACommand> &cmd,
+				int32_t userId) const;
 			bool commandLoginHandler(
 				std::unique_ptr<common::ACommand> &command,
 				uint32_t userId);
