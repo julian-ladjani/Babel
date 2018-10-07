@@ -25,9 +25,14 @@
 int main(int ac, char **av)
 {
 	try {
-		babel::server::Server server(
-			(uint16_t)(ac > 1 ? atoi(av[1]) : 53876));
-		server.start();
+		try {
+			babel::server::Server server(
+				(uint16_t) (ac > 1 ? atoi(av[1]) : 53876));
+			server.start();
+		} catch (boost::system::system_error const &e) {
+			babel::server::Server server(0);
+			server.start();
+		}
 	} catch (babel::common::Exception &e) {
 		std::cout << e.what() << std::endl;
 		return 84;

@@ -46,13 +46,13 @@ babel::server::ServerCommandHandler::ServerCommandHandler(
 {}
 
 bool babel::server::ServerCommandHandler::handleCommand(
-	babel::common::ACommand command, int32_t userId)
+	std::unique_ptr<babel::common::ACommand> &command, int32_t userId)
 {
-	if (_commandHandlers.find(command.getCommandId())
+	if (_commandHandlers.find(command->getCommandId())
 	    != _commandHandlers.end())
-		return (this->*_commandHandlers[command.getCommandId()])
+		return (this->*_commandHandlers[command->getCommandId()])
 			(command, userId);
-	throw common::CommandException(command.getCommandId(),
+	throw common::CommandException(command->getCommandId(),
 				       "Command not supported.");
 }
 
@@ -65,10 +65,9 @@ void babel::server::ServerCommandHandler::sendToAllClients(
 }
 
 bool babel::server::ServerCommandHandler::commandLoginHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
-	common::CommandLogin &cmd = (common::CommandLogin &) command;
-	std::cout << "login :" << cmd.getUsername() << " / " << cmd.getPassword() << std::endl;
+	common::CommandLogin &cmd = (common::CommandLogin &) *command;
 	for (common::User &user : _clients) {
 		if (cmd.getUsername() == user.getLogin()) {
 			if (cmd.getPassword() == user.getPassword())
@@ -101,7 +100,7 @@ bool babel::server::ServerCommandHandler::connectUser(
 	sock.second = user.getId();
 	user.setConnected(true);
 	for (const common::User &client: _clients)
-		sock.first.send(common::CommandContact(
+		sock.first.send(common::CommandUser(
 			{std::to_string(client.getId()), client.getLogin(),
 			 std::to_string(client.isConnected())}).serialize());
 	for (const uint32_t contactId: user.getContacts())
@@ -115,12 +114,13 @@ bool babel::server::ServerCommandHandler::connectUser(
 }
 
 bool babel::server::ServerCommandHandler::commandLogoutHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
 	if (!isConnected(userId))
 		throw common::CommandException(
 			common::CMD_LOGOUT, "You need to login first.");
 	disconnectUser(userId);
+	getSocket(userId).first.disconnect();
 	return sendOk(userId, common::CMD_LOGOUT, "Logout ok.");
 	(void)command;
 }
@@ -134,7 +134,7 @@ void babel::server::ServerCommandHandler::disconnectUser(uint32_t userId)
 }
 
 bool babel::server::ServerCommandHandler::commandDeleteHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
 	if (!isConnected(userId))
 		throw common::CommandException(
@@ -151,9 +151,9 @@ bool babel::server::ServerCommandHandler::commandDeleteHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandCallHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
-	common::CommandCall &cmd = (common::CommandCall &) command;
+	common::CommandCall &cmd = (common::CommandCall &) *command;
 	if (!isConnected(userId))
 		throw common::CommandException(
 			common::CMD_CALL, "You need to login first.");
@@ -167,9 +167,9 @@ bool babel::server::ServerCommandHandler::commandCallHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandCallAnswerHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
-	common::CommandCallAnswer &cmd = (common::CommandCallAnswer &) command;
+	common::CommandCallAnswer &cmd = (common::CommandCallAnswer &) *command;
 	if (!isConnected(userId))
 		throw common::CommandException(
 			common::CMD_CALL_ANSWER, "You need to login first.");
@@ -183,9 +183,9 @@ bool babel::server::ServerCommandHandler::commandCallAnswerHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandCallEndHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
-	common::CommandCallEnd &cmd = (common::CommandCallEnd &) command;
+	common::CommandCallEnd &cmd = (common::CommandCallEnd &) *command;
 	if (!isConnected(userId))
 		throw common::CommandException(
 			common::CMD_CALL_END, "You need to login first.");
@@ -198,9 +198,9 @@ bool babel::server::ServerCommandHandler::commandCallEndHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandContactHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
-	common::CommandContact &cmd = (common::CommandContact &) command;
+	common::CommandContact &cmd = (common::CommandContact &) *command;
 	if (!isConnected(userId))
 		throw common::CommandException(
 			common::CMD_CONTACT, "You need to login first.");
@@ -222,9 +222,9 @@ bool babel::server::ServerCommandHandler::commandContactHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandMessageHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
-	common::CommandMessage &cmd = (common::CommandMessage &) command;
+	common::CommandMessage &cmd = (common::CommandMessage &) *command;
 	if (!isConnected(userId))
 		throw common::CommandException(
 			common::CMD_MESSAGE, "You need to login first.");
@@ -237,7 +237,7 @@ bool babel::server::ServerCommandHandler::commandMessageHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandPingHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
 	getSocket(userId).first.send(common::CommandPong({}).serialize());
 	return true;
@@ -245,7 +245,7 @@ bool babel::server::ServerCommandHandler::commandPingHandler(
 }
 
 bool babel::server::ServerCommandHandler::commandPongHandler(
-	babel::common::ACommand command, uint32_t userId)
+	std::unique_ptr<common::ACommand> &command, uint32_t userId)
 {
 	return true;
 	(void)command;
@@ -292,7 +292,7 @@ uint32_t babel::server::ServerCommandHandler::getNextId() const
 }
 
 bool babel::server::ServerCommandHandler::sendOk(
-	uint32_t userId, babel::common::CommandName cmd, const std::string &msg)
+	int32_t userId, babel::common::CommandName cmd, const std::string &msg)
 
 {
 	auto &sock = getSocket(userId);

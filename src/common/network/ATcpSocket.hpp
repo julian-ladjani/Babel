@@ -13,6 +13,7 @@
 #include <vector>
 #include <string>
 #include "ConnectionInfo.hpp"
+#include "src/common/command/CommandName.hpp"
 #include "DataPacket.hpp"
 
 namespace babel
@@ -30,11 +31,14 @@ namespace babel
 			virtual bool disconnect() = 0;
 			const ConnectionInfo getConnectionInfo() const;
 			bool isConnect() const;
+			bool operator==(const ATcpSocket &socket) const;
+			bool operator==(
+				const ConnectionInfo &connectionInfo) const;
 		protected:
-			std::string addPacketsToQueue(std::string &,
-				std::string = std::string());
+			std::string addPacketsToQueue(
+				std::string &, std::string = std::string());
 			const DataPacket getPacketFromQueue();
-			static constexpr char PACKET_SEPARATOR[] = "\n";
+			static constexpr char PACKET_SEPARATOR[] = "\x1d";
 			ConnectionInfo &_connectionInfo;
 			bool _isConnect;
 			std::string _uncompletePacket;

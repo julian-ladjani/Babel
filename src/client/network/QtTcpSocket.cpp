@@ -12,7 +12,13 @@ babel::client::QtTcpSocket::QtTcpSocket(
 	connectionInfo)
 {
 	QObject::connect(&_socket, &QTcpSocket::connected,
-			this, &QtTcpSocket::onSuccessConnection);
+		this, &QtTcpSocket::onSuccessConnection);
+	QObject::connect(&_socket, &QTcpSocket::disconnected,
+		this, &QtTcpSocket::disconnect);
+	QObject::connect(&_socket,
+		QOverload<QAbstractSocket::SocketError>::of
+			(&QAbstractSocket::error),
+		this, &QtTcpSocket::getSocketErrorCode);
 }
 
 void babel::client::QtTcpSocket::onSuccessConnection()
@@ -35,7 +41,8 @@ bool babel::client::QtTcpSocket::disconnect()
 {
 	if (!_isConnect)
 		return false;
-	_socket.disconnectFromHost();
+	if (_socket.isOpen())
+		_socket.disconnectFromHost();
 	_isConnect = false;
 	return true;
 }
@@ -68,5 +75,11 @@ void babel::client::QtTcpSocket::handleRead()
 	stdTmpBuffer = _socket.readAll().toStdString();
 	_uncompletePacket = addPacketsToQueue(stdTmpBuffer,
 		_uncompletePacket);
-	std::cout << "Uncomplete : " <<_uncompletePacket << std::endl;
+}
+
+void
+babel::client::QtTcpSocket::getSocketErrorCode(QAbstractSocket::SocketError)
+{
+	throw common::TcpSocketException(_connectionInfo,
+		_socket.errorString().toStdString());
 }

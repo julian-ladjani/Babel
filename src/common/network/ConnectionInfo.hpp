@@ -21,6 +21,8 @@ namespace babel {
 			void setPort(uint16_t port);
 			const std::string &getIp() const;
 			void setIp(const std::string &Ip);
+			bool operator==(
+				const ConnectionInfo &connectionInfo) const;
 		private:
 			uint16_t _port;
 			std::string _ip;

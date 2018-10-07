@@ -14,6 +14,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtWidgets/QDialog>
 #include "src/common/network/ATcpSocket.hpp"
+#include "src/common/exception/TcpSocketException.hpp"
 
 namespace babel
 {
@@ -30,12 +31,14 @@ namespace babel
 			bool disconnect() override;
 			bool send(common::DataPacket packet) override;
 			const common::DataPacket receive() override;
-			void onSuccessConnection();
 		Q_SIGNALS:
 			void connectionSuccess();
 		private:
 			void startRead();
 			void handleRead();
+			void getSocketErrorCode(
+				QAbstractSocket::SocketError);
+			void onSuccessConnection();
 			QTcpSocket _socket;
 		};
 	}

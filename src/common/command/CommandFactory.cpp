@@ -59,10 +59,16 @@ babel::common::CommandFactory::CommandFactory() :
 std::unique_ptr<babel::common::ACommand>
 babel::common::CommandFactory::deserialize(babel::common::DataPacket &packet)
 {
-	if (_commands.find(packet.getCommandId()) != _commands.end())
-		return (this->*_commands[packet.getCommandId()])
-			(packet.getArgs());
-	throw CommandException(CMD_UNDEFINED, "Unknow command");
+	try {
+		if (_commands.find(packet.getCommandId()) != _commands.end())
+			return (this->*_commands[packet.getCommandId()])
+				(packet.getArgs());
+	}
+	catch (const std::invalid_argument &ia) {
+		throw CommandException(packet.getCommandId(),
+				       "Invalid Argument.");
+	}
+	throw CommandException(CMD_UNDEFINED, "Unknow command.");
 }
 
 template<class T>

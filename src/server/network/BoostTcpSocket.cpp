@@ -63,7 +63,7 @@ void babel::server::BoostTcpSocket::startRead()
 	if (!_isConnect)
 		return;
 	boost::asio::async_read_until(_socket,
-		_input_buffer, '\n',
+		_input_buffer, PACKET_SEPARATOR,
 		boost::bind(&BoostTcpSocket::handleRead,
 			this, _1));
 }
@@ -106,6 +106,7 @@ bool babel::server::BoostTcpSocket::mustBeConnected()
 		_connectionInfo.setIp(
 			_socket.remote_endpoint().address().to_string());
 		_connectionInfo.setPort(_socket.remote_endpoint().port());
+		startRead();
 		return true;
 	}
 	_isConnect = false;
