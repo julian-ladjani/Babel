@@ -8,13 +8,18 @@
 #ifndef TConversation_HPP_
 #define TConversation_HPP_
 
+#include <utility>
 #include <QtCore/QThread>
+#include <QtNetwork/QUdpSocket>
 #include <src/client/sound/AudioEncoder.hpp>
 #include <src/client/sound/AudioManager.hpp>
-#include <src/client/gui/pages/MainPage.hpp>
+#include <src/client/gui/pages/ABabelPage.hpp>
+#include <src/client/gui/pages/ConnectionPage.hpp>
+
 namespace babel {
     namespace client {
 	class TConversation : public QThread {
+	    Q_OBJECT
 	public:
 	    TConversation(ABabelPage *page);
 	    virtual ~TConversation(){};

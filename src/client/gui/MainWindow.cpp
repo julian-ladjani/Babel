@@ -11,15 +11,12 @@
 babel::client::MainWindow::MainWindow() : _cmdHandler(_infos)
 {
 	resize(1280, 720);
-	srand(static_cast<unsigned int>(time(nullptr)));
 	setWindowTitle(QApplication::translate(
 		"Epyks", "Epyks, Grand et impuissant !"));
 	setStyleSheet("background-color:#3d3d3d");
 	initClientInfos();
 	_pages.addWidget(new ConnectionPage(_infos), "connection");
 	_pages.addWidget(new MainPage(_infos), "main");
-	_pages.addWidget(new EchoSoundTestServicePage(_infos),
-			 "echo_sound_test_service");
 	setCentralWidget(&_pages);
 	QApplication::setWindowIcon(QIcon("src/assets/img/minilogo.png"));
     	QFontDatabase::removeAllApplicationFonts();
