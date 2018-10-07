@@ -18,6 +18,9 @@ babel::client::CommandHandler::CommandHandler(babel::client::ClientInfo &info) :
 			  {babel::common::CommandName::CMD_DELETE,
 				  &CommandHandler
 				  ::commandDeleteHandler},
+			  {babel::common::CommandName::CMD_USER,
+				  &CommandHandler
+				  ::commandUserHandler},
 			  {babel::common::CommandName::CMD_CALL,
 				  &CommandHandler
 				  ::commandCallHandler},
@@ -52,34 +55,44 @@ void babel::client::CommandHandler::tryToHandle()
 }
 
 bool
-babel::client::CommandHandler::handleCommand
-	(std::unique_ptr<babel::common::ACommand> &command)
+babel::client::CommandHandler::handleCommand(
+	std::unique_ptr<babel::common::ACommand> &command)
 {
-    if (_commandHandlers.find(command->getCommandId())
-	!= _commandHandlers.end())
-	return (this->*_commandHandlers[command->getCommandId()])(*command);
-    throw common::CommandException(command->getCommandId(),
-				   "Command not supported.");
+	if (_commandHandlers.find(command->getCommandId())
+	    != _commandHandlers.end())
+		return (this->*_commandHandlers[command->getCommandId()])
+			(command);
+	return false;
 }
 
 bool babel::client::CommandHandler::commandLoginOkHandler(
-	babel::common::ACommand command) {
-    	(void)command;
-    	printf("ok recu mdr\n");
+	std::unique_ptr<babel::common::ACommand> &command)
+{
+	printf("ok recu mdr\n");
 	emit changePage("main");
-    return true;
+	return true;
+	(void)command;
 }
 
 bool babel::client::CommandHandler::commandDeleteHandler(
-	babel::common::ACommand command) {
-    for(int i = 0; _infos.getContacts().size(); i++)
-	if (_infos.getContacts()[i].getId() == (unsigned short)stoi(command.getArgs()[0]))
-	    _infos.removeContact(_infos.getContacts()[i]);
-    return true;
+	std::unique_ptr<babel::common::ACommand> &command)
+{
+	for(int i = 0; _infos.getContacts().size(); i++)
+		if (_infos.getContacts()[i].getId()
+		    == (unsigned short)stoi(command->getArgs()[0]))
+			_infos.removeContact(_infos.getContacts()[i]);
+	return true;
+}
+
+bool babel::client::CommandHandler::commandUserHandler(
+	std::unique_ptr<babel::common::ACommand> &command)
+{
+	return true;
+	(void)command;
 }
 
 bool babel::client::CommandHandler::commandCallHandler(
-	babel::common::ACommand command)
+	std::unique_ptr<babel::common::ACommand> &command)
 {
 	//_infos.getSocket().send(common::Command({}).serialize());
 	return false;
@@ -88,7 +101,7 @@ bool babel::client::CommandHandler::commandCallHandler(
 
 
 bool babel::client::CommandHandler::commandCallAnswerHandler(
-	babel::common::ACommand command)
+	std::unique_ptr<babel::common::ACommand> &command)
 {
 	return false;
 	(void) command;
@@ -96,67 +109,22 @@ bool babel::client::CommandHandler::commandCallAnswerHandler(
 
 
 bool babel::client::CommandHandler::commandCallEndHandler(
-	babel::common::ACommand command)
+	std::unique_ptr<babel::common::ACommand> &command)
 {
 	return false;
 	(void) command;
 }
 
 bool babel::client::CommandHandler::commandContactHandler(
-	babel::common::ACommand command)
+	std::unique_ptr<babel::common::ACommand> &command)
 {
- 	return false;
+	return false;
 	(void) command;
 }
 
 bool babel::client::CommandHandler::commandMessageHandler(
-	babel::common::ACommand command)
+	std::unique_ptr<babel::common::ACommand> &command)
 {
 	return false;
 	(void) command;
 }
-
-void babel::client::CommandHandler::sendToAllClients(
-	babel::common::DataPacket packet)
-{
-	(void) packet;
-}
-
-bool babel::client::CommandHandler::createUser(
-	babel::common::CommandLogin &cmd, uint32_t userId)
-{
-	return false;
-	(void) userId;
-	(void) cmd;
-}
-
-bool babel::client::CommandHandler::connectUser(
-	babel::common::User &user, uint32_t userId)
-{
-	return false;
-	(void) userId;
-	(void) user;
-}
-
-void babel::client::CommandHandler::disconnectUser(uint32_t userId)
-{
-	(void) userId;
-}
-
-bool babel::client::CommandHandler::isConnected(uint32_t userId)
-{
-    return false;
-    (void) userId;
-}
-
-bool babel::client::CommandHandler::sendOk(
-	uint32_t userId, babel::common::CommandName cmd,
-	const std::string &msg)
-{
-	return false;
-	(void) msg;
-	(void) cmd;
-	(void) userId;
-}
-
-
