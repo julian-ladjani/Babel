@@ -10,6 +10,7 @@
 
 #include <boost/asio.hpp>
 #include <vector>
+#include <iostream>
 #include <boost/bind.hpp>
 #include "BoostTcpSocket.hpp"
 #include "src/server/exception/TcpServerException.hpp"

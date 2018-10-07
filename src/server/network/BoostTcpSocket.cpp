@@ -63,7 +63,7 @@ void babel::server::BoostTcpSocket::startRead()
 	if (!_isConnect)
 		return;
 	boost::asio::async_read_until(_socket,
-		_input_buffer, '\n',
+		_input_buffer, PACKET_SEPARATOR,
 		boost::bind(&BoostTcpSocket::handleRead,
 			this, _1));
 }
