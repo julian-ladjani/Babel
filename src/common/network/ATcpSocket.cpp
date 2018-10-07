@@ -62,17 +62,16 @@ babel::common::ATcpSocket::addPacketsToQueue(std::string &packets,
 	boost::split(vecPackets, packets, boost::is_any_of(PACKET_SEPARATOR));
 	if (!vecPackets.empty() && vecPackets.back() == std::string("\0"))
 		vecPackets.pop_back();
+	if (vecPackets.empty())
+		return (notFinishedPacket);
 	if (!notFinishedPacket.empty()) {
 		(*vecPackets.begin()).append(notFinishedPacket);
 		notFinishedPacket.clear();
 	}
 	if (packets.back() != PACKET_SEPARATOR[0]) {
-		std::cout << "test1" << std::endl;
 		notFinishedPacket = vecPackets.back();
 		vecPackets.pop_back();
 	}
-	std::cout << "test2" << std::endl;
 	addPacketToQueue(vecPackets);
-	std::cout << "test3" << std::endl;
 	return notFinishedPacket;
 }

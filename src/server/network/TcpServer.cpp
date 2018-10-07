@@ -7,14 +7,15 @@
 
 #include "TcpServer.hpp"
 
-babel::server::TcpServer::TcpServer(uint16_t port) :
+babel::server::TcpServer::TcpServer(boost::asio::io_context &ioContext,
+	uint16_t port) :
+	_ioContext(ioContext),
 	_tcpAcceptor(_ioContext, boost::asio::ip::tcp::endpoint(
 		boost::asio::ip::tcp::v4(), port))
 {
 	std::cout << "Server created on port "
-		  << _tcpAcceptor.local_endpoint().port() << std::endl;
+		<< _tcpAcceptor.local_endpoint().port() << std::endl;
 	startAccept();
-	_ioContext.run();
 }
 
 std::vector<std::pair<babel::server::BoostTcpSocket &, int32_t>> &
@@ -37,6 +38,7 @@ bool babel::server::TcpServer::startAccept()
 void
 babel::server::TcpServer::handleAccept(const boost::system::error_code &ec)
 {
+	std::cout << "testaccept" << std::endl;
 	if (ec)
 		throw TcpServerException(ec.message());
 	auto idSocketPair = std::pair<babel::server::BoostTcpSocket &, int32_t>
