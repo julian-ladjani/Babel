@@ -33,6 +33,7 @@ namespace babel
 			const common::DataPacket receive() override;
 		Q_SIGNALS:
 			void connectionSuccess();
+			void newPacket();
 		private:
 			void startRead();
 			void handleRead();

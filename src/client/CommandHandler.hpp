@@ -33,31 +33,33 @@ namespace babel {
 		Q_OBJECT
 		public:
 			CommandHandler(ClientInfo &info);
-			bool handleCommand(common::ACommand command);
+			bool handleCommand(std::unique_ptr<common::ACommand>
+					   &command);
 		Q_SIGNALS:
-		    	void changePage(std::string pageName);
+			void changePage(std::string pageName);
 		private:
 			ClientInfo &_infos;
 			std::map<babel::common::CommandName,
 				bool (babel::client::CommandHandler::*)
-					(common::ACommand command)>
-					_commandHandlers;
-			bool commandLoginOkHandler(common::ACommand command);
-			bool commandDeleteHandler(common::ACommand command);
-			bool commandCallHandler(common::ACommand command);
-			bool commandCallAnswerHandler(common::ACommand command);
-			bool commandCallEndHandler(common::ACommand command);
-			bool commandContactHandler(common::ACommand command);
-			bool commandMessageHandler(common::ACommand command);
-			void sendToAllClients(
-				babel::common::DataPacket packet);
-			bool createUser(common::CommandLogin &cmd,
-					uint32_t userId);
-			bool connectUser(common::User &user, uint32_t userId);
-			void disconnectUser(uint32_t userId);
-			bool isConnected(uint32_t userId);
-			bool sendOk(uint32_t userId, common::CommandName cmd,
-				    const std::string &msg);
+					(std::unique_ptr<common::ACommand>
+					 &command)> _commandHandlers;
+			bool commandLoginOkHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandDeleteHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandUserHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandCallHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandCallAnswerHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandCallEndHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandContactHandler(
+				std::unique_ptr<common::ACommand> &command);
+			bool commandMessageHandler(
+				std::unique_ptr<common::ACommand> &command);
+			void tryToHandle();
 		};
 	}
 }

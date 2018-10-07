@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// Chat.hpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** Chat.hpp
+*/
 
 #ifndef CPP_BABEL_2018_CHAT_HPP
 #define CPP_BABEL_2018_CHAT_HPP

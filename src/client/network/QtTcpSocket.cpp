@@ -60,7 +60,6 @@ const babel::common::DataPacket babel::client::QtTcpSocket::receive()
 {
 	std::cout << getPacketFromQueue().serialize() << std::endl;
 	return getPacketFromQueue();
-
 }
 
 void babel::client::QtTcpSocket::startRead()
@@ -75,6 +74,7 @@ void babel::client::QtTcpSocket::handleRead()
 	stdTmpBuffer = _socket.readAll().toStdString();
 	_uncompletePacket = addPacketsToQueue(stdTmpBuffer,
 		_uncompletePacket);
+	emit newPacket();
 }
 
 void

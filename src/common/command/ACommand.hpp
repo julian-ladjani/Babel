@@ -28,4 +28,5 @@ namespace babel
 		};
 	}
 }
+
 #endif //CPP_BABEL_2018_ACOMMAND_HPP

@@ -33,8 +33,10 @@ int main(int argc, char *argv[])
 	try {
 	    	QFontDatabase::removeAllApplicationFonts();
 		QApplication a(argc, argv);
-	    	int font = QFontDatabase::addApplicationFont("src/assets/font/DejaVuSans.ttf");
-	    	QApplication::setFont(QFontDatabase::systemFont((QFontDatabase::SystemFont)font));
+	    	int font = QFontDatabase::addApplicationFont
+			("src/assets/font/DejaVuSans.ttf");
+	    	QApplication::setFont(QFontDatabase::systemFont(
+	    			(QFontDatabase::SystemFont)font));
 		babel::client::MainWindow w;
 		w.show();
 

@@ -17,6 +17,7 @@ babel::client::CallPage::CallPage(babel::client::ClientInfo &_infos) :
 	_connectIcon("src/assets/img/off.png", 50),
 	_contactName(QString(_infos.getActiveUser().getLogin().c_str()))
 {
+	_chatBox.setTextColor(QColor(255, 255, 255, 255));
 	setMinimumWidth(500);
 	initWidgets();
 	connections();
@@ -85,6 +86,7 @@ void babel::client::CallPage::sendMessage()
 	_chatBox.append(QString::fromStdString(userName + msg));
 	auto tmpMsg = _chatBox.toPlainText().toStdString();
 	_infos.getActiveUser().setMessages(tmpMsg);
+	std::cout << tmpMsg << std::endl;
 	_chatInput.clear();
 	emit sendMessageSignal(msg);
 }

@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// MainWindow.cpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** MainWindow.cpp
+*/
 
 #include <src/common/command/CommandLogout.hpp>
 #include "MainWindow.hpp"
@@ -34,6 +34,8 @@ void babel::client::MainWindow::initConnects()
 		this, &MainWindow::login);
 	connect(&mainPage->getCallSection(), &CallPage::sendMessageSignal,
 		this, &MainWindow::sendMessage);
+	connect(&_cmdHandler, &CommandHandler::changePage, this,
+		&MainWindow::changePage);
 }
 
 void babel::client::MainWindow::sendMessage(std::string &msg)
@@ -58,8 +60,7 @@ void babel::client::MainWindow::initClientInfos()
 
 void babel::client::MainWindow::tryConnect()
 {
-	if (!_infos.getSocket().connect())
-		return;
+	_infos.getSocket().connect();
 }
 
 void babel::client::MainWindow::disconnect()
@@ -75,7 +76,7 @@ void babel::client::MainWindow::login()
 		{_infos.getClientInfo().getLogin(),
 		 _infos.getClientInfo().getPassword()});
 	_infos.getSocket().send(cmd.serialize());
-	changePage("main");
+	printf("login sented\n");
 }
 
 void babel::client::MainWindow::changePage(std::string pageName)
