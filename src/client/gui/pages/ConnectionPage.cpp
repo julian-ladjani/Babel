@@ -24,14 +24,17 @@ babel::client::ConnectionPage::ConnectionPage(babel::client::ClientInfo &_infos)
 	_audio(),
 	_encode(_audio.getSampleRate(), _audio.getChannel()),
 	_timeStamp(0)
-{	_inputs.at(IP_ADDRESS)->setText("10.18.207.38");
+{
+	initSocket();
+	qDebug() << _udpSocket.localAddress().toString();
+	_inputs.at(IP_ADDRESS)->setText(_udpSocket.localAddress().toString());
+	_inputs.at(PORT)->setText("53876");
 	_inputs.at(LOGIN)->setEchoMode(QLineEdit::Password);
 	_inputs.at(LOGIN)->setInputMethodHints(
 		Qt::ImhHiddenText | Qt::ImhNoPredictiveText |
 		Qt::ImhNoAutoUppercase);
 	arrangeWidgets();
 	connections();
-	initSocket();
 	_audio.startStream();
 	_audio.startRecording();
 }
@@ -85,6 +88,9 @@ void babel::client::ConnectionPage::handleButton()
 			(_inputs.at(LOGIN)->text().toUtf8().constData());
 		_infos.getClientInfo().setPassword
 			(_inputs.at(PASSWORD)->text().toUtf8().constData());
+		_infos.setServerInfo(common::ConnectionInfo(
+			(uint16_t) _inputs.at(PORT)->text().toUInt(),
+			_inputs.at(IP_ADDRESS)->text().toStdString()));
 	    emit changePage("main");
 	}
 	else {

@@ -60,6 +60,7 @@ void babel::client::MainWindow::initClientInfos()
 
 void babel::client::MainWindow::tryConnect()
 {
+	_infos.getSocket().setConnectionInfo(_infos.getServerInfo());
 	_infos.getSocket().connect();
 }
 
