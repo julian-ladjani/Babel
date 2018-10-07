@@ -22,9 +22,12 @@ namespace babel {
 			void arrangeWidgets();
 			virtual ~CallPage() {};
 		Q_SIGNALS:
+			void sendMessageSignal(std::string &msg);
 		protected:
 			void connections() override;
 		private:
+			void update();
+			void sendMessage();
 			enum BtnType {
 				SEND_MSG,
 				CALL
@@ -35,7 +38,7 @@ namespace babel {
 			Image _connectIcon;
 			Label _contactName;
 //			std::unique_ptr<Image> _logo;
-			void update();
+			void initWidgets();
 		};
 
 	}

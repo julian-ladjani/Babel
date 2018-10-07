@@ -39,7 +39,7 @@ namespace babel {
 			common::ConnectionInfo _serverInfo;
 			std::vector<common::User> _contacts;
 			QtTcpSocket _socket;
-			common::User &_activeUser;
+			uint32_t _activeUserId;
 		};
 	}
 }

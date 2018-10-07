@@ -31,6 +31,7 @@ namespace babel {
 		    	void initMain();
 			void readData();
 			void setLogin();
+			CallPage &getCallSection();
 		Q_SIGNALS:
 		    void changePage(std::string pageName);
 		    void disconnect();
