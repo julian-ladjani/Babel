@@ -60,8 +60,7 @@ void babel::client::MainWindow::initClientInfos()
 
 void babel::client::MainWindow::tryConnect()
 {
-	if (!_infos.getSocket().connect())
-		return;
+	_infos.getSocket().connect();
 }
 
 void babel::client::MainWindow::disconnect()
@@ -77,6 +76,7 @@ void babel::client::MainWindow::login()
 		{_infos.getClientInfo().getLogin(),
 		 _infos.getClientInfo().getPassword()});
 	_infos.getSocket().send(cmd.serialize());
+	printf("login sented\n");
 }
 
 void babel::client::MainWindow::changePage(std::string pageName)
