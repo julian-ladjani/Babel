@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// CPP_babel_2018
-// File description:
-// MainWindow.cpp
-//
+/*
+** EPITECH PROJECT, 2018
+** CPP_babel_2018
+** File description:
+** MainWindow.cpp
+*/
 
 #include <src/common/command/CommandLogout.hpp>
 #include "MainWindow.hpp"
