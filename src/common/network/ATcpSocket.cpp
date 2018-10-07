@@ -54,7 +54,7 @@ void babel::common::ATcpSocket::addPacketToQueue(
 
 std::string
 babel::common::ATcpSocket::addPacketsToQueue(std::string &packets,
-	std::string notFinishedPacket)
+					     std::string notFinishedPacket)
 {
 	if (packets.empty())
 		return (notFinishedPacket);
@@ -75,4 +75,16 @@ babel::common::ATcpSocket::addPacketsToQueue(std::string &packets,
 	addPacketToQueue(vecPackets);
 	std::cout << "test3" << std::endl;
 	return notFinishedPacket;
+}
+
+bool babel::common::ATcpSocket::operator==(
+	const babel::common::ATcpSocket &socket) const
+{
+	return getConnectionInfo() == socket.getConnectionInfo();
+}
+
+bool babel::common::ATcpSocket::operator==(
+	const babel::common::ConnectionInfo &connectionInfo) const
+{
+	return getConnectionInfo() == connectionInfo;
 }

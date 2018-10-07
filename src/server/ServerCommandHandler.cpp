@@ -121,6 +121,7 @@ bool babel::server::ServerCommandHandler::commandLogoutHandler(
 		throw common::CommandException(
 			common::CMD_LOGOUT, "You need to login first.");
 	disconnectUser(userId);
+	getSocket(userId).first.disconnect();
 	return sendOk(userId, common::CMD_LOGOUT, "Logout ok.");
 	(void)command;
 }
