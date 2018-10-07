@@ -8,6 +8,10 @@
 #ifndef CPP_BABEL_2018_MAINPAGE_HPP
 #define CPP_BABEL_2018_MAINPAGE_HPP
 
+#include <array>
+#include <vector>
+#include <algorithm>
+#include <boost/range/algorithm/find.hpp>
 #include "ConnectionPage.hpp"
 #include "src/client/gui/components/TMicro.hpp"
 #include "ABabelPage.hpp"

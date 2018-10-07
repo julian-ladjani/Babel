@@ -6,7 +6,6 @@
 //
 
 #include "MainPage.hpp"
-#include <boost/range/algorithm.hpp>
 
 babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	ABabelPage(_infos),
