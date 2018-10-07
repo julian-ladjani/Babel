@@ -31,7 +31,6 @@ QString babel::client::StyleManager::createRedButton(int size) {
     	focus.setExtra("outline: 0");
     	return main.getStyleStreet() +
     		press.getStyleStreet() + focus.getStyleStreet();
-
 }
 
 QString babel::client::StyleManager::createGreenButton(int size) {

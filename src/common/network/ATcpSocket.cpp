@@ -38,7 +38,9 @@ void babel::common::ATcpSocket::addPacketToQueue(std::string strPacket)
 {
 	if (strPacket.empty())
 		return;
-	_receiveQueue.push_back(DataPacket::deserialize(strPacket));
+	auto dataPacket = DataPacket::deserialize(strPacket);
+	if (dataPacket.getCommandId() != CommandName::CMD_UNDEFINED)
+		_receiveQueue.push_back(DataPacket::deserialize(strPacket));
 }
 
 void babel::common::ATcpSocket::addPacketToQueue(
@@ -54,14 +56,23 @@ std::string
 babel::common::ATcpSocket::addPacketsToQueue(std::string &packets,
 	std::string notFinishedPacket)
 {
+	if (packets.empty())
+		return (notFinishedPacket);
 	std::vector<std::string> vecPackets;
 	boost::split(vecPackets, packets, boost::is_any_of(PACKET_SEPARATOR));
-	if (!notFinishedPacket.empty())
-		*vecPackets.begin() += notFinishedPacket;
-	if (packets[packets.size() - 2] != PACKET_SEPARATOR[0]) {
-		notFinishedPacket = *vecPackets.end();
-		vecPackets.erase(vecPackets.end());
+	if (!vecPackets.empty() && vecPackets.back() == std::string("\0"))
+		vecPackets.pop_back();
+	if (!notFinishedPacket.empty()) {
+		(*vecPackets.begin()).append(notFinishedPacket);
+		notFinishedPacket.clear();
 	}
+	if (packets.back() != PACKET_SEPARATOR[0]) {
+		std::cout << "test1" << std::endl;
+		notFinishedPacket = vecPackets.back();
+		vecPackets.pop_back();
+	}
+	std::cout << "test2" << std::endl;
 	addPacketToQueue(vecPackets);
+	std::cout << "test3" << std::endl;
 	return notFinishedPacket;
 }

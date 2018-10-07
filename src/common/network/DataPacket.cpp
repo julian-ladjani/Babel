@@ -8,9 +8,10 @@
 #include "DataPacket.hpp"
 
 babel::common::DataPacket::DataPacket(CommandName commandId,
-				      const std::vector<std::string> &args) :
+	const std::vector<std::string> &args) :
 	_commandId(commandId), _args(args)
-{}
+{
+}
 
 babel::common::CommandName
 babel::common::DataPacket::getCommandId() const
@@ -54,7 +55,7 @@ const std::string babel::common::DataPacket::serialize() const
 	std::string serialization;
 	std::string argSerialization = serializeArgs();
 	serialization += std::to_string(_commandId) + ARG_SEPARATOR +
-			 argSerialization;
+		argSerialization;
 	return serialization;
 }
 
@@ -63,8 +64,8 @@ const std::string babel::common::DataPacket::serializeArgs() const
 	std::ostringstream vts;
 	if (!_args.empty()) {
 		std::copy(_args.begin(), _args.end() - 1,
-			  std::ostream_iterator<std::string>(vts,
-							     ARG_SEPARATOR));
+			std::ostream_iterator<std::string>(vts,
+				ARG_SEPARATOR));
 		vts << _args.back();
 	}
 	return vts.str();
@@ -79,8 +80,12 @@ babel::common::DataPacket::deserialize(std::string serialized)
 	boost::split(argVec, serialized, boost::is_any_of(ARG_SEPARATOR));
 	if (argVec.empty())
 		return dataPacket;
-	dataPacket.setCommandId(
-		(babel::common::CommandName) std::stoi(argVec[0]));
+	try {
+		dataPacket.setCommandId(
+			(babel::common::CommandName) std::stoi(argVec[0]));
+	} catch (std::invalid_argument &) {
+		return dataPacket;
+	}
 	argVec.erase(argVec.begin());
 	dataPacket.setArgs(argVec);
 	return dataPacket;

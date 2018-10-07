@@ -13,6 +13,7 @@ babel::server::TcpServer::TcpServer(uint16_t port) :
 {
 	std::cout << "Server created on port "
 		  << _tcpAcceptor.local_endpoint().port() << std::endl;
+	startAccept();
 	_ioContext.run();
 }
 
@@ -41,6 +42,7 @@ babel::server::TcpServer::handleAccept(const boost::system::error_code &ec)
 	auto idSocketPair = std::pair<babel::server::BoostTcpSocket &, int32_t>
 		(*_tcpSockets[_tcpSockets.size() - 1], _minId);
 	_minId--;
+	idSocketPair.first.mustBeConnected();
 	_sockets.push_back(idSocketPair);
 	startAccept();
 }

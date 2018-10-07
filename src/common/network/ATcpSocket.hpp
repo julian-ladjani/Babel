@@ -13,6 +13,7 @@
 #include <vector>
 #include <string>
 #include "ConnectionInfo.hpp"
+#include "src/common/command/CommandName.hpp"
 #include "DataPacket.hpp"
 
 namespace babel
