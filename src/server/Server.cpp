@@ -24,14 +24,10 @@ babel::server::Server::Server(uint16_t port) :
 int babel::server::Server::start()
 {
 	_running = true;
-	common::DataPacket dataPacket;
-	dataPacket.setCommandId(common::CommandName::CMD_CALL_ANSWER);
-	dataPacket.addArg("ta-mere");
 	boost::thread TcpServerThread(
 		boost::bind(&boost::asio::io_context::run, &_ioContext));
 	while (_running) {
 		for (auto &sock : _sockets) {
-			sock.first.send(dataPacket);
 			handleClient(sock.first, sock.second);
 		}
 	}
@@ -46,7 +42,7 @@ void babel::server::Server::handleClient(babel::server::BoostTcpSocket &sock,
 		if (packet.getCommandId() != common::CMD_UNDEFINED) {
 			std::unique_ptr<common::ACommand> command
 				= _cmdFactory.deserialize(packet);
-			_commandHandler.handleCommand(*command, userId);
+			_commandHandler.handleCommand(command, userId);
 		}
 
 	} catch (babel::common::CommandException &e) {
@@ -54,7 +50,6 @@ void babel::server::Server::handleClient(babel::server::BoostTcpSocket &sock,
 			{std::to_string(e.getCommandId()),
 				e.what()}).serialize());
 	}
-
 }
 
 void babel::server::Server::addClient(common::User user)

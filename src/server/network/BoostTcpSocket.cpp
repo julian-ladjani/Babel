@@ -44,7 +44,6 @@ babel::server::BoostTcpSocket::handleRead(const boost::system::error_code &ec)
 	}
 	std::string stringPacket;
 	std::istream(&_input_buffer) >> stringPacket;
-	std::cout << "Receive:" + stringPacket << std::endl;
 	_uncompletePacket = addPacketsToQueue(stringPacket,
 		_uncompletePacket);
 	startRead();

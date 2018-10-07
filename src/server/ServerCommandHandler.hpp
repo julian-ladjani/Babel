@@ -36,8 +36,9 @@ namespace babel {
 				std::vector<std::pair<BoostTcpSocket &,
 					int32_t>> &_sockets,
 				SqliteServer &_sqliteServer);
-			bool handleCommand(common::ACommand command,
-					   int32_t userId);
+			bool handleCommand(
+				std::unique_ptr<common::ACommand> &command,
+				int32_t userId);
 		private:
 			std::vector<babel::common::User> &_clients;
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
@@ -45,28 +46,39 @@ namespace babel {
 			SqliteServer &_sqliteServer;
 			std::map<babel::common::CommandName,
 				bool (babel::server::ServerCommandHandler::*)
-					(common::ACommand command,
+					(std::unique_ptr<common::ACommand> &
+					 command,
 					 uint32_t userId)> _commandHandlers;
-			bool commandLoginHandler(common::ACommand command,
-						 uint32_t userId);
-			bool commandLogoutHandler(common::ACommand command,
-						  uint32_t userId);
-			bool commandDeleteHandler(common::ACommand command,
-						  uint32_t userId);
-			bool commandCallHandler(common::ACommand command,
-						uint32_t userId);
-			bool commandCallAnswerHandler(common::ACommand command,
-						      uint32_t userId);
-			bool commandCallEndHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandContactHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandMessageHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandPingHandler(common::ACommand command,
-						   uint32_t userId);
-			bool commandPongHandler(common::ACommand command,
-						   uint32_t userId);
+			bool commandLoginHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandLogoutHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandDeleteHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandCallHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandCallAnswerHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandCallEndHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandContactHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandMessageHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandPingHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
+			bool commandPongHandler(
+				std::unique_ptr<common::ACommand> &command,
+				uint32_t userId);
 			void sendToAllClients(
 				babel::common::DataPacket packet);
 			bool createUser(common::CommandLogin &cmd,
@@ -78,7 +90,7 @@ namespace babel {
 			uint32_t getNextId() const;
 			babel::common::User &getUser(int32_t userId);
 			bool isConnected(uint32_t userId) const;
-			bool sendOk(uint32_t userId, common::CommandName cmd,
+			bool sendOk(int32_t userId, common::CommandName cmd,
 				    const std::string &msg);
 		};
 	}
