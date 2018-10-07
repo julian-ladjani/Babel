@@ -38,6 +38,7 @@ namespace babel {
 			Image _connectIcon;
 			Label _contactName;
 //			std::unique_ptr<Image> _logo;
+			void initWidgets();
 		};
 
 	}

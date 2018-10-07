@@ -18,23 +18,7 @@ babel::client::CallPage::CallPage(babel::client::ClientInfo &_infos) :
 	_contactName(QString(_infos.getActiveUser().getLogin().c_str()))
 {
 	setMinimumWidth(500);
-	_buttons.at(SEND_MSG)->setFlat(true);
-	_buttons.at(SEND_MSG)->setFixedSize(50, 50);
-	_buttons.at(SEND_MSG)->setStyleSheet("\
-                QPushButton {background-color: transparent;}   \
-                QPushButton:active{background-color: transparent; border: none;"
-					     "}");
-	_chatInput.setFixedHeight(50);
-	_chatInput.setAlignment(Qt::AlignLeft);
-	_chatInput.setTextMargins(10, 0, 10, 0);
-	_connectIcon.setFixedSize(50, 50);
-	_contactName.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-	_contactName.setStyleSheet("background-color: transparent;"
-			    "color:white;");
-	update();
-	_buttons.at(CALL)->setFixedSize(40, 40);
-	_buttons.at(SEND_MSG)->setFixedSize(50, 50);
-	arrangeWidgets();
+	initWidgets();
 	connections();
 }
 
@@ -54,6 +38,28 @@ void babel::client::CallPage::update()
 	_chatBox.setText(QString::fromStdString
 				 (_infos.getActiveUser().getMessages()));
 }
+
+void babel::client::CallPage::initWidgets()
+{
+	_buttons.at(CALL)->setFixedSize(40, 40);
+	_buttons.at(SEND_MSG)->setFlat(true);
+	_buttons.at(SEND_MSG)->setFixedSize(50, 50);
+	_buttons.at(SEND_MSG)->setStyleSheet("\
+                QPushButton {background-color: transparent;}   \
+                QPushButton:active{background-color: transparent; border: none;"
+					     "}");
+	_buttons.at(SEND_MSG)->setFixedSize(50, 50);
+	_chatInput.setFixedHeight(50);
+	_chatInput.setAlignment(Qt::AlignLeft);
+	_chatInput.setTextMargins(10, 0, 10, 0);
+	_connectIcon.setFixedSize(50, 50);
+	_contactName.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+	_contactName.setStyleSheet("background-color: transparent;"
+				   "color:white;");
+	update();
+	arrangeWidgets();
+}
+
 
 void babel::client::CallPage::arrangeWidgets()
 {
