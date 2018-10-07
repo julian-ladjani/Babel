@@ -16,7 +16,7 @@ babel::server::SqliteServer::SqliteServer() : _db(nullptr)
 	std::string contactTable = std::string(
 		"CREATE TABLE IF NOT EXISTS CONTACTS ")
 				   + "(UserId INT, ContactId INT)";
-	if (sqlite3_open("users.db", &_db))
+	if (sqlite3_open("src/server/database.db", &_db))
 		throwSqliteError();
 	executeCommand(userTable, nullptr, nullptr);
 	executeCommand(contactTable, nullptr, nullptr);
@@ -35,7 +35,7 @@ void babel::server::SqliteServer::executeCommand(
 		throwSqliteError();
 }
 
-void babel::server::SqliteServer::addUser(babel::common::User user) const
+void babel::server::SqliteServer::addUser(babel::common::User &user) const
 {
 	std::string insertUser = std::string("INSERT INTO USERS ")
 				 + "(UserId, Username, Password) VALUES ("
@@ -55,7 +55,7 @@ void babel::server::SqliteServer::addContact(uint32_t userId,
 	executeCommand(insertContact, nullptr, nullptr);
 }
 
-void babel::server::SqliteServer::removeUser(babel::common::User user) const
+void babel::server::SqliteServer::removeUser(babel::common::User &user) const
 {
 	std::string removeUser = std::string("DELETE USERS WHERE UserId = ")
 				 + std::to_string(user.getId());
