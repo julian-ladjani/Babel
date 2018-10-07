@@ -9,9 +9,15 @@
 
 babel::server::Server::Server(uint16_t port) :
 	_running(false), _cmdFactory(), _clients(), _tcpServer(port),
-	_commandHandler(_clients, _tcpServer.getSockets()),
-	_sockets(_tcpServer.getSockets())
+	_sockets(_tcpServer.getSockets()), _sqliteServer(),
+	_commandHandler(_clients, _sockets, _sqliteServer)
 {
+	_sqliteServer.getUsers(_clients);
+	for (babel::common::User &client : _clients) {
+		std::vector<uint32_t> contacts;
+		_sqliteServer.getUserContacts(client.getId(), contacts);
+		client.setContacts(contacts);
+	}
 }
 
 int babel::server::Server::start()

@@ -20,6 +20,7 @@
 #include "src/common/network/DataPacket.hpp"
 #include "src/common/command/ACommand.hpp"
 #include "src/server/network/BoostTcpSocket.hpp"
+#include "src/server/SqliteServer.hpp"
 
 int main(int ac, char **av)
 {
