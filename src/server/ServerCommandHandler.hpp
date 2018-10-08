@@ -34,16 +34,17 @@ namespace babel {
 		public:
 			ServerCommandHandler(
 				std::vector<babel::common::User> &client,
-				std::vector<std::pair<BoostTcpSocket &,
-					int32_t>> &_sockets,
+				std::vector<
+					babel::server::BoostTcpSocket::pointer>
+				&_sockets,
 				SqliteServer &_sqliteServer);
 			bool handleCommand(
 				std::unique_ptr<common::ACommand> &command,
-				int32_t userId);
+				uint32_t userId);
 		private:
 			std::vector<babel::common::User> &_clients;
-			std::vector<std::pair<babel::server::BoostTcpSocket &,
-				int32_t>> &_sockets;
+			std::vector<babel::server::BoostTcpSocket::pointer>
+				&_sockets;
 			SqliteServer &_sqliteServer;
 			std::map<babel::common::CommandName,
 				bool (babel::server::ServerCommandHandler::*)
@@ -89,8 +90,8 @@ namespace babel {
 					uint32_t userId);
 			bool connectUser(common::User &user, uint32_t userId);
 			void disconnectUser(uint32_t userId);
-			std::pair<babel::server::BoostTcpSocket &,
-				int32_t> &getSocket(int32_t userId);
+			babel::server::BoostTcpSocket::pointer
+			&getSocket(int32_t userId);
 			uint32_t getNextId() const;
 			babel::common::User &getUser(int32_t userId);
 			bool isConnected(uint32_t userId) const;

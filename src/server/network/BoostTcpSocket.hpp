@@ -37,6 +37,9 @@ namespace babel
 			boost::asio::ip::tcp::socket &
 			getSocket();
 			bool mustBeConnected();
+			int32_t getId() const;
+			void setId(int32_t _id);
+
 		private:
 			void startRead();
 			void handleRead(const boost::system::error_code &ec);
@@ -45,6 +48,7 @@ namespace babel
 			boost::asio::streambuf _input_buffer;
 			boost::asio::ip::tcp::socket _socket;
 			boost::asio::ip::tcp::endpoint _endpoint;
+			int32_t _id;
 		};
 	}
 }

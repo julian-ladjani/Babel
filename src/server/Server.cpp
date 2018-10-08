@@ -28,28 +28,28 @@ int babel::server::Server::start()
 		boost::bind(&boost::asio::io_context::run, &_ioContext));
 	while (_running) {
 		for (auto &sock : _sockets) {
-			if (sock.first.isConnect())
-				handleClient(sock.first, sock.second);
-			else if (sock.second != 0)
+			if (sock->isConnect())
+				handleClient(sock);
+			else if (sock->getId() != 0)
 				_tcpServer.closeSocket(
-					sock.first.getConnectionInfo());
+					sock->getConnectionInfo());
 		}
 	}
 	return 0;
 }
 
-void babel::server::Server::handleClient(babel::server::BoostTcpSocket &sock,
-					 int32_t userId)
+void babel::server::Server::handleClient(
+	babel::server::BoostTcpSocket::pointer sock)
 {
 	try {
-		common::DataPacket packet = sock.receive();
+		common::DataPacket packet = sock->receive();
 		if (packet.getCommandId() != common::CMD_UNDEFINED) {
 			std::unique_ptr<common::ACommand> command
 				= _cmdFactory.deserialize(packet);
-			_commandHandler.handleCommand(command, userId);
+			_commandHandler.handleCommand(command, sock->getId());
 		}
 	} catch (babel::common::CommandException &e) {
-		sock.send(common::CommandError(
+		sock->send(common::CommandError(
 			{std::to_string(e.getCommandId()),
 			 e.what()}).serialize());
 	}

@@ -121,3 +121,13 @@ babel::server::BoostTcpSocket::pointer babel::server::BoostTcpSocket::create(
 		new BoostTcpSocket(connectionInfo,
 			ioContext));
 }
+
+int32_t babel::server::BoostTcpSocket::getId() const
+{
+	return _id;
+}
+
+void babel::server::BoostTcpSocket::setId(int32_t id)
+{
+	_id = id;
+}

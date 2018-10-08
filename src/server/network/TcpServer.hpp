@@ -24,17 +24,17 @@ namespace babel
 		class TcpServer {
 		public:
 			explicit TcpServer(boost::asio::io_context &ioContext,
-				uint16_t port = 53876);
-			std::vector<std::pair<BoostTcpSocket &, int32_t>>
+					   uint16_t port = 53876);
+			std::vector<babel::server::BoostTcpSocket::pointer>
 			&getSockets();
 			void closeSocket(common::ConnectionInfo connectionInfo);
 		private:
 			bool startAccept();
 			void handleAccept(BoostTcpSocket::pointer newSocket,
-				const boost::system::error_code &ec);
+					  const boost::system::error_code &ec);
 			void sendDisconnectionMessage(int32_t socketId);
-			std::vector<std::pair<babel::server::BoostTcpSocket &,
-				int32_t>> _sockets;
+			std::vector<babel::server::BoostTcpSocket::pointer>
+				_sockets;
 			int32_t _minId = -1;
 			boost::asio::io_context &_ioContext;
 			boost::asio::ip::tcp::acceptor _tcpAcceptor;
