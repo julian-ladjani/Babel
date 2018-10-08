@@ -44,7 +44,6 @@ babel::client::CommandHandler::CommandHandler(babel::client::ClientInfo &info) :
 
 void babel::client::CommandHandler::tryToHandle()
 {
-	printf("le serveur me parle :o\n");
 	common::CommandFactory cmdFactory;
 	auto dataPacket = _infos.getSocket().receive();
 	while (dataPacket.getCommandId() != common::CMD_UNDEFINED) {
@@ -68,7 +67,7 @@ babel::client::CommandHandler::handleCommand(
 bool babel::client::CommandHandler::commandLoginOkHandler(
 	std::unique_ptr<babel::common::ACommand> &command)
 {
-	printf("ok recu mdr\n");
+	printf("LOGIN OK\n");
 	emit changePage("main");
 	return true;
 	(void)command;

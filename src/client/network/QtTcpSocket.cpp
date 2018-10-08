@@ -58,8 +58,9 @@ bool babel::client::QtTcpSocket::send(babel::common::DataPacket packet)
 
 const babel::common::DataPacket babel::client::QtTcpSocket::receive()
 {
-	std::cout << getPacketFromQueue().serialize() << std::endl;
-	return getPacketFromQueue();
+	auto data = getPacketFromQueue();
+	std::cout << data.serialize() << std::endl;
+	return data;
 }
 
 void babel::client::QtTcpSocket::startRead()

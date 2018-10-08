@@ -144,8 +144,3 @@ babel::client::CallPage &babel::client::MainPage::getCallSection()
 {
 	return _callSection;
 }
-
-void babel::client::MainPage::readTcpData() {
-    common::DataPacket data = _infos.getSocket().receive();
-    data.getArgs();
-}
