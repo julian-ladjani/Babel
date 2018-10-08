@@ -53,7 +53,7 @@ bool babel::server::BoostTcpSocket::disconnect()
 	if (!_isConnect)
 		return false;
 	if (_socket.is_open())
-	_socket.close();
+		_socket.close();
 	_isConnect = false;
 	return true;
 }
@@ -65,7 +65,7 @@ void babel::server::BoostTcpSocket::startRead()
 	boost::asio::async_read_until(_socket,
 		_input_buffer, PACKET_SEPARATOR,
 		boost::bind(&BoostTcpSocket::handleRead,
-			this, _1));
+			shared_from_this(), _1));
 }
 
 void babel::server::BoostTcpSocket::handleWrite(
@@ -85,7 +85,8 @@ bool babel::server::BoostTcpSocket::send(babel::common::DataPacket packet)
 	std::string serializedPacket = packet.serialize() + PACKET_SEPARATOR;
 	boost::asio::async_write(_socket, boost::asio::buffer(
 		serializedPacket.c_str(), serializedPacket.size()),
-		boost::bind(&BoostTcpSocket::handleWrite, this, _1));
+		boost::bind(&BoostTcpSocket::handleWrite,
+			shared_from_this(), _1));
 	return (true);
 }
 
@@ -104,10 +105,19 @@ bool babel::server::BoostTcpSocket::mustBeConnected()
 		_connectionInfo.setIp(
 			_socket.remote_endpoint().address().to_string());
 		_connectionInfo.setPort(
-			(uint16_t)_socket.remote_endpoint().port());
+			(uint16_t) _socket.remote_endpoint().port());
 		startRead();
 		return true;
 	}
 	_isConnect = false;
 	return false;
+}
+
+babel::server::BoostTcpSocket::pointer babel::server::BoostTcpSocket::create(
+	babel::common::ConnectionInfo connectionInfo,
+	boost::asio::io_context &ioContext)
+{
+	return pointer(
+		new BoostTcpSocket(connectionInfo,
+			ioContext));
 }

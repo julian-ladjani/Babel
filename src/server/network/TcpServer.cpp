@@ -8,13 +8,13 @@
 #include "TcpServer.hpp"
 
 babel::server::TcpServer::TcpServer(boost::asio::io_context &ioContext,
-				    uint16_t port) :
+	uint16_t port) :
 	_ioContext(ioContext),
 	_tcpAcceptor(_ioContext, boost::asio::ip::tcp::endpoint(
 		boost::asio::ip::tcp::v4(), port))
 {
 	std::cout << "Server created on port "
-		  << _tcpAcceptor.local_endpoint().port() << std::endl;
+		<< _tcpAcceptor.local_endpoint().port() << std::endl;
 	startAccept();
 }
 
@@ -27,11 +27,11 @@ babel::server::TcpServer::getSockets()
 bool babel::server::TcpServer::startAccept()
 {
 	babel::common::ConnectionInfo connectionInfo;
-	_tcpSockets.push_back(
-		std::make_unique<BoostTcpSocket>(connectionInfo,
-						 _ioContext));
+	BoostTcpSocket::pointer newConnection =
+		BoostTcpSocket::create(connectionInfo, _ioContext);
+	_tcpSockets.emplace_back(newConnection);
 	_tcpAcceptor.async_accept(
-		_tcpSockets[_tcpSockets.size() - 1]->getSocket(),
+		newConnection->getSocket(),
 		boost::bind(&TcpServer::handleAccept, this, _1));
 	return false;
 }
@@ -40,9 +40,10 @@ void
 babel::server::TcpServer::handleAccept(const boost::system::error_code &ec)
 {
 	if (ec)
-		throw TcpServerException(ec.message());
-	auto idSocketPair = std::pair<babel::server::BoostTcpSocket &, int32_t>
-		(*_tcpSockets[_tcpSockets.size() - 1], _minId);
+		return;
+	auto idSocketPair = std::pair
+		<babel::server::BoostTcpSocket &, int32_t>
+		(*(_tcpSockets.back()), _minId);
 	_minId--;
 	idSocketPair.first.mustBeConnected();
 	_sockets.emplace_back(idSocketPair);

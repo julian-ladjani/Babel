@@ -38,7 +38,7 @@ namespace babel
 			int32_t _minId = -1;
 			boost::asio::io_context &_ioContext;
 			boost::asio::ip::tcp::acceptor _tcpAcceptor;
-			std::vector<std::unique_ptr<BoostTcpSocket>>
+			std::vector<BoostTcpSocket::pointer>
 				_tcpSockets;
 		};
 	}
