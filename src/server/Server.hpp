@@ -31,12 +31,12 @@ namespace babel {
 			common::CommandFactory _cmdFactory;
 			std::vector<babel::common::User> _clients;
 			TcpServer _tcpServer;
-			std::vector<std::pair<babel::server::BoostTcpSocket &,
-				int32_t>> &_sockets;
+			std::vector<babel::server::BoostTcpSocket::pointer>
+				&_sockets;
 			SqliteServer _sqliteServer;
 			ServerCommandHandler _commandHandler;
-			void handleClient(babel::server::BoostTcpSocket &sock,
-					  int32_t userId);
+			void handleClient(
+				babel::server::BoostTcpSocket::pointer);
 		};
 	}
 }

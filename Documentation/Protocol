@@ -13,7 +13,7 @@ CMD_ERROR	(commandId, message)		Client got an error on command (commandId).
 CMD_OK		(commandId, message)		Client has successfully excecute the command (commandId).
 CMD_LOGIN_OK	(userId, username)		Client has successfully loged in with the user (userId, username).
 CMD_DELETE	(userId)			User (userId) has been deleted.
-CMD_USER	(userId, username, state)	User (userId) exist with username (username) and is currently connected/disconnected (state).
+CMD_USER	(xuserId, username, state)	User (userId) exist with username (username) and is currently connected/disconnected (state).
 CMD_USER_STATE	(userId, state)			User (userId) has connected/disconnected (state)
 CMD_CALL	(userId, ip, port)		User (userId) want to call Client with address (ip) on port (port).
 CMD_CALL_ANSWER	(userId, ip, port)		User (userId) has answer to the call of Client with address (ip) on port (port) 
