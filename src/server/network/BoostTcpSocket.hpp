@@ -11,6 +11,8 @@
 #include <string>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/enable_shared_from_this.hpp>
 #include "src/common/network/ATcpSocket.hpp"
 #include "src/common/exception/TcpSocketException.hpp"
 
@@ -18,9 +20,15 @@ namespace babel
 {
 	namespace server
 	{
-		class BoostTcpSocket : public common::ATcpSocket {
+		class BoostTcpSocket
+			: public common::ATcpSocket,
+				public boost::enable_shared_from_this
+					<BoostTcpSocket> {
 		public:
+			typedef boost::shared_ptr<BoostTcpSocket> pointer;
 			BoostTcpSocket(common::ConnectionInfo
+			connectionInfo, boost::asio::io_context &ioContext);
+			static pointer create(common::ConnectionInfo
 			connectionInfo, boost::asio::io_context &ioContext);
 			bool connect() override;
 			bool disconnect() override;
