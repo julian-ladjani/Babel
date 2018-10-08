@@ -20,7 +20,7 @@ namespace babel {
 	public:
 	    ListWidget(DragDropMode mode);
 	    ~ListWidget();
-	    void AddPersonne(std::vector<common::User> contacts);
+	    void addContacts(std::vector<common::User> contacts);
 	    void keyPressEvent(QKeyEvent *event);
 	    void removePersonne();
 	protected:

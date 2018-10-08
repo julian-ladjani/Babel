@@ -12,6 +12,7 @@
 #include <src/client/sound/AudioEncoder.hpp>
 #include <src/client/sound/AudioManager.hpp>
 #include <src/client/gui/pages/MainPage.hpp>
+
 namespace babel {
     namespace client {
 	class TMicro : public QThread {

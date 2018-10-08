@@ -34,6 +34,10 @@ namespace babel
 			bool operator==(const ATcpSocket &socket) const;
 			bool operator==(
 				const ConnectionInfo &connectionInfo) const;
+
+			void setConnectionInfo(
+				const ConnectionInfo &_connectionInfo);
+
 		protected:
 			std::string addPacketsToQueue(
 				std::string &, std::string = std::string());

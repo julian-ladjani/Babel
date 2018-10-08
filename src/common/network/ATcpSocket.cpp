@@ -13,6 +13,12 @@ babel::common::ATcpSocket::ATcpSocket(
 {
 }
 
+void babel::common::ATcpSocket::setConnectionInfo(
+	const babel::common::ConnectionInfo &_connectionInfo)
+{
+	ATcpSocket::_connectionInfo = _connectionInfo;
+}
+
 const babel::common::ConnectionInfo
 babel::common::ATcpSocket::getConnectionInfo() const
 {

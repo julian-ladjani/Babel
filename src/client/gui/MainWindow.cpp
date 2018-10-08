@@ -36,6 +36,8 @@ void babel::client::MainWindow::initConnects()
 		this, &MainWindow::sendMessage);
 	connect(&_cmdHandler, &CommandHandler::changePage, this,
 		&MainWindow::changePage);
+	connect(&_cmdHandler, &CommandHandler::newContact, mainPage,
+		&MainPage::refreshContacts);
 }
 
 void babel::client::MainWindow::sendMessage(std::string &msg)
@@ -60,6 +62,7 @@ void babel::client::MainWindow::initClientInfos()
 
 void babel::client::MainWindow::tryConnect()
 {
+	_infos.getSocket().setConnectionInfo(_infos.getServerInfo());
 	_infos.getSocket().connect();
 }
 

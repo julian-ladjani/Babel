@@ -1,15 +1,14 @@
-/*
-** EPITECH PROJECT, 2018
-** CPP_babel_2018
-** File description:
-** MainPage.hpp
-*/
+//
+// EPITECH PROJECT, 2018
+// CPP_babel_2018
+// File description:
+// MainPage.hpp
+//
 
 #ifndef CPP_BABEL_2018_MAINPAGE_HPP
 #define CPP_BABEL_2018_MAINPAGE_HPP
 
 #include <array>
-#include <vector>
 #include <algorithm>
 #include <boost/range/algorithm/find.hpp>
 #include "ConnectionPage.hpp"
@@ -32,6 +31,7 @@ namespace babel {
 		    	void initMain();
 			void readData();
 			void setLogin();
+			void refreshContacts();
 			CallPage &getCallSection();
 		Q_SIGNALS:
 		    void changePage(std::string pageName);

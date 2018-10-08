@@ -22,7 +22,9 @@ babel::client::ListWidget::~ListWidget()
 
 }
 
-void babel::client::ListWidget::AddPersonne(std::vector<common::User> contacts) {
+void babel::client::ListWidget::addContacts(std::vector<common::User> contacts)
+{
+    clear();
     for (auto &contact : contacts) {
         auto *itm = new QListWidgetItem;
         if (contact.getLogin().length() > 32)
