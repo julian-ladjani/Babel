@@ -78,3 +78,11 @@ void babel::client::ClientInfo::setActiveUser(babel::common::User &activeUser)
 	ClientInfo::_activeUserId = activeUser.getId();
 	emit userUpdated();
 }
+
+babel::common::User &babel::client::ClientInfo::getContact(uint32_t id)
+{
+	for (auto &c : _contacts)
+		if (c.getId() == id)
+			return c;
+	return _clientInfo;
+}

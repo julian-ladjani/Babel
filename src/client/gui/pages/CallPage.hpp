@@ -21,12 +21,12 @@ namespace babel {
 			CallPage(ClientInfo &_infos);
 			void arrangeWidgets();
 			virtual ~CallPage() {};
+			void update();
 		Q_SIGNALS:
 			void sendMessageSignal(std::string &msg);
 		protected:
 			void connections() override;
 		private:
-			void update();
 			void sendMessage();
 			enum BtnType {
 				SEND_MSG,

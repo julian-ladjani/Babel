@@ -32,6 +32,7 @@ namespace babel {
 			QtTcpSocket &getSocket();
 			common::User &getActiveUser();
 			void setActiveUser(common::User &activeUser);
+			common::User &getContact(uint32_t id);
 		Q_SIGNALS:
 			void userUpdated();
 		private:

@@ -38,6 +38,8 @@ void babel::client::MainWindow::initConnects()
 		&MainWindow::changePage);
 	connect(&_cmdHandler, &CommandHandler::newContact, mainPage,
 		&MainPage::refreshContacts);
+	connect(&_cmdHandler, &CommandHandler::updateMessage,
+		&mainPage->getCallSection(), &CallPage::update);
 }
 
 void babel::client::MainWindow::sendMessage(std::string &msg)

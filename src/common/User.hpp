@@ -37,6 +37,8 @@ namespace babel {
 				const std::vector<uint32_t> &_contacts);
 			std::string &getMessages();
 			void setMessages(std::string &messages);
+			void addMessage(const std::string &message,
+					const std::string &userName);
 
 			bool addContact(uint32_t userId);
 			bool removeContact(uint32_t userId);

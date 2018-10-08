@@ -21,6 +21,9 @@ babel::client::CommandHandler::CommandHandler(babel::client::ClientInfo &info) :
 			  {babel::common::CommandName::CMD_USER,
 				  &CommandHandler
 				  ::commandUserHandler},
+			  {babel::common::CommandName::CMD_USER_STATE,
+				  &CommandHandler
+				  ::commandUserStateHandler},
 			  {babel::common::CommandName::CMD_CALL,
 				  &CommandHandler
 				  ::commandCallHandler},
@@ -93,6 +96,15 @@ bool babel::client::CommandHandler::commandUserHandler(
 	return true;
 }
 
+bool babel::client::CommandHandler::commandUserStateHandler(
+	std::unique_ptr<babel::common::ACommand> &command)
+{
+	common::CommandUserState &cmd = (common::CommandUserState &) *command;
+	_infos.getContact(cmd.getUserId()).setConnected(cmd.isConnected());
+	emit newContact();
+	return true;
+}
+
 bool babel::client::CommandHandler::commandCallHandler(
 	std::unique_ptr<babel::common::ACommand> &command)
 {
@@ -127,6 +139,10 @@ bool babel::client::CommandHandler::commandContactHandler(
 bool babel::client::CommandHandler::commandMessageHandler(
 	std::unique_ptr<babel::common::ACommand> &command)
 {
+	common::CommandMessage &cmd = (common::CommandMessage &) *command;
+	auto people = _infos.getContact(cmd.getUserId());
+	people.addMessage(people.getLogin(), cmd.getMessage());
+	if (_infos.getActiveUser().getId() == cmd.getUserId())
+		emit updateMessage();
 	return false;
-	(void) command;
 }

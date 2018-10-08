@@ -118,3 +118,10 @@ void babel::common::User::setMessages(std::string &messages)
 {
 	User::_messages = messages;
 }
+
+void babel::common::User::addMessage(
+	const std::string &message, const std::string &userName)
+{
+	_messages.append(std::string("<") + std::string(userName)
+			+ std::string("> ") + message);
+}
