@@ -30,7 +30,7 @@ namespace babel
 			void closeSocket(common::ConnectionInfo connectionInfo);
 		private:
 			bool startAccept();
-			void handleAccept(
+			void handleAccept(BoostTcpSocket::pointer newSocket,
 				const boost::system::error_code &ec);
 			void sendDisconnectionMessage(int32_t socketId);
 			std::vector<std::pair<babel::server::BoostTcpSocket &,
@@ -38,8 +38,6 @@ namespace babel
 			int32_t _minId = -1;
 			boost::asio::io_context &_ioContext;
 			boost::asio::ip::tcp::acceptor _tcpAcceptor;
-			std::vector<BoostTcpSocket::pointer>
-				_tcpSockets;
 		};
 	}
 }

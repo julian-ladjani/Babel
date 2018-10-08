@@ -29,24 +29,26 @@ bool babel::server::TcpServer::startAccept()
 	babel::common::ConnectionInfo connectionInfo;
 	BoostTcpSocket::pointer newConnection =
 		BoostTcpSocket::create(connectionInfo, _ioContext);
-	_tcpSockets.emplace_back(newConnection);
 	_tcpAcceptor.async_accept(
 		newConnection->getSocket(),
-		boost::bind(&TcpServer::handleAccept, this, _1));
+		boost::bind(&TcpServer::handleAccept, this, newConnection,
+			boost::asio::placeholders::error));
 	return false;
 }
 
 void
-babel::server::TcpServer::handleAccept(const boost::system::error_code &ec)
+babel::server::TcpServer::handleAccept(
+	BoostTcpSocket::pointer newSocket,
+	const boost::system::error_code &ec)
 {
 	if (ec)
 		return;
 	auto idSocketPair = std::pair
 		<babel::server::BoostTcpSocket &, int32_t>
-		(*(_tcpSockets.back()), _minId);
+		(*newSocket, _minId);
 	_minId--;
 	idSocketPair.first.mustBeConnected();
-	_sockets.emplace_back(idSocketPair);
+	_sockets.push_back(idSocketPair);
 	startAccept();
 }
 
