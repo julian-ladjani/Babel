@@ -37,6 +37,7 @@ namespace babel {
 					   &command);
 		Q_SIGNALS:
 			void changePage(std::string pageName);
+			void newContact();
 		private:
 			ClientInfo &_infos;
 			std::map<babel::common::CommandName,

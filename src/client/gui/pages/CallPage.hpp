@@ -18,7 +18,7 @@ namespace babel {
 		{
 		Q_OBJECT
 		public:
-			explicit CallPage(ClientInfo &_infos);
+			CallPage(ClientInfo &_infos);
 			void arrangeWidgets();
 			virtual ~CallPage() {};
 		Q_SIGNALS:

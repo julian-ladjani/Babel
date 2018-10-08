@@ -87,8 +87,11 @@ bool babel::client::CommandHandler::commandDeleteHandler(
 bool babel::client::CommandHandler::commandUserHandler(
 	std::unique_ptr<babel::common::ACommand> &command)
 {
+	common::CommandUser &cmd = (common::CommandUser &) *command;
+	_infos.addContact({cmd.getUsername(), cmd.getUserId(),
+			cmd.isConnected()});
+	emit newContact();
 	return true;
-	(void)command;
 }
 
 bool babel::client::CommandHandler::commandCallHandler(

@@ -36,6 +36,8 @@ void babel::client::MainWindow::initConnects()
 		this, &MainWindow::sendMessage);
 	connect(&_cmdHandler, &CommandHandler::changePage, this,
 		&MainWindow::changePage);
+	connect(&_cmdHandler, &CommandHandler::newContact, mainPage,
+		&MainPage::refreshContacts);
 }
 
 void babel::client::MainWindow::sendMessage(std::string &msg)

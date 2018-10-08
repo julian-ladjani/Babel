@@ -26,10 +26,6 @@ babel::client::MainPage::MainPage(babel::client::ClientInfo &_infos) :
 	_logo(new Image("src/assets/img/minilogo.png", 600)),
 	_threadMic(std::make_unique<TMicro>(this)), _callSection(_infos)
 {
-    	_infos.addContact(common::User("Lucas Deloin", 0, true));
-    	_infos.addContact(common::User("Gregory E.p.l.e", 1, false));
- 	_infos.addContact(common::User("Julian Ladjani", 2, false));
-	_infos.addContact(common::User("Yanick Sucre", 3, false));
 	initSocket();
 	initSideBar();
 	initMain();
@@ -43,6 +39,11 @@ babel::client::MainPage::~MainPage()
 	_threadMic->wait();
 	_threadMic->quit();
     }
+}
+
+void babel::client::MainPage::refreshContacts()
+{
+	_lists.at(LWSERVER)->addContacts(_infos.getContacts());
 }
 
 void babel::client::MainPage::initSocket() {
@@ -65,7 +66,7 @@ void babel::client::MainPage::initSideBar() {
 	_splitters.at(SLIST)->addWidget(_containers.at(GBCONTACT));
     	_containers.at(GBSERVER)->addWidget(_labels.at(LSERVER).get());
     	_containers.at(GBSERVER)->addWidget(_lists.at(LWSERVER).get());
-    	_lists.at(LWSERVER)->AddPersonne(_infos.getContacts());
+	_lists.at(LWSERVER)->addContacts(_infos.getContacts());
     	_splitters.at(SLIST)->addWidget(_containers.at(GBSERVER));
     	_containers.at(GBSIDEBAR)->addWidget(_splitters.at(SLIST));
     	_splitters.at(SCENTER)->addWidget(_containers.at(GBSIDEBAR));
@@ -116,6 +117,7 @@ void babel::client::MainPage::sendData()
 
 void babel::client::MainPage::setLogin()
 {
+//	_labels[LNAME].clear();
     if (_infos.getClientInfo().getLogin().length() > 32)
 	_labels[LNAME]->setText(QString::fromStdString
 	(_infos.getClientInfo().getLogin()).left(29)+"...");
