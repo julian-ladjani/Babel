@@ -246,7 +246,7 @@ bool babel::server::ServerCommandHandler::commandMessageHandler(
 	if (!isConnected(cmd.getUserId()))
 		throw common::CommandException(
 			common::CMD_MESSAGE, "User is not connected.");
-	getSocket(cmd.getUserId())->send(common::CommandContact(
+	getSocket(cmd.getUserId())->send(common::CommandMessage(
 		{std::to_string(userId), cmd.getMessage()}).serialize());
 	return sendOk(userId, common::CMD_MESSAGE, "Message ok.");
 }
