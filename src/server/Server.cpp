@@ -27,7 +27,6 @@ int babel::server::Server::start()
 	boost::thread TcpServerThread(
 		boost::bind(&boost::asio::io_context::run, &_ioContext));
 	while (_running) {
-		printf("pomme");
 		for (auto &sock : _sockets) {
 			if (sock.first.isConnect())
 				handleClient(sock.first, sock.second);

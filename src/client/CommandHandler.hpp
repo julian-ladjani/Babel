@@ -61,6 +61,8 @@ namespace babel {
 			bool commandMessageHandler(
 				std::unique_ptr<common::ACommand> &command);
 			void tryToHandle();
+
+			bool commandUserStateHandler(std::unique_ptr<common::ACommand> &command);
 		};
 	}
 }
